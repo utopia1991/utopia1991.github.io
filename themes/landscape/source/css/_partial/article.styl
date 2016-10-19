@@ -11,6 +11,7 @@
 .article-date
   @extend $block-caption
   float: left
+  font-size: 16px
 
 .article-category
   float: left
@@ -35,7 +36,7 @@
   color: color-default
   line-height: line-height-title
   transition: color 0.2s
-  a&:hover
+  a &:hover
     color: color-link
 
 .article-entry
@@ -110,7 +111,7 @@
   // http://webdesignerwall.com/tutorials/css-elastic-videos
   .video-container
     position: relative
-    padding-top: (9 / 16 * 100)% // 16:9 ratio
+    padding-top: (9 / 16 * 100) % // 16:9 ratio
     height: 0
     overflow: hidden
     iframe, object, embed
@@ -322,6 +323,7 @@ $article-share-link
     display: block
     max-width: 100%
     margin: 0 auto
+
 /*
 $article-gallery-ctrl
   position: absolute

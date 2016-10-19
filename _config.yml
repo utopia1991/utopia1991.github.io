@@ -3,16 +3,16 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Hexo
-subtitle:
-description:
-author: John Doe
-language:
+title: Bevis
+subtitle: Blog
+description: google重度依赖者，mac拥趸，热爱前沿技术，梦想全栈
+author: Bevis Shen
+language: zh-CN
 timezone:
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: http://yoursite.com
+url: https://utopia1991.github.io
 root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:
@@ -41,7 +41,6 @@ highlight:
   enable: true
   line_number: true
   auto_detect: false
-  tab_replace:
 
 # Category & Tag
 default_category: uncategorized

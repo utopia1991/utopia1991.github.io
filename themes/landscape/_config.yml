@@ -1,11 +1,10 @@
 # Header
 menu:
-  Home: /
-  Archives: /archives
-rss: /atom.xml
+  主页: /
+  博文: /archives
 
 # Content
-excerpt_link: Read More
+excerpt_link: 更多
 fancybox: true
 
 # Sidebar
@@ -19,18 +18,16 @@ widgets:
 
 # display widgets at the bottom of index pages (pagination == 2)
 index_widgets:
-# - category
-# - tagcloud
-# - archive
+ - category
+ - tagcloud
+ - archive
 
 # widget behavior
 archive_type: 'monthly'
-show_count: false
+show_count: true
 
 # Miscellaneous
 google_analytics:
-favicon: /favicon.png
-twitter:
-google_plus:
-fb_admins:
-fb_app_id:
+favicon: /logo.png
+twitter: https://twitter.com/bevis_shen
+fb_admins: https://www.facebook.com/bevis1991

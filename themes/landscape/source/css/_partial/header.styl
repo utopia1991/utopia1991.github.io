@@ -1,19 +1,10 @@
 #header
-  height: banner-height
   position: relative
   border-bottom: 1px solid color-border
-  &:before, &:after
-    content: ""
-    position: absolute
-    left: 0
-    right: 0
-    height: 40px
-  &:before
-    top: 0
-    background: linear-gradient(rgba(0, 0, 0, 0.2), transparent)
-  &:after
-    bottom: 0
-    background: linear-gradient(transparent, rgba(0, 0, 0, 0.2))
+  border-top: 2px solid #00b0e8
+  background-color: rgba(255, 255, 255, 0.98)
+  box-shadow: 0 0 10px rgba(14, 14, 14, .26)
+  height: 60px;
 
 #header-outer
   height: 100%
@@ -22,6 +13,8 @@
 #header-inner
   position: relative
   overflow: hidden
+  width: 85%
+  float: right
 
 #banner
   position: absolute
@@ -34,7 +27,7 @@
   z-index: -1
 
 #header-title
-  text-align: center
+  text-align: left
   height: logo-size
   position: absolute
   top: 50%
@@ -43,21 +36,23 @@
 
 $logo-text
   text-decoration: none
-  color: #fff
+  color: #000
   font-weight: 300
-  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.3)
 
 #logo
   @extend $logo-text
-  font-size: logo-size
+  font-size: 20px
   line-height: logo-size
   letter-spacing: 2px
 
-#subtitle
-  @extend $logo-text
-  font-size: subtitle-size
-  line-height: subtitle-size
-  letter-spacing: 1px
+.brand-logo
+  border-radius: 3px
+  background: black
+  color: white
+  padding-bottom: 3px
+  padding-left: 7px
+  padding-right: 5px
+  padding-top: 1px
 
 #subtitle-wrap
   margin-top: subtitle-size
@@ -68,13 +63,13 @@ $logo-text
 
 $nav-link
   float: left
-  color: #fff
-  opacity: 0.6
+  color: #000
+  opacity: 0.8
   text-decoration: none
   text-shadow: 0 1px rgba(0, 0, 0, 0.2)
   transition: opacity 0.2s
   display: block
-  padding: 20px 15px
+  padding: 22px 15px
   &:hover
     opacity: 1
 
@@ -85,7 +80,7 @@ $nav-link
   font-size: font-size
   width: font-size
   height: font-size
-  padding: 20px 15px
+  padding: 22px 15px
   position: relative
   cursor: pointer
 
@@ -93,6 +88,8 @@ $nav-link
   @extend $nav-link
   font-weight: 300
   letter-spacing: 1px
+  &:hover
+    color: #00b0e8
   @media mq-mobile
     display: none
 
