@@ -194,6 +194,11 @@ body {
     margin: 0 0.833333333333333%;
   }
 }
+@media screen and (min-width: 768px) {
+  #main {
+    float: right;
+  }
+}
 .article-date,
 .article-category-link,
 .archive-year,
@@ -207,7 +212,6 @@ body {
   line-height: 1em;
   text-shadow: 0 1px #fff;
 }
-.article-inner,
 .archive-article-inner {
   background: #fff;
   -webkit-box-shadow: 1px 2px 3px #ddd;
@@ -507,8 +511,11 @@ body {
 }
 .article {
   margin: 30px 0;
+  -webkit-box-shadow: 0px 0px 17px #999;
+  box-shadow: 0px 0px 17px #999;
 }
 .article-inner {
+  background: #fff;
   overflow: hidden;
 }
 .article-meta:before,
@@ -522,6 +529,8 @@ body {
 .article-date {
   float: left;
   font-size: 16px;
+  display: inline-block;
+  margin: 20px 0 10px 22px;
 }
 .article-category {
   float: left;
@@ -1099,7 +1108,7 @@ a .article-title:hover {
 }
 .article-entry pre,
 .article-entry .highlight {
-  background: #666;
+  background: #333;
   margin: 0 -20px;
   padding: 15px 20px;
   border-style: solid;
@@ -1143,7 +1152,7 @@ a .article-title:hover {
 }
 .article-entry .highlight figcaption {
   font-size: 0.85em;
-  color: #999;
+  color: #fff;
   line-height: 1em;
   margin-bottom: 1em;
 }
@@ -1173,7 +1182,7 @@ a .article-title:hover {
   border-style: solid;
   border-color: #ddd;
   border-width: 1px 0;
-  background: #666;
+  background: #333;
   padding: 15px 20px 15px 0;
 }
 .article-entry .gist .gist-file {
@@ -1199,8 +1208,8 @@ a .article-title:hover {
   border: none;
 }
 .article-entry .gist .gist-file .gist-meta {
-  background: #666;
-  color: #999;
+  background: #333;
+  color: #fff;
   font: 0.85em "Helvetica Neue", Helvetica, Arial, sans-serif;
   text-shadow: 0 0;
   padding: 0;
@@ -1216,7 +1225,7 @@ a .article-title:hover {
 }
 pre .comment,
 pre .title {
-  color: #999;
+  color: #fff;
 }
 pre .variable,
 pre .attribute,

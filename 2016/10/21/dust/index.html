@@ -3,26 +3,24 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Bevis</title>
+  <title>Dust 模版引擎 | Bevis</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Dust 模版引擎1.模版引擎介绍在静态页面中，包括已经从后台生成的HTML中，一般很少需要应用到模板，但是随着AJAX技术的发展，不刷新页面而动态更新内容的需求越来越高。为了降低通讯成本，这种通讯技术传输的一般是一个JSON对象，而不是一整串HTML字符串，所以在前端接受JSON数据之后，还要经过处理才能按要求显示在浏览器上。若只是用纯javascript进行拼接处理，将是一个比较繁琐的过程，">
+  <meta name="description" content="1.模版引擎介绍在静态页面中，包括已经从后台生成的HTML中，一般很少需要应用到模板，但是随着AJAX技术的发展，不刷新页面而动态更新内容的需求越来越高。为了降低通讯成本，这种通讯技术传输的一般是一个JSON对象，而不是一整串HTML字符串，所以在前端接受JSON数据之后，还要经过处理才能按要求显示在浏览器上。若只是用纯javascript进行拼接处理，将是一个比较繁琐的过程，而且写出来的代码不直">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Bevis">
+<meta property="og:title" content="Dust 模版引擎">
 <meta property="og:url" content="https://utopia1991.github.io/2016/10/21/dust/index.html">
 <meta property="og:site_name" content="Bevis">
-<meta property="og:description" content="Dust 模版引擎1.模版引擎介绍在静态页面中，包括已经从后台生成的HTML中，一般很少需要应用到模板，但是随着AJAX技术的发展，不刷新页面而动态更新内容的需求越来越高。为了降低通讯成本，这种通讯技术传输的一般是一个JSON对象，而不是一整串HTML字符串，所以在前端接受JSON数据之后，还要经过处理才能按要求显示在浏览器上。若只是用纯javascript进行拼接处理，将是一个比较繁琐的过程，">
-<meta property="og:updated_time" content="2016-10-21T07:59:07.000Z">
+<meta property="og:description" content="1.模版引擎介绍在静态页面中，包括已经从后台生成的HTML中，一般很少需要应用到模板，但是随着AJAX技术的发展，不刷新页面而动态更新内容的需求越来越高。为了降低通讯成本，这种通讯技术传输的一般是一个JSON对象，而不是一整串HTML字符串，所以在前端接受JSON数据之后，还要经过处理才能按要求显示在浏览器上。若只是用纯javascript进行拼接处理，将是一个比较繁琐的过程，而且写出来的代码不直">
+<meta property="og:updated_time" content="2016-10-21T08:55:56.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Bevis">
-<meta name="twitter:description" content="Dust 模版引擎1.模版引擎介绍在静态页面中，包括已经从后台生成的HTML中，一般很少需要应用到模板，但是随着AJAX技术的发展，不刷新页面而动态更新内容的需求越来越高。为了降低通讯成本，这种通讯技术传输的一般是一个JSON对象，而不是一整串HTML字符串，所以在前端接受JSON数据之后，还要经过处理才能按要求显示在浏览器上。若只是用纯javascript进行拼接处理，将是一个比较繁琐的过程，">
-<meta name="twitter:creator" content="@https://twitter.com/bevis_shen">
-<meta property="fb:admins" content="https://www.facebook.com/bevis1991">
+<meta name="twitter:title" content="Dust 模版引擎">
+<meta name="twitter:description" content="1.模版引擎介绍在静态页面中，包括已经从后台生成的HTML中，一般很少需要应用到模板，但是随着AJAX技术的发展，不刷新页面而动态更新内容的需求越来越高。为了降低通讯成本，这种通讯技术传输的一般是一个JSON对象，而不是一整串HTML字符串，所以在前端接受JSON数据之后，还要经过处理才能按要求显示在浏览器上。若只是用纯javascript进行拼接处理，将是一个比较繁琐的过程，而且写出来的代码不直">
   
   
     <link rel="icon" href="css/images/logo.jpg">
   
   
-    <link href="css/font.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
   
   <link rel="stylesheet" href="/css/style.css">
   
@@ -69,17 +67,26 @@
           <article id="post-dust" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2016/10/21/dust/" class="article-date">
-  <time datetime="2016-10-21T07:59:07.000Z" itemprop="datePublished">2016-10-21</time>
+  <time datetime="2016-10-21T08:55:56.000Z" itemprop="datePublished">2016-10-21</time>
 </a>
     
   </div>
   <div class="article-inner">
     
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Dust 模版引擎
+    </h1>
+  
+
+      </header>
+    
     <div class="article-entry" itemprop="articleBody">
       
-        <hr>
-<h2 id="Dust-模版引擎"><a href="#Dust-模版引擎" class="headerlink" title="Dust 模版引擎"></a>Dust 模版引擎</h2><h2 id="1-模版引擎介绍"><a href="#1-模版引擎介绍" class="headerlink" title="1.模版引擎介绍"></a>1.模版引擎介绍</h2><p>在静态页面中，包括已经从后台生成的HTML中，一般很少需要应用到模板，但是随着AJAX技术的发展，不刷新页面而动态更新内容的需求越来越高。为了降低通讯成本，这种通讯技术传输的一般是一个JSON对象，而不是一整串HTML字符串，所以在前端接受JSON数据之后，还要经过处理才能按要求显示在浏览器上。若只是用纯javascript进行拼接处理，将是一个比较繁琐的过程，而且写出来的代码不直观，可读性比较低。比如如果一个JSON对象people是下面这样的：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    <span class="string">"title"</span>: <span class="string">"Famous People"</span>,</div><div class="line">    <span class="string">"names"</span>: [&#123; <span class="string">"name"</span>: <span class="string">"Larry"</span> &#125;, &#123; <span class="string">"name"</span>: <span class="string">"Curly"</span> &#125;, &#123; <span class="string">"name"</span>: <span class="string">"Moe"</span> &#125;]</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+        <h2 id="1-模版引擎介绍"><a href="#1-模版引擎介绍" class="headerlink" title="1.模版引擎介绍"></a>1.模版引擎介绍</h2><p>在静态页面中，包括已经从后台生成的HTML中，一般很少需要应用到模板，但是随着AJAX技术的发展，不刷新页面而动态更新内容的需求越来越高。为了降低通讯成本，这种通讯技术传输的一般是一个JSON对象，而不是一整串HTML字符串，所以在前端接受JSON数据之后，还要经过处理才能按要求显示在浏览器上。若只是用纯javascript进行拼接处理，将是一个比较繁琐的过程，而且写出来的代码不直观，可读性比较低。比如如果一个JSON对象people是下面这样的：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    <span class="string">"title"</span>: <span class="string">"Famous People"</span>,</div><div class="line">    <span class="string">"names"</span>: [&#123; <span class="string">"name"</span>: <span class="string">"Larry"</span> &#125;, &#123; <span class="string">"name"</span>: <span class="string">"Curly"</span> &#125;, &#123; <span class="string">"name"</span>: <span class="string">"Moe"</span> &#125;]</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>我们要把他渲染成一个HTML列表如下：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">Famous People</div><div class="line">&lt;ul&gt;</div><div class="line">  &lt;li&gt;Larry&lt;/li&gt;</div><div class="line">  &lt;li&gt;Curly&lt;/li&gt;</div><div class="line">  &lt;li&gt;Moe&lt;/li&gt;</div><div class="line">&lt;/ul&gt;</div></pre></td></tr></table></figure></p>
 <p>使用纯粹的javascript将是这样的：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">var result = people.title + <span class="string">'\n'</span>;</div><div class="line">result += <span class="string">'&lt;ul&gt;'</span> + <span class="string">'\n'</span>;</div><div class="line"><span class="keyword">for</span> (var i = 0; i &lt; people.names.length; i++) &#123;</div><div class="line"> result += <span class="string">'&lt;li&gt;'</span> + people.names[i].name + <span class="string">'&lt;/li&gt;'</span> + <span class="string">'\n'</span>;</div><div class="line">&#125;</div><div class="line">result += <span class="string">'&lt;/ul&gt;'</span></div></pre></td></tr></table></figure></p>
 <p>当然了这只是一个比较简单的例子，而且代码具有专用性且不是最简形式，但是为了兼顾可读性和简介性这样写是比较好的。而使用dust模板将只需要一个模板：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&#123;title&#125;</div><div class="line">&lt;ul&gt;</div><div class="line">&#123;<span class="comment">#names&#125;</span></div><div class="line">  &lt;li&gt;&#123;name&#125;&lt;/li&gt;&#123;~n&#125;</div><div class="line">&#123;/names&#125;</div><div class="line">&lt;/ul&gt;</div></pre></td></tr></table></figure></p>
@@ -169,11 +176,15 @@
     
 <nav id="article-nav">
   
-  
-    <a href="/2016/10/19/img-alt/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title"></div>
+    <a href="/2016/10/21/eslint/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          EsLint入门
+        
+      </div>
     </a>
+  
   
 </nav>
 
@@ -221,15 +232,15 @@
       <ul>
         
           <li>
-            <a href="/2016/10/21/dust/">(no title)</a>
+            <a href="/2016/10/21/img-alt/">img alt 以及 title 属性差别</a>
           </li>
         
           <li>
-            <a href="/2016/10/19/img-alt/">(no title)</a>
+            <a href="/2016/10/21/eslint/">EsLint入门</a>
           </li>
         
           <li>
-            <a href="/2016/10/19/eslint/">(no title)</a>
+            <a href="/2016/10/21/dust/">Dust 模版引擎</a>
           </li>
         
       </ul>
@@ -259,7 +270,7 @@
 </nav>
     
 
-<script src="js/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
 
 
   <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
