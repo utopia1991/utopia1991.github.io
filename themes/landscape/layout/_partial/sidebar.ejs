@@ -1,6 +1,14 @@
 <aside id="sidebar"<% if (theme.sidebar === 'bottom'){ %> class="outer"<% } %>>
   <div class="aside-author">
     <div class="aside-logo"></div>
+    <p class="aside-title">Bevis Shen</p>
+    <p class="aside-subtitle">Node.js & Front-End Development</p>
+    <div>
+      <a href="https://github.com/utopia19919" target="_blank"></a>
+      <a href="/wechat" target="_blank"></a>
+      <a href="https://weibo.com/u/2619492527/home" target="_blank"></a>
+      <a href="https://www.facebook.com/bevis1991" target="_blank" class="article-share-facebook"></a>
+    </div>
   </div>
   <% theme.widgets.forEach(function(widget){ %>
     <%- partial('_widget/' + widget) %>

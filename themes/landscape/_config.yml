@@ -28,6 +28,6 @@ show_count: true
 
 # Miscellaneous
 google_analytics:
-favicon: /logo.png
+favicon: /css/images/logo.jpg
 twitter: https://twitter.com/bevis_shen
 fb_admins: https://www.facebook.com/bevis1991
