@@ -17,7 +17,6 @@
 
   $('#nav-search-btn').on('click', function(){
     if (isSearchAnim) return;
-
     startSearchAnim();
     $searchWrap.addClass('on');
     stopSearchAnim(function(){
@@ -45,7 +44,6 @@
 
     if ($('#' + id).length){
       var box = $('#' + id);
-
       if (box.hasClass('on')){
         box.removeClass('on');
         return;
@@ -62,9 +60,7 @@
           '</div>',
         '</div>'
       ].join('');
-
       var box = $(html);
-
       $('body').append(box);
     }
 
@@ -81,7 +77,6 @@
   }).on('click', '.article-share-box-link', function(e){
     e.preventDefault();
     e.stopPropagation();
-
     window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
   });
 
@@ -89,11 +84,8 @@
   $('.article-entry').each(function(i){
     $(this).find('img').each(function(){
       if ($(this).parent().hasClass('fancybox')) return;
-
       var alt = this.alt;
-
       if (alt) $(this).after('<span class="caption">' + alt + '</span>');
-
       $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
     });
 
@@ -119,11 +111,10 @@
     setTimeout(function(){
       isMobileNavAnim = false;
     }, mobileNavAnimDuration);
-  }
+  };
 
   $('#main-nav-toggle').on('click', function(){
     if (isMobileNavAnim) return;
-
     startMobileNavAnim();
     $container.toggleClass('mobile-nav-on');
     stopMobileNavAnim();
@@ -131,7 +122,20 @@
 
   $('#wrap').on('click', function(){
     if (isMobileNavAnim || !$container.hasClass('mobile-nav-on')) return;
-
     $container.removeClass('mobile-nav-on');
+  });
+
+  $('.article-share-weixin').hover(function(){
+    $('.wechat-pic').removeClass('none')
+  },
+  function () {
+    $('.wechat-pic').addClass('none')
+  });
+
+  $('.article-share-qq').hover(function(){
+    $('.qq-pic').removeClass('none')
+  },
+  function () {
+    $('.qq-pic').addClass('none')
   });
 })(jQuery);
