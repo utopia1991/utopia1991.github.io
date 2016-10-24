@@ -59,16 +59,77 @@
   </div>
 </header>
       <div class="outer">
+        
+        <aside id="sidebar">
+  <div class="aside-author">
+    <div class="aside-logo"></div>
+    <p class="aside-title">Bevis Shen</p>
+    <p class="aside-subtitle">Node.js & Front-End Development</p>
+    <div class="aside-communicate">
+      <a href="https://github.com/utopia1991" target="_blank" class="article-share-github"></a>
+      <a href="https://www.linkedin.com/in/bevis1991" target="_blank" class="article-share-linkedin"></a>
+      <a href="https://weibo.com/u/2619492527/home" target="_blank" class="article-share-weibo"></a>
+      <a href="https://www.facebook.com/bevis1991" target="_blank" class="article-share-facebook"></a>
+    </div>
+  </div>
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">十月 2016</a><span class="archive-list-count">4</span></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2016/10/23/dust/">Dust 模版引擎</a>
+          </li>
+        
+          <li>
+            <a href="/2016/10/23/markdown/">Markdown 编辑器语法指南</a>
+          </li>
+        
+          <li>
+            <a href="/2016/10/23/coffee/">Coffeescript 学习笔记</a>
+          </li>
+        
+          <li>
+            <a href="/2016/10/21/eslint/">EsLint入门</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
         <section id="main">
           <div class="main-header">
             <span class="main-title">求知若饥 虚心若愚</span>
           </div>
           
   
-    <article id="post-coffee" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-dust" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2016/10/21/coffee/" class="article-date">
-  <time datetime="2016-10-21T09:37:58.000Z" itemprop="datePublished">2016-10-21</time>
+    <a href="/2016/10/23/dust/" class="article-date">
+  <time datetime="2016-10-24T03:27:39.000Z" itemprop="datePublished">2016-10-23</time>
 </a>
     
   </div>
@@ -79,7 +140,200 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/10/21/coffee/">coffeescript 学习笔记</a>
+      <a class="article-title" href="/2016/10/23/dust/">Dust 模版引擎</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="1-模版引擎介绍"><a href="#1-模版引擎介绍" class="headerlink" title="1.模版引擎介绍"></a>1.模版引擎介绍</h2><p>在静态页面中，包括已经从后台生成的HTML中，一般很少需要应用到模板，但是随着AJAX技术的发展，不刷新页面而动态更新内容的需求越来越高。为了降低通讯成本，这种通讯技术传输的一般是一个JSON对象，而不是一整串HTML字符串，所以在前端接受JSON数据之后，还要经过处理才能按要求显示在浏览器上。若只是用纯javascript进行拼接处理，将是一个比较繁琐的过程，而且写出来的代码不直观，可读性比较低。比如如果一个JSON对象people是下面这样的：<br><figure class="highlight json"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    <span class="attr">"title"</span>: <span class="string">"Famous People"</span>,</div><div class="line">    <span class="attr">"names"</span>: [&#123; <span class="attr">"name"</span>: <span class="string">"Larry"</span> &#125;, &#123; <span class="attr">"name"</span>: <span class="string">"Curly"</span> &#125;, &#123; <span class="attr">"name"</span>: <span class="string">"Moe"</span> &#125;]</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>我们要把他渲染成一个HTML列表如下：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">Famous People</div><div class="line"><span class="tag">&lt;<span class="name">ul</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>Larry<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>Curly<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>Moe<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>使用纯粹的javascript将是这样的：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> result = people.title + <span class="string">'\n'</span>;</div><div class="line">result += <span class="string">'&lt;ul&gt;'</span> + <span class="string">'\n'</span>;</div><div class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; people.names.length; i++) &#123;</div><div class="line"> result += <span class="string">'&lt;li&gt;'</span> + people.names[i].name + <span class="string">'&lt;/li&gt;'</span> + <span class="string">'\n'</span>;</div><div class="line">&#125;</div><div class="line">result += <span class="string">'&lt;/ul&gt;'</span></div></pre></td></tr></table></figure></p>
+<p>当然了这只是一个比较简单的例子，而且代码具有专用性且不是最简形式，但是为了兼顾可读性和简介性这样写是比较好的。而使用dust模板将只需要一个模板：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&#123;title&#125;</div><div class="line"><span class="tag">&lt;<span class="name">ul</span>&gt;</span></div><div class="line">&#123;#names&#125;</div><div class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>&#123;name&#125;<span class="tag">&lt;/<span class="name">li</span>&gt;</span>&#123;~n&#125;</div><div class="line">&#123;/names&#125;</div><div class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>然后将people传给编译好的模板则可生成所需要的结果，非常直观。</p>
+<h2 id="2-什么是Dust-js"><a href="#2-什么是Dust-js" class="headerlink" title="2.什么是Dust.js"></a>2.什么是Dust.js</h2><p>Dustjs、dust.js或者直接叫Dust，是一种模板，一开始是由Aleksander 编写并于2010发布第一个版本于Github。因为后台编译使用 Node.js 所以延续了在插件名后加.js的传统。Aleksander 很喜欢胡子模板 Mustache 的语法。但是Mustache缺少了Aleksander想要的特性，比如模板块和高性能。<br>从dust.js的导引页面看来，这个模板制作者还是很有诚意的。可惜这个项目已于两年前停止更新，版本停留在0.3.0。好消息是大型职业社交网LinkedIn也了解到了这个模板的优点和潜力，并接手了Dust.js的后续开发，最终出来的就是现在的Dust.js(LinkedIn)，为了简便起见后面继续称之为Dust。经过不断地更新，Dust目前已经到了2.0版本了。</p>
+<h2 id="3-Dust在线测试器"><a href="#3-Dust在线测试器" class="headerlink" title="3.Dust在线测试器"></a>3.Dust在线测试器</h2><p>首先要介绍一下Dust项目中的一个在线测试器，在了解Dust语法的同时，在这个测试器上尝试应用学到的语法，既可以验证语法是否正确，也可以加强对语法的记忆。进入测试器后可以见到四个框，从左上、左下、右上、右下分别编号为1、2、3、4。测试时在1号框中填入一个Dust模板，然后2号框将显示该模板编译后的结果，再在3号框填入一个JSON对象，4号框中将显示最终的渲染结果。</p>
+<h2 id="4-标签（Tag）"><a href="#4-标签（Tag）" class="headerlink" title="4.标签（Tag）"></a>4.标签（Tag）</h2><p>Dust模板以一种嵌入到HTML中的标签的形式存在。Dust标签使用一对花括号包裹，类似于HTML标签使用一对尖括号包裹：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&#123;name&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="5-注释"><a href="#5-注释" class="headerlink" title="5.注释"></a>5.注释</h2><p>以下标签将不会产生任何内容，即可用作注释（感叹后之间）：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&#123;! Comment syntax !&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="6-键（Key）"><a href="#6-键（Key）" class="headerlink" title="6.键（Key）"></a>6.键（Key）</h2><p>一般Dust标签的表示只有两种形式，一种是键，另一种是区段。键是一个最简单的Dust标签，其中包含的花括号中的值称之为键，对应于JSON对象的属性名，对应的属性值一般为简单类型，比如字符串，渲染后将直接以属性值代替整个标签。如果搜索不到任何匹配值，则不会返回任何数据。<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&#123;name&#125;</div></pre></td></tr></table></figure></p>
+<p>在键名后面可以跟随过滤器，使用竖线分隔，一般用于选择处理“&lt;”，“&gt;”等特殊符号的转义：</p>
+<ul>
+<li>{name|s} 禁用自动转码</li>
+<li>{name|h} 强制使用HTML转码</li>
+<li>{name|j} 强制使用Javascript转码</li>
+<li>{name|u} 使用encodeURI编码</li>
+<li>{name|uc} 使用encodeURIComponent编码</li>
+<li>{name|js} 将JSON对象转换为字符串</li>
+<li>{name|jp} 将JSON 字符串转换为JSON对象</li>
+</ul>
+<p>过滤器也可以进行组合：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&#123;name|jp|h&#125;</div></pre></td></tr></table></figure></p>
+<p>一些特殊字符也可以键的形式直接取值输出：</p>
+<ul>
+<li>{~n} 换行</li>
+<li>{~r} CR换行</li>
+<li>{~lb} 左花括号</li>
+<li>{~rb} 右花括号</li>
+<li>{~s} 空格</li>
+</ul>
+<h2 id="7-区段（Section）"><a href="#7-区段（Section）" class="headerlink" title="7.区段（Section）"></a>7.区段（Section）</h2><p>以下两个标签及其包裹的部分称之为区段，用于循环显示数据。其中“#”为开始标签，“/”为结束标签，其后的键值同样对应于JSON对象的属性名，对应的属性值一般为数组或单个对象，单个对象将被当做一个只有一个元素的数组来对待。模板会按下标对数组中的每个元素调用一次区段包裹着的模板。上一篇中的例子就是利用了区段来循环输出列表元素。区段有两种形式写法第一种如下：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&#123;#names&#125;....&#123;/names&#125;</div></pre></td></tr></table></figure></p>
+<p>第二种形式（自封闭式）如下：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&#123;#names/&#125;</div></pre></td></tr></table></figure></p>
+<p>在区段中可以使用两个特殊的键：</p>
+<ul>
+<li>{$idx} 表示当前迭代的序号（从0开始）</li>
+<li>{$len} 表示数组长度</li>
+</ul>
+<h2 id="8-上下文（Context）"><a href="#8-上下文（Context）" class="headerlink" title="8.上下文（Context）"></a>8.上下文（Context）</h2><p>Dust对键或区段值的查询与javascript中对作用域链中变量值的查询类似，换而言之使用区段时会临时改变当前的上下文。 例如一个嵌套的JSON对象：<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    "name": "root",</div><div class="line">      "anotherName": "root2",</div><div class="line">      "A":&#123;</div><div class="line">          "name":"Albert",</div><div class="line">          "B":&#123;</div><div class="line">             "name":"Bob"</div><div class="line">          &#125;</div><div class="line">      &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>使用区段索值：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&#123;#A&#125;&#123;name&#125;&#123;/A&#125;</div></pre></td></tr></table></figure></p>
+<p>则会得到这个对象的A.name的值：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Albert</div></pre></td></tr></table></figure></p>
+<p>因为使用区段时将上下文转移到A属性对应的对象中。而使用以下区段索值：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&#123;#A&#125;&#123;anotherName&#125;&#123;/A&#125;</div></pre></td></tr></table></figure></p>
+<p>因为在对象A的属性中不存在“anotherName”属性，于是Dust会向上查询A所处的上下文，发现存在“anotherName”属性，于是得到：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">root2</div></pre></td></tr></table></figure></p>
+<p>若往上查找到JSON对象根部间的所有的上下文均无对应属性时将返回空白，索值不会向下查找。</p>
+<h2 id="9-路径（Path）"><a href="#9-路径（Path）" class="headerlink" title="9.路径（Path）"></a>9.路径（Path）</h2><p>若使用不带路径的区段索值，那么相当于从JSON对象的根部开始定位区段上下文。而使用路径可以指定开始搜索的位置。路径使用标志“.”来标记标签，跟javascript语法类似。依然是这个JSON对象：<br><figure class="highlight json"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  <span class="attr">"name"</span>: <span class="string">"root"</span>,</div><div class="line">  <span class="attr">"anotherName"</span>: <span class="string">"root2"</span>,</div><div class="line">  <span class="attr">"A"</span>:&#123;</div><div class="line">      <span class="attr">"name"</span>:<span class="string">"Albert"</span>,</div><div class="line">        <span class="attr">"B"</span>:&#123;</div><div class="line">              <span class="attr">"name"</span>:<span class="string">"Bob"</span></div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>若我们需要取A属性下的B属性的name则可以表达成这样：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&#123;A.B.name&#125;</div></pre></td></tr></table></figure></p>
+<p>或者使用路径标记区块：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&#123;#A.B&#125;&#123;name&#125;&#123;/A.B&#125;</div></pre></td></tr></table></figure></p>
+<p>或者使用单个“.”表示当前上下文对象（当前为字符串）：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&#123;#A.B.name&#125;&#123;.&#125;&#123;/A.B.name&#125;</div></pre></td></tr></table></figure>
+<p>规定路径后，首先在指定的上下文进行查找name的值，找不到时不会向上追溯，而是从根部开始查找。<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&#123;#A.B&#125;&#123;A.name&#125;&#123;/A.B&#125;</div></pre></td></tr></table></figure></p>
+<p>上面这个模板将会在A.B中搜索A，因为B并无A属性，所以从JSON对象根部开始找到A属性，从而找到A.name，返回“Albert”，若从根部也无法找到，则返回空白。</p>
+<h2 id="10-修改上下文"><a href="#10-修改上下文" class="headerlink" title="10.修改上下文"></a>10.修改上下文</h2><p>我们也可以在一定程度上修改上下文的关系。通过使用冒号“:”可以用冒号后面的键值代替前面的键值的父级上下文：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&#123;#A:A2&#125; ... &#123;/A&#125;</div></pre></td></tr></table></figure></p>
+<p>以上这个区段会屏蔽掉A的父级上下文，临时将A2作为A的父级上下文，即在A中找不到目标时不会往上回溯，而去搜索A2下的属性。</p>
+<h2 id="11-区段参数"><a href="#11-区段参数" class="headerlink" title="11.区段参数"></a>11.区段参数</h2><p>在区段中可以设置参数：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&#123;#A.B foo="Hi" bar=" Good to see you"&#125;</div><div class="line">    &#123;foo&#125; &#123;name&#125; &#123;bar&#125;</div><div class="line">&#123;/A.B&#125;</div></pre></td></tr></table></figure></p>
+<p>模板会将参数值替代键值标签，结果为：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Hi Bob Good to see you</div></pre></td></tr></table></figure></p>
+<p>参数也可以是键名，但是赋值时的上下文在区段之外：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&#123;#A.B foo=A.name bar=anotherName&#125;</div><div class="line">    &#123;foo&#125; &#123;name&#125; &#123;bar&#125;</div><div class="line">&#123;/A.B&#125;</div></pre></td></tr></table></figure>
+<h2 id="12-逻辑区段"><a href="#12-逻辑区段" class="headerlink" title="12.逻辑区段"></a>12.逻辑区段</h2><h3 id="标签"><a href="#标签" class="headerlink" title="?标签"></a>?标签</h3><p>用?来代替区段标签中的#时，仅当name的值为真时，才执行区段主体部分。<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&#123;?name&#125; body &#123;/name&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="标签-1"><a href="#标签-1" class="headerlink" title="^标签"></a>^标签</h3><p>用^来代替#时，仅当name的值为假时，才执行区段主体部分。<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&#123;^name&#125; body &#123;/name&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="else-标签"><a href="#else-标签" class="headerlink" title="{:else}标签"></a>{:else}标签</h3><p>当一个区段标签（包括#、?、^、以及逻辑标签等）的值为假时，若区段主体中包含{:else}标签，则执行{:else}标签以及区段结束标签之间的内容，否则忽略这些内容。<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">ul</span>&gt;</span></div><div class="line">    &#123;#friends&#125;</div><div class="line">      <span class="tag">&lt;<span class="name">li</span>&gt;</span>&#123;name&#125;, &#123;age&#125;&#123;~n&#125;<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">    &#123;:else&#125;</div><div class="line">      <span class="tag">&lt;<span class="name">p</span>&gt;</span>You have no friends!<span class="tag">&lt;<span class="name">p</span>&gt;</span></div><div class="line">    &#123;/friends&#125;</div><div class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>若friend为空，则仅仅输出：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">ul</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>You have no friends!<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<h3 id="值的真假"><a href="#值的真假" class="headerlink" title="值的真假"></a>值的真假</h3><p>在区段中判断标签的真假的方法与Javascript本身稍有不同，Dust将以下值判断为假：</p>
+<ul>
+<li>空字符串’’、””</li>
+<li>布尔false</li>
+<li>null</li>
+<li>undefined</li>
+<li>空列表[]</li>
+</ul>
+<p>其余值均为真值，包括数字“0”，空对象{}。</p>
+<h3 id="拆分（Partials）"><a href="#拆分（Partials）" class="headerlink" title="拆分（Partials）"></a>拆分（Partials）</h3><p>拆分是一种将重复使用的模板抽取出来，并在使用到这段模板的模板中直接导入该模板，避免重复劳动的方法。在服务端，一个名为“xxx”的Dust模板通常通常保存在一个名为xxx.dust的模板文件中。我们可以利用模板名来在模板中插入一段来自其他模版文件的模板：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&#123;&gt;name /&#125;</div></pre></td></tr></table></figure></p>
+<p>以上是一个自封闭的区段标签，代表将name.dust中的模版插入到当前位置。若文件包含路径，则用双引号包裹：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&#123;&gt;”dust/name” /&#125;</div></pre></td></tr></table></figure></p>
+<p>标签中也可以填写参数：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&#123;&gt;”dust/name” foo=”Hello” bar=” World”/&#125;</div></pre></td></tr></table></figure></p>
+<p>甚至可以使用动态路径：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&#123;&gt;”dust/&#123;pathName&#125;” /&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="区块（Blocks）"><a href="#区块（Blocks）" class="headerlink" title="区块（Blocks）"></a>区块（Blocks）</h3><p>通过拆分可以重用一个模版，但是用这种方法来派生模版有一个缺点，就是你需要记得需要在什么位置插入哪个模版，并且对每一个派生出来的模版都要重新布局一次。区块可以解决这个问题，在父模板中使用区块可以方便地在子模板中替换区块中的内容。区块也是一种特殊的区段，定义方法如下：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&#123;+name /&#125;</div></pre></td></tr></table></figure></p>
+<p>或者在区段中填写默认内容，当区块没有被替换时，将显示默认内容：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&#123;+name&#125;default Content&#123;/name&#125;</div></pre></td></tr></table></figure></p>
+<p>使用区块替换需要在子模板中使用拆分区段（&gt;）导入父模板，并使用替换区段（&lt;）进行替换：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&#123;&gt;father/&#125;</div><div class="line">&#123;<span class="tag">&lt;<span class="name">name&#125;Content&#123;</span>/<span class="attr">name</span>&#125;</span></div></pre></td></tr></table></figure></p>
+<p>比如一个父模板可以写成这样：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"page"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">h1</span>&gt;</span>&#123;+pageHeader&#125;PayPal&#123;/pageHeader&#125;<span class="tag">&lt;/<span class="name">h</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"bodyContent"</span>&gt;</span></div><div class="line">    &#123;+bodyContent/&#125;</div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"footer"</span>&gt;</span></div><div class="line">    &#123;+pageFooter&#125;Contact Us &#123;/pageFooter&#125;</div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>然后保存为shared/base_template.dust文件，然后定义子模板：<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">&#123;! 首先导入父模板 !&#125;</div><div class="line">&#123;&gt;"shared/base_template"/&#125;</div><div class="line">&#123;! 然后定义对应的部分 !&#125;</div><div class="line">&#123;&lt;bodyContent&#125;</div><div class="line">&lt;p&gt;These are your current settings:&lt;/p&gt;</div><div class="line">&lt;ul&gt;</div><div class="line">  &lt;li&gt;xxxx&lt;/li&gt;</div><div class="line">  &lt;li&gt;yyy&lt;/li&gt;</div><div class="line">&lt;/ul&gt;</div><div class="line">&#123;/bodyContent&#125;</div><div class="line">&#123;&lt;pageFooter&#125;</div><div class="line">  &lt;hr&gt;</div><div class="line">  &lt;a href="/contactUs"&gt;About Us&lt;/a&gt; |</div><div class="line">  &lt;a href="/contactUs"&gt;Contact Us&lt;/a&gt;</div><div class="line">&#123;/pageFooter&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="13-编译"><a href="#13-编译" class="headerlink" title="13.编译"></a>13.编译</h2><p>之前也介绍过，Dust是编译型模板，意思则是若需应用模板，首先要将模板可执行化，即将模板变成可执行的代码。如果你使用过Dust测试器，那么你会发现在你输入模板后，会在2号框中显示一个函数定义，那就是编译生成的代码。使用编译型模板有一个好处，就是当模板编译好之后，若需要重复使用模板，不需要每次都对模板重新进行分析，加快模板解析的速度，而且，模板可以预先编译好保存在服务器，甚至让前端连第一次编译的时间都节省了。<br>因此Dust库有两种发行版本：</p>
+<ul>
+<li>dust-core-2.0.2.js</li>
+<li>dust-full-2.0.2.js<br>前者为核心（Core）版本，其只包含模板解析的相关代码，大小只有十几k，而完全版（Full）则包含Dust的所有代码，包括编译器，大小有一百多k。对于不需要在前端进行编译的项目，仅仅需要使用核心版本即可，这也是速度比较快的做法。但是对于需要在前端动态编译的项目，则只能使用包含编译器的完全版。<br>编译模板的方法很简单，使用完全版的dust.compile()方法：</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> compiled = dust.compile(<span class="string">"Hello &#123;name&#125;!"</span>, <span class="string">"intro"</span>);</div></pre></td></tr></table></figure>
+<p>其中第一个参数为模板字符串，第二个参数为模板名，函数将返回包含编译好的可执行代码的字符串。这个操作不会注册这个模板，仅进行编译，此时仍不可通过模板名来调用这段代码。</p>
+<h2 id="14-注册"><a href="#14-注册" class="headerlink" title="14.注册"></a>14.注册</h2><p>如果直接执行一遍compiled中的代码，则模板会按之前指定的名字注册到dust，从而可以通过模板名来调用该模板。但若compiled代码未被执行过，则需要在渲染前手动将其注册到dust中，注册的方法很简单：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">dust.loadSource(compiled);</div></pre></td></tr></table></figure></p>
+<h2 id="15-渲染"><a href="#15-渲染" class="headerlink" title="15.渲染"></a>15.渲染</h2><p>通过编译注册可以让多套模板处于就绪状态，对于这些模板，我们可以直接用它将JSON对象渲染成HTML文本，通过调用dust.render()方法。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">dust.render(<span class="string">"intro"</span>, &#123;<span class="attr">name</span>: <span class="string">"Fred"</span>&#125;, <span class="function"><span class="keyword">function</span>(<span class="params">err, out</span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(out);</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<p>这个方法接受3个参数，第一个为模板名，第二个为JSON对象，第三个是一个接受两个参数的回调函数。执行这个方法后Dust会使用注册好的对应模板对JSON对象进行处理，得出一个渲染结果字符串，然后调用回调函数，其中第一个参数包含了在处理过程中出现的错误信息，第二个参数就是渲染结果字符串。一般会在回调函数中将渲染结果插入到当前的DOM结构中，以便在浏览器中显示渲染结果。</p>
+<h2 id="16-区块和拆分"><a href="#16-区块和拆分" class="headerlink" title="16.区块和拆分"></a>16.区块和拆分</h2><p>一般使用文件来保存模板并且使用区块和拆分是让Dust作为服务端模板时应用的技术，因为在客户端Javascript中无法很方便地对分布式文件进行操作。但是我们可以通过在本地部署模板数据，编译成可执行代码并用一个js文件来保存的方式来使用区块和拆分。<br>若在Linux平台则直接在终端安装npm和dust并使用dustc命令编译成代码，得到js文件。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ npm install dustjs-linkedin</div><div class="line">$ dustc input.dust output.js</div></pre></td></tr></table></figure></p>
+<p>或者在js引擎中使用dust.compile()，将模板复制到第一个参数，指定第二参数为其不带后缀的文件名，并将结果输出到js文件。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> output1 = dust.compile(partialStr, <span class="string">"partial"</span>);</div><div class="line"><span class="keyword">var</span> output2 = dust.compile(baseStr, <span class="string">"base"</span>);</div><div class="line"><span class="keyword">var</span> output3 = dust.compile(childStr, <span class="string">"child"</span>);</div></pre></td></tr></table></figure></p>
+<p>最后在HTML中导入所有生成的js文件即可使用。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;script type=<span class="string">"text/javascript"</span> src=<span class="string">"partial.js"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></div><div class="line">&lt;script type=<span class="string">"text/javascript"</span> src=<span class="string">"base.js"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></div><div class="line">&lt;script type=<span class="string">"text/javascript"</span> src=<span class="string">"child.js"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></div></pre></td></tr></table></figure></p>
+<p>注意此时不再需要使用dust.loadSource()来注册，因为script标签将js文件执行了一次，已经将模板注册好了。此时已可使用dust.render()进行渲染。</p>
+<h4 id="ps：这些都是因为工作开发中用到了dust，在国内很少开发人员用到这种引擎，而公司是一家外企，有幸可以用上这个，这只是些基础，会这些也大概会百分之七八十了，还有不能的，可以google下dust，查看官方文档，或者关注我的GitHub-里面有dust的教学"><a href="#ps：这些都是因为工作开发中用到了dust，在国内很少开发人员用到这种引擎，而公司是一家外企，有幸可以用上这个，这只是些基础，会这些也大概会百分之七八十了，还有不能的，可以google下dust，查看官方文档，或者关注我的GitHub-里面有dust的教学" class="headerlink" title="ps：这些都是因为工作开发中用到了dust，在国内很少开发人员用到这种引擎，而公司是一家外企，有幸可以用上这个，这只是些基础，会这些也大概会百分之七八十了，还有不能的，可以google下dust，查看官方文档，或者关注我的GitHub,里面有dust的教学"></a>ps：这些都是因为工作开发中用到了dust，在国内很少开发人员用到这种引擎，而公司是一家外企，有幸可以用上这个，这只是些基础，会这些也大概会百分之七八十了，还有不能的，可以google下dust，查看官方文档，或者关注我的<a href="https://github.com/utopia1991" target="_blank" rel="external">GitHub</a>,里面有dust的教学</h4>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://utopia1991.github.io/2016/10/23/dust/" data-id="ciujicu0a0001jjtdklwehuyq" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-markdown" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/10/23/markdown/" class="article-date">
+  <time datetime="2016-10-24T03:21:29.000Z" itemprop="datePublished">2016-10-23</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/10/23/markdown/">Markdown 编辑器语法指南</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><p>如果你只想高亮语句中的某个函数名或关键字，可以使用 <code>function_name()</code> 实现</p>
+<p>通常编辑器根据代码片段适配合适的高亮方法，但你也可以用 3个’ ` ‘ 包裹一段代码，并指定一种语言<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$(<span class="built_in">document</span>).ready(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    alert(<span class="string">'hello world'</span>);</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<p>支持的语言：actionscript, apache, bash, clojure, cmake, coffeescript, cpp, cs, css, d, delphi, django, erlang, go, haskell, html, http, ini, java, javascript, json, lisp, lua, markdown, matlab, nginx, objectivec, perl, php, python, r, ruby, scala, smalltalk, sql, tex, vbscript, xml</p>
+<p>也可以使用 4 空格缩进，再贴上代码，实现相同的的效果<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">def g(x):</div><div class="line">    <span class="keyword">yield</span> <span class="keyword">from</span> range(x, <span class="number">0</span>, <span class="number">-1</span>)</div><div class="line"><span class="keyword">yield</span> <span class="keyword">from</span> range(x)</div></pre></td></tr></table></figure></p>
+<h2 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h2><p>文章内容较多时，可以用标题分段：<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">标题1</div><div class="line">======</div><div class="line"></div><div class="line">标题2</div><div class="line">-----</div><div class="line"></div><div class="line">## 大标题 ##</div><div class="line">### 小标题 ###</div></pre></td></tr></table></figure></p>
+<h2 id="粗斜体"><a href="#粗斜体" class="headerlink" title="粗斜体"></a>粗斜体</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">*斜体文本*    _斜体文本_</div><div class="line">**粗体文本**    __粗体文本__</div><div class="line">***粗斜体文本***    ___粗斜体文本___</div></pre></td></tr></table></figure>
+<h2 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h2><h3 id="常用链接方法"><a href="#常用链接方法" class="headerlink" title="常用链接方法"></a>常用链接方法</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">文字链接 [链接名称](http:<span class="comment">//链接网址)</span></div><div class="line">网址链接 &lt;http:<span class="comment">//链接网址&gt;</span></div></pre></td></tr></table></figure>
+<h3 id="高级链接技巧"><a href="#高级链接技巧" class="headerlink" title="高级链接技巧"></a>高级链接技巧</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">这个链接用 <span class="number">1</span> 作为网址变量 [Google][<span class="number">1</span>].</div><div class="line">这个链接用 yahoo 作为网址变量 [Yahoo!][yahoo].</div><div class="line">然后在文档的结尾为变量赋值（网址）</div><div class="line"></div><div class="line">  [<span class="number">1</span>]: http:<span class="comment">//www.google.com/</span></div><div class="line">  [yahoo]: http:<span class="comment">//www.yahoo.com/</span></div></pre></td></tr></table></figure>
+<h2 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h2><h3 id="普通无序列表"><a href="#普通无序列表" class="headerlink" title="普通无序列表"></a>普通无序列表</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">- 列表文本前使用 [减号+空格]</div><div class="line">+ 列表文本前使用 [加号+空格]</div><div class="line">* 列表文本前使用 [星号+空格]</div></pre></td></tr></table></figure>
+<h3 id="普通有序列表"><a href="#普通有序列表" class="headerlink" title="普通有序列表"></a>普通有序列表</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="number">1.</span> 列表前使用 [数字+空格]</div><div class="line"><span class="number">2.</span> 我们会自动帮你添加数字</div><div class="line"><span class="number">7.</span> 不用担心数字不对，显示的时候我们会自动把这行的 <span class="number">7</span> 纠正为 <span class="number">3</span></div></pre></td></tr></table></figure>
+<h3 id="列表嵌套"><a href="#列表嵌套" class="headerlink" title="列表嵌套"></a>列表嵌套</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="number">1.</span> 列出所有元素：</div><div class="line">    - 无序列表元素 A</div><div class="line">        <span class="number">1.</span> 元素 A 的有序子列表</div><div class="line">    - 前面加四个空格</div><div class="line"><span class="number">2.</span> 列表里的多段换行：</div><div class="line">    前面必须加四个空格，</div><div class="line">    这样换行，整体的格式不会乱</div><div class="line"><span class="number">3.</span> 列表里引用：</div><div class="line">    &gt; 前面空一行</div><div class="line">    &gt; 仍然需要在 &gt;  前面加四个空格</div></pre></td></tr></table></figure>
+<h2 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h2><h3 id="普通引用"><a href="#普通引用" class="headerlink" title="普通引用"></a>普通引用</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt; 引用文本前使用 [大于号+空格]</div><div class="line">&gt; 折行可以不加，新起一行都要加上哦</div></pre></td></tr></table></figure>
+<h3 id="引用里嵌套引用"><a href="#引用里嵌套引用" class="headerlink" title="引用里嵌套引用"></a>引用里嵌套引用</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&gt; 最外层引用</div><div class="line">&gt; &gt; 多一个 &gt; 嵌套一层引用</div><div class="line">&gt; &gt; &gt; 可以嵌套很多层</div></pre></td></tr></table></figure>
+<h3 id="引用里嵌套列表"><a href="#引用里嵌套列表" class="headerlink" title="引用里嵌套列表"></a>引用里嵌套列表</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&gt; - 这是引用里嵌套的一个列表</div><div class="line">&gt; - 还可以有子列表</div><div class="line">&gt;     * 子列表需要从 - 之后延后四个空格开始</div></pre></td></tr></table></figure>
+<h3 id="引用里嵌套代码块"><a href="#引用里嵌套代码块" class="headerlink" title="引用里嵌套代码块"></a>引用里嵌套代码块</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt;     同样的，在前面加四个空格形成代码块</div><div class="line">&gt; 或者使用 <span class="string">``</span><span class="string">` 形成代码块</span></div></pre></td></tr></table></figure>
+<h2 id="图片"><a href="#图片" class="headerlink" title="图片"></a>图片</h2><p>跟链接的方法区别在于前面加了个感叹号 !，这样是不是觉得好记多了呢？<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">![图片名称](http:<span class="comment">//图片网址)</span></div></pre></td></tr></table></figure></p>
+<p>当然，你也可以像网址那样对图片网址使用变量<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">这个链接用 <span class="number">1</span> 作为网址变量 [Google][<span class="number">1</span>].</div><div class="line">然后在文档的结尾位变量赋值（网址）</div><div class="line"> [<span class="number">1</span>]: http:<span class="comment">//www.google.com/logo.png</span></div></pre></td></tr></table></figure></p>
+<p>也可以使用 HTML 的图片语法来自定义图片的宽高大小<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;img src=<span class="string">"htt://example.com/sample.png"</span> width=<span class="string">"400"</span> height=<span class="string">"100"</span>&gt;</div></pre></td></tr></table></figure></p>
+<h2 id="换行"><a href="#换行" class="headerlink" title="换行"></a>换行</h2><p>如果另起一行，只需在当前行结尾加 2 个空格<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">在当前行的结尾加 <span class="number">2</span> 个空格  </div><div class="line">这行就会新起一行</div></pre></td></tr></table></figure></p>
+<p>如果是要起一个新段落，只需要空出一行即可。</p>
+<h2 id="分隔符"><a href="#分隔符" class="headerlink" title="分隔符"></a>分隔符</h2><p>如果你有写分割线的习惯，可以新起一行输入三个减号-。当前后都有段落时，请空出一行：<br>这行就会新起一行<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">前面的段落</div><div class="line">---</div><div class="line">后面的段落</div></pre></td></tr></table></figure></p>
+<h2 id="高级技巧"><a href="#高级技巧" class="headerlink" title="高级技巧"></a>高级技巧</h2><h3 id="行内-HTML-元素"><a href="#行内-HTML-元素" class="headerlink" title="行内 HTML 元素"></a>行内 HTML 元素</h3><p>目前只支持部分段内 HTML 元素效果，包括<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;kdb&gt; &lt;b&gt; &lt;i&gt; &lt;em&gt; &lt;sup&gt; &lt;sub&gt; &lt;br&gt;</div></pre></td></tr></table></figure></p>
+<p>例如：</p>
+<h4 id="键位显示"><a href="#键位显示" class="headerlink" title="键位显示"></a>键位显示</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">使用 &lt;kbd&gt;Ctrl&lt;kbd&gt;+&lt;kbd&gt;Alt&lt;kbd&gt;+&lt;kbd&gt;Del&lt;kbd&gt; 重启电脑</div></pre></td></tr></table></figure>
+<h4 id="代码块"><a href="#代码块" class="headerlink" title="代码块"></a>代码块</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">使用 &lt;pre&gt;<span class="xml"><span class="tag">&lt;/<span class="name">pre</span>&gt;</span></span> 元素同样可以形成代码块</div></pre></td></tr></table></figure>
+<h4 id="粗斜体-1"><a href="#粗斜体-1" class="headerlink" title="粗斜体"></a>粗斜体</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;b&gt; Markdown 在此处同样适用，如 *加粗* <span class="xml"><span class="tag">&lt;/<span class="name">b</span>&gt;</span></span></div></pre></td></tr></table></figure>
+<h4 id="符号转义"><a href="#符号转义" class="headerlink" title="符号转义"></a>符号转义</h4><p>如果你的描述中需要用到 markdown 的符号，比如 <em> # * 等，但又不想它被转义，这时候可以在这些符号前加反斜杠，如 \</em> # * 进行避免。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">\_不想这里的文本变斜体\_</div><div class="line">\*\*不想这里的文本被加粗\*\*</div></pre></td></tr></table></figure></p>
+<h4 id="扩展"><a href="#扩展" class="headerlink" title="扩展"></a>扩展</h4><p>支持 jsfiddle、gist、runjs、优酷视频，直接填写 url，在其之后会自动添加预览点击会展开相关内容。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">http:<span class="comment">//&#123;url_of_the_fiddle&#125;/embedded/[&#123;tabs&#125;/[&#123;style&#125;]]/</span></div><div class="line">https:<span class="comment">//gist.github.com/&#123;gist_id&#125;</span></div><div class="line">http:<span class="comment">//runjs.cn/detail/&#123;id&#125;</span></div><div class="line">http:<span class="comment">//v.youku.com/v_show/id_&#123;video_id&#125;.html</span></div></pre></td></tr></table></figure></p>
+<h4 id="公式"><a href="#公式" class="headerlink" title="公式"></a>公式</h4><p>当你需要在编辑器中插入数学公式时，可以使用两个美元符 $$ 包裹 TeX 或 LaTeX 格式的数学公式来实现。提交后，问答和文章页会根据需要加载 Mathjax 对数学公式进行渲染。如：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$$ x = &#123;-b \pm \sqrt&#123;b^<span class="number">2</span><span class="number">-4</span>ac&#125; \over <span class="number">2</span>a&#125;. $$</div><div class="line">$$</div><div class="line">x \href&#123;why-equal.html&#125;&#123;=&#125; y^<span class="number">2</span> + <span class="number">1</span></div><div class="line">$$</div></pre></td></tr></table></figure></p>
+<p>同时也支持 HTML 属性，如：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$$ (x+<span class="number">1</span>)^<span class="number">2</span> = \<span class="class"><span class="keyword">class</span></span>&#123;hidden&#125;&#123;(x+<span class="number">1</span>)(x+<span class="number">1</span>)&#125; $$</div><div class="line">$$</div><div class="line">(x+<span class="number">1</span>)^<span class="number">2</span> = \cssId&#123;step1&#125;&#123;\style&#123;<span class="attr">visibility</span>:hidden&#125;&#123;(x+<span class="number">1</span>)(x+<span class="number">1</span>)&#125;&#125;</div><div class="line">$$</div></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://utopia1991.github.io/2016/10/23/markdown/" data-id="ciunedcsd0000vbtdq488kpzb" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-coffee" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/10/23/coffee/" class="article-date">
+  <time datetime="2016-10-24T01:38:40.000Z" itemprop="datePublished">2016-10-23</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/10/23/coffee/">Coffeescript 学习笔记</a>
     </h1>
   
 
@@ -89,14 +343,18 @@
       
         <h2 id="1-coffee注释："><a href="#1-coffee注释：" class="headerlink" title="1.coffee注释："></a>1.coffee注释：</h2><p>注释是用 ‘ # ‘ 来标记的。coffee不需要 ‘ ; ‘ 作为结束标签。有时候你想把整块的注释传给生成的 JavaScript. 使用“###”比如在文件顶部嵌入协议. 块级的注释, 仿照了块级字符串的语法, 将会在生成的代码当中保留.</p>
 <p>js:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">/*</div><div class="line">     SkinnyMochaHalfCaffScript Compiler v1.0</div><div class="line">     Released under the MIT License</div><div class="line">*/</div></pre></td></tr></table></figure></p>
-<p>coffee:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="comment">###</span></div><div class="line">     SkinnyMochaHalfCaffScript Compiler v1.0</div><div class="line">     Released under the MIT License</div><div class="line"><span class="comment">###</span></div><div class="line">``` </div><div class="line"></div><div class="line"><span class="comment">## 2.创建对象：</span></div><div class="line"></div><div class="line">js：</div><div class="line">``` bash</div><div class="line">obj = &#123;</div><div class="line">    Name: <span class="string">"Bevis"</span>,</div><div class="line">    Sex: <span class="string">"male"</span></div><div class="line">&#125;</div><div class="line">e = obj.Name</div></pre></td></tr></table></figure></p>
-<p>coffee：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">obj =</div><div class="line">    Name: <span class="string">"Bevis"</span></div><div class="line">    Sex: <span class="string">"male"</span></div><div class="line">e = obj.Name</div><div class="line">``` </div><div class="line"></div><div class="line"><span class="comment">## 3.创建数组</span></div><div class="line"></div><div class="line">js：</div><div class="line">``` bash</div><div class="line">arr = [</div><div class="line">    3,45,457,3242</div><div class="line">]</div></pre></td></tr></table></figure></p>
+<p>coffee:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># SkinnyMochaHalfCaffScript Compiler v1.0</span></div><div class="line"><span class="comment"># Released under the MIT License</span></div></pre></td></tr></table></figure></p>
+<h2 id="2-创建对象："><a href="#2-创建对象：" class="headerlink" title="2.创建对象："></a>2.创建对象：</h2><p>js：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">obj = &#123;</div><div class="line">    Name: <span class="string">"Bevis"</span>,</div><div class="line">    Sex: <span class="string">"male"</span></div><div class="line">&#125;</div><div class="line">e = obj.Name</div></pre></td></tr></table></figure></p>
+<p>coffee：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">obj =</div><div class="line">    Name: <span class="string">"Bevis"</span></div><div class="line">    Sex: <span class="string">"male"</span></div><div class="line">e = obj.Name</div></pre></td></tr></table></figure></p>
+<h2 id="3-创建数组"><a href="#3-创建数组" class="headerlink" title="3.创建数组"></a>3.创建数组</h2><p>js：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">arr = [</div><div class="line">    3,45,457,3242</div><div class="line">]</div></pre></td></tr></table></figure></p>
 <p>coffee：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">arr =［</div><div class="line">    3,45,457,3242</div><div class="line">］</div></pre></td></tr></table></figure></p>
 <h2 id="4-创建嵌套对象（对象的’-’是去掉不写）"><a href="#4-创建嵌套对象（对象的’-’是去掉不写）" class="headerlink" title="4.创建嵌套对象（对象的’{}’是去掉不写）"></a>4.创建嵌套对象（对象的’{}’是去掉不写）</h2><p>coffee：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">school =</div><div class="line">    teacher:</div><div class="line">    name:<span class="string">'utopia'</span></div><div class="line">    sex:<span class="string">'male'</span></div><div class="line">    student:</div><div class="line">    name:<span class="string">'bevis'</span></div><div class="line">    sex:<span class="string">'male'</span></div><div class="line">a = school.teacher.name</div></pre></td></tr></table></figure></p>
-<h2 id="5-coffee可以与jquery结合（jquery的dom查询的方法和jquery原先一样）"><a href="#5-coffee可以与jquery结合（jquery的dom查询的方法和jquery原先一样）" class="headerlink" title="5.coffee可以与jquery结合（jquery的dom查询的方法和jquery原先一样）"></a>5.coffee可以与jquery结合（jquery的dom查询的方法和jquery原先一样）</h2><p>coffee：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">$ <span class="string">'.demo1'</span>.addClass <span class="string">'demo2'</span></div><div class="line">$ <span class="string">'body'</span>.click (e) -&gt;</div><div class="line">    $ <span class="string">'.box'</span></div><div class="line">        .fadeIn <span class="string">'fast'</span></div><div class="line">        .addClass <span class="string">'.active'</span></div><div class="line">    .css <span class="string">'background'</span>, <span class="string">'white'</span></div><div class="line">``` </div><div class="line"><span class="comment">## 6.if else语句</span></div><div class="line"></div><div class="line"><span class="comment">### 第1种方式：then后参数是为true，else后参数是false</span></div><div class="line"></div><div class="line">coffee：</div><div class="line">``` bash</div><div class="line">singing = <span class="literal">true</span></div><div class="line">mood = <span class="keyword">if</span> singing <span class="keyword">then</span> <span class="string">'happy'</span> <span class="keyword">else</span> <span class="string">'sad'</span></div></pre></td></tr></table></figure></p>
-<h3 id="第2种方式-就是原始的if-else，但是不用’-’"><a href="#第2种方式-就是原始的if-else，但是不用’-’" class="headerlink" title="第2种方式,就是原始的if else，但是不用’{}’"></a>第2种方式,就是原始的if else，但是不用’{}’</h3><p>coffee：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">     high = <span class="literal">true</span></div><div class="line">     <span class="keyword">if</span> high</div><div class="line">    ...</div><div class="line"><span class="keyword">else</span></div><div class="line">    ...</div></pre></td></tr></table></figure></p>
+<h2 id="5-coffee可以与jquery结合（jquery的dom查询的方法和jquery原先一样）"><a href="#5-coffee可以与jquery结合（jquery的dom查询的方法和jquery原先一样）" class="headerlink" title="5.coffee可以与jquery结合（jquery的dom查询的方法和jquery原先一样）"></a>5.coffee可以与jquery结合（jquery的dom查询的方法和jquery原先一样）</h2><p>coffee：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">$ <span class="string">'.demo1'</span>.addClass <span class="string">'demo2'</span></div><div class="line">$ <span class="string">'body'</span>.click (e) -&gt;</div><div class="line">    $ <span class="string">'.box'</span></div><div class="line">        .fadeIn <span class="string">'fast'</span></div><div class="line">        .addClass <span class="string">'.active'</span></div><div class="line">    .css <span class="string">'background'</span>, <span class="string">'white'</span></div></pre></td></tr></table></figure></p>
+<h2 id="6-if-else语句"><a href="#6-if-else语句" class="headerlink" title="6.if else语句"></a>6.if else语句</h2><h3 id="第1种方式：then后参数是为true，else后参数是false"><a href="#第1种方式：then后参数是为true，else后参数是false" class="headerlink" title="第1种方式：then后参数是为true，else后参数是false"></a>第1种方式：then后参数是为true，else后参数是false</h3><p>coffee：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">singing = <span class="literal">true</span></div><div class="line">mood = <span class="keyword">if</span> singing <span class="keyword">then</span> <span class="string">'happy'</span> <span class="keyword">else</span> <span class="string">'sad'</span></div></pre></td></tr></table></figure></p>
+<h3 id="第2种方式-就是原始的if-else，但是不用’-’"><a href="#第2种方式-就是原始的if-else，但是不用’-’" class="headerlink" title="第2种方式,就是原始的if else，但是不用’{}’"></a>第2种方式,就是原始的if else，但是不用’{}’</h3><p>coffee：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">high = <span class="literal">true</span></div><div class="line"><span class="keyword">if</span> high</div><div class="line">    ...</div><div class="line"><span class="keyword">else</span></div><div class="line">    ...</div></pre></td></tr></table></figure></p>
 <p>也可以把条件里面的运行函数单独写成方法</p>
-<p>coffee：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line">one = -&gt;</div><div class="line">    console.log 1</div><div class="line">two = -&gt;</div><div class="line">    console.log 2</div><div class="line"><span class="keyword">if</span> high</div><div class="line">    one()</div><div class="line"><span class="keyword">else</span></div><div class="line">    two()</div><div class="line">``` </div><div class="line"></div><div class="line"><span class="comment">## 7.变参(splats)...</span></div><div class="line"></div><div class="line">coffee：</div><div class="line">``` bash</div><div class="line">gold = silver = rest = <span class="string">"unknown"</span></div><div class="line">awardMedals = (first, second, others) -&gt;</div><div class="line">    gold = first</div><div class="line">    silver = second</div><div class="line">    rest = others</div><div class="line">contenders = [</div><div class="line">    <span class="string">"Michael Phelps"</span></div><div class="line">    <span class="string">"Liu Xiang"</span></div><div class="line">    <span class="string">"Yao Ming"</span></div><div class="line">]</div><div class="line">awardMedals contenders...</div><div class="line">console.log gold</div><div class="line">console.log silver</div><div class="line">console.log rest</div></pre></td></tr></table></figure></p>
+<p>coffee：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">one = -&gt;</div><div class="line">    console.log 1</div><div class="line">two = -&gt;</div><div class="line">    console.log 2</div><div class="line"><span class="keyword">if</span> high</div><div class="line">    one()</div><div class="line"><span class="keyword">else</span></div><div class="line">    two()</div></pre></td></tr></table></figure></p>
+<h2 id="7-变参-splats-…"><a href="#7-变参-splats-…" class="headerlink" title="7.变参(splats)…"></a>7.变参(splats)…</h2><p>coffee：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">gold = silver = rest = <span class="string">"unknown"</span></div><div class="line">awardMedals = (first, second, others) -&gt;</div><div class="line">    gold = first</div><div class="line">    silver = second</div><div class="line">    rest = others</div><div class="line">contenders = [</div><div class="line">    <span class="string">"Michael Phelps"</span></div><div class="line">    <span class="string">"Liu Xiang"</span></div><div class="line">    <span class="string">"Yao Ming"</span></div><div class="line">]</div><div class="line">awardMedals contenders...</div><div class="line">console.log gold</div><div class="line">console.log silver</div><div class="line">console.log rest</div></pre></td></tr></table></figure></p>
 <h2 id="8-循环"><a href="#8-循环" class="headerlink" title="8.循环"></a>8.循环</h2><p>coffee：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">foods = [<span class="string">'toast'</span>,<span class="string">'cheese'</span>,<span class="string">'wine'</span>]</div><div class="line">an = (food <span class="keyword">for</span> food <span class="keyword">in</span> foods)</div><div class="line">console.log an</div><div class="line">student = &#123;</div><div class="line">    excellentWork:<span class="literal">false</span></div><div class="line">    okayStuff:<span class="literal">true</span></div><div class="line">    triedHard:<span class="literal">false</span></div><div class="line">&#125;</div><div class="line">grade = (a) -&gt;  <span class="comment">#function = (x) -&gt; x为代入的参数</span></div><div class="line"><span class="keyword">if</span> a.excellentWork</div><div class="line">    <span class="string">"A+"</span></div><div class="line"><span class="keyword">else</span> <span class="keyword">if</span> a.okayStuff</div><div class="line">    <span class="keyword">if</span> a.triedHard <span class="keyword">then</span> <span class="string">"B"</span> <span class="keyword">else</span> <span class="string">"B-"</span></div><div class="line"><span class="keyword">else</span></div><div class="line">    <span class="string">"C"</span></div><div class="line">console.log grade(student)</div></pre></td></tr></table></figure></p>
 <h2 id="9-操作符"><a href="#9-操作符" class="headerlink" title="9.操作符"></a>9.操作符</h2><ul>
 <li>CoffeeScript 会把 == 编译为 ===, 把 != 变异为 !==. 此外, is 编译我 ===, 而 isn’t 编译为 !==</li>
@@ -107,9 +365,28 @@
 <li>this.property 简短的写法可以用 @property</li>
 </ul>
 <p>js：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> (ignition === <span class="literal">true</span>) &#123;</div><div class="line">  launch();</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>coffee：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">launch() <span class="keyword">if</span> ignition ison</div><div class="line">``` </div><div class="line"></div><div class="line">js：</div><div class="line">``` bash</div><div class="line"><span class="keyword">if</span> (band !== SpinalTap) &#123;</div><div class="line">    volume = 10;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>coffee：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">launch() <span class="keyword">if</span> ignition ison</div></pre></td></tr></table></figure></p>
+<p>js：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> (band !== SpinalTap) &#123;</div><div class="line">    volume = 10;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>coffee：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">volume = 10<span class="keyword">if</span> band isnt SpinalTap</div></pre></td></tr></table></figure></p>
-<p>js：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> (answer !== <span class="literal">false</span>) &#123;</div><div class="line">     <span class="built_in">let</span>TheWildRumpusBegin();</div><div class="line">&#125;</div><div class="line">``` </div><div class="line">coffee：</div><div class="line">``` bash</div><div class="line"><span class="built_in">let</span>TheWildRumpusBegin() unless answer isno</div><div class="line">``` </div><div class="line"></div><div class="line">js：</div><div class="line">``` bash</div><div class="line"><span class="keyword">if</span> (car.speed &lt; <span class="built_in">limit</span>) &#123;</div><div class="line">    accelerate();</div><div class="line">&#125;</div><div class="line">``` </div><div class="line"></div><div class="line">coffee：</div><div class="line">``` bash</div><div class="line"><span class="keyword">if</span> car.speed &lt; <span class="built_in">limit</span> <span class="keyword">then</span> accelerate()</div><div class="line">``` </div><div class="line"></div><div class="line">ps：这个使用<span class="keyword">then</span>因为前面的是一个表达式，加入前面只是一个正确判断则不要写<span class="keyword">then</span>，加入为表达式防止表达式混淆，用<span class="keyword">then</span></div><div class="line"></div><div class="line">js：</div><div class="line">``` bash</div><div class="line"><span class="keyword">if</span> (pick === 47 || pick === 92 || pick === 13) &#123;</div><div class="line">  winner = <span class="literal">true</span>;</div><div class="line">&#125;</div><div class="line">``` </div><div class="line"></div><div class="line">coffee：</div><div class="line">``` bash</div><div class="line">    winner = yes <span class="keyword">if</span> pick <span class="keyword">in</span> [47, 92, 13]</div><div class="line">``` </div><div class="line"></div><div class="line">ps：<span class="keyword">if</span> pick <span class="keyword">in</span> [47, 92, 13]这里 <span class="keyword">in</span> 的意思是是否包含里面元素中的一个</div><div class="line"></div><div class="line">extends 操作符可以用来恰当地定义任何一对构造函数的原型链; 用 :: 可以快速访问对象的原型; super() 可以编译为一个父类上同名方法的调用.</div><div class="line"></div><div class="line">js：</div><div class="line">``` bash</div><div class="line">String.prototype.dasherize = <span class="function"><span class="title">function</span></span>() &#123;</div><div class="line">     returnthis.replace(/_/g, <span class="string">"-"</span>);</div><div class="line">&#125;;</div><div class="line">``` </div><div class="line"></div><div class="line">coffee：</div><div class="line">``` bash</div><div class="line">String::dasherize = -&gt;this.replace /_/g, <span class="string">"-"</span></div><div class="line">``` </div><div class="line"></div><div class="line"><span class="comment">##10.解构赋值</span></div><div class="line"></div><div class="line">CoffeeScript 实现 ECMAScript Harmony 的提议 解构赋值 语法, 这样从复杂的数组和对象展开数据会更方便一些. 当你把数组或者对象的字面量赋值到一个变量时, CoffeeScript 把等式两边都解开配对, 把右边的值赋值给左边的变量. 最简单的例子, 可以用来并行赋值:</div><div class="line"></div><div class="line">js：</div><div class="line">``` bash</div><div class="line">var theBait, theSwitch, _ref;</div><div class="line">theBait = 1000;</div><div class="line">theSwitch = 0;</div><div class="line">_ref = [theSwitch, theBait], theBait = _ref[0], theSwitch = _ref[1];</div><div class="line">``` </div><div class="line"></div><div class="line">coffee：</div><div class="line">``` bash</div><div class="line">theBait   = 1000</div><div class="line">theSwitch = 0</div><div class="line">[theBait, theSwitch] = [theSwitch, theBait]</div><div class="line">``` </div><div class="line"></div><div class="line">这样theBait的值就为0，theSwitch的值为1000了，就是一一对应的关系</div><div class="line"></div><div class="line"><span class="comment">##11.Switch语句</span></div><div class="line"></div><div class="line">js：</div><div class="line"></div><div class="line">``` bash</div><div class="line">switch (day) &#123;</div><div class="line">  <span class="keyword">case</span><span class="string">"Mon"</span>:</div><div class="line">    go(work);</div><div class="line">    <span class="built_in">break</span>;</div><div class="line">  <span class="keyword">case</span><span class="string">"Tue"</span>:</div><div class="line">    go(relax);</div><div class="line">    <span class="built_in">break</span>;</div><div class="line">  <span class="keyword">case</span><span class="string">"Thu"</span>:</div><div class="line">    go(iceFishing);</div><div class="line">    <span class="built_in">break</span>;</div><div class="line">  <span class="keyword">case</span><span class="string">"Fri"</span>:</div><div class="line">  <span class="keyword">case</span><span class="string">"Sat"</span>:</div><div class="line">    <span class="keyword">if</span> (day === bingoDay) &#123;</div><div class="line">      go(bingo);</div><div class="line">      go(dancing);</div><div class="line">    &#125;</div><div class="line">    <span class="built_in">break</span>;</div><div class="line">  <span class="keyword">case</span><span class="string">"Sun"</span>:</div><div class="line">    go(church);</div><div class="line">    <span class="built_in">break</span>;</div><div class="line">  default:</div><div class="line">    go(work);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>js：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> (answer !== <span class="literal">false</span>) &#123;</div><div class="line">     <span class="built_in">let</span>TheWildRumpusBegin();</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>coffee：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">let</span>TheWildRumpusBegin() unless answer isno</div></pre></td></tr></table></figure></p>
+<p>js：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> (car.speed &lt; <span class="built_in">limit</span>) &#123;</div><div class="line">    accelerate();</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>coffee：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> car.speed &lt; <span class="built_in">limit</span> <span class="keyword">then</span> accelerate()</div></pre></td></tr></table></figure></p>
+<p>ps：这个使用then因为前面的是一个表达式，加入前面只是一个正确判断则不要写then，加入为表达式防止表达式混淆，用then</p>
+<p>js：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> (pick === 47 || pick === 92 || pick === 13) &#123;</div><div class="line">  winner = <span class="literal">true</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>coffee：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">winner = yes <span class="keyword">if</span> pick <span class="keyword">in</span> [47, 92, 13]</div></pre></td></tr></table></figure></p>
+<p>ps：if pick in [47, 92, 13]这里 in 的意思是是否包含里面元素中的一个</p>
+<p>extends 操作符可以用来恰当地定义任何一对构造函数的原型链; 用 :: 可以快速访问对象的原型; super() 可以编译为一个父类上同名方法的调用.</p>
+<p>js：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">String.prototype.dasherize = <span class="function"><span class="title">function</span></span>() &#123;</div><div class="line">     returnthis.replace(/_/g, <span class="string">"-"</span>);</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
+<p>coffee：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">String::dasherize = -&gt;this.replace /_/g, <span class="string">"-"</span></div></pre></td></tr></table></figure></p>
+<p>##10.解构赋值</p>
+<p>CoffeeScript 实现 ECMAScript Harmony 的提议 解构赋值 语法, 这样从复杂的数组和对象展开数据会更方便一些. 当你把数组或者对象的字面量赋值到一个变量时, CoffeeScript 把等式两边都解开配对, 把右边的值赋值给左边的变量. 最简单的例子, 可以用来并行赋值:</p>
+<p>js：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var theBait, theSwitch, _ref;</div><div class="line">theBait = 1000;</div><div class="line">theSwitch = 0;</div><div class="line">_ref = [theSwitch, theBait], theBait = _ref[0], theSwitch = _ref[1];</div></pre></td></tr></table></figure></p>
+<p>coffee：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">theBait   = 1000</div><div class="line">theSwitch = 0</div><div class="line">[theBait, theSwitch] = [theSwitch, theBait]</div></pre></td></tr></table></figure></p>
+<p>这样theBait的值就为0，theSwitch的值为1000了，就是一一对应的关系</p>
+<p>##11.Switch语句</p>
+<p>js：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">switch (day) &#123;</div><div class="line">  <span class="keyword">case</span><span class="string">"Mon"</span>:</div><div class="line">    go(work);</div><div class="line">    <span class="built_in">break</span>;</div><div class="line">  <span class="keyword">case</span><span class="string">"Tue"</span>:</div><div class="line">    go(relax);</div><div class="line">    <span class="built_in">break</span>;</div><div class="line">  <span class="keyword">case</span><span class="string">"Thu"</span>:</div><div class="line">    go(iceFishing);</div><div class="line">    <span class="built_in">break</span>;</div><div class="line">  <span class="keyword">case</span><span class="string">"Fri"</span>:</div><div class="line">  <span class="keyword">case</span><span class="string">"Sat"</span>:</div><div class="line">    <span class="keyword">if</span> (day === bingoDay) &#123;</div><div class="line">      go(bingo);</div><div class="line">      go(dancing);</div><div class="line">    &#125;</div><div class="line">    <span class="built_in">break</span>;</div><div class="line">  <span class="keyword">case</span><span class="string">"Sun"</span>:</div><div class="line">    go(church);</div><div class="line">    <span class="built_in">break</span>;</div><div class="line">  default:</div><div class="line">    go(work);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>CoffeeScript 支持多行字符串. 行与行会用一个空格拼接, 除非结尾用了反斜杠. 其中缩进会被忽略.</p>
 <p>coffee：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">switch day</div><div class="line">when<span class="string">"Mon"</span><span class="keyword">then</span> go work</div><div class="line">  when<span class="string">"Tue"</span><span class="keyword">then</span> go relax</div><div class="line">  when<span class="string">"Thu"</span><span class="keyword">then</span> go iceFishing</div><div class="line">  when<span class="string">"Fri"</span>, <span class="string">"Sat"</span><span class="keyword">if</span> day is bingoDay</div><div class="line">      go bingo</div><div class="line">      go dancing</div><div class="line">  when<span class="string">"Sun"</span><span class="keyword">then</span> go church</div><div class="line">  <span class="keyword">else</span> go work</div></pre></td></tr></table></figure></p>
 <p>coffee中switch语句的写法是when … then …，最后一个default用else来替代</p>
@@ -117,46 +394,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://utopia1991.github.io/2016/10/21/coffee/" data-id="ciujkr9830000nhtdjt5nf8rg" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-img-alt" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/10/21/img-alt/" class="article-date">
-  <time datetime="2016-10-21T09:22:55.000Z" itemprop="datePublished">2016-10-21</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/10/21/img-alt/">Img alt 以及 title 属性差别</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>在的img标签有两个属性分别为alt和title，对于很多初学者而言对这两个属性的正确使用都还抱有迷惑，当然这其中一部分原因也是ie浏览器所导致的。正确的使用这两个属性除了可以提高图片的搜索能力外，在用户体验上也是很有帮助，下面就来说说alt和title的概念与正确使用。</p>
-<h2 id="alt-：图片在无法正确显示的时候起到文本替代的作用"><a href="#alt-：图片在无法正确显示的时候起到文本替代的作用" class="headerlink" title="alt ：图片在无法正确显示的时候起到文本替代的作用"></a>alt ：图片在无法正确显示的时候起到文本替代的作用</h2><p>不过在IE6下还起到了title的作用（鼠标放上去后的文字提示），IE的实现方法实际上是错误的。如果想在鼠标滑过时显示提示,应该用title属性。由于错误的引导，很多初学者就在img标签内只加了alt属性。所以这里再次表扬一记FF！</p>
-<h2 id="title-：鼠标滑过时显示的文字提示"><a href="#title-：鼠标滑过时显示的文字提示" class="headerlink" title="title ：鼠标滑过时显示的文字提示"></a>title ：鼠标滑过时显示的文字提示</h2><p>用户体验上很重要。当然不必要所有的img标签都加此属性，比方说logo这样比较重要或者说用户会体验到的图片内容建议一定要加此属性。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;img src=<span class="string">"图片路径"</span> alt=<span class="string">"logo"</span> title=<span class="string">"首页” /&gt;</span></div></pre></td></tr></table></figure></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://utopia1991.github.io/2016/10/21/img-alt/" data-id="ciujicu030000jjtdvgwtw4i9" class="article-share-link">Share</a>
+      <a data-url="https://utopia1991.github.io/2016/10/23/coffee/" data-id="ciujkr9830000nhtdjt5nf8rg" class="article-share-link">Share</a>
       
       
     </footer>
@@ -222,183 +460,9 @@
 
 
   
-    <article id="post-dust" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/10/21/dust/" class="article-date">
-  <time datetime="2016-10-21T08:55:56.000Z" itemprop="datePublished">2016-10-21</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/10/21/dust/">Dust 模版引擎</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="1-模版引擎介绍"><a href="#1-模版引擎介绍" class="headerlink" title="1.模版引擎介绍"></a>1.模版引擎介绍</h2><p>在静态页面中，包括已经从后台生成的HTML中，一般很少需要应用到模板，但是随着AJAX技术的发展，不刷新页面而动态更新内容的需求越来越高。为了降低通讯成本，这种通讯技术传输的一般是一个JSON对象，而不是一整串HTML字符串，所以在前端接受JSON数据之后，还要经过处理才能按要求显示在浏览器上。若只是用纯javascript进行拼接处理，将是一个比较繁琐的过程，而且写出来的代码不直观，可读性比较低。比如如果一个JSON对象people是下面这样的：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    <span class="string">"title"</span>: <span class="string">"Famous People"</span>,</div><div class="line">    <span class="string">"names"</span>: [&#123; <span class="string">"name"</span>: <span class="string">"Larry"</span> &#125;, &#123; <span class="string">"name"</span>: <span class="string">"Curly"</span> &#125;, &#123; <span class="string">"name"</span>: <span class="string">"Moe"</span> &#125;]</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>我们要把他渲染成一个HTML列表如下：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">Famous People</div><div class="line">&lt;ul&gt;</div><div class="line">  &lt;li&gt;Larry&lt;/li&gt;</div><div class="line">  &lt;li&gt;Curly&lt;/li&gt;</div><div class="line">  &lt;li&gt;Moe&lt;/li&gt;</div><div class="line">&lt;/ul&gt;</div></pre></td></tr></table></figure></p>
-<p>使用纯粹的javascript将是这样的：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">var result = people.title + <span class="string">'\n'</span>;</div><div class="line">result += <span class="string">'&lt;ul&gt;'</span> + <span class="string">'\n'</span>;</div><div class="line"><span class="keyword">for</span> (var i = 0; i &lt; people.names.length; i++) &#123;</div><div class="line"> result += <span class="string">'&lt;li&gt;'</span> + people.names[i].name + <span class="string">'&lt;/li&gt;'</span> + <span class="string">'\n'</span>;</div><div class="line">&#125;</div><div class="line">result += <span class="string">'&lt;/ul&gt;'</span></div></pre></td></tr></table></figure></p>
-<p>当然了这只是一个比较简单的例子，而且代码具有专用性且不是最简形式，但是为了兼顾可读性和简介性这样写是比较好的。而使用dust模板将只需要一个模板：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&#123;title&#125;</div><div class="line">&lt;ul&gt;</div><div class="line">&#123;<span class="comment">#names&#125;</span></div><div class="line">  &lt;li&gt;&#123;name&#125;&lt;/li&gt;&#123;~n&#125;</div><div class="line">&#123;/names&#125;</div><div class="line">&lt;/ul&gt;</div></pre></td></tr></table></figure></p>
-<p>然后将people传给编译好的模板则可生成所需要的结果，非常直观。</p>
-<h2 id="2-什么是Dust-js"><a href="#2-什么是Dust-js" class="headerlink" title="2.什么是Dust.js"></a>2.什么是Dust.js</h2><p>Dustjs、dust.js或者直接叫Dust，是一种模板，一开始是由Aleksander 编写并于2010发布第一个版本于Github。因为后台编译使用 Node.js 所以延续了在插件名后加.js的传统。Aleksander 很喜欢胡子模板 Mustache 的语法。但是Mustache缺少了Aleksander想要的特性，比如模板块和高性能。<br>从dust.js的导引页面看来，这个模板制作者还是很有诚意的。可惜这个项目已于两年前停止更新，版本停留在0.3.0。好消息是大型职业社交网LinkedIn也了解到了这个模板的优点和潜力，并接手了Dust.js的后续开发，最终出来的就是现在的Dust.js(LinkedIn)，为了简便起见后面继续称之为Dust。经过不断地更新，Dust目前已经到了2.0版本了。</p>
-<h2 id="3-Dust在线测试器"><a href="#3-Dust在线测试器" class="headerlink" title="3.Dust在线测试器"></a>3.Dust在线测试器</h2><p>首先要介绍一下Dust项目中的一个在线测试器，在了解Dust语法的同时，在这个测试器上尝试应用学到的语法，既可以验证语法是否正确，也可以加强对语法的记忆。进入测试器后可以见到四个框，从左上、左下、右上、右下分别编号为1、2、3、4。测试时在1号框中填入一个Dust模板，然后2号框将显示该模板编译后的结果，再在3号框填入一个JSON对象，4号框中将显示最终的渲染结果。</p>
-<h2 id="4-标签（Tag）"><a href="#4-标签（Tag）" class="headerlink" title="4.标签（Tag）"></a>4.标签（Tag）</h2><p>Dust模板以一种嵌入到HTML中的标签的形式存在。Dust标签使用一对花括号包裹，类似于HTML标签使用一对尖括号包裹：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&#123;name&#125;</div></pre></td></tr></table></figure></p>
-<h2 id="5-注释"><a href="#5-注释" class="headerlink" title="5.注释"></a>5.注释</h2><p>以下标签将不会产生任何内容，即可用作注释（感叹后之间）：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&#123;! Comment syntax !&#125;</div></pre></td></tr></table></figure></p>
-<h2 id="6-键（Key）"><a href="#6-键（Key）" class="headerlink" title="6.键（Key）"></a>6.键（Key）</h2><p>一般Dust标签的表示只有两种形式，一种是键，另一种是区段。键是一个最简单的Dust标签，其中包含的花括号中的值称之为键，对应于JSON对象的属性名，对应的属性值一般为简单类型，比如字符串，渲染后将直接以属性值代替整个标签。如果搜索不到任何匹配值，则不会返回任何数据。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&#123;name&#125;</div></pre></td></tr></table></figure></p>
-<p>在键名后面可以跟随过滤器，使用竖线分隔，一般用于选择处理“&lt;”，“&gt;”等特殊符号的转义：</p>
-<ul>
-<li>{name|s} 禁用自动转码</li>
-<li>{name|h} 强制使用HTML转码</li>
-<li>{name|j} 强制使用Javascript转码</li>
-<li>{name|u} 使用encodeURI编码</li>
-<li>{name|uc} 使用encodeURIComponent编码</li>
-<li>{name|js} 将JSON对象转换为字符串</li>
-<li>{name|jp} 将JSON 字符串转换为JSON对象</li>
-</ul>
-<p>过滤器也可以进行组合：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&#123;name|jp|h&#125;</div></pre></td></tr></table></figure></p>
-<p>一些特殊字符也可以键的形式直接取值输出：</p>
-<ul>
-<li>{~n} 换行</li>
-<li>{~r} CR换行</li>
-<li>{~lb} 左花括号</li>
-<li>{~rb} 右花括号</li>
-<li>{~s} 空格</li>
-</ul>
-<h2 id="7-区段（Section）"><a href="#7-区段（Section）" class="headerlink" title="7.区段（Section）"></a>7.区段（Section）</h2><p>以下两个标签及其包裹的部分称之为区段，用于循环显示数据。其中“#”为开始标签，“/”为结束标签，其后的键值同样对应于JSON对象的属性名，对应的属性值一般为数组或单个对象，单个对象将被当做一个只有一个元素的数组来对待。模板会按下标对数组中的每个元素调用一次区段包裹着的模板。上一篇中的例子就是利用了区段来循环输出列表元素。区段有两种形式写法第一种如下：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&#123;<span class="comment">#names&#125;....&#123;/names&#125;</span></div></pre></td></tr></table></figure></p>
-<p>第二种形式（自封闭式）如下：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&#123;<span class="comment">#names/&#125;</span></div></pre></td></tr></table></figure></p>
-<p>在区段中可以使用两个特殊的键：</p>
-<ul>
-<li>{$idx} 表示当前迭代的序号（从0开始）</li>
-<li>{$len} 表示数组长度</li>
-</ul>
-<h2 id="8-上下文（Context）"><a href="#8-上下文（Context）" class="headerlink" title="8.上下文（Context）"></a>8.上下文（Context）</h2><p>Dust对键或区段值的查询与javascript中对作用域链中变量值的查询类似，换而言之使用区段时会临时改变当前的上下文。 例如一个嵌套的JSON对象：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    <span class="string">"name"</span>: <span class="string">"root"</span>,</div><div class="line">      <span class="string">"anotherName"</span>: <span class="string">"root2"</span>,</div><div class="line">      <span class="string">"A"</span>:&#123;</div><div class="line">          <span class="string">"name"</span>:<span class="string">"Albert"</span>,</div><div class="line">          <span class="string">"B"</span>:&#123;</div><div class="line">             <span class="string">"name"</span>:<span class="string">"Bob"</span></div><div class="line">          &#125;</div><div class="line">      &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>使用区段索值：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&#123;<span class="comment">#A&#125;&#123;name&#125;&#123;/A&#125;</span></div></pre></td></tr></table></figure></p>
-<p>则会得到这个对象的A.name的值：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Albert</div></pre></td></tr></table></figure></p>
-<p>因为使用区段时将上下文转移到A属性对应的对象中。而使用以下区段索值：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&#123;<span class="comment">#A&#125;&#123;anotherName&#125;&#123;/A&#125;</span></div></pre></td></tr></table></figure></p>
-<p>因为在对象A的属性中不存在“anotherName”属性，于是Dust会向上查询A所处的上下文，发现存在“anotherName”属性，于是得到：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">root2</div></pre></td></tr></table></figure></p>
-<p>若往上查找到JSON对象根部间的所有的上下文均无对应属性时将返回空白，索值不会向下查找。</p>
-<h2 id="9-路径（Path）"><a href="#9-路径（Path）" class="headerlink" title="9.路径（Path）"></a>9.路径（Path）</h2><p>若使用不带路径的区段索值，那么相当于从JSON对象的根部开始定位区段上下文。而使用路径可以指定开始搜索的位置。路径使用标志“.”来标记标签，跟javascript语法类似。依然是这个JSON对象：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  <span class="string">"name"</span>: <span class="string">"root"</span>,</div><div class="line">  <span class="string">"anotherName"</span>: <span class="string">"root2"</span>,</div><div class="line">  <span class="string">"A"</span>:&#123;</div><div class="line">      <span class="string">"name"</span>:<span class="string">"Albert"</span>,</div><div class="line">        <span class="string">"B"</span>:&#123;</div><div class="line">              <span class="string">"name"</span>:<span class="string">"Bob"</span></div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>若我们需要取A属性下的B属性的name则可以表达成这样：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&#123;A.B.name&#125;</div></pre></td></tr></table></figure></p>
-<p>或者使用路径标记区块：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&#123;<span class="comment">#A.B&#125;&#123;name&#125;&#123;/A.B&#125;</span></div></pre></td></tr></table></figure></p>
-<p>或者使用单个“.”表示当前上下文对象（当前为字符串）：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&#123;<span class="comment">#A.B.name&#125;&#123;.&#125;&#123;/A.B.name&#125;</span></div></pre></td></tr></table></figure>
-<p>规定路径后，首先在指定的上下文进行查找name的值，找不到时不会向上追溯，而是从根部开始查找。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&#123;<span class="comment">#A.B&#125;&#123;A.name&#125;&#123;/A.B&#125;</span></div></pre></td></tr></table></figure></p>
-<p>上面这个模板将会在A.B中搜索A，因为B并无A属性，所以从JSON对象根部开始找到A属性，从而找到A.name，返回“Albert”，若从根部也无法找到，则返回空白。</p>
-<h2 id="10-修改上下文"><a href="#10-修改上下文" class="headerlink" title="10.修改上下文"></a>10.修改上下文</h2><p>我们也可以在一定程度上修改上下文的关系。通过使用冒号“:”可以用冒号后面的键值代替前面的键值的父级上下文：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&#123;<span class="comment">#A:A2&#125; ... &#123;/A&#125;</span></div></pre></td></tr></table></figure></p>
-<p>以上这个区段会屏蔽掉A的父级上下文，临时将A2作为A的父级上下文，即在A中找不到目标时不会往上回溯，而去搜索A2下的属性。</p>
-<h2 id="11-区段参数"><a href="#11-区段参数" class="headerlink" title="11.区段参数"></a>11.区段参数</h2><p>在区段中可以设置参数：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line">&#123;<span class="comment">#A.B foo="Hi" bar=" Good to see you"&#125;</span></div><div class="line">    &#123;foo&#125; &#123;name&#125; &#123;bar&#125;</div><div class="line">&#123;/A.B&#125;</div><div class="line">``` </div><div class="line"></div><div class="line">模板会将参数值替代键值标签，结果为：</div><div class="line">``` bash</div><div class="line">Hi Bob Good to see you</div><div class="line">``` </div><div class="line"></div><div class="line">参数也可以是键名，但是赋值时的上下文在区段之外：</div><div class="line"></div><div class="line">``` bash</div><div class="line">&#123;<span class="comment">#A.B foo=A.name bar=anotherName&#125;</span></div><div class="line">  &#123;foo&#125; &#123;name&#125; &#123;bar&#125;</div><div class="line">&#123;/A.B&#125;</div><div class="line">``` </div><div class="line"> </div><div class="line"><span class="comment">## 12.逻辑区段</span></div><div class="line"></div><div class="line"><span class="comment">### ?标签</span></div><div class="line"></div><div class="line">用?来代替区段标签中的<span class="comment">#时，仅当name的值为真时，才执行区段主体部分。</span></div><div class="line">``` bash</div><div class="line">    &#123;?name&#125; body &#123;/name&#125;</div><div class="line">``` </div><div class="line"></div><div class="line"><span class="comment">### ^标签</span></div><div class="line"></div><div class="line">用^来代替<span class="comment">#时，仅当name的值为假时，才执行区段主体部分。</span></div><div class="line"></div><div class="line">``` bash</div><div class="line">&#123;^name&#125; body &#123;/name&#125;</div></pre></td></tr></table></figure></p>
-<h3 id="else-标签"><a href="#else-标签" class="headerlink" title="{:else}标签"></a>{:else}标签</h3><p>当一个区段标签（包括#、?、^、以及逻辑标签等）的值为假时，若区段主体中包含{:else}标签，则执行{:else}标签以及区段结束标签之间的内容，否则忽略这些内容。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&lt;ul&gt;</div><div class="line">    &#123;<span class="comment">#friends&#125;</span></div><div class="line">      &lt;li&gt;&#123;name&#125;, &#123;age&#125;&#123;~n&#125;&lt;/li&gt;</div><div class="line">    &#123;:<span class="keyword">else</span>&#125;</div><div class="line">      &lt;p&gt;You have no friends!&lt;p&gt;</div><div class="line">    &#123;/friends&#125;</div><div class="line">&lt;/ul&gt;</div></pre></td></tr></table></figure></p>
-<p>若friend为空，则仅仅输出：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;ul&gt;</div><div class="line">    &lt;p&gt;You have no friends!&lt;/p&gt;</div><div class="line">&lt;/ul&gt;</div></pre></td></tr></table></figure></p>
-<h3 id="值的真假"><a href="#值的真假" class="headerlink" title="值的真假"></a>值的真假</h3><p>在区段中判断标签的真假的方法与Javascript本身稍有不同，Dust将以下值判断为假：</p>
-<ul>
-<li>空字符串’’、””</li>
-<li>布尔false</li>
-<li>null</li>
-<li>undefined</li>
-<li>空列表[]</li>
-</ul>
-<p>其余值均为真值，包括数字“0”，空对象{}。</p>
-<h3 id="拆分（Partials）"><a href="#拆分（Partials）" class="headerlink" title="拆分（Partials）"></a>拆分（Partials）</h3><p>拆分是一种将重复使用的模板抽取出来，并在使用到这段模板的模板中直接导入该模板，避免重复劳动的方法。在服务端，一个名为“xxx”的Dust模板通常通常保存在一个名为xxx.dust的模板文件中。我们可以利用模板名来在模板中插入一段来自其他模版文件的模板：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">&#123;&gt;name /&#125;</div><div class="line">``` </div><div class="line"></div><div class="line">以上是一个自封闭的区段标签，代表将name.dust中的模版插入到当前位置。若文件包含路径，则用双引号包裹：</div><div class="line">``` bash</div><div class="line">&#123;&gt;”dust/name” /&#125;</div><div class="line">``` </div><div class="line"></div><div class="line">标签中也可以填写参数：</div><div class="line">``` bash</div><div class="line">&#123;&gt;”dust/name” foo=”Hello” bar=” World”/&#125;</div><div class="line">``` </div><div class="line"></div><div class="line">甚至可以使用动态路径：</div><div class="line">``` bash</div><div class="line">&#123;&gt;”dust/&#123;pathName&#125;” /&#125;</div></pre></td></tr></table></figure></p>
-<h3 id="区块（Blocks）"><a href="#区块（Blocks）" class="headerlink" title="区块（Blocks）"></a>区块（Blocks）</h3><p>通过拆分可以重用一个模版，但是用这种方法来派生模版有一个缺点，就是你需要记得需要在什么位置插入哪个模版，并且对每一个派生出来的模版都要重新布局一次。区块可以解决这个问题，在父模板中使用区块可以方便地在子模板中替换区块中的内容。区块也是一种特殊的区段，定义方法如下：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&#123;+name /&#125;</div><div class="line">``` </div><div class="line"></div><div class="line">或者在区段中填写默认内容，当区块没有被替换时，将显示默认内容：</div><div class="line">``` bash</div><div class="line">&#123;+name&#125;default Content&#123;/name&#125;</div></pre></td></tr></table></figure></p>
-<p>使用区块替换需要在子模板中使用拆分区段（&gt;）导入父模板，并使用替换区段（&lt;）进行替换：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&#123;&gt;father/&#125;</div><div class="line">&#123;&lt;name&#125;Content&#123;/name&#125;</div></pre></td></tr></table></figure></p>
-<p>比如一个父模板可以写成这样：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line">&lt;div class=<span class="string">"page"</span>&gt;</div><div class="line">    &lt;h1&gt;&#123;+pageHeader&#125;PayPal&#123;/pageHeader&#125;&lt;/h&gt;</div><div class="line">&lt;div class=<span class="string">"bodyContent"</span>&gt;</div><div class="line">    &#123;+bodyContent/&#125;</div><div class="line">&lt;/div&gt;</div><div class="line">&lt;div class=<span class="string">"footer"</span>&gt;</div><div class="line">    &#123;+pageFooter&#125;Contact Us &#123;/pageFooter&#125;</div><div class="line">&lt;/div&gt;</div><div class="line">&lt;/div&gt;</div><div class="line">``` </div><div class="line"></div><div class="line">然后保存为shared/base_template.dust文件，然后定义子模板：</div><div class="line">``` bash</div><div class="line"></div><div class="line">&#123;! 首先导入父模板 !&#125;</div><div class="line"></div><div class="line">&#123;&gt;<span class="string">"shared/base_template"</span>/&#125;</div><div class="line"></div><div class="line">&#123;! 然后定义对应的部分 !&#125;</div><div class="line">&#123;&lt;bodyContent&#125;</div><div class="line">&lt;p&gt;These are your current settings:&lt;/p&gt;</div><div class="line">&lt;ul&gt;</div><div class="line">  &lt;li&gt;xxxx&lt;/li&gt;</div><div class="line">  &lt;li&gt;yyy&lt;/li&gt;</div><div class="line">&lt;/ul&gt;</div><div class="line">&#123;/bodyContent&#125;</div><div class="line">&#123;&lt;pageFooter&#125;</div><div class="line">  &lt;hr&gt;</div><div class="line">  &lt;a href=<span class="string">"/contactUs"</span>&gt;About Us&lt;/a&gt; |</div><div class="line">  &lt;a href=<span class="string">"/contactUs"</span>&gt;Contact Us&lt;/a&gt;</div><div class="line">&#123;/pageFooter&#125;</div></pre></td></tr></table></figure></p>
-<h2 id="13-编译"><a href="#13-编译" class="headerlink" title="13.编译"></a>13.编译</h2><p>之前也介绍过，Dust是编译型模板，意思则是若需应用模板，首先要将模板可执行化，即将模板变成可执行的代码。如果你使用过Dust测试器，那么你会发现在你输入模板后，会在2号框中显示一个函数定义，那就是编译生成的代码。使用编译型模板有一个好处，就是当模板编译好之后，若需要重复使用模板，不需要每次都对模板重新进行分析，加快模板解析的速度，而且，模板可以预先编译好保存在服务器，甚至让前端连第一次编译的时间都节省了。<br>因此Dust库有两种发行版本：</p>
-<ul>
-<li>dust-core-2.0.2.js</li>
-<li>dust-full-2.0.2.js<br>前者为核心（Core）版本，其只包含模板解析的相关代码，大小只有十几k，而完全版（Full）则包含Dust的所有代码，包括编译器，大小有一百多k。对于不需要在前端进行编译的项目，仅仅需要使用核心版本即可，这也是速度比较快的做法。但是对于需要在前端动态编译的项目，则只能使用包含编译器的完全版。<br>编译模板的方法很简单，使用完全版的dust.compile()方法：</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var compiled = dust.compile(<span class="string">"Hello &#123;name&#125;!"</span>, <span class="string">"intro"</span>);</div></pre></td></tr></table></figure>
-<p>其中第一个参数为模板字符串，第二个参数为模板名，函数将返回包含编译好的可执行代码的字符串。这个操作不会注册这个模板，仅进行编译，此时仍不可通过模板名来调用这段代码。</p>
-<h2 id="14-注册"><a href="#14-注册" class="headerlink" title="14.注册"></a>14.注册</h2><p>如果直接执行一遍compiled中的代码，则模板会按之前指定的名字注册到dust，从而可以通过模板名来调用该模板。但若compiled代码未被执行过，则需要在渲染前手动将其注册到dust中，注册的方法很简单：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line">dust.loadSource(compiled);</div><div class="line">``` </div><div class="line"></div><div class="line"><span class="comment">## 15.渲染</span></div><div class="line"></div><div class="line">通过编译注册可以让多套模板处于就绪状态，对于这些模板，我们可以直接用它将JSON对象渲染成HTML文本，通过调用dust.render()方法。</div><div class="line">``` bash</div><div class="line">dust.render(<span class="string">"intro"</span>, &#123;name: <span class="string">"Fred"</span>&#125;, <span class="keyword">function</span>(err, out) &#123;</div><div class="line">    console.log(out);</div><div class="line">&#125;);</div><div class="line">``` </div><div class="line"></div><div class="line">这个方法接受3个参数，第一个为模板名，第二个为JSON对象，第三个是一个接受两个参数的回调函数。执行这个方法后Dust会使用注册好的对应模板对JSON对象进行处理，得出一个渲染结果字符串，然后调用回调函数，其中第一个参数包含了在处理过程中出现的错误信息，第二个参数就是渲染结果字符串。一般会在回调函数中将渲染结果插入到当前的DOM结构中，以便在浏览器中显示渲染结果。</div><div class="line"></div><div class="line"><span class="comment">## 16.区块和拆分</span></div><div class="line"></div><div class="line">一般使用文件来保存模板并且使用区块和拆分是让Dust作为服务端模板时应用的技术，因为在客户端Javascript中无法很方便地对分布式文件进行操作。但是我们可以通过在本地部署模板数据，编译成可执行代码并用一个js文件来保存的方式来使用区块和拆分。</div><div class="line">若在Linux平台则直接在终端安装npm和dust并使用dustc命令编译成代码，得到js文件。</div><div class="line">``` bash</div><div class="line">$ npm install dustjs-linkedin</div><div class="line">$ dustc input.dust output.js</div><div class="line">``` </div><div class="line"></div><div class="line">或者在js引擎中使用dust.compile()，将模板复制到第一个参数，指定第二参数为其不带后缀的文件名，并将结果输出到js文件。</div><div class="line">``` bash</div><div class="line">var output1 = dust.compile(partialStr, <span class="string">"partial"</span>);</div><div class="line">var output2 = dust.compile(baseStr, <span class="string">"base"</span>);</div><div class="line">var output3 = dust.compile(childStr, <span class="string">"child"</span>);</div></pre></td></tr></table></figure></p>
-<p>最后在HTML中导入所有生成的js文件即可使用。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;script <span class="built_in">type</span>=<span class="string">"text/javascript"</span> src=<span class="string">"partial.js"</span>&gt;&lt;/script&gt;</div><div class="line">&lt;script <span class="built_in">type</span>=<span class="string">"text/javascript"</span> src=<span class="string">"base.js"</span>&gt;&lt;/script&gt;</div><div class="line">&lt;script <span class="built_in">type</span>=<span class="string">"text/javascript"</span> src=<span class="string">"child.js"</span>&gt;&lt;/script&gt;</div></pre></td></tr></table></figure></p>
-<p>注意此时不再需要使用dust.loadSource()来注册，因为script标签将js文件执行了一次，已经将模板注册好了。此时已可使用dust.render()进行渲染。</p>
-<h4 id="ps：这些都是因为工作开发中用到了dust，在国内很少开发人员用到这种引擎，而公司是一家外企，有幸可以用上这个，这只是些基础，会这些也大概会百分之七八十了，还有不能的，可以google下dust，查看官方文档，或者关注我的GitHub-里面有dust的教学😊"><a href="#ps：这些都是因为工作开发中用到了dust，在国内很少开发人员用到这种引擎，而公司是一家外企，有幸可以用上这个，这只是些基础，会这些也大概会百分之七八十了，还有不能的，可以google下dust，查看官方文档，或者关注我的GitHub-里面有dust的教学😊" class="headerlink" title="ps：这些都是因为工作开发中用到了dust，在国内很少开发人员用到这种引擎，而公司是一家外企，有幸可以用上这个，这只是些基础，会这些也大概会百分之七八十了，还有不能的，可以google下dust，查看官方文档，或者关注我的GitHub,里面有dust的教学😊"></a>ps：这些都是因为工作开发中用到了dust，在国内很少开发人员用到这种引擎，而公司是一家外企，有幸可以用上这个，这只是些基础，会这些也大概会百分之七八十了，还有不能的，可以google下dust，查看官方文档，或者关注我的<a href="https://github.com/utopia1991" target="_blank" rel="external">GitHub</a>,里面有dust的教学😊</h4>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://utopia1991.github.io/2016/10/21/dust/" data-id="ciujicu0a0001jjtdklwehuyq" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
 
 
         </section>
-        
-          <aside id="sidebar">
-  <div class="aside-author">
-    <div class="aside-logo"></div>
-    <p class="aside-title">Bevis Shen</p>
-    <p class="aside-subtitle">Node.js & Front-End Development</p>
-    <div class="aside-communicate">
-      <a href="https://github.com/utopia1991" target="_blank" class="article-share-github"></a>
-      <a href="https://www.linkedin.com/in/bevis1991" target="_blank" class="article-share-linkedin"></a>
-      <a href="https://weibo.com/u/2619492527/home" target="_blank" class="article-share-weibo"></a>
-      <a href="https://www.facebook.com/bevis1991" target="_blank" class="article-share-facebook"></a>
-    </div>
-  </div>
-  
-    
-
-  
-    
-
-  
-    
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">归档</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">十月 2016</a><span class="archive-list-count">4</span></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">最新文章</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2016/10/21/coffee/">coffeescript 学习笔记</a>
-          </li>
-        
-          <li>
-            <a href="/2016/10/21/img-alt/">Img alt 以及 title 属性差别</a>
-          </li>
-        
-          <li>
-            <a href="/2016/10/21/eslint/">EsLint入门</a>
-          </li>
-        
-          <li>
-            <a href="/2016/10/21/dust/">Dust 模版引擎</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-  
-</aside>
-        
       </div>
       <footer id="footer">
   
