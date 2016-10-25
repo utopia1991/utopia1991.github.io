@@ -129,7 +129,7 @@ body {
 }
 .outer {
   margin-top: 30px;
-  max-width: 980px;
+  max-width: 1160px;
   margin: 0px auto;
   padding: 0 20px;
 }
@@ -518,6 +518,7 @@ body {
   box-shadow: 0px 0px 17px #999;
 }
 .article-inner {
+  border-radius: 5px;
   background: #fff;
   overflow: hidden;
 }
@@ -530,10 +531,10 @@ body {
   clear: both;
 }
 .article-date {
-  float: left;
+  float: right;
   font-size: 16px;
   display: inline-block;
-  margin: 20px 0 10px 22px;
+  margin: 10px 10px 10px 0px;
 }
 .article-category {
   float: left;
@@ -550,6 +551,9 @@ body {
 }
 .article-header {
   padding: 20px 20px 0;
+}
+.article-header h1 {
+  display: inline-block;
 }
 .article-title {
   text-decoration: none;
@@ -583,7 +587,11 @@ a .article-title:hover {
 .article-entry p,
 .article-entry table {
   line-height: 1.6em;
-  margin: 1.6em 0;
+  margin: 1em 0;
+}
+.article-entry p {
+  text-indent: 25px;
+  font-size: 14px;
 }
 .article-entry h1,
 .article-entry h2,
@@ -694,7 +702,7 @@ a .article-title:hover {
 .article-more-link a {
   display: inline-block;
   line-height: 1em;
-  padding: 6px 15px;
+  padding: 6px;
   border-radius: 15px;
   background: #fff;
   color: #999;
@@ -702,17 +710,15 @@ a .article-title:hover {
   text-decoration: none;
 }
 .article-more-link a:hover {
-  background: #258fb8;
-  color: #fff;
+  color: #258fb8;
   text-decoration: none;
-  text-shadow: 0 1px #1e7293;
 }
 .article-footer {
   font-size: 0.85em;
-  line-height: 1.6em;
+  line-height: 15px;
   border-top: 1px solid #ddd;
-  padding-top: 1.6em;
-  margin: 0 20px 20px;
+  padding-top: 14px;
+  margin: 0 20px;
 }
 .article-footer:before,
 .article-footer:after {
@@ -728,6 +734,10 @@ a .article-title:hover {
 }
 .article-footer a:hover {
   color: #555;
+}
+.article-more-link {
+  float: right !important;
+  margin: 0 0 10px 0 !important;
 }
 .article-tag-list-item {
   float: left;
@@ -1409,8 +1419,9 @@ pre .javascript .function {
   margin: 5px auto;
 }
 .aside-communicate {
+  position: relative;
   width: 100%;
-  max-width: 224px;
+  max-width: 270px;
   height: 80px;
   text-align: center;
   margin: 10px auto 0;
@@ -1418,7 +1429,8 @@ pre .javascript .function {
 .wechat-pic,
 .qq-pic {
   position: absolute;
-  left: 20px;
+  left: 0px;
+  top: 72px;
 }
 .aside-communicate a {
   display: inline-block;
