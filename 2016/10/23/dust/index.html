@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="utf-8">
-  
-  <title>Dust 模版引擎 | Bevis Blog</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="1.模版引擎介绍在静态页面中，包括已经从后台生成的HTML中，一般很少需要应用到模板，但是随着AJAX技术的发展，不刷新页面而动态更新内容的需求越来越高。为了降低通讯成本，这种通讯技术传输的一般是一个JSON对象，而不是一整串HTML字符串，所以在前端接受JSON数据之后，还要经过处理才能按要求显示在浏览器上。若只是用纯javascript进行拼接处理，将是一个比较繁琐的过程，而且写出来的代码不直">
+	<meta charset="utf-8">
+	
+	<title>Dust 模版引擎 | Bevis Blog</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<meta name="description" content="1.模版引擎介绍在静态页面中，包括已经从后台生成的HTML中，一般很少需要应用到模板，但是随着AJAX技术的发展，不刷新页面而动态更新内容的需求越来越高。为了降低通讯成本，这种通讯技术传输的一般是一个JSON对象，而不是一整串HTML字符串，所以在前端接受JSON数据之后，还要经过处理才能按要求显示在浏览器上。若只是用纯javascript进行拼接处理，将是一个比较繁琐的过程，而且写出来的代码不直">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Dust 模版引擎">
 <meta property="og:url" content="https://utopia1991.github.io/2016/10/23/dust/index.html">
@@ -15,22 +15,22 @@
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Dust 模版引擎">
 <meta name="twitter:description" content="1.模版引擎介绍在静态页面中，包括已经从后台生成的HTML中，一般很少需要应用到模板，但是随着AJAX技术的发展，不刷新页面而动态更新内容的需求越来越高。为了降低通讯成本，这种通讯技术传输的一般是一个JSON对象，而不是一整串HTML字符串，所以在前端接受JSON数据之后，还要经过处理才能按要求显示在浏览器上。若只是用纯javascript进行拼接处理，将是一个比较繁琐的过程，而且写出来的代码不直">
-  
-  
-    <link rel="icon" href="css/images/logo.jpg">
-  
-  
-    <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
-  
-  <link rel="stylesheet" href="/css/style.css">
-  
+	
+	
+		<link rel="icon" href="https://utopia1991.github.io/css/images/logo.jpg">
+	
+	
+		<link href="https://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+	
+	<link rel="stylesheet" href="/css/style.css">
+	
 
 </head>
 
 <body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
+	<div id="container">
+		<div id="wrap">
+			<header id="header">
   <div id="header-outer" class="outer">
     <div id="header-title" class="inner">
       <h1 id="logo-wrap">
@@ -59,106 +59,118 @@
     </div>
   </div>
 </header>
-      <div class="outer">
-        
-        <aside id="sidebar">
-  <div class="aside-author">
-    <div class="aside-logo"></div>
-    <p class="aside-title">Bevis Shen（沈浩）</p>
-    <p class="aside-subtitle">Node.js & Front-End Engineer</p>
-    <p class="aside-description">Google重度依赖者，Mac拥趸，热衷开源，对前沿技术有着狂热的激情，梦想全栈，旅游、电影爱好的文艺程序猿一枚</p>
-    <div class="aside-communicate">
-      <a href="https://github.com/utopia1991" target="_blank" class="article-share-github" title="github"></a>
-      <a href="https://www.linkedin.com/in/bevis1991" target="_blank" class="article-share-linkedin" title="linkedin"></a>
-      <a href="mailto:1304354608@qq.com" class="article-share-mail" title="email"></a>
-      <a href="https://weibo.com/u/2619492527/home" target="_blank" class="article-share-weibo" title="weibo"></a>
-      <a class="article-share-weixin" title="wechat"></a>
-      <img src="css/images/wechat.png" width="180" height="180" class="wechat-pic none">
-      <a class="article-share-qq" title="qq"></a>
-      <img src="css/images/qq.png" width="180" height="180" class="qq-pic none">
-      <a href="https://www.facebook.com/bevis1991" target="_blank" class="article-share-facebook" title="facebook"></a>
-      <a href="https://twitter.com/bevis_shen" target="_blank" class="article-share-twitter" title="twitter"></a>
-    </div>
-  </div>
-  
-    
+			<div class="outer">
+				
+				<aside id="sidebar">
+	<div class="aside-author">
+		<div class="aside-logo"></div>
+		<p class="aside-title">Bevis Shen（沈浩）</p>
+		<p class="aside-subtitle">Node.js & Front-End Engineer</p>
+		<p class="aside-description">Google重度依赖者，Mac拥趸，热衷开源，对前沿技术有着狂热的激情，梦想全栈，旅游、电影爱好的文艺程序猿一枚</p>
+		<div class="aside-communicate">
+			<a href="https://github.com/utopia1991" target="_blank" class="article-share-github" title="github"></a>
+			<a href="https://www.linkedin.com/in/bevis1991" target="_blank" class="article-share-linkedin" title="linkedin"></a>
+			<a href="mailto:1304354608@qq.com" class="article-share-mail" title="email"></a>
+			<a href="https://weibo.com/u/2619492527/home" target="_blank" class="article-share-weibo" title="weibo"></a>
+			<a class="article-share-weixin" title="wechat"></a>
+			<img src="https://utopia1991.github.io/css/images/wechat.png" width="180" height="180" class="wechat-pic none">
+			<a href="http://user.qzone.qq.com/1304354608" target="_blank" class="article-share-qq" title="qq"></a>
+			<a href="https://www.facebook.com/bevis1991" target="_blank" class="article-share-facebook" title="facebook"></a>
+			<a href="https://twitter.com/bevis_shen" target="_blank" class="article-share-twitter" title="twitter"></a>
+		</div>
+	</div>
+	
+		
 
-  
-    
+	
+		
 
-  
-    
-  
-    
+	
+		
+	
+		
   <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">十月 2016</a><span class="archive-list-count">8</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">十月 2016</a><span class="archive-list-count">9</span></li></ul>
     </div>
   </div>
 
 
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">最新文章</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2016/10/24/interview/">一篇不错的前端面试文章(译)</a>
-          </li>
-        
-          <li>
-            <a href="/2016/10/24/express/">Node.js Express 框架</a>
-          </li>
-        
-          <li>
-            <a href="/2016/10/24/commandLine/">Mac 常用终端命令</a>
-          </li>
-        
-          <li>
-            <a href="/2016/10/24/mvc/">MVC 可能快过气了</a>
-          </li>
-        
-          <li>
-            <a href="/2016/10/23/dust/">Dust 模版引擎</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
+	
+		
+	<div class="widget-wrap">
+		<h3 class="widget-title">最新文章</h3>
+		<div class="widget">
+			<ul>
+				
+					<li>
+						<a href="/2016/10/25/superAgent/">
+							SuperAgent 中文使用文档
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2016/10/24/interview/">
+							一篇不错的前端面试文章(译)
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2016/10/24/express/">
+							Node.js Express 框架
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2016/10/24/commandLine/">
+							Mac 常用终端命令
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2016/10/24/mvc/">
+							MVC 可能快过气了
+						</a>
+					</li>
+					
+			</ul>
+		</div>
+	</div>
+	
 
-  
+	
 </aside>
-        
-        <section id="main">
-          <div class="main-header">
-            <span class="main-title">求知若饥 虚心若愚</span>
-          </div>
-          <article id="post-dust" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/10/23/dust/" class="article-date">
+
+				
+				<section id="main">
+					<div class="main-header">
+						<span class="main-title">求知若饥 虚心若愚</span>
+					</div>
+					<article id="post-dust" class="article article-type-post" itemscope itemprop="blogPost">
+	<div class="article-meta">
+		
+	</div>
+	<div class="article-inner">
+		
+		
+			<header class="article-header">
+				
+	
+		<h1 class="article-title" itemprop="name">
+			Dust 模版引擎
+		</h1>
+	
+
+
+				<a href="/2016/10/23/dust/" class="article-date">
   <time datetime="2016-10-24T03:27:39.000Z" itemprop="datePublished">2016-10-23</time>
 </a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      Dust 模版引擎
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="1-模版引擎介绍"><a href="#1-模版引擎介绍" class="headerlink" title="1.模版引擎介绍"></a>1.模版引擎介绍</h2><p>在静态页面中，包括已经从后台生成的HTML中，一般很少需要应用到模板，但是随着AJAX技术的发展，不刷新页面而动态更新内容的需求越来越高。为了降低通讯成本，这种通讯技术传输的一般是一个JSON对象，而不是一整串HTML字符串，所以在前端接受JSON数据之后，还要经过处理才能按要求显示在浏览器上。若只是用纯javascript进行拼接处理，将是一个比较繁琐的过程，而且写出来的代码不直观，可读性比较低。比如如果一个JSON对象people是下面这样的：<br><figure class="highlight json"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    <span class="attr">"title"</span>: <span class="string">"Famous People"</span>,</div><div class="line">    <span class="attr">"names"</span>: [&#123; <span class="attr">"name"</span>: <span class="string">"Larry"</span> &#125;, &#123; <span class="attr">"name"</span>: <span class="string">"Curly"</span> &#125;, &#123; <span class="attr">"name"</span>: <span class="string">"Moe"</span> &#125;]</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+			</header>
+		
+		<div class="article-entry" itemprop="articleBody">
+			
+				<h2 id="1-模版引擎介绍"><a href="#1-模版引擎介绍" class="headerlink" title="1.模版引擎介绍"></a>1.模版引擎介绍</h2><p>在静态页面中，包括已经从后台生成的HTML中，一般很少需要应用到模板，但是随着AJAX技术的发展，不刷新页面而动态更新内容的需求越来越高。为了降低通讯成本，这种通讯技术传输的一般是一个JSON对象，而不是一整串HTML字符串，所以在前端接受JSON数据之后，还要经过处理才能按要求显示在浏览器上。若只是用纯javascript进行拼接处理，将是一个比较繁琐的过程，而且写出来的代码不直观，可读性比较低。比如如果一个JSON对象people是下面这样的：<br><figure class="highlight json"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    <span class="attr">"title"</span>: <span class="string">"Famous People"</span>,</div><div class="line">    <span class="attr">"names"</span>: [&#123; <span class="attr">"name"</span>: <span class="string">"Larry"</span> &#125;, &#123; <span class="attr">"name"</span>: <span class="string">"Curly"</span> &#125;, &#123; <span class="attr">"name"</span>: <span class="string">"Moe"</span> &#125;]</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>我们要把他渲染成一个HTML列表如下：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">Famous People</div><div class="line"><span class="tag">&lt;<span class="name">ul</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>Larry<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>Curly<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>Moe<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></div></pre></td></tr></table></figure></p>
 <p>使用纯粹的javascript将是这样的：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> result = people.title + <span class="string">'\n'</span>;</div><div class="line">result += <span class="string">'&lt;ul&gt;'</span> + <span class="string">'\n'</span>;</div><div class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; people.names.length; i++) &#123;</div><div class="line"> result += <span class="string">'&lt;li&gt;'</span> + people.names[i].name + <span class="string">'&lt;/li&gt;'</span> + <span class="string">'\n'</span>;</div><div class="line">&#125;</div><div class="line">result += <span class="string">'&lt;/ul&gt;'</span></div></pre></td></tr></table></figure></p>
 <p>当然了这只是一个比较简单的例子，而且代码具有专用性且不是最简形式，但是为了兼顾可读性和简介性这样写是比较好的。而使用dust模板将只需要一个模板：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&#123;title&#125;</div><div class="line"><span class="tag">&lt;<span class="name">ul</span>&gt;</span></div><div class="line">&#123;#names&#125;</div><div class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>&#123;name&#125;<span class="tag">&lt;/<span class="name">li</span>&gt;</span>&#123;~n&#125;</div><div class="line">&#123;/names&#125;</div><div class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></div></pre></td></tr></table></figure></p>
@@ -250,16 +262,16 @@
 <p>最后在HTML中导入所有生成的js文件即可使用。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;script type=<span class="string">"text/javascript"</span> src=<span class="string">"partial.js"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></div><div class="line">&lt;script type=<span class="string">"text/javascript"</span> src=<span class="string">"base.js"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></div><div class="line">&lt;script type=<span class="string">"text/javascript"</span> src=<span class="string">"child.js"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></div></pre></td></tr></table></figure></p>
 <p>注意此时不再需要使用dust.loadSource()来注册，因为script标签将js文件执行了一次，已经将模板注册好了。此时已可使用dust.render()进行渲染。</p>
 <h4 id="ps：这些都是因为工作开发中用到了dust，在国内很少开发人员用到这种引擎，而公司是一家外企，有幸可以用上这个，这只是些基础，会这些也大概会百分之七八十了，还有不能的，可以google下dust，查看官方文档，或者关注我的GitHub-里面有dust的教学"><a href="#ps：这些都是因为工作开发中用到了dust，在国内很少开发人员用到这种引擎，而公司是一家外企，有幸可以用上这个，这只是些基础，会这些也大概会百分之七八十了，还有不能的，可以google下dust，查看官方文档，或者关注我的GitHub-里面有dust的教学" class="headerlink" title="ps：这些都是因为工作开发中用到了dust，在国内很少开发人员用到这种引擎，而公司是一家外企，有幸可以用上这个，这只是些基础，会这些也大概会百分之七八十了，还有不能的，可以google下dust，查看官方文档，或者关注我的GitHub,里面有dust的教学"></a>ps：这些都是因为工作开发中用到了dust，在国内很少开发人员用到这种引擎，而公司是一家外企，有幸可以用上这个，这只是些基础，会这些也大概会百分之七八十了，还有不能的，可以google下dust，查看官方文档，或者关注我的<a href="https://github.com/utopia1991" target="_blank" rel="external">GitHub</a>,里面有dust的教学</h4>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://utopia1991.github.io/2016/10/23/dust/" data-id="ciujicu0a0001jjtdklwehuyq" class="article-share-link">分享</a>
-      
-      
-    </footer>
-  </div>
-  
-    
+			
+		</div>
+		<footer class="article-footer">
+			<a data-url="https://utopia1991.github.io/2016/10/23/dust/" data-id="ciujicu0a0001jjtdklwehuyq" class="article-share-link">分享</a>
+			
+			
+		</footer>
+	</div>
+	
+		
 <nav id="article-nav">
   
     <a href="/2016/10/24/mvc/" id="article-nav-newer" class="article-nav-link-wrap">
@@ -279,13 +291,14 @@
   
 </nav>
 
-  
+	
 </article>
 
 
-        </section>
-      </div>
-      <footer id="footer">
+
+				</section>
+			</div>
+			<footer id="footer">
   
   <div class="outer">
     <div id="footer-info">
@@ -294,15 +307,15 @@
     </div>
   </div>
 </footer>
-    </div>
-    <nav id="mobile-nav">
+		</div>
+		<nav id="mobile-nav">
   
     <a href="/" class="mobile-nav-link">主页</a>
   
     <a href="/archives" class="mobile-nav-link">博文</a>
   
 </nav>
-    
+		
 
 <script src="https://cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
 
@@ -313,6 +326,6 @@
 
 <script src="/js/script.js"></script>
 
-  </div>
+	</div>
 </body>
 </html>

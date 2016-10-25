@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="utf-8">
-  
-  <title>EsLint入门 | Bevis Blog</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="介绍官方地址：http://eslint.org/EsLint帮助我们检查Javascript编程时的语法错误。比如：在Javascript应用中，你很难找到你漏泄的变量或者方法。EsLint能够帮助我们分析JS代码，找到bug并确保一定程度的JS语法书写的正确性。EsLint是建立在Esprima(ECMAScript解析架构)的基础上的。Esprima支持ES5.1,本身也是用ECMAScri">
+	<meta charset="utf-8">
+	
+	<title>EsLint入门 | Bevis Blog</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<meta name="description" content="介绍官方地址：http://eslint.org/EsLint帮助我们检查Javascript编程时的语法错误。比如：在Javascript应用中，你很难找到你漏泄的变量或者方法。EsLint能够帮助我们分析JS代码，找到bug并确保一定程度的JS语法书写的正确性。EsLint是建立在Esprima(ECMAScript解析架构)的基础上的。Esprima支持ES5.1,本身也是用ECMAScri">
 <meta property="og:type" content="article">
 <meta property="og:title" content="EsLint入门">
 <meta property="og:url" content="https://utopia1991.github.io/2016/10/21/eslint/index.html">
@@ -15,22 +15,22 @@
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="EsLint入门">
 <meta name="twitter:description" content="介绍官方地址：http://eslint.org/EsLint帮助我们检查Javascript编程时的语法错误。比如：在Javascript应用中，你很难找到你漏泄的变量或者方法。EsLint能够帮助我们分析JS代码，找到bug并确保一定程度的JS语法书写的正确性。EsLint是建立在Esprima(ECMAScript解析架构)的基础上的。Esprima支持ES5.1,本身也是用ECMAScri">
-  
-  
-    <link rel="icon" href="css/images/logo.jpg">
-  
-  
-    <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
-  
-  <link rel="stylesheet" href="/css/style.css">
-  
+	
+	
+		<link rel="icon" href="https://utopia1991.github.io/css/images/logo.jpg">
+	
+	
+		<link href="https://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+	
+	<link rel="stylesheet" href="/css/style.css">
+	
 
 </head>
 
 <body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
+	<div id="container">
+		<div id="wrap">
+			<header id="header">
   <div id="header-outer" class="outer">
     <div id="header-title" class="inner">
       <h1 id="logo-wrap">
@@ -59,106 +59,118 @@
     </div>
   </div>
 </header>
-      <div class="outer">
-        
-        <aside id="sidebar">
-  <div class="aside-author">
-    <div class="aside-logo"></div>
-    <p class="aside-title">Bevis Shen（沈浩）</p>
-    <p class="aside-subtitle">Node.js & Front-End Engineer</p>
-    <p class="aside-description">Google重度依赖者，Mac拥趸，热衷开源，对前沿技术有着狂热的激情，梦想全栈，旅游、电影爱好的文艺程序猿一枚</p>
-    <div class="aside-communicate">
-      <a href="https://github.com/utopia1991" target="_blank" class="article-share-github" title="github"></a>
-      <a href="https://www.linkedin.com/in/bevis1991" target="_blank" class="article-share-linkedin" title="linkedin"></a>
-      <a href="mailto:1304354608@qq.com" class="article-share-mail" title="email"></a>
-      <a href="https://weibo.com/u/2619492527/home" target="_blank" class="article-share-weibo" title="weibo"></a>
-      <a class="article-share-weixin" title="wechat"></a>
-      <img src="css/images/wechat.png" width="180" height="180" class="wechat-pic none">
-      <a class="article-share-qq" title="qq"></a>
-      <img src="css/images/qq.png" width="180" height="180" class="qq-pic none">
-      <a href="https://www.facebook.com/bevis1991" target="_blank" class="article-share-facebook" title="facebook"></a>
-      <a href="https://twitter.com/bevis_shen" target="_blank" class="article-share-twitter" title="twitter"></a>
-    </div>
-  </div>
-  
-    
+			<div class="outer">
+				
+				<aside id="sidebar">
+	<div class="aside-author">
+		<div class="aside-logo"></div>
+		<p class="aside-title">Bevis Shen（沈浩）</p>
+		<p class="aside-subtitle">Node.js & Front-End Engineer</p>
+		<p class="aside-description">Google重度依赖者，Mac拥趸，热衷开源，对前沿技术有着狂热的激情，梦想全栈，旅游、电影爱好的文艺程序猿一枚</p>
+		<div class="aside-communicate">
+			<a href="https://github.com/utopia1991" target="_blank" class="article-share-github" title="github"></a>
+			<a href="https://www.linkedin.com/in/bevis1991" target="_blank" class="article-share-linkedin" title="linkedin"></a>
+			<a href="mailto:1304354608@qq.com" class="article-share-mail" title="email"></a>
+			<a href="https://weibo.com/u/2619492527/home" target="_blank" class="article-share-weibo" title="weibo"></a>
+			<a class="article-share-weixin" title="wechat"></a>
+			<img src="https://utopia1991.github.io/css/images/wechat.png" width="180" height="180" class="wechat-pic none">
+			<a href="http://user.qzone.qq.com/1304354608" target="_blank" class="article-share-qq" title="qq"></a>
+			<a href="https://www.facebook.com/bevis1991" target="_blank" class="article-share-facebook" title="facebook"></a>
+			<a href="https://twitter.com/bevis_shen" target="_blank" class="article-share-twitter" title="twitter"></a>
+		</div>
+	</div>
+	
+		
 
-  
-    
+	
+		
 
-  
-    
-  
-    
+	
+		
+	
+		
   <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">十月 2016</a><span class="archive-list-count">8</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">十月 2016</a><span class="archive-list-count">9</span></li></ul>
     </div>
   </div>
 
 
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">最新文章</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2016/10/24/interview/">一篇不错的前端面试文章(译)</a>
-          </li>
-        
-          <li>
-            <a href="/2016/10/24/express/">Node.js Express 框架</a>
-          </li>
-        
-          <li>
-            <a href="/2016/10/24/commandLine/">Mac 常用终端命令</a>
-          </li>
-        
-          <li>
-            <a href="/2016/10/24/mvc/">MVC 可能快过气了</a>
-          </li>
-        
-          <li>
-            <a href="/2016/10/23/dust/">Dust 模版引擎</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
+	
+		
+	<div class="widget-wrap">
+		<h3 class="widget-title">最新文章</h3>
+		<div class="widget">
+			<ul>
+				
+					<li>
+						<a href="/2016/10/25/superAgent/">
+							SuperAgent 中文使用文档
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2016/10/24/interview/">
+							一篇不错的前端面试文章(译)
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2016/10/24/express/">
+							Node.js Express 框架
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2016/10/24/commandLine/">
+							Mac 常用终端命令
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2016/10/24/mvc/">
+							MVC 可能快过气了
+						</a>
+					</li>
+					
+			</ul>
+		</div>
+	</div>
+	
 
-  
+	
 </aside>
-        
-        <section id="main">
-          <div class="main-header">
-            <span class="main-title">求知若饥 虚心若愚</span>
-          </div>
-          <article id="post-eslint" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/10/21/eslint/" class="article-date">
+
+				
+				<section id="main">
+					<div class="main-header">
+						<span class="main-title">求知若饥 虚心若愚</span>
+					</div>
+					<article id="post-eslint" class="article article-type-post" itemscope itemprop="blogPost">
+	<div class="article-meta">
+		
+	</div>
+	<div class="article-inner">
+		
+		
+			<header class="article-header">
+				
+	
+		<h1 class="article-title" itemprop="name">
+			EsLint入门
+		</h1>
+	
+
+
+				<a href="/2016/10/21/eslint/" class="article-date">
   <time datetime="2016-10-21T08:56:03.000Z" itemprop="datePublished">2016-10-21</time>
 </a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      EsLint入门
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>官方地址：<a href="http://eslint.org/" target="_blank" rel="external">http://eslint.org/</a><br>EsLint帮助我们检查Javascript编程时的语法错误。比如：在Javascript应用中，你很难找到你漏泄的变量或者方法。EsLint能够帮助我们分析JS代码，找到bug并确保一定程度的JS语法书写的正确性。<br>EsLint是建立在Esprima(ECMAScript解析架构)的基础上的。Esprima支持ES5.1,本身也是用ECMAScript编写的，用于多用途分析。EsLint不但提供一些默认的规则（可扩展），也提供用户自定义规则来约束我们写的Javascript代码。<br>EsLint提供以下支持：</p>
+			</header>
+		
+		<div class="article-entry" itemprop="articleBody">
+			
+				<h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>官方地址：<a href="http://eslint.org/" target="_blank" rel="external">http://eslint.org/</a><br>EsLint帮助我们检查Javascript编程时的语法错误。比如：在Javascript应用中，你很难找到你漏泄的变量或者方法。EsLint能够帮助我们分析JS代码，找到bug并确保一定程度的JS语法书写的正确性。<br>EsLint是建立在Esprima(ECMAScript解析架构)的基础上的。Esprima支持ES5.1,本身也是用ECMAScript编写的，用于多用途分析。EsLint不但提供一些默认的规则（可扩展），也提供用户自定义规则来约束我们写的Javascript代码。<br>EsLint提供以下支持：</p>
 <ul>
 <li>ES6AngularJSJSXStyle检查自定义错误和提示<br>EsLint提供以下几种校验：</li>
 <li>语法错误校验不重要或丢失的标点符号，如分号没法运行到的代码块（使用过WebStorm的童鞋应该了解）未被使用的参数提醒漏掉的结束符，如}确保样式的统一规则，如sass或者less检查变量的命名</li>
@@ -179,16 +191,16 @@
 <p><a href="https://www.npmjs.com/package/eslint-plugin-react" target="_blank" rel="external">https://www.npmjs.com/package/eslint-plugin-react</a> ， 此链接是react的eslint使用</p>
 <h3 id="三、Gulp中使用"><a href="#三、Gulp中使用" class="headerlink" title="三、Gulp中使用"></a>三、Gulp中使用</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">var eslint = require(<span class="string">'gulp-eslint'</span>);</div><div class="line"></div><div class="line">gulp.task(<span class="string">'validate-eslint'</span>,<span class="function"><span class="title">function</span></span>()&#123;</div><div class="line"></div><div class="line">    <span class="built_in">return</span> gulp.src([<span class="string">'app/**/*.js'</span>]) //指定的校验路径</div><div class="line"></div><div class="line">        .pipe(eslint(&#123;configFle:<span class="string">"./.eslintrc"</span>&#125;)) //使用你的eslint校验文件</div><div class="line"></div><div class="line">        .pipe(eslint.format())</div><div class="line"></div><div class="line">&#125;);</div></pre></td></tr></table></figure>
 
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://utopia1991.github.io/2016/10/21/eslint/" data-id="ciujicu0c0002jjtd03sfom0d" class="article-share-link">分享</a>
-      
-      
-    </footer>
-  </div>
-  
-    
+			
+		</div>
+		<footer class="article-footer">
+			<a data-url="https://utopia1991.github.io/2016/10/21/eslint/" data-id="ciujicu0c0002jjtd03sfom0d" class="article-share-link">分享</a>
+			
+			
+		</footer>
+	</div>
+	
+		
 <nav id="article-nav">
   
     <a href="/2016/10/23/coffee/" id="article-nav-newer" class="article-nav-link-wrap">
@@ -203,13 +215,14 @@
   
 </nav>
 
-  
+	
 </article>
 
 
-        </section>
-      </div>
-      <footer id="footer">
+
+				</section>
+			</div>
+			<footer id="footer">
   
   <div class="outer">
     <div id="footer-info">
@@ -218,15 +231,15 @@
     </div>
   </div>
 </footer>
-    </div>
-    <nav id="mobile-nav">
+		</div>
+		<nav id="mobile-nav">
   
     <a href="/" class="mobile-nav-link">主页</a>
   
     <a href="/archives" class="mobile-nav-link">博文</a>
   
 </nav>
-    
+		
 
 <script src="https://cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
 
@@ -237,6 +250,6 @@
 
 <script src="/js/script.js"></script>
 
-  </div>
+	</div>
 </body>
 </html>
