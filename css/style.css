@@ -1067,7 +1067,7 @@ a .article-title:hover {
   display: inline-block;
 }
 .archive-article-title {
-  font-size: 22px;
+  font-size: 20px;
   text-decoration: none;
   color: #555;
   -webkit-transition: color 0.2s;
