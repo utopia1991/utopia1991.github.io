@@ -5,25 +5,16 @@
 	
 	<title>MVC 可能快过气了 | Bevis Blog</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-	<meta name="description" content="依我个人所见，后端框架，类似于MVC这样的组织方式已经显得过气了。
-过去，在创建应用时通常会按MVC各建一个文件夹，每个文件夹就是一个模块。MVC三者的职责是这样的：
-
-Controller绑定到某个路由上，接着处理请求参数，然后创建在整个请求中可见的对象，并进行一些业务逻辑上的工作。期间会从数据库中构造Model，也有可能新建/修改Model后将它们保存入数据库。最后，Controller会通过">
+	<meta name="description" content="依我个人所见，后端框架，类似于MVC这样的组织方式已经显得过气了。我们先从后端MVC的历史开始讲起吧。MVC最初发端于客户端程序的开发，旨在用Controller在Model和View之间进行解耦。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="MVC 可能快过气了">
 <meta property="og:url" content="https://utopia1991.github.io/2016/10/24/mvc/index.html">
 <meta property="og:site_name" content="Bevis Blog">
-<meta property="og:description" content="依我个人所见，后端框架，类似于MVC这样的组织方式已经显得过气了。
-过去，在创建应用时通常会按MVC各建一个文件夹，每个文件夹就是一个模块。MVC三者的职责是这样的：
-
-Controller绑定到某个路由上，接着处理请求参数，然后创建在整个请求中可见的对象，并进行一些业务逻辑上的工作。期间会从数据库中构造Model，也有可能新建/修改Model后将它们保存入数据库。最后，Controller会通过">
-<meta property="og:updated_time" content="2016-10-25T02:36:42.000Z">
+<meta property="og:description" content="依我个人所见，后端框架，类似于MVC这样的组织方式已经显得过气了。我们先从后端MVC的历史开始讲起吧。MVC最初发端于客户端程序的开发，旨在用Controller在Model和View之间进行解耦。">
+<meta property="og:updated_time" content="2016-10-25T08:33:55.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MVC 可能快过气了">
-<meta name="twitter:description" content="依我个人所见，后端框架，类似于MVC这样的组织方式已经显得过气了。
-过去，在创建应用时通常会按MVC各建一个文件夹，每个文件夹就是一个模块。MVC三者的职责是这样的：
-
-Controller绑定到某个路由上，接着处理请求参数，然后创建在整个请求中可见的对象，并进行一些业务逻辑上的工作。期间会从数据库中构造Model，也有可能新建/修改Model后将它们保存入数据库。最后，Controller会通过">
+<meta name="twitter:description" content="依我个人所见，后端框架，类似于MVC这样的组织方式已经显得过气了。我们先从后端MVC的历史开始讲起吧。MVC最初发端于客户端程序的开发，旨在用Controller在Model和View之间进行解耦。">
 	
 	
 		<link rel="icon" href="https://utopia1991.github.io/css/images/logo.jpg">
@@ -179,17 +170,13 @@ Controller绑定到某个路由上，接着处理请求参数，然后创建在�
 		
 		<div class="article-entry" itemprop="articleBody">
 			
-				<p>依我个人所见，后端框架，类似于MVC这样的组织方式已经显得过气了。</p>
+				<p>依我个人所见，后端框架，类似于MVC这样的组织方式已经显得过气了。我们先从后端MVC的历史开始讲起吧。MVC最初发端于客户端程序的开发，旨在用Controller在Model和View之间进行解耦。<br><a id="more"></a></p>
 <p>过去，在创建应用时通常会按MVC各建一个文件夹，每个文件夹就是一个模块。MVC三者的职责是这样的：</p>
 <ul>
-<li><p>Controller绑定到某个路由上，接着处理请求参数，然后创建在整个请求中可见的对象，并进行一些业务逻辑上的工作。期间会从数据库中构造Model，也有可能新建/修改Model后将它们保存入数据库。最后，Controller会通过View响应用户的请求，或者返回重定向的报文。基本上业务逻辑都是实现在Controller里面的。（下文为了阐述方便，都以“业务逻辑”特指Controller中的业务逻辑）</p>
-</li>
-<li><p>每个Model往往对应数据库的一个实体。Model类除了装数据之外，还提供了跟自己身份相关的一些方法，比如User类提供authenticate方法以用于验证密码。Model对象通常还会负责检验构造自己的参数是否正确。</p>
-</li>
-<li><p>View负责使用给定的参数渲染模板，并作为响应返回给用户。View一般是由该框架提供的模板语言写成。</p>
-</li>
+<li>Controller绑定到某个路由上，接着处理请求参数，然后创建在整个请求中可见的对象，并进行一些业务逻辑上的工作。期间会从数据库中构造Model，也有可能新建/修改Model后将它们保存入数据库。最后，Controller会通过View响应用户的请求，或者返回重定向的报文。基本上业务逻辑都是实现在Controller里面的。（下文为了阐述方便，都以“业务逻辑”特指Controller中的业务逻辑）</li>
+<li>每个Model往往对应数据库的一个实体。Model类除了装数据之外，还提供了跟自己身份相关的一些方法，比如User类提供authenticate方法以用于验证密码。Model对象通常还会负责检验构造自己的参数是否正确。</li>
+<li>View负责使用给定的参数渲染模板，并作为响应返回给用户。View一般是由该框架提供的模板语言写成。<br>现在，一个后端应用如果还是按MVC的方式划分，似乎有些不适应了。</li>
 </ul>
-<p>现在，一个后端应用如果还是按MVC的方式划分，似乎有些不适应了。</p>
 <h2 id="后端MVC的历史"><a href="#后端MVC的历史" class="headerlink" title="后端MVC的历史"></a>后端MVC的历史</h2><p>我们先从后端MVC的历史开始讲起吧。MVC最初发端于客户端程序的开发，旨在用Controller在Model和View之间进行解耦。如果我没记错的话，gang of four的《设计模式》里面提到MVC，就是以客户端程序作为例子。</p>
 <p>跟客户端开发类似的，后端程序一开始也只有View这一层。在很久很久以前，后端程序都是这样运行的：用户一个HTTP请求进来，服务器通过cgi调用一个程序生成文本作为响应。这时期大部分后端程序，看上去都像是模板语言（见过初学者写过的JSP/PHP吗？）。因为它们主要做的事情，就是从用户输入和数据库中获取数据，并拼接字符串生成文本。后来后端程序开始演化得越来越复杂，单单一层View已经不适应了。由于需要把逻辑从View中分割开来，后端程序开始走上客户端程序走过的路，进行MVC的分离。于是，负责路由和业务逻辑处理的部分变成了Controller，负责数据处理和持久化的部分变成了Model。</p>
 <p>虽然后端程序也是做了MVC的拆分，但是它跟客户端的MVC其实是不同的。<br>在客户端里，Controller把View和Model分离开来，实现View和Model的解耦合。View上的变化，通过Controller传递给Model，然后再将Model最新的数据通过Controller传递回View。View：Controller：Model的比例通常是N：1：N，其中每个View基本对应一个Model。</p>

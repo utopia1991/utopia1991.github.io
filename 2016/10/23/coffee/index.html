@@ -5,19 +5,16 @@
 	
 	<title>Coffeescript 学习笔记 | Bevis Blog</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-	<meta name="description" content="1.coffee注释：注释是用 ‘ # ‘ 来标记的。coffee不需要 ‘ ; ‘ 作为结束标签。有时候你想把整块的注释传给生成的 JavaScript. 使用“###”比如在文件顶部嵌入协议. 块级的注释, 仿照了块级字符串的语法, 将会在生成的代码当中保留.
-js:1234/*     SkinnyMochaHalfCaffScript Compiler v1.0     Released">
+	<meta name="description" content="CoffeeScript 是一门编译到 JavaScript 的小巧语言. 在 Java 般笨拙的外表下, JavaScript 其实有着一颗华丽的心脏. CoffeeScript 尝试用简洁的方式展示 JavaScript 优秀的部分.CoffeeScript 的指导原则是: “她仅仅是 JavaScript”. 代码一一对应地编译到 JS, 不会在编译过程中进行解释. 已有的 JavaScri">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Coffeescript 学习笔记">
 <meta property="og:url" content="https://utopia1991.github.io/2016/10/23/coffee/index.html">
 <meta property="og:site_name" content="Bevis Blog">
-<meta property="og:description" content="1.coffee注释：注释是用 ‘ # ‘ 来标记的。coffee不需要 ‘ ; ‘ 作为结束标签。有时候你想把整块的注释传给生成的 JavaScript. 使用“###”比如在文件顶部嵌入协议. 块级的注释, 仿照了块级字符串的语法, 将会在生成的代码当中保留.
-js:1234/*     SkinnyMochaHalfCaffScript Compiler v1.0     Released">
-<meta property="og:updated_time" content="2016-10-25T07:03:25.000Z">
+<meta property="og:description" content="CoffeeScript 是一门编译到 JavaScript 的小巧语言. 在 Java 般笨拙的外表下, JavaScript 其实有着一颗华丽的心脏. CoffeeScript 尝试用简洁的方式展示 JavaScript 优秀的部分.CoffeeScript 的指导原则是: “她仅仅是 JavaScript”. 代码一一对应地编译到 JS, 不会在编译过程中进行解释. 已有的 JavaScri">
+<meta property="og:updated_time" content="2016-10-25T07:39:35.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Coffeescript 学习笔记">
-<meta name="twitter:description" content="1.coffee注释：注释是用 ‘ # ‘ 来标记的。coffee不需要 ‘ ; ‘ 作为结束标签。有时候你想把整块的注释传给生成的 JavaScript. 使用“###”比如在文件顶部嵌入协议. 块级的注释, 仿照了块级字符串的语法, 将会在生成的代码当中保留.
-js:1234/*     SkinnyMochaHalfCaffScript Compiler v1.0     Released">
+<meta name="twitter:description" content="CoffeeScript 是一门编译到 JavaScript 的小巧语言. 在 Java 般笨拙的外表下, JavaScript 其实有着一颗华丽的心脏. CoffeeScript 尝试用简洁的方式展示 JavaScript 优秀的部分.CoffeeScript 的指导原则是: “她仅仅是 JavaScript”. 代码一一对应地编译到 JS, 不会在编译过程中进行解释. 已有的 JavaScri">
 	
 	
 		<link rel="icon" href="https://utopia1991.github.io/css/images/logo.jpg">
@@ -173,7 +170,8 @@ js:1234/*     SkinnyMochaHalfCaffScript Compiler v1.0     Released">
 		
 		<div class="article-entry" itemprop="articleBody">
 			
-				<h2 id="1-coffee注释："><a href="#1-coffee注释：" class="headerlink" title="1.coffee注释："></a>1.coffee注释：</h2><p>注释是用 ‘ # ‘ 来标记的。coffee不需要 ‘ ; ‘ 作为结束标签。有时候你想把整块的注释传给生成的 JavaScript. 使用“###”比如在文件顶部嵌入协议. 块级的注释, 仿照了块级字符串的语法, 将会在生成的代码当中保留.</p>
+				<p>CoffeeScript 是一门编译到 JavaScript 的小巧语言. 在 Java 般笨拙的外表下, JavaScript 其实有着一颗华丽的心脏. CoffeeScript 尝试用简洁的方式展示 JavaScript 优秀的部分.<br>CoffeeScript 的指导原则是: “她仅仅是 JavaScript”. 代码一一对应地编译到 JS, 不会在编译过程中进行解释. 已有的 JavaScript 类库可以无缝地和 CoffeeScript 搭配使用, 反之亦然. 编译后的代码是可读的, 且经过美化, 能在所有 JavaScript 环境中运行, 并且应该和对应手写的 JavaScript 一样快或者更快.<br><a id="more"></a></p>
+<h2 id="1-coffee注释："><a href="#1-coffee注释：" class="headerlink" title="1.coffee注释："></a>1.coffee注释：</h2><p>注释是用 ‘ # ‘ 来标记的。coffee不需要 ‘ ; ‘ 作为结束标签。有时候你想把整块的注释传给生成的 JavaScript. 使用“###”比如在文件顶部嵌入协议. 块级的注释, 仿照了块级字符串的语法, 将会在生成的代码当中保留.</p>
 <p>js:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">/*</div><div class="line">     SkinnyMochaHalfCaffScript Compiler v1.0</div><div class="line">     Released under the MIT License</div><div class="line">*/</div></pre></td></tr></table></figure></p>
 <p>coffee:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># SkinnyMochaHalfCaffScript Compiler v1.0</span></div><div class="line"><span class="comment"># Released under the MIT License</span></div></pre></td></tr></table></figure></p>
 <h2 id="2-创建对象："><a href="#2-创建对象：" class="headerlink" title="2.创建对象："></a>2.创建对象：</h2><p>js：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">obj = &#123;</div><div class="line">    Name: <span class="string">"Bevis"</span>,</div><div class="line">    Sex: <span class="string">"male"</span></div><div class="line">&#125;</div><div class="line">e = obj.Name</div></pre></td></tr></table></figure></p>
