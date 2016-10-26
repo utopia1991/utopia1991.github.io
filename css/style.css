@@ -1449,7 +1449,8 @@ pre .javascript .function {
   border-radius: 5px;
 }
 .widget li {
-  margin-bottom: 5px;
+  margin-bottom: 2px;
+  margin-top: 2px;
 }
 .widget a {
   font-size: 14px;
@@ -1472,7 +1473,6 @@ pre .javascript .function {
   list-style: disc;
 }
 .widget {
-  line-height: 1.6em;
   word-wrap: break-word;
   font-size: 0.9em;
 }
