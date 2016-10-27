@@ -883,7 +883,7 @@ a .article-title:hover {
 .article-share-links:after {
   clear: both;
 }
-.article-share-qq,
+.article-share-wordpress,
 .article-share-weixin,
 .article-share-mail,
 .article-share-twitter,
@@ -900,7 +900,7 @@ a .article-title:hover {
   color: #999;
   text-shadow: 0 1px #fff;
 }
-.article-share-qq:before,
+.article-share-wordpress:before,
 .article-share-weixin:before,
 .article-share-mail:before,
 .article-share-twitter:before,
@@ -920,7 +920,7 @@ a .article-title:hover {
   margin-left: -10px;
   text-align: center;
 }
-.article-share-qq:hover,
+.article-share-wordpress:hover,
 .article-share-weixin:hover,
 .article-share-mail:hover,
 .article-share-twitter:hover,
@@ -931,10 +931,10 @@ a .article-title:hover {
 .article-share-weibo:hover {
   color: #fff;
 }
-.article-share-qq:before {
-  content: "\f1d6";
+.article-share-wordpress:before {
+  content: "\f19a";
 }
-.article-share-qq:hover {
+.article-share-wordpress:hover {
   background: #dd4b39;
   text-shadow: 0 1px #be3221;
 }
