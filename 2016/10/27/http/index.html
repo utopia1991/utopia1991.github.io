@@ -57,8 +57,6 @@
         
           <a class="main-nav-link" href="/archives">博文</a>
         
-          <a class="main-nav-link" href="/about">关于我</a>
-        
       </nav>
       <nav id="sub-nav">
         
@@ -70,6 +68,8 @@
     </div>
   </div>
 </header>
+
+			<canvas width="100%" height="100%" id="canvas"></canvas>
 			<div class="outer">
 				
 				<aside id="sidebar">
@@ -77,7 +77,7 @@
 		<div class="aside-logo"></div>
 		<p class="aside-title">Bevis Shen（沈浩）</p>
 		<p class="aside-subtitle">Node.js & Front-End Engineer</p>
-		<p class="aside-description">Google重度依赖者，Mac拥趸，前端+node全栈青年，对前沿技术有着狂热的激情，梦想环游世界，热爱生活、摄影、旅游、电影的文艺程序猿一枚</p>
+		<p class="aside-description">Google 重度粉，Mac 拥趸，前端 + Node 青年，对前沿技术有着狂热的激情，梦想环游世界，热爱生活、摄影、旅游、电影的文艺程序猿一枚</p>
 		<div class="aside-communicate">
 			<a href="https://github.com/utopia1991" target="_blank" class="article-share-github" title="github"></a>
 			<a href="https://www.linkedin.com/in/bevis1991" target="_blank" class="article-share-linkedin" title="linkedin"></a>
@@ -85,7 +85,7 @@
 			<a href="https://weibo.com/u/2619492527/home" target="_blank" class="article-share-weibo" title="weibo"></a>
 			<a class="article-share-weixin" title="我的个人微信公众号"></a>
 			<img src="https://utopia1991.github.io/css/images/wechat.png" width="180" height="180" class="wechat-pic none">
-			<a href="https://bevis1991.wordpress.com/" target="_blank" class="article-share-wordpress" title="我的 WordPress 博客"></a>
+			<a href="https://bevis1991.wordpress.com/" target="_blank" class="article-share-wordpress" title="WordPress 博客"></a>
 			<a href="https://www.facebook.com/bevis1991" target="_blank" class="article-share-facebook" title="facebook"></a>
 			<a href="https://twitter.com/bevis_shen" target="_blank" class="article-share-twitter" title="twitter"></a>
 		</div>
@@ -103,7 +103,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">十月 2016</a><span class="archive-list-count">11</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">十一月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">十月 2016</a><span class="archive-list-count">11</span></li></ul>
     </div>
   </div>
 
@@ -115,6 +115,12 @@
 		<div class="widget">
 			<ul>
 				
+					<li>
+						<a href="/2016/11/01/mongodb/">
+							Mongoose 基本介绍
+						</a>
+					</li>
+					
 					<li>
 						<a href="/2016/10/27/getPost/">
 							Get 与 Post 区别
@@ -172,6 +178,12 @@
 					<li>
 						<a href="/2016/10/23/coffee/">
 							Coffeescript 学习笔记
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2016/10/21/eslint/">
+							EsLint入门
 						</a>
 					</li>
 					
@@ -366,8 +378,6 @@
   
     <a href="/archives" class="mobile-nav-link">博文</a>
   
-    <a href="/about" class="mobile-nav-link">关于我</a>
-  
 </nav>
 		
 
@@ -382,4 +392,63 @@
 
 	</div>
 </body>
+<script>
+	document.addEventListener('touchmove', function(e) {
+		e.preventDefault()
+	})
+	var c = document.getElementsByTagName('canvas')[0],
+		x = c.getContext('2d'),
+		pr = window.devicePixelRatio || 1,
+		w = window.innerWidth,
+		h = window.innerHeight,
+		f = 90,
+		q,
+		m = Math,
+		r = 0,
+		u = m.PI * 2,
+		v = m.cos,
+		z = m.random
+	c.width = w * pr
+	c.height = h * pr
+	x.scale(pr, pr)
+	x.globalAlpha = 0.6
+
+	function i() {
+		x.clearRect(0, 0, w, h)
+		q = [{
+			x: 0,
+			y: h * .7 + f
+		}, {
+			x: 0,
+			y: h * .7 - f
+		}]
+		while (q[1].x < w + f) d(q[0], q[1])
+	}
+
+	function d(i, j) {
+		x.beginPath()
+		x.moveTo(i.x, i.y)
+		x.lineTo(j.x, j.y)
+		var k = j.x + (z() * 2 - 0.25) * f,
+			n = y(j.y)
+		x.lineTo(k, n)
+		x.closePath()
+		r -= u / -50
+		x.fillStyle = '#' + (v(r) * 127 + 128 << 16 | v(r + u / 3) * 127 + 128 << 8 | v(r + u / 3 * 2) * 127 + 128).toString(16)
+		x.fill()
+		q[0] = q[1]
+		q[1] = {
+			x: k,
+			y: n
+		}
+	}
+
+	function y(p) {
+		var t = p + (z() * 2 - 1.1) * f
+		return (t > h || t < 0) ? y(p) : t
+	}
+	document.onclick = i
+	document.ontouchstart = i
+	i()
+</script>
 </html>
