@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta property="wb:webmaster" content="65a151beb5e21880" />
+	<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+		ga('create', 'UA-86667923-1', 'auto');
+		ga('send', 'pageview');
+	</script>
+	
+	<title>Javascript 注意点 | Bevis Blog - 沈浩个人博客</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<meta name="description" content="这是一些平时工作中遇到的一些 js 的函数方法，比较容易混淆，特意做下笔记。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Javascript 注意点">
+<meta property="og:url" content="https://utopia1991.github.io/2016/11/02/preventDefault/index.html">
+<meta property="og:site_name" content="Bevis Blog - 沈浩个人博客">
+<meta property="og:description" content="这是一些平时工作中遇到的一些 js 的函数方法，比较容易混淆，特意做下笔记。">
+<meta property="og:updated_time" content="2016-11-03T02:19:53.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Javascript 注意点">
+<meta name="twitter:description" content="这是一些平时工作中遇到的一些 js 的函数方法，比较容易混淆，特意做下笔记。">
+	
+	
+		<link rel="icon" href="https://utopia1991.github.io/css/images/icon.png">
+	
+	
+		<link href="https://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+	
+	<link rel="stylesheet" href="/css/style.css">
+	
+
+</head>
+
+<body>
+	<div id="container">
+		<div id="wrap">
+			<header id="header">
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">
+          <span class="brand-logo">Bevis</span>
+          Blog
+        </a>
+      </h1>
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">主页</a>
+        
+          <a class="main-nav-link" href="/archives">博文</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://utopia1991.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+			<canvas width="100%" height="100%" id="canvas"></canvas>
+			<div class="outer">
+				
+				<aside id="sidebar">
+	<div class="aside-author">
+		<div class="aside-logo"></div>
+		<p class="aside-title">Bevis Shen（沈浩）</p>
+		<p class="aside-subtitle">Node.js & Front-End Engineer</p>
+		<p class="aside-description">Google 重度粉，Mac 拥趸，前端 + Node 青年，对前沿技术有着狂热的激情，梦想环游世界，热爱生活、摄影、旅游、电影的文艺程序猿一枚</p>
+		<div class="aside-communicate">
+			<a href="https://github.com/utopia1991" target="_blank" class="article-share-github" title="github"></a>
+			<a href="https://www.linkedin.com/in/bevis1991" target="_blank" class="article-share-linkedin" title="linkedin"></a>
+			<a href="mailto:1304354608@qq.com" class="article-share-mail" title="email"></a>
+			<a href="https://weibo.com/u/2619492527/home" target="_blank" class="article-share-weibo" title="weibo"></a>
+			<a class="article-share-weixin" title="我的个人微信公众号"></a>
+			<img src="https://utopia1991.github.io/css/images/wechat.png" width="180" height="180" class="wechat-pic none">
+			<a href="https://bevis1991.wordpress.com/" target="_blank" class="article-share-wordpress" title="WordPress 博客"></a>
+			<a href="https://www.facebook.com/bevis1991" target="_blank" class="article-share-facebook" title="facebook"></a>
+			<a href="https://twitter.com/bevis_shen" target="_blank" class="article-share-twitter" title="twitter"></a>
+		</div>
+	</div>
+	
+		
+
+	
+		
+
+	
+		
+	
+		
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">十一月 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">十月 2016</a><span class="archive-list-count">11</span></li></ul>
+    </div>
+  </div>
+
+
+	
+		
+	<div class="widget-wrap">
+		<h3 class="widget-title">最新文章</h3>
+		<div class="widget">
+			<ul>
+				
+					<li>
+						<a href="/2016/11/02/preventDefault/">
+							Javascript 注意点
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2016/11/01/mongodb/">
+							Mongoose 基本介绍
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2016/10/27/getPost/">
+							Get 与 Post 区别
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2016/10/27/http/">
+							HTTP 协议
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2016/10/25/superAgent/">
+							SuperAgent 中文使用文档
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2016/10/24/interview/">
+							一篇不错的前端面试文章(译)
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2016/10/24/express/">
+							Node.js Express 框架
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2016/10/24/commandLine/">
+							Mac 常用终端命令
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2016/10/24/mvc/">
+							MVC 可能快过气了
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2016/10/23/dust/">
+							Dust 模版引擎
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2016/10/23/markdown/">
+							Markdown 编辑器语法指南
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2016/10/23/coffee/">
+							Coffeescript 学习笔记
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2016/10/21/eslint/">
+							EsLint入门
+						</a>
+					</li>
+					
+				......
+			</ul>
+		</div>
+	</div>
+	
+
+	
+</aside>
+
+				
+				<section id="main">
+					<div class="main-header">
+						<span class="main-title">求知若饥 虚心若愚</span>
+					</div>
+					<article id="post-preventDefault" class="article article-type-post" itemscope itemprop="blogPost">
+	<div class="article-meta">
+		
+	</div>
+	<div class="article-inner">
+		
+		
+			<header class="article-header">
+				
+	
+		<h1 class="article-title" itemprop="name">
+			Javascript 注意点
+		</h1>
+	
+
+
+				<a href="/2016/11/02/preventDefault/" class="article-date">
+  <time datetime="2016-11-03T01:47:06.000Z" itemprop="datePublished">2016-11-02</time>
+</a>
+			</header>
+		
+		<div class="article-entry" itemprop="articleBody">
+			
+				<p>这是一些平时工作中遇到的一些 js 的函数方法，比较容易混淆，特意做下笔记。<br><a id="more"></a></p>
+<h2 id="1-preventDefault"><a href="#1-preventDefault" class="headerlink" title="1.preventDefault()"></a>1.preventDefault()</h2><h3 id="定义和用法"><a href="#定义和用法" class="headerlink" title="定义和用法"></a>定义和用法</h3><p>取消事件的默认动作。</p>
+<h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">event.preventDefault()</div></pre></td></tr></table></figure>
+<h3 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h3><p>该方法将通知 Web 浏览器不要执行与事件关联的默认动作（如果存在这样的动作）。例如，如果 type 属性是 “submit”，在事件传播的任意阶段可以调用任意的事件句柄，通过调用该方法，可以阻止提交表单。注意，如果 Event 对象的 cancelable 属性是 fasle，那么就没有默认动作，或者不能阻止默认动作。无论哪种情况，调用该方法都没有作用。</p>
+<h2 id="2-stopPropagation"><a href="#2-stopPropagation" class="headerlink" title="2.stopPropagation()"></a>2.stopPropagation()</h2><h3 id="定义和用法-1"><a href="#定义和用法-1" class="headerlink" title="定义和用法"></a>定义和用法</h3><p>不再派发事件。</p>
+<h3 id="语法-1"><a href="#语法-1" class="headerlink" title="语法"></a>语法</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">event.stopPropagation()</div></pre></td></tr></table></figure>
+<h3 id="说明-1"><a href="#说明-1" class="headerlink" title="说明"></a>说明</h3><p>该方法将停止事件的传播，阻止它被分派到其他 Document 节点。在事件传播的任何阶段都可以调用它。注意，虽然该方法不能阻止同一个 Document 节点上的其他事件句柄被调用，但是它可以阻止把事件分派到其他节点。<br>PS: 主要这个方法是为了防止方法的冒泡，特别是在 ie 浏览器中，propagation 是传播的意思。</p>
+<h2 id="3-reverse"><a href="#3-reverse" class="headerlink" title="3.reverse()"></a>3.reverse()</h2><h3 id="定义和用法-2"><a href="#定义和用法-2" class="headerlink" title="定义和用法"></a>定义和用法</h3><p>用于颠倒数组中元素的顺序。</p>
+<h3 id="语法-2"><a href="#语法-2" class="headerlink" title="语法"></a>语法</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">arrayObject.reverse()</div></pre></td></tr></table></figure>
+<h3 id="说明-2"><a href="#说明-2" class="headerlink" title="说明"></a>说明</h3><p>该方法会改变原来的数组，而不会创建新的数组。</p>
+<h3 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h3><p>在本例中，我们将创建一个数组，然后颠倒其元素的顺序：<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&lt;script type="text/javascript"&gt;</div><div class="line">	var arr = new Array(3);</div><div class="line">	arr[0] = “George";</div><div class="line">	arr[1] = “John";</div><div class="line">	arr[2] = “Thomas";</div><div class="line">	document.write(arr + "&lt;br /&gt;”);</div><div class="line">	document.write(arr.reverse())</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure></p>
+<p>输出：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">George,John,Thomas</div><div class="line">Thomas,John,George</div></pre></td></tr></table></figure></p>
+<h2 id="4-toFixed"><a href="#4-toFixed" class="headerlink" title="4.toFixed()"></a>4.toFixed()</h2><h3 id="定义和用法-3"><a href="#定义和用法-3" class="headerlink" title="定义和用法"></a>定义和用法</h3><p>toFixed() 方法可把 Number 四舍五入为指定小数位数的数字，里面的参数就是保留小数的位数。</p>
+<h3 id="语法-3"><a href="#语法-3" class="headerlink" title="语法"></a>语法</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">NumberObject.toFixed(num)</div></pre></td></tr></table></figure>
+<h3 id="说明-3"><a href="#说明-3" class="headerlink" title="说明"></a>说明</h3><p>num 必需。规定小数的位数，是 0 ~ 20 之间的值，包括 0 和 20，有些实现可以支持更大的数值范围。如果省略了该参数，将用 0 代替。</p>
+<h3 id="实例-1"><a href="#实例-1" class="headerlink" title="实例"></a>实例</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&lt;script language=<span class="string">"javascript"</span>&gt;</div><div class="line">	<span class="built_in">document</span>.write(<span class="string">"&lt;h1&gt;JS保留两位小数例子&lt;/h1&gt;&lt;br&gt;"</span>);</div><div class="line">	<span class="keyword">var</span> a=<span class="number">2.1512131231231321</span>;</div><div class="line">	<span class="built_in">document</span>.write(<span class="string">"两位小数点:"</span>+a.toFixed(<span class="number">2</span>));</div><div class="line">	<span class="built_in">document</span>.write(<span class="string">"四位小数点"</span>+a.toFixed(<span class="number">4</span>));</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
+<h2 id="5-substring-方法"><a href="#5-substring-方法" class="headerlink" title="5.substring() 方法"></a>5.substring() 方法</h2><h3 id="定义和用法-4"><a href="#定义和用法-4" class="headerlink" title="定义和用法"></a>定义和用法</h3><p>substring() 方法用于提取字符串中介于两个指定下标之间的字符。截取字符串内的特定字符</p>
+<h3 id="语法-4"><a href="#语法-4" class="headerlink" title="语法"></a>语法</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">stringObject.substring(start,stop)</div></pre></td></tr></table></figure>
+<h3 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h3><p>start 必需。一个非负的整数，规定要提取的子串的第一个字符在 stringObject 中的位置。<br>stop 可选。一个非负的整数，比要提取的子串的最后一个字符在 stringObject 中的位置多 1。如果省略该参数，那么返回的子串会一直到字符串的结尾。</p>
+<h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>一个新的字符串，该字符串值包含 stringObject 的一个子字符串，其内容是从 start 处到 stop-1 处的所有字符，其长度为 stop 减start。</p>
+<h3 id="说明-4"><a href="#说明-4" class="headerlink" title="说明"></a>说明</h3><p>substring() 方法返回的子串包括 start 处的字符，但不包括 stop 处的字符。<br>如果参数 start 与 stop 相等，那么该方法返回的就是一个空串（即长度为 0 的字符串）。如果 start 比 stop 大，那么该方法在提取子串之前会先交换这两个参数。</p>
+<h3 id="提示和注释"><a href="#提示和注释" class="headerlink" title="提示和注释"></a>提示和注释</h3><p>重要事项：与 slice() 和 substr() 方法不同的是，substring() 不接受负的参数。</p>
+<h3 id="实例-2"><a href="#实例-2" class="headerlink" title="实例"></a>实例</h3><h4 id="例子-1"><a href="#例子-1" class="headerlink" title="例子 1"></a>例子 1</h4><p>在本例中，我们将使用 substring() 从字符串中提取一些字符：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;script type=<span class="string">"text/javascript"</span>&gt;</div><div class="line">	<span class="keyword">var</span> str=<span class="string">"Hello world!"</span></div><div class="line">	<span class="built_in">document</span>.write(str.substring(<span class="number">3</span>))</div><div class="line">&lt;<span class="regexp">/script&gt;</span></div></pre></td></tr></table></figure></p>
+<p>输出：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">lo world!</div></pre></td></tr></table></figure></p>
+<h4 id="例子-2"><a href="#例子-2" class="headerlink" title="例子 2"></a>例子 2</h4><p>在本例中，我们将使用 substring() 从字符串中提取一些字符：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;script type=<span class="string">"text/javascript"</span>&gt;</div><div class="line">	<span class="keyword">var</span> str=<span class="string">"Hello world!"</span></div><div class="line">	<span class="built_in">document</span>.write(str.substring(<span class="number">3</span>,<span class="number">7</span>))</div><div class="line">&lt;<span class="regexp">/script&gt;</span></div></pre></td></tr></table></figure></p>
+<p>输出：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">lo w</div></pre></td></tr></table></figure></p>
+
+			
+		</div>
+		<footer class="article-footer">
+			<a data-url="https://utopia1991.github.io/2016/11/02/preventDefault/" data-id="civ1ptdjp0000c3td35c1x3a6" class="article-share-link">分享</a>
+			
+			
+		</footer>
+	</div>
+	
+		
+<nav id="article-nav">
+  
+  
+    <a href="/2016/11/01/mongodb/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">Mongoose 基本介绍</div>
+    </a>
+  
+</nav>
+
+	
+</article>
+
+
+
+				</section>
+			</div>
+			<footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info">
+      Copyright &copy; Bevis Shen 2016<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+		</div>
+		<nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">主页</a>
+  
+    <a href="/archives" class="mobile-nav-link">博文</a>
+  
+</nav>
+		
+
+<script src="https://cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+	</div>
+</body>
+<script>
+	document.addEventListener('touchmove', function(e) {
+		e.preventDefault()
+	})
+	var c = document.getElementsByTagName('canvas')[0],
+		x = c.getContext('2d'),
+		pr = window.devicePixelRatio || 1,
+		w = window.innerWidth,
+		h = window.innerHeight,
+		f = 90,
+		q,
+		m = Math,
+		r = 0,
+		u = m.PI * 2,
+		v = m.cos,
+		z = m.random
+	c.width = w * pr
+	c.height = h * pr
+	x.scale(pr, pr)
+	x.globalAlpha = 0.6
+
+	function i() {
+		x.clearRect(0, 0, w, h)
+		q = [{
+			x: 0,
+			y: h * .7 + f
+		}, {
+			x: 0,
+			y: h * .7 - f
+		}]
+		while (q[1].x < w + f) d(q[0], q[1])
+	}
+
+	function d(i, j) {
+		x.beginPath()
+		x.moveTo(i.x, i.y)
+		x.lineTo(j.x, j.y)
+		var k = j.x + (z() * 2 - 0.25) * f,
+			n = y(j.y)
+		x.lineTo(k, n)
+		x.closePath()
+		r -= u / -50
+		x.fillStyle = '#' + (v(r) * 127 + 128 << 16 | v(r + u / 3) * 127 + 128 << 8 | v(r + u / 3 * 2) * 127 + 128).toString(16)
+		x.fill()
+		q[0] = q[1]
+		q[1] = {
+			x: k,
+			y: n
+		}
+	}
+
+	function y(p) {
+		var t = p + (z() * 2 - 1.1) * f
+		return (t > h || t < 0) ? y(p) : t
+	}
+	document.onclick = i
+	document.ontouchstart = i
+	i()
+</script>
+</html>
