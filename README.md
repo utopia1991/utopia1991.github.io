@@ -4,4 +4,4 @@
 
 >My name is Bevis Shen, this is my personal tech blog. Bevis Blog
 
-![我的博客](/images/blog.jpg "我的博客")
+![我的博客](images/blog.jpg "我的博客")
