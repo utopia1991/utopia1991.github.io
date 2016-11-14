@@ -103,7 +103,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">十一月 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">十月 2016</a><span class="archive-list-count">11</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">十一月 2016</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">十月 2016</a><span class="archive-list-count">11</span></li></ul>
     </div>
   </div>
 
@@ -115,6 +115,12 @@
 		<div class="widget">
 			<ul>
 				
+					<li>
+						<a href="/2016/11/13/macIcon/">
+							Mac 更改 OS X 应用程序的图标
+						</a>
+					</li>
+					
 					<li>
 						<a href="/2016/11/02/preventDefault/">
 							Javascript 注意点
@@ -245,7 +251,7 @@
 <h2 id="4-toFixed"><a href="#4-toFixed" class="headerlink" title="4.toFixed()"></a>4.toFixed()</h2><h3 id="定义和用法-3"><a href="#定义和用法-3" class="headerlink" title="定义和用法"></a>定义和用法</h3><p>toFixed() 方法可把 Number 四舍五入为指定小数位数的数字，里面的参数就是保留小数的位数。</p>
 <h3 id="语法-3"><a href="#语法-3" class="headerlink" title="语法"></a>语法</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">NumberObject.toFixed(num)</div></pre></td></tr></table></figure>
 <h3 id="说明-3"><a href="#说明-3" class="headerlink" title="说明"></a>说明</h3><p>num 必需。规定小数的位数，是 0 ~ 20 之间的值，包括 0 和 20，有些实现可以支持更大的数值范围。如果省略了该参数，将用 0 代替。</p>
-<h3 id="实例-1"><a href="#实例-1" class="headerlink" title="实例"></a>实例</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&lt;script language=<span class="string">"javascript"</span>&gt;</div><div class="line">	<span class="built_in">document</span>.write(<span class="string">"&lt;h1&gt;JS保留两位小数例子&lt;/h1&gt;&lt;br&gt;"</span>);</div><div class="line">	<span class="keyword">var</span> a=<span class="number">2.1512131231231321</span>;</div><div class="line">	<span class="built_in">document</span>.write(<span class="string">"两位小数点:"</span>+a.toFixed(<span class="number">2</span>));</div><div class="line">	<span class="built_in">document</span>.write(<span class="string">"四位小数点"</span>+a.toFixed(<span class="number">4</span>));</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
+<h3 id="实例-1"><a href="#实例-1" class="headerlink" title="实例"></a>实例</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&lt;script language=<span class="string">"javascript"</span>&gt;</div><div class="line">	<span class="built_in">document</span>.write(<span class="string">"&lt;h1&gt;JS保留两位小数例子&lt;/h1&gt;&lt;br&gt;"</span>);</div><div class="line">	<span class="keyword">var</span> a=<span class="number">2.1512131231231321</span>;</div><div class="line">	<span class="built_in">document</span>.write(<span class="string">"两位小数点:"</span>+a.toFixed(<span class="number">2</span>));</div><div class="line">	<span class="built_in">document</span>.write(<span class="string">"四位小数点"</span>+a.toFixed(<span class="number">4</span>));</div><div class="line"><span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></div></pre></td></tr></table></figure>
 <h2 id="5-substring-方法"><a href="#5-substring-方法" class="headerlink" title="5.substring() 方法"></a>5.substring() 方法</h2><h3 id="定义和用法-4"><a href="#定义和用法-4" class="headerlink" title="定义和用法"></a>定义和用法</h3><p>substring() 方法用于提取字符串中介于两个指定下标之间的字符。截取字符串内的特定字符</p>
 <h3 id="语法-4"><a href="#语法-4" class="headerlink" title="语法"></a>语法</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">stringObject.substring(start,stop)</div></pre></td></tr></table></figure>
 <h3 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h3><p>start 必需。一个非负的整数，规定要提取的子串的第一个字符在 stringObject 中的位置。<br>stop 可选。一个非负的整数，比要提取的子串的最后一个字符在 stringObject 中的位置多 1。如果省略该参数，那么返回的子串会一直到字符串的结尾。</p>
@@ -260,7 +266,7 @@
 			
 		</div>
 		<footer class="article-footer">
-			<a data-url="https://utopia1991.github.io/2016/11/02/preventDefault/" data-id="civ1ptdjp0000c3td35c1x3a6" class="article-share-link">分享</a>
+			<a data-url="https://utopia1991.github.io/2016/11/02/preventDefault/" data-id="civhgu8rb000co0tdunn1sgd6" class="article-share-link">分享</a>
 			
 			
 		</footer>
@@ -268,6 +274,15 @@
 	
 		
 <nav id="article-nav">
+  
+    <a href="/2016/11/13/macIcon/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          Mac 更改 OS X 应用程序的图标
+        
+      </div>
+    </a>
   
   
     <a href="/2016/11/01/mongodb/" id="article-nav-older" class="article-nav-link-wrap">
