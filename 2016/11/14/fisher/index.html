@@ -12,17 +12,20 @@
 		ga('send', 'pageview');
 	</script>
 	
-	<title>归档 | Bevis Blog - 沈浩个人博客</title>
+	<title>Fisher–Yates shuffle 洗牌算法 | Bevis Blog - 沈浩个人博客</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-	<meta name="description" content="google重度依赖者，mac拥趸，热爱前沿技术，梦想全栈">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Bevis Blog - 沈浩个人博客">
-<meta property="og:url" content="https://utopia1991.github.io/archives/page/2/index.html">
+	<meta name="description" content="简单来说 Fisher–Yates shuffle 算法是一个用来将一个有限集合生成一个随机排列的算法（数组随机排序）。这个算法生成的随机排列是等概率的。同时这个算法非常高效。本文主要介绍这个算法的来源、演变、原理。并举出一个例子为大家清晰的描述每次迭代过程。最后使用 JavaScript 代码将算法实现。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Fisher–Yates shuffle 洗牌算法">
+<meta property="og:url" content="https://utopia1991.github.io/2016/11/14/fisher/index.html">
 <meta property="og:site_name" content="Bevis Blog - 沈浩个人博客">
-<meta property="og:description" content="google重度依赖者，mac拥趸，热爱前沿技术，梦想全栈">
+<meta property="og:description" content="简单来说 Fisher–Yates shuffle 算法是一个用来将一个有限集合生成一个随机排列的算法（数组随机排序）。这个算法生成的随机排列是等概率的。同时这个算法非常高效。本文主要介绍这个算法的来源、演变、原理。并举出一个例子为大家清晰的描述每次迭代过程。最后使用 JavaScript 代码将算法实现。">
+<meta property="og:image" content="https://utopia1991.github.io/images/fisher/2.jpg">
+<meta property="og:updated_time" content="2016-11-14T07:33:10.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Bevis Blog - 沈浩个人博客">
-<meta name="twitter:description" content="google重度依赖者，mac拥趸，热爱前沿技术，梦想全栈">
+<meta name="twitter:title" content="Fisher–Yates shuffle 洗牌算法">
+<meta name="twitter:description" content="简单来说 Fisher–Yates shuffle 算法是一个用来将一个有限集合生成一个随机排列的算法（数组随机排序）。这个算法生成的随机排列是等概率的。同时这个算法非常高效。本文主要介绍这个算法的来源、演变、原理。并举出一个例子为大家清晰的描述每次迭代过程。最后使用 JavaScript 代码将算法实现。">
+<meta name="twitter:image" content="https://utopia1991.github.io/images/fisher/2.jpg">
 	
 	
 		<link rel="icon" href="https://utopia1991.github.io/css/images/icon.png">
@@ -232,132 +235,73 @@
 					<div class="main-header">
 						<span class="main-title">求知若饥 虚心若愚</span>
 					</div>
-					
-	
-	
+					<article id="post-fisher" class="article article-type-post" itemscope itemprop="blogPost">
+	<div class="article-meta">
+		
+	</div>
+	<div class="article-inner">
 		
 		
-			
-			
-			<section class="archives-wrap">
-				<div class="archive-year-wrap">
-					<a href="/archives/2016" class="archive-year">
-						2016
-					</a>
-				</div>
-				<div class="archives">
-		
-		<article class="archive-article archive-type-post">
-	<div class="archive-article-inner">
-		<header class="archive-article-header">
-			
+			<header class="article-header">
+				
 	
-		<h1 itemprop="name">
-			<a class="archive-article-title" href="/2016/10/24/mvc/">MVC 可能快过气了</a>
+		<h1 class="article-title" itemprop="name">
+			Fisher–Yates shuffle 洗牌算法
 		</h1>
 	
 
 
-			<a href="/2016/10/24/mvc/" class="archive-article-date">
-  <time datetime="2016-10-25T02:36:42.000Z" itemprop="datePublished">10月 24</time>
+				<a href="/2016/11/14/fisher/" class="article-date">
+  <time datetime="2016-11-14T07:09:10.000Z" itemprop="datePublished">2016-11-14</time>
 </a>
-		</header>
-	</div>
-</article>
-
-	
+			</header>
 		
-		
-		<article class="archive-article archive-type-post">
-	<div class="archive-article-inner">
-		<header class="archive-article-header">
+		<div class="article-entry" itemprop="articleBody">
 			
-	
-		<h1 itemprop="name">
-			<a class="archive-article-title" href="/2016/10/23/dust/">Dust 模版引擎</a>
-		</h1>
-	
+				<p>简单来说 Fisher–Yates shuffle 算法是一个用来将一个有限集合生成一个随机排列的算法（数组随机排序）。这个算法生成的随机排列是等概率的。同时这个算法非常高效。<br>本文主要介绍这个算法的来源、演变、原理。并举出一个例子为大家清晰的描述每次迭代过程。最后使用 JavaScript 代码将算法实现。</p>
+<p><img src="/images/fisher/2.jpg" alt="Fisher"></p>
+<a id="more"></a>
+<h2 id="Fisher-and-Yates-的原始版"><a href="#Fisher-and-Yates-的原始版" class="headerlink" title="Fisher and Yates 的原始版"></a>Fisher and Yates 的原始版</h2><p>Fisher–Yates shuffle 的原始版本，最初描述在 1938 年的 Ronald Fisher（上图） 和 Frank Yates 写的书中，书名为《Statistical tables for biological, agricultural and medical research》。他们使用纸和笔去描述了这个算法，并使用了一个随机数表来提供随机数。它给出了 1 到 N 的数字的的随机排列，具体步骤如下：</p>
+<ul>
+<li>写下从 1 到 N 的数字</li>
+<li>取一个从 1 到剩下的数字（包括这个数字）的随机数 k</li>
+<li>从低位开始，得到第 k 个数字（这个数字还没有被取出），把它写在独立的一个列表的最后一位</li>
+<li>重复第 2 步，直到所有的数字都被取出</li>
+<li>第 3 步写出的这个序列，现在就是原始数字的随机排列</li>
+</ul>
+<p>已经证明如果第 2 步取出的数字是真随机的，那么最后得到的排序一定也是。</p>
+<h2 id="现代方法"><a href="#现代方法" class="headerlink" title="现代方法"></a>现代方法</h2><p>Fisher–Yates shuffle 算法的现代版本是为计算机设计的。由 Richard Durstenfeld 在1964年 描述。并且是被 Donald E. Knuth 在 《The Art of Computer Programming》 中推广。但是不管是 Durstenfeld 还是 Knuth，都没有在书的第一版中承认这个算法是 Fisher 和 Yates 的研究成果。也许他们并不知道。不过后来出版的 《The Art of Computer Programming》提到了 Fisher 和 Yates 贡献。</p>
+<p>现代版本的描述与原始略有不同，因为如果按照原始方法，愚蠢的计算机会花很多无用的时间去计算上述第 3 步的剩余数字。这里的方法是在每次迭代时交换这个被取出的数字到原始列表的最后。这样就将时间复杂度从 O(n^2) 减小到了 O(n)。算法的伪代码如下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">-- To shuffle an array a of n elements (indices 0..n-1):</div><div class="line"><span class="keyword">for</span> i from n−1 downto 1 <span class="keyword">do</span></div><div class="line">    j ← random <span class="built_in">integer</span> such that 0 ≤ j ≤ i</div><div class="line">    exchange a[j] and a[i]</div></pre></td></tr></table></figure>
+<h2 id="JavaScript-代码实现"><a href="#JavaScript-代码实现" class="headerlink" title="JavaScript 代码实现"></a>JavaScript 代码实现</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line">* Fisher–Yates shuffle</div><div class="line">*/</div><div class="line"><span class="built_in">Array</span>.prototype.shuffle = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> input = <span class="keyword">this</span>;</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = input.length<span class="number">-1</span>; i &gt;=<span class="number">0</span>; i--) &#123;</div><div class="line">        <span class="keyword">var</span> randomIndex = <span class="built_in">Math</span>.floor(<span class="built_in">Math</span>.random()*(i+<span class="number">1</span>));</div><div class="line">        <span class="keyword">var</span> itemAtIndex = input[randomIndex];</div><div class="line">        input[randomIndex] = input[i];</div><div class="line">        input[i] = itemAtIndex;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> input;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>使用方式也很简单，直接用数组调用这个方法即可</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>].shuffle()</div><div class="line"><span class="comment">//[4, 6, 3, 2, 5, 1, 7, 8] // 每次结果都是随机的</span></div></pre></td></tr></table></figure>
+<p>总之，Fisher–Yates shuffle 算法是一个非常高效又公平的随机排序算法，如果有随机排序数组的需求，用这个就对了</p>
 
-
-			<a href="/2016/10/23/dust/" class="archive-article-date">
-  <time datetime="2016-10-24T03:27:39.000Z" itemprop="datePublished">10月 23</time>
-</a>
-		</header>
-	</div>
-</article>
-
-	
-		
-		
-		<article class="archive-article archive-type-post">
-	<div class="archive-article-inner">
-		<header class="archive-article-header">
 			
-	
-		<h1 itemprop="name">
-			<a class="archive-article-title" href="/2016/10/23/markdown/">Markdown 编辑器语法指南</a>
-		</h1>
-	
-
-
-			<a href="/2016/10/23/markdown/" class="archive-article-date">
-  <time datetime="2016-10-24T03:21:29.000Z" itemprop="datePublished">10月 23</time>
-</a>
-		</header>
-	</div>
-</article>
-
-	
-		
-		
-		<article class="archive-article archive-type-post">
-	<div class="archive-article-inner">
-		<header class="archive-article-header">
+		</div>
+		<footer class="article-footer">
+			<a data-url="https://utopia1991.github.io/2016/11/14/fisher/" data-id="civhqbssi000ef5td5vn0bpjz" class="article-share-link">分享</a>
 			
-	
-		<h1 itemprop="name">
-			<a class="archive-article-title" href="/2016/10/23/coffee/">Coffeescript 学习笔记</a>
-		</h1>
-	
-
-
-			<a href="/2016/10/23/coffee/" class="archive-article-date">
-  <time datetime="2016-10-24T01:38:40.000Z" itemprop="datePublished">10月 23</time>
-</a>
-		</header>
-	</div>
-</article>
-
-	
-		
-		
-		<article class="archive-article archive-type-post">
-	<div class="archive-article-inner">
-		<header class="archive-article-header">
 			
-	
-		<h1 itemprop="name">
-			<a class="archive-article-title" href="/2016/10/21/eslint/">EsLint入门</a>
-		</h1>
-	
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Javascript/">Javascript</a></li></ul>
 
-
-			<a href="/2016/10/21/eslint/" class="archive-article-date">
-  <time datetime="2016-10-21T08:56:03.000Z" itemprop="datePublished">10月 21</time>
-</a>
-		</header>
+		</footer>
 	</div>
+	
+		
+<nav id="article-nav">
+  
+  
+    <a href="/2016/11/13/macIcon/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">Mac 更改 OS X 应用程序的图标</div>
+    </a>
+  
+</nav>
+
+	
 </article>
-
-	
-	
-		</div></section>
-	
-
-
-	<nav id="page-nav">
-		<a class="extend prev" rel="prev" href="/archives/">前一页</a><a class="page-number" href="/archives/">1</a><span class="page-number current">2</span>
-	</nav>
 
 
 

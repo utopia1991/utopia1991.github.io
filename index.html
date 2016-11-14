@@ -94,15 +94,29 @@
 
 	
 		
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Coffeescript/">Coffeescript</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML/">HTML</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTTP/">HTTP</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Javascript/">Javascript</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mac/">Mac</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/">Markdown</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mongoose/">Mongoose</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
 
 	
 		
+  <div class="widget-wrap">
+    <h3 class="widget-title">Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Coffeescript/" style="font-size: 10px;">Coffeescript</a> <a href="/tags/HTML/" style="font-size: 10px;">HTML</a> <a href="/tags/HTTP/" style="font-size: 10px;">HTTP</a> <a href="/tags/JavaScript/" style="font-size: 16.67px;">JavaScript</a> <a href="/tags/Javascript/" style="font-size: 20px;">Javascript</a> <a href="/tags/Mac/" style="font-size: 13.33px;">Mac</a> <a href="/tags/Markdown/" style="font-size: 10px;">Markdown</a> <a href="/tags/Mongoose/" style="font-size: 10px;">Mongoose</a>
+    </div>
+  </div>
+
 	
 		
   <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">十一月 2016</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">十月 2016</a><span class="archive-list-count">11</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">十一月 2016</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">十月 2016</a><span class="archive-list-count">11</span></li></ul>
     </div>
   </div>
 
@@ -114,6 +128,12 @@
 		<div class="widget">
 			<ul>
 				
+					<li>
+						<a href="/2016/11/14/fisher/">
+							Fisher–Yates shuffle 洗牌算法
+						</a>
+					</li>
+					
 					<li>
 						<a href="/2016/11/13/macIcon/">
 							Mac 更改 OS X 应用程序的图标
@@ -214,6 +234,52 @@
 					</div>
 					
 	
+		<article id="post-fisher" class="article article-type-post" itemscope itemprop="blogPost">
+	<div class="article-meta">
+		
+	</div>
+	<div class="article-inner">
+		
+		
+			<header class="article-header">
+				
+	
+		<h1 itemprop="name">
+			<a class="article-title" href="/2016/11/14/fisher/">Fisher–Yates shuffle 洗牌算法</a>
+		</h1>
+	
+
+
+				<a href="/2016/11/14/fisher/" class="article-date">
+  <time datetime="2016-11-14T07:09:10.000Z" itemprop="datePublished">2016-11-14</time>
+</a>
+			</header>
+		
+		<div class="article-entry" itemprop="articleBody">
+			
+				<p>简单来说 Fisher–Yates shuffle 算法是一个用来将一个有限集合生成一个随机排列的算法（数组随机排序）。这个算法生成的随机排列是等概率的。同时这个算法非常高效。<br>本文主要介绍这个算法的来源、演变、原理。并举出一个例子为大家清晰的描述每次迭代过程。最后使用 JavaScript 代码将算法实现。</p>
+<p><img src="/images/fisher/2.jpg" alt="Fisher"></p>
+				
+					<p class="article-more-link">
+						<a href="/2016/11/14/fisher/#more">更多</a>
+					</p>
+				
+			
+		</div>
+		<footer class="article-footer">
+			<a data-url="https://utopia1991.github.io/2016/11/14/fisher/" data-id="civhqbssi000ef5td5vn0bpjz" class="article-share-link">分享</a>
+			
+			
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Javascript/">Javascript</a></li></ul>
+
+		</footer>
+	</div>
+	
+</article>
+
+
+
+	
 		<article id="post-macIcon" class="article article-type-post" itemscope itemprop="blogPost">
 	<div class="article-meta">
 		
@@ -237,7 +303,8 @@
 		
 		<div class="article-entry" itemprop="articleBody">
 			
-				<p>有时某个公司或开发商投入了大量的精力去设计一款应用程序的功能，却忘记顺便设计一个美观适配的图标。如果某款应用程序的图标不是你的菜，你还会让它常驻你 Dock 上吗？<br>所幸的是，OS X 是可以对应用程序的图标文件进行更改的，而且过程相对比较简单。所以，我们来动手试一试吧！<br>
+				<p>有时某个公司或开发商投入了大量的精力去设计一款应用程序的功能，却忘记顺便设计一个美观适配的图标。如果某款应用程序的图标不是你的菜，你还会让它常驻你 Dock 上吗？<br>所幸的是，OS X 是可以对应用程序的图标文件进行更改的，而且过程相对比较简单。所以，我们来动手试一试吧！</p>
+<p><img src="/images/macIcon/4.jpg" alt="" title="显示简介"><br>
 				
 					<p class="article-more-link">
 						<a href="/2016/11/13/macIcon/#more">更多</a>
@@ -246,9 +313,11 @@
 			
 		</div>
 		<footer class="article-footer">
-			<a data-url="https://utopia1991.github.io/2016/11/13/macIcon/" data-id="civhgu8r10006o0tdeermz8rg" class="article-share-link">分享</a>
+			<a data-url="https://utopia1991.github.io/2016/11/13/macIcon/" data-id="civhq55ud0008f5td6o7pwp78" class="article-share-link">分享</a>
 			
 			
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Mac/">Mac</a></li></ul>
+
 		</footer>
 	</div>
 	
@@ -289,9 +358,11 @@
 			
 		</div>
 		<footer class="article-footer">
-			<a data-url="https://utopia1991.github.io/2016/11/02/preventDefault/" data-id="civhgu8rb000co0tdunn1sgd6" class="article-share-link">分享</a>
+			<a data-url="https://utopia1991.github.io/2016/11/02/preventDefault/" data-id="civhq55uh000bf5td81vau7x7" class="article-share-link">分享</a>
 			
 			
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
+
 		</footer>
 	</div>
 	
@@ -323,7 +394,8 @@
 		
 		<div class="article-entry" itemprop="articleBody">
 			
-				<p>Mongoose 简而言之就是在 node 环境中操作 MongoDB 数据库的一种便捷的封装，一种对象模型工具，类似 ORM ，Mongoose 将数据库中的数据转换为 JavaScript 对象以供你在应用中使用。<br>当然要使用的话，必须要先安装好环境Node.js与MongoDB。<br>MongoDB是目前最流行的noSQL数据库之一，它是专为node.js而开发的，理解下与我们常用的RDBMS关系型数据库的区别就可以基本使用了。<br>
+				<p>Mongoose 简而言之就是在 node 环境中操作 MongoDB 数据库的一种便捷的封装，一种对象模型工具，类似 ORM ，Mongoose 将数据库中的数据转换为 JavaScript 对象以供你在应用中使用。<br>当然要使用的话，必须要先安装好环境Node.js与MongoDB。<br>MongoDB是目前最流行的noSQL数据库之一，它是专为node.js而开发的，理解下与我们常用的RDBMS关系型数据库的区别就可以基本使用了。</p>
+<p><img src="/images/mongoose/1.png" alt="" title="Mongoose"></p>
 				
 					<p class="article-more-link">
 						<a href="/2016/11/01/mongodb/#more">更多</a>
@@ -332,9 +404,11 @@
 			
 		</div>
 		<footer class="article-footer">
-			<a data-url="https://utopia1991.github.io/2016/11/01/mongodb/" data-id="civhgu8r80009o0td2a1j9h25" class="article-share-link">分享</a>
+			<a data-url="https://utopia1991.github.io/2016/11/01/mongodb/" data-id="civhq55uf000af5tdl3o9ot4q" class="article-share-link">分享</a>
 			
 			
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Mongoose/">Mongoose</a></li></ul>
+
 		</footer>
 	</div>
 	
@@ -375,9 +449,11 @@
 			
 		</div>
 		<footer class="article-footer">
-			<a data-url="https://utopia1991.github.io/2016/10/27/getPost/" data-id="civhgu8qz0005o0tdfd87hx39" class="article-share-link">分享</a>
+			<a data-url="https://utopia1991.github.io/2016/10/27/getPost/" data-id="civhq55u70005f5tdph1juq5c" class="article-share-link">分享</a>
 			
 			
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Javascript/">Javascript</a></li></ul>
+
 		</footer>
 	</div>
 	
@@ -418,9 +494,11 @@
 			
 		</div>
 		<footer class="article-footer">
-			<a data-url="https://utopia1991.github.io/2016/10/27/http/" data-id="civhgu8r70008o0tdw0yzaquq" class="article-share-link">分享</a>
+			<a data-url="https://utopia1991.github.io/2016/10/27/http/" data-id="civhq55u80006f5tdt0xf358k" class="article-share-link">分享</a>
 			
 			
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HTTP/">HTTP</a></li></ul>
+
 		</footer>
 	</div>
 	
@@ -461,9 +539,11 @@
 			
 		</div>
 		<footer class="article-footer">
-			<a data-url="https://utopia1991.github.io/2016/10/25/superAgent/" data-id="civhgu8rd000do0td8osuq5td" class="article-share-link">分享</a>
+			<a data-url="https://utopia1991.github.io/2016/10/25/superAgent/" data-id="civhq55uk000df5tdwf7507gs" class="article-share-link">分享</a>
 			
 			
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
+
 		</footer>
 	</div>
 	
@@ -504,9 +584,11 @@
 			
 		</div>
 		<footer class="article-footer">
-			<a data-url="https://utopia1991.github.io/2016/10/24/interview/" data-id="civhgu8r30007o0td00errs2k" class="article-share-link">分享</a>
+			<a data-url="https://utopia1991.github.io/2016/10/24/interview/" data-id="civhq55u90007f5tdjagr9rs9" class="article-share-link">分享</a>
 			
 			
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Javascript/">Javascript</a></li></ul>
+
 		</footer>
 	</div>
 	
@@ -538,7 +620,8 @@
 		
 		<div class="article-entry" itemprop="articleBody">
 			
-				<p>Express 是一个简洁而灵活的 node.js Web应用框架, 提供了一系列强大特性帮助你创建各种 Web 应用，和丰富的 HTTP 工具。<br>使用 Express 可以快速地搭建一个完整功能的网站。<br>
+				<p>Express 是一个简洁而灵活的 node.js Web应用框架, 提供了一系列强大特性帮助你创建各种 Web 应用，和丰富的 HTTP 工具。<br>使用 Express 可以快速地搭建一个完整功能的网站。</p>
+<p><img src="/images/express/1.png" alt="" title="Express"></p>
 				
 					<p class="article-more-link">
 						<a href="/2016/10/24/express/#more">更多</a>
@@ -547,7 +630,7 @@
 			
 		</div>
 		<footer class="article-footer">
-			<a data-url="https://utopia1991.github.io/2016/10/24/express/" data-id="civhgu8qq0001o0td71m7ctu0" class="article-share-link">分享</a>
+			<a data-url="https://utopia1991.github.io/2016/10/24/express/" data-id="civhq55u20003f5tdxd5kedwr" class="article-share-link">分享</a>
 			
 			
 		</footer>
@@ -590,52 +673,11 @@
 			
 		</div>
 		<footer class="article-footer">
-			<a data-url="https://utopia1991.github.io/2016/10/24/commandLine/" data-id="civhgu8qt0002o0tdu4rgb4t7" class="article-share-link">分享</a>
+			<a data-url="https://utopia1991.github.io/2016/10/24/commandLine/" data-id="civhq55u10002f5tdkyzlh4py" class="article-share-link">分享</a>
 			
 			
-		</footer>
-	</div>
-	
-</article>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Mac/">Mac</a></li></ul>
 
-
-
-	
-		<article id="post-mvc" class="article article-type-post" itemscope itemprop="blogPost">
-	<div class="article-meta">
-		
-	</div>
-	<div class="article-inner">
-		
-		
-			<header class="article-header">
-				
-	
-		<h1 itemprop="name">
-			<a class="article-title" href="/2016/10/24/mvc/">MVC 可能快过气了</a>
-		</h1>
-	
-
-
-				<a href="/2016/10/24/mvc/" class="article-date">
-  <time datetime="2016-10-25T02:36:42.000Z" itemprop="datePublished">2016-10-24</time>
-</a>
-			</header>
-		
-		<div class="article-entry" itemprop="articleBody">
-			
-				<p>依我个人所见，后端框架，类似于MVC这样的组织方式已经显得过气了。我们先从后端MVC的历史开始讲起吧。MVC最初发端于客户端程序的开发，旨在用Controller在Model和View之间进行解耦。<br>
-				
-					<p class="article-more-link">
-						<a href="/2016/10/24/mvc/#more">更多</a>
-					</p>
-				
-			
-		</div>
-		<footer class="article-footer">
-			<a data-url="https://utopia1991.github.io/2016/10/24/mvc/" data-id="civhgu8r9000bo0tdglrsfif9" class="article-share-link">分享</a>
-			
-			
 		</footer>
 	</div>
 	
