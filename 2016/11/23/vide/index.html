@@ -23,17 +23,18 @@
 		ga('send', 'pageview');
 	</script>
 	
-	<title>归档: 2016 | Bevis Blog - 沈浩个人博客</title>
+	<title>Vide,视频作为背景jQuery插件 | Bevis Blog - 沈浩个人博客</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-	<meta name="description" content="google重度依赖者，mac拥趸，热爱前沿技术，梦想全栈">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Bevis Blog - 沈浩个人博客">
-<meta property="og:url" content="https://utopia1991.github.io/archives/2016/index.html">
+	<meta name="description" content="一个简单的以视频作为网页背景的jQuery 插件">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Vide,视频作为背景jQuery插件">
+<meta property="og:url" content="https://utopia1991.github.io/2016/11/23/vide/index.html">
 <meta property="og:site_name" content="Bevis Blog - 沈浩个人博客">
-<meta property="og:description" content="google重度依赖者，mac拥趸，热爱前沿技术，梦想全栈">
+<meta property="og:description" content="一个简单的以视频作为网页背景的jQuery 插件">
+<meta property="og:updated_time" content="2016-11-23T08:36:10.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Bevis Blog - 沈浩个人博客">
-<meta name="twitter:description" content="google重度依赖者，mac拥趸，热爱前沿技术，梦想全栈">
+<meta name="twitter:title" content="Vide,视频作为背景jQuery插件">
+<meta name="twitter:description" content="一个简单的以视频作为网页背景的jQuery 插件">
 	
 	
 		<link rel="icon" href="https://utopia1991.github.io/css/images/icon.png">
@@ -324,237 +325,83 @@
 							</g>
 						</svg>
 					</div>
-					
-	
-	
+					<article id="post-vide" class="article article-type-post" itemscope itemprop="blogPost">
+	<div class="article-meta">
+		
+	</div>
+	<div class="article-inner">
 		
 		
-			
-			
-			<section class="archives-wrap">
-				<div class="archive-year-wrap">
-					<a href="/archives/2016" class="archive-year">
-						2016
-					</a>
-				</div>
-				<div class="archives">
-		
-		<article class="archive-article archive-type-post">
-	<div class="archive-article-inner">
-		<header class="archive-article-header">
-			
+			<header class="article-header">
+				
 	
-		<h1 itemprop="name">
-			<a class="archive-article-title" href="/2016/11/23/vide/">Vide,视频作为背景jQuery插件</a>
+		<h1 class="article-title" itemprop="name">
+			Vide,视频作为背景jQuery插件
 		</h1>
 	
 
 
-			<a href="/2016/11/23/vide/" class="archive-article-date">
-  <time datetime="2016-11-23T08:24:32.000Z" itemprop="datePublished">11月 23</time>
+				<a href="/2016/11/23/vide/" class="article-date">
+  <time datetime="2016-11-23T08:24:32.000Z" itemprop="datePublished">2016-11-23</time>
 </a>
-		</header>
-	</div>
-</article>
-
-	
+			</header>
 		
-		
-		<article class="archive-article archive-type-post">
-	<div class="archive-article-inner">
-		<header class="archive-article-header">
+		<div class="article-entry" itemprop="articleBody">
 			
-	
-		<h1 itemprop="name">
-			<a class="archive-article-title" href="/2016/11/23/underscore/">精巧而强大的 UnderscoreJS</a>
-		</h1>
-	
+				<p>一个简单的以视频作为网页背景的jQuery 插件<br><a id="more"></a></p>
+<h3 id="浏览器支持"><a href="#浏览器支持" class="headerlink" title="浏览器支持"></a>浏览器支持</h3><ul>
+<li>现代浏览器全部支持</li>
+<li>IE9+</li>
+</ul>
+<h3 id="效果演示地址"><a href="#效果演示地址" class="headerlink" title="效果演示地址"></a>效果演示地址</h3><ul>
+<li>作为body背景，演示地址1：<a href="http://weber.pub/demo/160905/body-bg.html" target="_blank" rel="external">点击这里</a></li>
+<li>作为一块区域背景，演示地址2：<a href="http://weber.pub/demo/160905/block-bg.html" target="_blank" rel="external">点击这里</a></li>
+</ul>
+<h3 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h3><ul>
+<li>直接下载，github 地址：<a href="https://github.com/VodkaBears/Vide" target="_blank" rel="external">https://github.com/VodkaBears/Vide</a></li>
+<li>npm 安装</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">bower install vide</div></pre></td></tr></table></figure>
+<h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><h4 id="1、引入文件"><a href="#1、引入文件" class="headerlink" title="1、引入文件"></a>1、引入文件</h4><p>依赖 jQuery</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;script src=<span class="string">'js/jquery.vide.min.js'</span>&gt;&lt;/script&gt;</div></pre></td></tr></table></figure>
+<h4 id="2、准备视频"><a href="#2、准备视频" class="headerlink" title="2、准备视频"></a>2、准备视频</h4><p>准备视频格式可以是 .webm / .mp4 等浏览器支持的视频格式，最好多准备一张静态的图片。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">path/</div><div class="line">├── src/</div><div class="line">│   ├── video.mp4</div><div class="line">│   ├── video.ogv</div><div class="line">│   ├── video.webm</div><div class="line">│   └── video.jpg</div></pre></td></tr></table></figure>
+<h4 id="3、使用"><a href="#3、使用" class="headerlink" title="3、使用"></a>3、使用</h4><p>添加一个 data-vide-bg 的属性用来引入视频<br>data-vide-options 属性是配置文件（配置项后面会介绍）</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"width: 1000px; height: 500px;"</span> <span class="attr">data-vide-bg</span>=<span class="string">"path/src/video"</span> <span class="attr">data-vide-options</span>=<span class="string">"loop: false, muted:false, position: 0% 0%"</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>你也可以设置扩展路径</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"width: 1000px; height: 500px;"</span><span class="attr">data-vide-bg</span>=<span class="string">"mp4: path/to/video1, webm: path/to/video2, ogv: path/to/video3, poster: path/to/poster"</span> <span class="attr">data-vide-options</span>=<span class="string">"posterType: jpg, loop: false, muted: false, position: 0% 0%"</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>下面是一段可以帮助我们调试的代码</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">'#myBlock'</span>).vide(<span class="string">'path/to/video'</span>);</div><div class="line">$(<span class="string">'#myBlock'</span>).vide(<span class="string">'path/to/video'</span>, &#123;</div><div class="line">	<span class="comment">//options</span></div><div class="line">&#125;);</div><div class="line">$(<span class="string">'#myBlock'</span>).vide(&#123;</div><div class="line">	<span class="attr">mp4</span>: path/to/video1,</div><div class="line">	<span class="attr">webm</span>: path/to/video2,</div><div class="line">	<span class="attr">ogv</span>: path/to/video3,</div><div class="line">	<span class="attr">poster</span>: path/to/poster</div><div class="line">&#125;, &#123;</div><div class="line">	<span class="comment">//options</span></div><div class="line">&#125;);</div><div class="line">$(<span class="string">'#myBlock'</span>).vide(<span class="string">'extended path as a string'</span>, <span class="string">'options as a string'</span>);</div></pre></td></tr></table></figure>
+<p>http请求默认的方法为get,所以就像你看到的,下面的这个例子也是可用的:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">request(<span class="string">'/search'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">res</span>)</span>&#123;</div><div class="line"></div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<h4 id="4、配置"><a href="#4、配置" class="headerlink" title="4、配置"></a>4、配置</h4><p>下面是所有的配置项和初始化值</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">	<span class="attr">volume</span>: <span class="number">1</span>,</div><div class="line">	<span class="attr">playbackRate</span>: <span class="number">1</span>,</div><div class="line">	<span class="attr">muted</span>: <span class="literal">true</span>,</div><div class="line">	<span class="attr">loop</span>: <span class="literal">true</span>,</div><div class="line">	<span class="attr">autoplay</span>: <span class="literal">true</span>,</div><div class="line">	<span class="attr">position</span>: <span class="string">'50% 50%'</span>, <span class="comment">// 类似于CSS的背景位置属性</span></div><div class="line">	posterType: <span class="string">'detect'</span>, <span class="comment">// 静态图片类型 "detect" — 自动检测; "none" — 没有静态图; "jpg", "png", "gif",... - 扩展类型</span></div><div class="line">	resizing: <span class="literal">true</span>, <span class="comment">// 自动改变大小, read: https://github.com/VodkaBears/Vide#resizing</span></div><div class="line">	bgColor: <span class="string">'transparent'</span>, <span class="comment">// 背景颜色,</span></div><div class="line">	className: <span class="string">''</span> <span class="comment">// 给Vide的div添加class</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="5、方法列表"><a href="#5、方法列表" class="headerlink" title="5、方法列表"></a>5、方法列表</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 获取插件实例</span></div><div class="line"><span class="keyword">var</span> instance = $(<span class="string">'#yourElement'</span>).data(<span class="string">'vide'</span>);</div><div class="line"></div><div class="line"><span class="comment">// 获取视频元素的背景颜色</span></div><div class="line">instance.getVideoObject();</div><div class="line"></div><div class="line"><span class="comment">// 调整视频背景大小</span></div><div class="line"><span class="comment">// 随着窗口改变自动调整大小</span></div><div class="line">instance.resize();</div><div class="line"></div><div class="line"><span class="comment">// 销毁插件</span></div><div class="line">instance.destroy();</div></pre></td></tr></table></figure>
+<h3 id="结尾"><a href="#结尾" class="headerlink" title="结尾"></a>结尾</h3><p>github 地址：<a href="https://github.com/VodkaBears/Vide" target="_blank" rel="external">https://github.com/VodkaBears/Vide</a></p>
 
-
-			<a href="/2016/11/23/underscore/" class="archive-article-date">
-  <time datetime="2016-11-23T06:29:38.000Z" itemprop="datePublished">11月 23</time>
-</a>
-		</header>
-	</div>
-</article>
-
-	
-		
-		
-		<article class="archive-article archive-type-post">
-	<div class="archive-article-inner">
-		<header class="archive-article-header">
 			
-	
-		<h1 itemprop="name">
-			<a class="archive-article-title" href="/2016/11/14/fisher/">Fisher–Yates shuffle 洗牌算法</a>
-		</h1>
-	
-
-
-			<a href="/2016/11/14/fisher/" class="archive-article-date">
-  <time datetime="2016-11-14T07:09:10.000Z" itemprop="datePublished">11月 14</time>
-</a>
-		</header>
-	</div>
-</article>
-
-	
-		
-		
-		<article class="archive-article archive-type-post">
-	<div class="archive-article-inner">
-		<header class="archive-article-header">
+		</div>
+		<footer class="article-footer">
+			<a data-url="https://utopia1991.github.io/2016/11/23/vide/" data-id="civunzdk000004qtdu3hoito3" class="article-share-link">分享</a>
 			
-	
-		<h1 itemprop="name">
-			<a class="archive-article-title" href="/2016/11/13/macIcon/">Mac 更改 OS X 应用程序的图标</a>
-		</h1>
-	
-
-
-			<a href="/2016/11/13/macIcon/" class="archive-article-date">
-  <time datetime="2016-11-14T02:16:24.000Z" itemprop="datePublished">11月 13</time>
-</a>
-		</header>
-	</div>
-</article>
-
-	
-		
-		
-		<article class="archive-article archive-type-post">
-	<div class="archive-article-inner">
-		<header class="archive-article-header">
 			
-	
-		<h1 itemprop="name">
-			<a class="archive-article-title" href="/2016/11/02/preventDefault/">Javascript 注意点</a>
-		</h1>
-	
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jQuery/">jQuery</a></li></ul>
 
-
-			<a href="/2016/11/02/preventDefault/" class="archive-article-date">
-  <time datetime="2016-11-03T01:47:06.000Z" itemprop="datePublished">11月 2</time>
-</a>
-		</header>
+		</footer>
 	</div>
+	
+		
+<nav id="article-nav">
+  
+  
+    <a href="/2016/11/23/underscore/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">精巧而强大的 UnderscoreJS</div>
+    </a>
+  
+</nav>
+
+	
 </article>
-
-	
-		
-		
-		<article class="archive-article archive-type-post">
-	<div class="archive-article-inner">
-		<header class="archive-article-header">
-			
-	
-		<h1 itemprop="name">
-			<a class="archive-article-title" href="/2016/11/01/mongodb/">Mongoose 基本介绍</a>
-		</h1>
-	
-
-
-			<a href="/2016/11/01/mongodb/" class="archive-article-date">
-  <time datetime="2016-11-01T05:53:39.000Z" itemprop="datePublished">11月 1</time>
-</a>
-		</header>
-	</div>
-</article>
-
-	
-		
-		
-		<article class="archive-article archive-type-post">
-	<div class="archive-article-inner">
-		<header class="archive-article-header">
-			
-	
-		<h1 itemprop="name">
-			<a class="archive-article-title" href="/2016/10/27/getPost/">Get 与 Post 区别</a>
-		</h1>
-	
-
-
-			<a href="/2016/10/27/getPost/" class="archive-article-date">
-  <time datetime="2016-10-27T07:01:57.000Z" itemprop="datePublished">10月 27</time>
-</a>
-		</header>
-	</div>
-</article>
-
-	
-		
-		
-		<article class="archive-article archive-type-post">
-	<div class="archive-article-inner">
-		<header class="archive-article-header">
-			
-	
-		<h1 itemprop="name">
-			<a class="archive-article-title" href="/2016/10/27/http/">HTTP 协议</a>
-		</h1>
-	
-
-
-			<a href="/2016/10/27/http/" class="archive-article-date">
-  <time datetime="2016-10-27T06:34:24.000Z" itemprop="datePublished">10月 27</time>
-</a>
-		</header>
-	</div>
-</article>
-
-	
-		
-		
-		<article class="archive-article archive-type-post">
-	<div class="archive-article-inner">
-		<header class="archive-article-header">
-			
-	
-		<h1 itemprop="name">
-			<a class="archive-article-title" href="/2016/10/25/superAgent/">SuperAgent 中文使用文档</a>
-		</h1>
-	
-
-
-			<a href="/2016/10/25/superAgent/" class="archive-article-date">
-  <time datetime="2016-10-25T05:59:33.000Z" itemprop="datePublished">10月 25</time>
-</a>
-		</header>
-	</div>
-</article>
-
-	
-		
-		
-		<article class="archive-article archive-type-post">
-	<div class="archive-article-inner">
-		<header class="archive-article-header">
-			
-	
-		<h1 itemprop="name">
-			<a class="archive-article-title" href="/2016/10/24/interview/">一篇不错的前端面试文章(译)</a>
-		</h1>
-	
-
-
-			<a href="/2016/10/24/interview/" class="archive-article-date">
-  <time datetime="2016-10-25T03:23:01.000Z" itemprop="datePublished">10月 24</time>
-</a>
-		</header>
-	</div>
-</article>
-
-	
-	
-		</div></section>
-	
-
-
-	<nav id="page-nav">
-		<span class="page-number current">1</span><a class="page-number" href="/archives/2016/page/2/">2</a><a class="extend next" rel="next" href="/archives/2016/page/2/">后一页</a>
-	</nav>
 
 
 

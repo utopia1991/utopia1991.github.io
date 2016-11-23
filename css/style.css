@@ -526,6 +526,7 @@ body {
   text-shadow: 2px 1px 14px;
 }
 .article {
+  background: #fff;
   margin: 40px 0;
   padding-bottom: 10px;
   border-radius: 5px;
@@ -780,6 +781,7 @@ a .article-title:hover {
 }
 #article-nav {
   position: relative;
+  background: #fff;
 }
 #article-nav:before,
 #article-nav:after {
