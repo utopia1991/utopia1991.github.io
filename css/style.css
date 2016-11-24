@@ -502,17 +502,35 @@ body {
   height: 350px;
   border-radius: 5px;
   background: url("images/banner.jpg") no-repeat;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  background-size: cover;
   text-align: center;
   -webkit-box-shadow: 0px 0px 17px #999;
   box-shadow: 0px 0px 17px #999;
   position: relative;
 }
+@media screen and (min-width: 768px) {
+  .main-header {
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+  }
+}
+@media screen and (max-width: 479px) {
+  .main-header {
+    -webkit-background-size: initial;
+    -moz-background-size: initial;
+    background-size: initial;
+  }
+}
+@media screen and (min-width: 480px) and (max-width: 767px) {
+  .main-header {
+    -webkit-background-size: initial;
+    -moz-background-size: initial;
+    background-size: initial;
+  }
+}
 .main-header svg {
   position: absolute;
-  margin-top: 120px;
+  margin-top: 100px;
   background: rgba(0,0,0,0);
   width: 100%;
   border-radius: 5px;
