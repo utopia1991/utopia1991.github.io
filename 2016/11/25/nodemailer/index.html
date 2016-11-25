@@ -23,17 +23,18 @@
 		ga('send', 'pageview');
 	</script>
 	
-	<title>标签: Javascript | Bevis Blog - 沈浩个人博客</title>
+	<title>使用 nodeJs 发送邮件 | Bevis Blog - 沈浩个人博客</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-	<meta name="description" content="google重度依赖者，mac拥趸，热爱前沿技术，梦想全栈">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Bevis Blog - 沈浩个人博客">
-<meta property="og:url" content="https://utopia1991.github.io/tags/Javascript/index.html">
+	<meta name="description" content="平时在开发应用的时候，很多时候会用到邮件，来通知我们， 这里介绍 nodejs 如何发送邮件，比较简单。使用 Nodemailer 库来发送邮件。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="使用 nodeJs 发送邮件">
+<meta property="og:url" content="https://utopia1991.github.io/2016/11/25/nodemailer/index.html">
 <meta property="og:site_name" content="Bevis Blog - 沈浩个人博客">
-<meta property="og:description" content="google重度依赖者，mac拥趸，热爱前沿技术，梦想全栈">
+<meta property="og:description" content="平时在开发应用的时候，很多时候会用到邮件，来通知我们， 这里介绍 nodejs 如何发送邮件，比较简单。使用 Nodemailer 库来发送邮件。">
+<meta property="og:updated_time" content="2016-11-25T06:49:44.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Bevis Blog - 沈浩个人博客">
-<meta name="twitter:description" content="google重度依赖者，mac拥趸，热爱前沿技术，梦想全栈">
+<meta name="twitter:title" content="使用 nodeJs 发送邮件">
+<meta name="twitter:description" content="平时在开发应用的时候，很多时候会用到邮件，来通知我们， 这里介绍 nodejs 如何发送邮件，比较简单。使用 Nodemailer 库来发送邮件。">
 	
 	
 		<link rel="icon" href="https://utopia1991.github.io/css/images/icon.png">
@@ -342,169 +343,70 @@
 							</g>
 						</svg>
 					</div>
-					
-	
-	
+					<article id="post-nodemailer" class="article article-type-post" itemscope itemprop="blogPost">
+	<div class="article-meta">
+		
+	</div>
+	<div class="article-inner">
 		
 		
-			
-			
-			<section class="archives-wrap">
-				<div class="archive-year-wrap">
-					<a href="/archives/2016" class="archive-year">
-						2016
-					</a>
-				</div>
-				<div class="archives">
-		
-		<article class="archive-article archive-type-post">
-	<div class="archive-article-inner">
-		<header class="archive-article-header">
-			
+			<header class="article-header">
+				
 	
-		<h1 itemprop="name">
-			<a class="archive-article-title" href="/2016/11/23/underscore/">精巧而强大的 UnderscoreJS</a>
+		<h1 class="article-title" itemprop="name">
+			使用 nodeJs 发送邮件
 		</h1>
 	
 
 
-			<a href="/2016/11/23/underscore/" class="archive-article-date">
-  <time datetime="2016-11-23T06:29:38.000Z" itemprop="datePublished">11月 23</time>
+				<a href="/2016/11/25/nodemailer/" class="article-date">
+  <time datetime="2016-11-25T06:44:53.000Z" itemprop="datePublished">2016-11-25</time>
 </a>
-		</header>
-	</div>
-</article>
-
-	
+			</header>
 		
-		
-		<article class="archive-article archive-type-post">
-	<div class="archive-article-inner">
-		<header class="archive-article-header">
+		<div class="article-entry" itemprop="articleBody">
 			
-	
-		<h1 itemprop="name">
-			<a class="archive-article-title" href="/2016/11/14/fisher/">Fisher–Yates shuffle 洗牌算法</a>
-		</h1>
-	
+				<p>平时在开发应用的时候，很多时候会用到邮件，来通知我们， 这里介绍 nodejs 如何发送邮件，比较简单。<br>使用 Nodemailer 库来发送邮件。</p>
+<a id="more"></a>
+<h3 id="安装："><a href="#安装：" class="headerlink" title="安装："></a>安装：</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install nodemailer --save</div></pre></td></tr></table></figure>
+<h3 id="增加配置信息-config-js："><a href="#增加配置信息-config-js：" class="headerlink" title="增加配置信息 config.js："></a>增加配置信息 config.js：</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">module</span>.exports = &#123;</div><div class="line">  <span class="attr">mail</span>: &#123;</div><div class="line">    <span class="attr">from</span>: &#123;</div><div class="line">      <span class="attr">name</span>: <span class="string">'App name'</span>,</div><div class="line">      <span class="attr">service</span>: <span class="string">'Gmail'</span>,</div><div class="line">      <span class="attr">auth</span>: &#123;</div><div class="line">        <span class="attr">user</span>: <span class="string">'gmail.name@gmail.com'</span>,</div><div class="line">        <span class="attr">pass</span>: <span class="string">'gmail.password'</span></div><div class="line">      &#125;</div><div class="line">    &#125;,</div><div class="line">    <span class="attr">to</span>: [</div><div class="line">      <span class="string">'Bevis Shen &lt;bevis19910619@gmail.com&gt;'</span></div><div class="line">    ]</div><div class="line">  &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<p>参数：</p>
+<ul>
+<li>from：配置发送邮件信息</li>
+<li>to：数组，配置发送给谁</li>
+<li>name：显示的名称</li>
+<li>service：SMTP 名称，这里用 Gmail</li>
+<li>auth：邮箱的用户名和密码</li>
+</ul>
+<h3 id="如何使用："><a href="#如何使用：" class="headerlink" title="如何使用："></a>如何使用：</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> nodemailer = <span class="built_in">require</span>(<span class="string">'nodemailer'</span>),</div><div class="line">  config = <span class="built_in">require</span>(<span class="string">'./config'</span>),</div><div class="line">  smtpTransport = nodemailer.createTransport(<span class="string">'SMTP'</span>, config.mail.from);</div></pre></td></tr></table></figure>
+<p>定义并且根据配置文件生成 smtpTransport。</p>
+<h3 id="发送邮件函数："><a href="#发送邮件函数：" class="headerlink" title="发送邮件函数："></a>发送邮件函数：</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * @param &#123;String&#125; subject：发送的主题</div><div class="line"> * @param &#123;String&#125; html：发送的 html 内容</div><div class="line"> */</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">sendMail</span>(<span class="params">subject, html</span>) </span>&#123;</div><div class="line">  <span class="keyword">var</span> mailOptions = &#123;</div><div class="line">    <span class="attr">from</span>: [config.mail.from.name, config.mail.from.auth.user].join(<span class="string">' '</span>),</div><div class="line">    <span class="attr">to</span>: config.mail.to.join(<span class="string">','</span>),</div><div class="line">    <span class="attr">subject</span>: subject,</div><div class="line">    <span class="attr">html</span>: html</div><div class="line">  &#125;;</div><div class="line"></div><div class="line">  smtpTransport.sendMail(mailOptions, <span class="function"><span class="keyword">function</span>(<span class="params">error, response</span>)</span>&#123;</div><div class="line">    <span class="keyword">if</span> (error) &#123;</div><div class="line">      <span class="built_in">console</span>.log(error);</div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">      <span class="built_in">console</span>.log(<span class="string">'Message sent: '</span> + response.message);</div><div class="line">    &#125;</div><div class="line">    smtpTransport.close();</div><div class="line">  &#125;);</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<h3 id="发邮件例子："><a href="#发邮件例子：" class="headerlink" title="发邮件例子："></a>发邮件例子：</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sendMail(<span class="string">'测试邮件'</span>, <span class="string">'&lt;p&gt;Hello world!&lt;/p&gt;'</span>);</div></pre></td></tr></table></figure>
 
-
-			<a href="/2016/11/14/fisher/" class="archive-article-date">
-  <time datetime="2016-11-14T07:09:10.000Z" itemprop="datePublished">11月 14</time>
-</a>
-		</header>
-	</div>
-</article>
-
-	
-		
-		
-		<article class="archive-article archive-type-post">
-	<div class="archive-article-inner">
-		<header class="archive-article-header">
 			
-	
-		<h1 itemprop="name">
-			<a class="archive-article-title" href="/2016/11/02/preventDefault/">Javascript 注意点</a>
-		</h1>
-	
-
-
-			<a href="/2016/11/02/preventDefault/" class="archive-article-date">
-  <time datetime="2016-11-03T01:47:06.000Z" itemprop="datePublished">11月 2</time>
-</a>
-		</header>
-	</div>
-</article>
-
-	
-		
-		
-		<article class="archive-article archive-type-post">
-	<div class="archive-article-inner">
-		<header class="archive-article-header">
+		</div>
+		<footer class="article-footer">
+			<a data-url="https://utopia1991.github.io/2016/11/25/nodemailer/" data-id="civxfax4600003stdjruvg578" class="article-share-link">分享</a>
 			
-	
-		<h1 itemprop="name">
-			<a class="archive-article-title" href="/2016/10/27/getPost/">Get 与 Post 区别</a>
-		</h1>
-	
-
-
-			<a href="/2016/10/27/getPost/" class="archive-article-date">
-  <time datetime="2016-10-27T07:01:57.000Z" itemprop="datePublished">10月 27</time>
-</a>
-		</header>
-	</div>
-</article>
-
-	
-		
-		
-		<article class="archive-article archive-type-post">
-	<div class="archive-article-inner">
-		<header class="archive-article-header">
 			
-	
-		<h1 itemprop="name">
-			<a class="archive-article-title" href="/2016/10/25/superAgent/">SuperAgent 中文使用文档</a>
-		</h1>
-	
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nodeJs/">nodeJs</a></li></ul>
 
-
-			<a href="/2016/10/25/superAgent/" class="archive-article-date">
-  <time datetime="2016-10-25T05:59:33.000Z" itemprop="datePublished">10月 25</time>
-</a>
-		</header>
+		</footer>
 	</div>
+	
+		
+<nav id="article-nav">
+  
+  
+    <a href="/2016/11/25/google/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">教你使用 Google</div>
+    </a>
+  
+</nav>
+
+	
 </article>
-
-	
-		
-		
-		<article class="archive-article archive-type-post">
-	<div class="archive-article-inner">
-		<header class="archive-article-header">
-			
-	
-		<h1 itemprop="name">
-			<a class="archive-article-title" href="/2016/10/24/mvc/">MVC 可能快过气了</a>
-		</h1>
-	
-
-
-			<a href="/2016/10/24/mvc/" class="archive-article-date">
-  <time datetime="2016-10-25T02:36:42.000Z" itemprop="datePublished">10月 24</time>
-</a>
-		</header>
-	</div>
-</article>
-
-	
-		
-		
-		<article class="archive-article archive-type-post">
-	<div class="archive-article-inner">
-		<header class="archive-article-header">
-			
-	
-		<h1 itemprop="name">
-			<a class="archive-article-title" href="/2016/10/21/eslint/">EsLint入门</a>
-		</h1>
-	
-
-
-			<a href="/2016/10/21/eslint/" class="archive-article-date">
-  <time datetime="2016-10-21T08:56:03.000Z" itemprop="datePublished">10月 21</time>
-</a>
-		</header>
-	</div>
-</article>
-
-	
-	
-		</div></section>
-	
 
 
 
