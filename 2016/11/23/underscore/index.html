@@ -457,6 +457,11 @@
 <h4 id="字符串语义处理"><a href="#字符串语义处理" class="headerlink" title="字符串语义处理"></a>字符串语义处理</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">console</span>.log(_.toSentence([<span class="string">'jQuery'</span>, <span class="string">'Mootools'</span>, <span class="string">'Prototype'</span>]));</div><div class="line">=&gt; jQuery, Mootools and Prototype</div><div class="line"><span class="built_in">console</span>.log(_.toSentence([<span class="string">'jQuery'</span>, <span class="string">'Mootools'</span>, <span class="string">'Prototype'</span>], <span class="string">', '</span>, <span class="string">' unt '</span>));</div><div class="line">=&gt; jQuery, Mootools unt Prototype</div><div class="line"><span class="built_in">console</span>.log(_.toSentenceSerial([<span class="string">'jQuery'</span>, <span class="string">'Mootools'</span>]));</div><div class="line">=&gt; jQuery and Mootools</div><div class="line"><span class="built_in">console</span>.log(_.toSentenceSerial([<span class="string">'jQuery'</span>, <span class="string">'Mootools'</span>, <span class="string">'Prototype'</span>]));</div><div class="line">=&gt; jQuery, Mootools, and Prototype</div><div class="line"><span class="built_in">console</span>.log(_(<span class="string">'my name is epeli'</span>).titleize());</div><div class="line">=&gt; My Name Is Epeli</div><div class="line"><span class="built_in">console</span>.log(_(<span class="string">'-moz-transform'</span>).camelize());</div><div class="line">=&gt; MozTransform</div><div class="line"><span class="built_in">console</span>.log(_(<span class="string">'some_class_name'</span>).classify());</div><div class="line">=&gt; SomeClassName</div><div class="line"><span class="built_in">console</span>.log(_(<span class="string">'MozTransform'</span>).underscored());</div><div class="line">=&gt; moz_transform</div><div class="line"><span class="built_in">console</span>.log(_(<span class="string">'MozTransform'</span>).dasherize());</div><div class="line">=&gt; -moz-transform</div><div class="line"><span class="built_in">console</span>.log(_(<span class="string">'  capitalize dash-CamelCase_underscore trim  '</span>).humanize());</div><div class="line">=&gt; Capitalize dash camel <span class="keyword">case</span> underscore trim</div></pre></td></tr></table></figure>
 <h4 id="HTML相关操作"><a href="#HTML相关操作" class="headerlink" title="HTML相关操作"></a>HTML相关操作</h4><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">console.log(_('&lt;div&gt;Blah blah blah&lt;/div&gt;').escapeHTML());</div><div class="line">=&gt; &amp;lt;div&amp;gt;Blah blah blah&amp;lt;/div&amp;gt;</div><div class="line">console.log(_('&amp;lt;div&amp;gt;Blah blah blah&amp;lt;/div&amp;gt;').unescapeHTML());</div><div class="line">=&gt;&lt;div&gt;Blah blah blah&lt;/div&gt;</div><div class="line">console.log(_('a &lt;a href="#"&gt;link&lt;/a&gt;').stripTags());</div><div class="line">=&gt;a link</div><div class="line">console.log(_('a &lt;a href="#"&gt;link&lt;/a&gt;&lt;script&gt;alert("hello world!")&lt;/script&gt;').stripTags());</div><div class="line">=&gt;a linkalert("hello world!")</div></pre></td></tr></table></figure>
 
+				<!-- 多说评论框 start -->
+				<div class="article-comment">
+					<div class="ds-thread" data-num-items="5" data-show-avatars="1" data-show-time="1" data-show-title="1" data-show-admin="1" data-excerpt-length="50" data-thread-key="post-underscore" data-title="精巧而强大的 UnderscoreJS" data-url="/"></div>
+				</div>
+				<!-- 多说评论框 end -->
 			
 		</div>
 		<footer class="article-footer">
@@ -584,4 +589,17 @@
 	document.ontouchstart = i
 	i()
 </script>
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+	var duoshuoQuery = {short_name:"bevis"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0]
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+</script>
+<!-- 多说公共JS代码 end -->
 </html>

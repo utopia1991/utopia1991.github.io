@@ -388,6 +388,11 @@
 <p><a href="https://www.npmjs.com/package/eslint-plugin-react" target="_blank" rel="external">https://www.npmjs.com/package/eslint-plugin-react</a> ， 此链接是react的eslint使用</p>
 <h3 id="三、Gulp中使用"><a href="#三、Gulp中使用" class="headerlink" title="三、Gulp中使用"></a>三、Gulp中使用</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">var eslint = require(<span class="string">'gulp-eslint'</span>);</div><div class="line"></div><div class="line">gulp.task(<span class="string">'validate-eslint'</span>,<span class="function"><span class="title">function</span></span>()&#123;</div><div class="line"></div><div class="line">    <span class="built_in">return</span> gulp.src([<span class="string">'app/**/*.js'</span>]) //指定的校验路径</div><div class="line"></div><div class="line">        .pipe(eslint(&#123;configFle:<span class="string">"./.eslintrc"</span>&#125;)) //使用你的eslint校验文件</div><div class="line"></div><div class="line">        .pipe(eslint.format())</div><div class="line"></div><div class="line">&#125;);</div></pre></td></tr></table></figure>
 
+				<!-- 多说评论框 start -->
+				<div class="article-comment">
+					<div class="ds-thread" data-num-items="5" data-show-avatars="1" data-show-time="1" data-show-title="1" data-show-admin="1" data-excerpt-length="50" data-thread-key="post-eslint" data-title="EsLint入门" data-url="/"></div>
+				</div>
+				<!-- 多说评论框 end -->
 			
 		</div>
 		<footer class="article-footer">
@@ -510,4 +515,17 @@
 	document.ontouchstart = i
 	i()
 </script>
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+	var duoshuoQuery = {short_name:"bevis"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0]
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+</script>
+<!-- 多说公共JS代码 end -->
 </html>

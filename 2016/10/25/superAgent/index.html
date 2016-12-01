@@ -422,6 +422,11 @@
 <p>当产生一个4xx或者5xx的http错误响应,res.error提供了一个错误信息的对象，你可以通过检查这个来做某些事情.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> (res.error) &#123;</div><div class="line">	alert(<span class="string">'oh no '</span> + res.error.message);</div><div class="line">&#125; <span class="keyword">else</span> &#123;</div><div class="line">	alert(<span class="string">'got '</span> + res.status + <span class="string">' response'</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>ps: SuperAgent是一个非常实用的http代理模块,推荐大家使用,之前写了一个爬虫来爬一个xml，结合上async效果还是很不错的。可以看下我 github 上 fork 的一个node学习项目(<a href="https://github.com/utopia1991/node-lessons/tree/master/lesson3" target="_blank" rel="external">https://github.com/utopia1991/node-lessons/tree/master/lesson3</a>)</p>
 
+				<!-- 多说评论框 start -->
+				<div class="article-comment">
+					<div class="ds-thread" data-num-items="5" data-show-avatars="1" data-show-time="1" data-show-title="1" data-show-admin="1" data-excerpt-length="50" data-thread-key="post-superAgent" data-title="SuperAgent 中文使用文档" data-url="/"></div>
+				</div>
+				<!-- 多说评论框 end -->
 			
 		</div>
 		<footer class="article-footer">
@@ -549,4 +554,17 @@
 	document.ontouchstart = i
 	i()
 </script>
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+	var duoshuoQuery = {short_name:"bevis"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0]
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+</script>
+<!-- 多说公共JS代码 end -->
 </html>

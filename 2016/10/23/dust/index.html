@@ -459,6 +459,11 @@
 <p>最后在HTML中导入所有生成的js文件即可使用。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;script type=<span class="string">"text/javascript"</span> src=<span class="string">"partial.js"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></div><div class="line">&lt;script type=<span class="string">"text/javascript"</span> src=<span class="string">"base.js"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></div><div class="line">&lt;script type=<span class="string">"text/javascript"</span> src=<span class="string">"child.js"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></div></pre></td></tr></table></figure></p>
 <p>注意此时不再需要使用dust.loadSource()来注册，因为script标签将js文件执行了一次，已经将模板注册好了。此时已可使用dust.render()进行渲染。</p>
 <h4 id="ps：这些都是因为工作开发中用到了dust，在国内很少开发人员用到这种引擎，而公司是一家外企，有幸可以用上这个，这只是些基础，会这些也大概会百分之七八十了，还有不能的，可以google下dust，查看官方文档，或者关注我的GitHub-里面有dust的教学"><a href="#ps：这些都是因为工作开发中用到了dust，在国内很少开发人员用到这种引擎，而公司是一家外企，有幸可以用上这个，这只是些基础，会这些也大概会百分之七八十了，还有不能的，可以google下dust，查看官方文档，或者关注我的GitHub-里面有dust的教学" class="headerlink" title="ps：这些都是因为工作开发中用到了dust，在国内很少开发人员用到这种引擎，而公司是一家外企，有幸可以用上这个，这只是些基础，会这些也大概会百分之七八十了，还有不能的，可以google下dust，查看官方文档，或者关注我的GitHub,里面有dust的教学"></a>ps：这些都是因为工作开发中用到了dust，在国内很少开发人员用到这种引擎，而公司是一家外企，有幸可以用上这个，这只是些基础，会这些也大概会百分之七八十了，还有不能的，可以google下dust，查看官方文档，或者关注我的<a href="https://github.com/utopia1991" target="_blank" rel="external">GitHub</a>,里面有dust的教学</h4>
+				<!-- 多说评论框 start -->
+				<div class="article-comment">
+					<div class="ds-thread" data-num-items="5" data-show-avatars="1" data-show-time="1" data-show-title="1" data-show-admin="1" data-excerpt-length="50" data-thread-key="post-dust" data-title="Dust 模版引擎" data-url="/"></div>
+				</div>
+				<!-- 多说评论框 end -->
 			
 		</div>
 		<footer class="article-footer">
@@ -586,4 +591,17 @@
 	document.ontouchstart = i
 	i()
 </script>
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+	var duoshuoQuery = {short_name:"bevis"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0]
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+</script>
+<!-- 多说公共JS代码 end -->
 </html>

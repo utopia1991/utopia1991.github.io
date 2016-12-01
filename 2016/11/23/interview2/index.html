@@ -389,6 +389,11 @@
 <h3 id="第十九题"><a href="#第十九题" class="headerlink" title="第十九题"></a>第十九题</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/*</span></div><div class="line">    解析：</div><div class="line">       用new创建f的实例的原型指向 f.prototype，也就是：</div><div class="line">       f.prototype == Object.getPrototypeOf(new f()); // true</div><div class="line">       而Object.getPrototypeOf(f)是 f 函数的原型，也就是：</div><div class="line">       Object.getPrototypeOf(f) == Function.prototype; //true</div><div class="line">      所以答案是 false</div><div class="line">*/</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params"></span>) </span>&#123;&#125;</div><div class="line"><span class="keyword">var</span> a = f.prototype, b = <span class="built_in">Object</span>.getPrototypeOf(f);</div><div class="line">a === b</div></pre></td></tr></table></figure>
 <h3 id="第二十题"><a href="#第二十题" class="headerlink" title="第二十题"></a>第二十题</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/*</span></div><div class="line">    解析：</div><div class="line">        foo.name 是函数的名字，函数的名字是不可变的，</div><div class="line">        这里出错的原因是容易把name理解成foo的 static 属性,</div><div class="line">        我的理解是name是foo函数的固有属性，可以理解为是final的</div><div class="line">    答案：['foo', 'foo']</div><div class="line">*/</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123; &#125;</div><div class="line"><span class="keyword">var</span> oldName = foo.name;</div><div class="line">foo.name = <span class="string">"bar"</span>;</div><div class="line">[oldName, foo.name]</div></pre></td></tr></table></figure>
 
+				<!-- 多说评论框 start -->
+				<div class="article-comment">
+					<div class="ds-thread" data-num-items="5" data-show-avatars="1" data-show-time="1" data-show-title="1" data-show-admin="1" data-excerpt-length="50" data-thread-key="post-interview2" data-title="20个JS变态面试题解析" data-url="/"></div>
+				</div>
+				<!-- 多说评论框 end -->
 			
 		</div>
 		<footer class="article-footer">
@@ -516,4 +521,17 @@
 	document.ontouchstart = i
 	i()
 </script>
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+	var duoshuoQuery = {short_name:"bevis"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0]
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+</script>
+<!-- 多说公共JS代码 end -->
 </html>

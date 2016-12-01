@@ -383,6 +383,11 @@
 <h3 id="发送邮件函数："><a href="#发送邮件函数：" class="headerlink" title="发送邮件函数："></a>发送邮件函数：</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * @param &#123;String&#125; subject：发送的主题</div><div class="line"> * @param &#123;String&#125; html：发送的 html 内容</div><div class="line"> */</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">sendMail</span>(<span class="params">subject, html</span>) </span>&#123;</div><div class="line">  <span class="keyword">var</span> mailOptions = &#123;</div><div class="line">    <span class="attr">from</span>: [config.mail.from.name, config.mail.from.auth.user].join(<span class="string">' '</span>),</div><div class="line">    <span class="attr">to</span>: config.mail.to.join(<span class="string">','</span>),</div><div class="line">    <span class="attr">subject</span>: subject,</div><div class="line">    <span class="attr">html</span>: html</div><div class="line">  &#125;;</div><div class="line"></div><div class="line">  smtpTransport.sendMail(mailOptions, <span class="function"><span class="keyword">function</span>(<span class="params">error, response</span>)</span>&#123;</div><div class="line">    <span class="keyword">if</span> (error) &#123;</div><div class="line">      <span class="built_in">console</span>.log(error);</div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">      <span class="built_in">console</span>.log(<span class="string">'Message sent: '</span> + response.message);</div><div class="line">    &#125;</div><div class="line">    smtpTransport.close();</div><div class="line">  &#125;);</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
 <h3 id="发邮件例子："><a href="#发邮件例子：" class="headerlink" title="发邮件例子："></a>发邮件例子：</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sendMail(<span class="string">'测试邮件'</span>, <span class="string">'&lt;p&gt;Hello world!&lt;/p&gt;'</span>);</div></pre></td></tr></table></figure>
 
+				<!-- 多说评论框 start -->
+				<div class="article-comment">
+					<div class="ds-thread" data-num-items="5" data-show-avatars="1" data-show-time="1" data-show-title="1" data-show-admin="1" data-excerpt-length="50" data-thread-key="post-nodemailer" data-title="使用 nodeJs 发送邮件" data-url="/"></div>
+				</div>
+				<!-- 多说评论框 end -->
 			
 		</div>
 		<footer class="article-footer">
@@ -501,4 +506,17 @@
 	document.ontouchstart = i
 	i()
 </script>
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+	var duoshuoQuery = {short_name:"bevis"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0]
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+</script>
+<!-- 多说公共JS代码 end -->
 </html>
