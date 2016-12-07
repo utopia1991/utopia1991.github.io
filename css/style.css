@@ -1445,18 +1445,26 @@ pre .javascript .function {
   -moz-background-size: cover;
   background-size: cover;
   background-position: center;
-  -webkit-transition: all 0.3s linear;
-  -moz-transition: all 0.3s linear;
-  -ms-transition: all 0.3s linear;
-  transition: all 0.3s linear;
-}
-.aside-logo:hover {
   -webkit-box-shadow: 5px 5px 17px #999;
   box-shadow: 5px 5px 17px #999;
-  -webkit-transform: translate3d(0, 2px, 0);
-  -moz-transform: translate3d(0, 2px, 0);
-  -ms-transform: translate3d(0, 2px, 0);
-  transform: translate3d(0, 2px, 0);
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -ms-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -ms-transform: rotate(0deg);
+  transform: rotate(0deg);
+}
+.aside-logo:hover {
+  -webkit-transform: rotate(3deg);
+  -moz-transform: rotate(3deg);
+  -ms-transform: rotate(3deg);
+  transform: rotate(3deg);
+  border-top-left-radius: 51%;
+  border-top-right-radius: 67%;
+  border-bottom-left-radius: 64%;
+  border-bottom-right-radius: 56%;
 }
 .aside-title {
   width: 100%;
