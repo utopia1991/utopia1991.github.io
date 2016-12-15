@@ -23,17 +23,18 @@
 		ga('send', 'pageview');
 	</script>
 	
-	<title>标签: Coffeescript | Bevis Blog - 沈浩个人博客</title>
+	<title>JavaScript 单线程机制面试题 | Bevis Blog - 沈浩个人博客</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-	<meta name="description" content="google重度依赖者，mac拥趸，热爱前沿技术，梦想全栈">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Bevis Blog - 沈浩个人博客">
-<meta property="og:url" content="https://utopia1991.github.io/tags/Coffeescript/index.html">
+	<meta name="description" content="之前有次面试的时候，被问到一个有关单线程的问题，后来整理了一下，增加了一些复杂度。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript 单线程机制面试题">
+<meta property="og:url" content="https://utopia1991.github.io/2016/12/15/interview3/index.html">
 <meta property="og:site_name" content="Bevis Blog - 沈浩个人博客">
-<meta property="og:description" content="google重度依赖者，mac拥趸，热爱前沿技术，梦想全栈">
+<meta property="og:description" content="之前有次面试的时候，被问到一个有关单线程的问题，后来整理了一下，增加了一些复杂度。">
+<meta property="og:updated_time" content="2016-12-15T09:13:10.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Bevis Blog - 沈浩个人博客">
-<meta name="twitter:description" content="google重度依赖者，mac拥趸，热爱前沿技术，梦想全栈">
+<meta name="twitter:title" content="JavaScript 单线程机制面试题">
+<meta name="twitter:description" content="之前有次面试的时候，被问到一个有关单线程的问题，后来整理了一下，增加了一些复杂度。">
 	
 	
 		<link rel="icon" href="https://utopia1991.github.io/css/images/icon.png">
@@ -427,43 +428,95 @@
 							}());
 						</script>
 					</div>
-					
-	
-	
+					<article id="post-interview3" class="article article-type-post" itemscope itemprop="blogPost">
+	<div class="article-meta">
+		
+	</div>
+	<img class="festival" src="https://utopia1991.github.io/css/images/festival.gif">
+	<div class="article-inner">
 		
 		
-			
-			
-			<section class="archives-wrap">
-				<div class="archive-year-wrap">
-					<a href="/archives/2016" class="archive-year">
-						2016
-					</a>
-				</div>
-				<div class="archives">
-		
-		<article class="archive-article archive-type-post">
-	<div class="archive-article-inner">
-		<header class="archive-article-header">
-			
+			<header class="article-header">
+				
 	
-		<h1 itemprop="name">
-			<a class="archive-article-title" href="/2016/10/23/coffee/">Coffeescript 学习笔记</a>
+		<h1 class="article-title" itemprop="name">
+			JavaScript 单线程机制面试题
 		</h1>
 	
 
 
-			<a href="/2016/10/23/coffee/" class="archive-article-date">
-  <time datetime="2016-10-24T01:38:40.000Z" itemprop="datePublished">10月 23</time>
+				<a href="/2016/12/15/interview3/" class="article-date">
+  <time datetime="2016-12-15T09:01:37.000Z" itemprop="datePublished">2016-12-15</time>
 </a>
-		</header>
+			</header>
+		
+		<div class="article-entry" itemprop="articleBody">
+			
+				<p>之前有次面试的时候，被问到一个有关单线程的问题，后来整理了一下，增加了一些复杂度。</p>
+<a id="more"></a>
+<p>执行下面这段代码，执行后，在 5s 内点击两下，过一段时间（&gt;5s）后，再点击两下，整个过程的输出结果是什么？</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">	<span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">100000000</span>; i++)&#123;&#125;</div><div class="line">		<span class="built_in">console</span>.log(<span class="string">'timer a'</span>);</div><div class="line">&#125;, <span class="number">0</span>)</div><div class="line"></div><div class="line"><span class="keyword">for</span>(<span class="keyword">var</span> j = <span class="number">0</span>; j &lt; <span class="number">5</span>; j++) &#123;</div><div class="line">	<span class="built_in">console</span>.log(j);</div><div class="line">&#125;</div><div class="line"></div><div class="line">setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">	<span class="built_in">console</span>.log(<span class="string">'timer b'</span>);</div><div class="line">&#125;, <span class="number">0</span>)</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">waitFiveSeconds</span>(<span class="params"></span>)</span>&#123;</div><div class="line">	<span class="keyword">var</span> now = (<span class="keyword">new</span> <span class="built_in">Date</span>()).getTime();</div><div class="line">	<span class="keyword">while</span>( ((<span class="keyword">new</span> <span class="built_in">Date</span>()).getTime() - now ) &lt; <span class="number">5000</span>)&#123;&#125;; <span class="comment">//while 循环会一直循环为 true 的条件，知道为 false 才跳出</span></div><div class="line">	<span class="built_in">console</span>.log(<span class="string">'finished waiting'</span>);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="built_in">document</span>.addEventListener(<span class="string">'click'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">	<span class="built_in">console</span>.log(<span class="string">'click'</span>);</div><div class="line">&#125;)</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(<span class="string">'click begin'</span>);</div><div class="line">waitFiveSeconds();</div></pre></td></tr></table></figure>
+<p>如果你能很清晰的判断输出结果，并且没有疑惑，那说明你对 JavaScript 的单线程理解的不错，这篇文章没有看的必要了，如果不清楚，请继续看下去。</p>
+<h3 id="执行机制"><a href="#执行机制" class="headerlink" title="执行机制"></a>执行机制</h3><p>JavaScript 是一门单线程语言，即同一时间只能执行一段代码。所以，对于同步任务，后一个任务只能等前一个任务处理完才能被执行。</p>
+<p>然而，借助于事件驱动机制，JavaScript 可以通过异步任务去处理耗时比较长的操作，比如 Ajax 请求数据这种。再通过回调，将这些操作变成异步，放在异步的任务队列里执行，从而避免 JavaScript 执行线程的阻塞。</p>
+<p>总结下来，JavaScript 对任务的处理机制是：</p>
+<ul>
+<li>所有同步任务在执行线程上立刻执行</li>
+<li>对异步任务，按照事件触发的顺序，依次将回调函数放入异步任务队列里（比如鼠标点击了、定时器设定的时间到了、HTTP 请求的状态变了等）</li>
+<li>一旦同步任务执行完，执行线程开始读取异步任务队列，依次执行每个任务对应的回调，这个运行机制也称为 Event Loop</li>
+<li>重复上面三步</li>
+</ul>
+<p>只有在执行线程空闲的情况下，才会去执行异步任务队列中的任务（其中事件会优先执行）。</p>
+<h3 id="定时器"><a href="#定时器" class="headerlink" title="定时器"></a>定时器</h3><p>定时事件也是会被放在异步任务队列中的一类事件，用来指定某些代码在多少时间后执行。</p>
+<p>有两个函数可以实现定时功能，一个是 setTimeout，一个是 setInterval，两者机制相同，区别是前者是一次性执行，后者反复执行。它们都接受两个参数，第一个是回调函数，第二个是延迟毫秒数。后面的讲解以 setTimeout 为例。</p>
+<p>前面 JavaScript 执行机制小节中提到，setTimeout 只是在设定时间到了后，将回调放入异步任务队列，而不是立即执行。因此，回调执行的时间是大于等于实际设定的毫秒数的。</p>
+<p>如果将延迟时间设为 0 ，即 setTimeout(fn, 0)，表示在执行线程空闲后，立即执行指定回调 fn，但这个回调要等任务队列中处于等待状态的事件处理程序全部执行完后，才会“立即”调用。这一点在《JavaScript 权威指南》 14.1 计时器小节中有提到。</p>
+<p>setTimeout(fn, 0) 的主要作用是，改变了代码流程，把 fn 的执行放在了当前同步代码全部执行完之后。</p>
+<p>PS: 在 HTML5 规范中 setTimeout 的延时的最小值为 4 毫秒。</p>
+<h3 id="浏览器不是单线程的"><a href="#浏览器不是单线程的" class="headerlink" title="浏览器不是单线程的"></a>浏览器不是单线程的</h3><p>虽然 JS 的执行是单线程的，但浏览器并不是单线程，而是通常有以下四种：</p>
+<ul>
+<li>界面渲染线程（UI）</li>
+<li>JavaScript 执行线程</li>
+<li>浏览器事件触发线程</li>
+<li>HTTP请求线程</li>
+</ul>
+<p>因此，在 Ajax 请求时，浏览器会新开一个线程来请求，在请求的状态变更时，将相应的回调放入异步任务队列，在执行线程空闲的时候，Event Loop 开始。</p>
+<h3 id="题目解析"><a href="#题目解析" class="headerlink" title="题目解析"></a>题目解析</h3><p>文章开头那道题的答案是这样的：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="number">0</span></div><div class="line"><span class="number">1</span></div><div class="line"><span class="number">2</span></div><div class="line"><span class="number">3</span></div><div class="line"><span class="number">4</span></div><div class="line">click begin</div><div class="line">finished waiting</div><div class="line">click</div><div class="line">click</div><div class="line">timer a</div><div class="line">timer b</div><div class="line">click</div><div class="line">click</div></pre></td></tr></table></figure>
+<p>下面简单分析一下：</p>
+<p>首先，同步任务按先后顺序最先执行，耗时比较长的同步任务会阻塞当前线程，6-8 行、24 行和 25 行的输出没有疑问。对应输出 1-7 行。</p>
+<p>然后，在执行线程工作的时候，1-4 行定时器产生的回调、 10-12 行定时器产生的回调和两次 click 对应的回调被先后放入异步任务队列。由于执行线程空闲后，在进行 Event Loop 的时候，会先查看是否有事件可执行，接着再处理其他异步任务。因此会产生 8-11 行这样的输出顺序。</p>
+<p>最后，5s 后的两次 click 事件被放入异步任务队列，由于此时执行线程为空，便被立即执行了。对应输出 12-13 行。</p>
+
+				<!-- 多说评论框 start -->
+				<div class="article-comment">
+					<div class="ds-thread" data-num-items="5" data-show-avatars="1" data-show-time="1" data-show-title="1" data-show-admin="1" data-excerpt-length="50" data-thread-key="post-interview3" data-title="JavaScript 单线程机制面试题" data-url="/"></div>
+				</div>
+				<!-- 多说评论框 end -->
+			
+		</div>
+		<footer class="article-footer">
+			<a data-url="https://utopia1991.github.io/2016/12/15/interview3/" data-id="ciwq55wk70000n3tdz0p8wucp" class="article-share-link">分享</a>
+			
+			
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Interview-Questions/">Interview-Questions</a></li></ul>
+
+		</footer>
 	</div>
-</article>
+	
+		
+<nav id="article-nav">
+  
+  
+    <a href="/2016/12/14/vue/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">Vue 基础学习笔记</div>
+    </a>
+  
+</nav>
 
 	
-	
-		</div></section>
-	
+</article>
 
 
 
