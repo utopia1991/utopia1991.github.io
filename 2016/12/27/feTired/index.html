@@ -23,17 +23,22 @@
 		ga('send', 'pageview');
 	</script>
 	
-	<title>Bevis Blog - 沈浩个人博客</title>
+	<title>前端疲劳 | Bevis Blog - 沈浩个人博客</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-	<meta name="description" content="google重度依赖者，mac拥趸，热爱前沿技术，梦想全栈">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Bevis Blog - 沈浩个人博客">
-<meta property="og:url" content="https://utopia1991.github.io/page/3/index.html">
+	<meta name="description" content="最近项目老美过年放假，项目比较轻松😉，看了一些技术文档，翻来翻去，看到这么一篇文章，座位一位前端和 NodeJS 开发，简直感同身受，特意转过来给大家看下。原文地址：链接">
+<meta property="og:type" content="article">
+<meta property="og:title" content="前端疲劳">
+<meta property="og:url" content="https://utopia1991.github.io/2016/12/27/feTired/index.html">
 <meta property="og:site_name" content="Bevis Blog - 沈浩个人博客">
-<meta property="og:description" content="google重度依赖者，mac拥趸，热爱前沿技术，梦想全栈">
+<meta property="og:description" content="最近项目老美过年放假，项目比较轻松😉，看了一些技术文档，翻来翻去，看到这么一篇文章，座位一位前端和 NodeJS 开发，简直感同身受，特意转过来给大家看下。原文地址：链接">
+<meta property="og:image" content="https://utopia1991.github.io/images/feTired/1.png">
+<meta property="og:image" content="https://utopia1991.github.io/images/feTired/2.png">
+<meta property="og:image" content="https://utopia1991.github.io/images/feTired/3.png">
+<meta property="og:updated_time" content="2016-12-28T03:18:53.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Bevis Blog - 沈浩个人博客">
-<meta name="twitter:description" content="google重度依赖者，mac拥趸，热爱前沿技术，梦想全栈">
+<meta name="twitter:title" content="前端疲劳">
+<meta name="twitter:description" content="最近项目老美过年放假，项目比较轻松😉，看了一些技术文档，翻来翻去，看到这么一篇文章，座位一位前端和 NodeJS 开发，简直感同身受，特意转过来给大家看下。原文地址：链接">
+<meta name="twitter:image" content="https://utopia1991.github.io/images/feTired/1.png">
 	
 	
 		<link rel="icon" href="https://utopia1991.github.io/css/images/icon.png">
@@ -424,9 +429,7 @@
 							}());
 						</script>
 					</div>
-					
-	
-		<article id="post-preventDefault" class="article article-type-post" itemscope itemprop="blogPost">
+					<article id="post-feTired" class="article article-type-post" itemscope itemprop="blogPost">
 	<div class="article-meta">
 		
 	</div>
@@ -437,29 +440,52 @@
 			<header class="article-header">
 				
 	
-		<h1 itemprop="name">
-			<a class="article-title" href="/2016/11/02/preventDefault/">Javascript 注意点</a>
+		<h1 class="article-title" itemprop="name">
+			前端疲劳
 		</h1>
 	
 
 
-				<a href="/2016/11/02/preventDefault/" class="article-date">
-  <time datetime="2016-11-03T01:47:06.000Z" itemprop="datePublished">2016-11-02</time>
+				<a href="/2016/12/27/feTired/" class="article-date">
+  <time datetime="2016-12-28T03:10:00.000Z" itemprop="datePublished">2016-12-27</time>
 </a>
 			</header>
 		
 		<div class="article-entry" itemprop="articleBody">
 			
-				<p>这是一些平时工作中遇到的一些 js 的函数方法，比较容易混淆，特意做下笔记。<br>
-				
-					<p class="article-more-link">
-						<a href="/2016/11/02/preventDefault/#more">更多</a>
-					</p>
-				
+				<p><img src="/images/feTired/1.png" alt=""></p>
+<p>最近项目老美过年放假，项目比较轻松😉，看了一些技术文档，翻来翻去，看到这么一篇文章，座位一位前端和 NodeJS 开发，简直感同身受，特意转过来给大家看下。原文地址：<a href="https://medium.com/@withinsight1/the-front-end-spectrum-c0f30998c9f0#.284fx8170" target="_blank" rel="external">链接</a><br><a id="more"></a></p>
+<h3 id="引子"><a href="#引子" class="headerlink" title="引子"></a>引子</h3><p>假如不会游泳的你不幸落水，碰巧还没有人会来救你，你是不是会觉得自己只能在绝望中溺水而亡。不，你要同死神抗争，要在绝望中寻找希望（等下，这难道不是新东方的slogan？）。其实，你依然有两种方法可以自救。第一种是在生命危在旦夕的巨大恐惧下顿悟，学会了游泳成功续命；如果你觉得这不可能，那么就只能用第二种方法了——把你身边的水全部喝光。</p>
+<p>你可能觉得我在逗你。说好的前端呢？别急，听我娓娓道来。</p>
+<h3 id="从入门到入门"><a href="#从入门到入门" class="headerlink" title="从入门到入门"></a>从入门到入门</h3><p>自从三个月前写完了《JS家的排序算法》之后，我发现自己得了一种病。彼时的我刚刚钻研了几天算法和数据结构，但转眼间就被那些纷繁复杂的前端技术与工具迷住了双眼，勾去了魂魄。学习热情高涨的我，雄心勃勃的制定了一个又一个计划，马不停蹄的搜索下载了各种教程指南，关注访问了数也数不清的技术博客与技术社区。我那亢奋的大脑告诉我，我要努力地把前端技能树上的每一项技能都解锁并升级。于是，我就一头扎入了前端的深海中。然而，下水之后我才意识到，原来自己并不会游泳。</p>
+<p>千万别把开头的引子当成笑话，我为了救自己真的就是在用第二种方法，试图喝光身边的水，妄想尝遍前端的各种技术。开始时我还并没有觉得这样有何不妥，我毕竟还年轻，有大把的时光可以慢慢学习，消化这些喝下去的水。可是，问题在于，前端的这片海是动态的。还记得小学数学的那道计算题吗？一个水池一边往里进水另一边往外排水，问多久能把水池排空。前端技术栈的更新换代如此的频繁迅速，很可能在我写下这篇文章的几个小时里就有一个新的前端框架被发布出来了，我又怎敢奢求将前端的这湾海水排空呢？最近的我愈发感觉到网上的教程是怎么学也学不完的，新出的工具packages是怎么下也下不完的，最新发布的各种技术博文是怎么看也看不完的。我总是很难将精力只放在一种语言或一个工具上，它们总是不经意间就被分配到了其他地方。有时我甚至开始质疑自己的职业选择是否正确，一直在入前端的各种门，可究竟何时才能精通，才是个头呢？迷茫，疲惫，无从下手，不知所措。当这些感受通通向我袭来的时候，我知道，我是得了一种叫做前端疲劳的病了。</p>
+<p>经常关注前端技术社区的朋友们应该知道，前段时间有一篇很火的博文，叫做How it feels to learn JavaScript in 2016 ，汉化版叫做在 2016 年学 JavaScript 是一种什么样的体验？ 这篇文章引起了国内外众多前端开发者们的共鸣。他们揭竿而起，纷纷点赞，大声疾呼：“我受够啦！”作为一个代码写的比段子好笑的三流程序员，我当然很喜欢这种诙谐幽默的整篇文章都是段子的小品文。作者虽然是歪果仁，但却深刻的掌握了中国传统相声的精髓，设定了一个逗哏和一个捧哏，以对话的形式把涉及到JavaScrip的几乎方方面面面的工具和特点全部过了一遍。其实，作者就是在谈前端疲劳。那么现在问题来了，有这么多不同的前端技术栈，不同的前端框架，不同的前端工具和库像水一样包裹着我，我不去学就不会，学了又学不完。在前端的海洋里越陷越深的我究竟该如何自救呢？</p>
+<h3 id="水是喝不完的，游泳才是正道"><a href="#水是喝不完的，游泳才是正道" class="headerlink" title="水是喝不完的，游泳才是正道"></a>水是喝不完的，游泳才是正道</h3><p>为了了解前端的海有多深多辽阔，我们把文章刚开始的那副前端图谱拆开来看。</p>
+<p><img src="/images/feTired/2.png" alt="" title="前端图谱圆盘"></p>
+<p>你一定能在这张乱花渐欲迷人眼的圆盘图上发现很多熟悉以及不那么熟悉的logo。图的作者Jeff Pelletier不愧是名UI工程师，他的设计真的很好看。布局新颖，造型独特，五彩缤纷，生动形象。这张圆盘可以说是整个前端图谱里的颜值担当了。然而，光好看是不能解决问题的，我们更加需要的是它的对应颜色的图解。</p>
+<p><img src="/images/feTired/3.png" alt="" title="对应颜色图解"></p>
+<p>不知道看完这张图解之后的你作何感想？是从入门到放弃呢，还是从入门到转行？反正当时正打算把前端的水都喝光的我看完之后内心是崩溃的。尤其是看到Back-End也被加了进来，这幅图瞬间就变成了一副全栈图谱。</p>
+<p>事实上，抛开前端疲劳不谈，仅仅是JavaScript，就足够我用尽自己的洪荒之力了。先要从原生JavaScript学起，“古代”的ES3/ES5，“现代”的ES6，以后还会有“未来”的ES7。然后是JS框架，jQuery、AngularJS、React或者是最新的Vue。当然，想开发出一个完整的应用，后端知识也必不可少。所以NodeJS的坑也得入。这一套走下来，可能根本还到不了前端疲劳，就已经JS疲劳了。</p>
+<p>好在此时的我终于意识到了，把水喝光是不现实的。因为这样做的后果很可能并不是被淹死，而是先被撑死。每当看到前端技术社区里接二连三的出现从未听闻过的新的名词，新的工具，新的框架，我就会产生一种深深的落伍甚至自卑感，觉得自己什么都不会，严重怀疑自己正在使用的技术栈是不是早就被抛弃在了前端世界那无人的尽头。但我可不想就这样消失在世界的尽头。我需要做的是立刻停止一切恐慌，闭上嘴巴，尽快熟悉这种全身被水包围的感觉，然后尝试让自己浮起来，把头抬出水面，找到一块陆地，接下来，就是朝着那块陆地的方向，抡起膀子甩开腿，游起来吧。</p>
+<h3 id="拯救前端疲劳"><a href="#拯救前端疲劳" class="headerlink" title="拯救前端疲劳"></a>拯救前端疲劳</h3><h4 id="你不是一个人在战斗"><a href="#你不是一个人在战斗" class="headerlink" title="你不是一个人在战斗"></a>你不是一个人在战斗</h4><p>一开始我总觉得前端疲劳是因为自己的学习能力不足进而受挫而导致的心理疲惫。我不愿意跟别人说，因为觉得有点丢人。然而，当我在很多前端开发者们的博客里看到他们也提到了这种疲劳的问题，我才知道，原来我不是一个人在战斗。这种疲劳感普遍存在于前端开发者当中。即使是那些顶尖的大牛们也会偶尔疲惫困惑，但他们总能很快的找到解决之道。所以，如果你也有这样的困惑与疲劳，并且试图找到方法来克服它，请记住，你不是一个人在战斗！</p>
+<h4 id="夯实基础"><a href="#夯实基础" class="headerlink" title="夯实基础"></a>夯实基础</h4><p>不知道是我的幻觉还是事实，前端程序员好像一直是处在程序员鄙视链条里的最底层。不需要懂编译原理，没必要学算法数据结构，只要懂点HTML/CSS以及JS，会抠图知道怎么引用个库，就可以去建网站了。根据我自身的体验，如果只是建一个蹩脚的只有自己会访问的网站，那么确实这样就够了。可是，一旦遇到逻辑更复杂的网页应用，仅靠这些知识可就完全hold不住了。当然，仅仅理解了这点对我并没有帮助。我反而陷入到了另外一种死循环中，就是不停的去学习新的工具，新的框架，新的别人造的轮子。</p>
+<p>事实上，无论那些工具和框架变得有多么快，最基础的知识是一直都不会变的。我们应该把注意力放在怎样去解决问题，放在问题本身，而不是纠结于工具。要知道，工具肯定会一直变，唯解决问题的方法与思路不会变。现在风头正劲的React可能过几年就会消失，但是JavaScript会接着活下去。即使JavaScript有一天也被遗弃，算法、数据结构和那些设计模式也会长久存在。所以，从长远来看，把更多的精力花在学习架构、设计模式以及算法数据结构等更基础的领域比总是追求那些新奇的框架工具要更加有利于我们的技能成长与职业发展。</p>
+<h4 id="放松心态"><a href="#放松心态" class="headerlink" title="放松心态"></a>放松心态</h4><p>其实，前端疲劳的病灶不在于那些繁多的工具与框架，它们被造出来的初衷就是为了更好地解决相应的问题，这个锅它们可不背。真正的原因还是出自我们自身。我们总是会被新鲜的事物所吸引，总觉得我们应该去学习它，不学就会落伍，就会被时代的潮流所抛弃。毕竟，喜新厌旧可能就是我们人类的天性。</p>
+<p>我不太清楚国内互联网公司的情况，就我自己所在的美国来说，很大一部分的美国公司是不会去追赶潮流的。他们使用的是早已证明了自己拥有良好性能表现的那些成熟的语言和框架。对于最新的前端技术，他们大多都是持观望态度。等到这种技术已经可以证明自身的稳定以及性能的优异时，他们才会慢慢的去过渡。</p>
+<p>因此，没必要为了自己认为的不落伍而去赶潮流。放松心态，专注于自己目前正在使用的技术栈。对于那些新技术，有兴趣当然可以去尝试，不去尝试也没有关系。不过，如果确实准备去尝试了，要专一不要贪心，千万别给自己列一堆新技术的学习计划，然后最后没有完成就只能变成无形的压力堆积在心里了。</p>
+<h4 id="实践最重要"><a href="#实践最重要" class="headerlink" title="实践最重要"></a>实践最重要</h4><p>对于前端学习，我之前有一个很大的误区。面对一项新技术，我总是计划先把理论研究一遍，再去上手操作。然而，这种策略给我造成的后果就是，很多技术的学习我都半途而废了，因为理论很枯燥，还没等到实践就已经对它失去了兴趣。这和学游泳是一个道理。想学游泳就应该直接扎到水里，惊涛拍浪。那些在岸上捧着本流体力学研读的人，不仅不可能掌握游泳的诀窍，还会对游泳失去兴趣。</p>
+<p>所以，对于那些基础知识，我们当然需要进行理论层面的研读。然而，对于很多前端技术，我们就应该放下手中的手册与指南，直接上手，在实践中摸爬滚打，方能求得真知。</p>
+<h3 id="尾声"><a href="#尾声" class="headerlink" title="尾声"></a>尾声</h3><p>“那个选择把水喝光的年轻人最后怎么样了？”<br>“我们开船路过这片海的时候刚好发现了他，就把他救了上来。当时他整个人已经昏迷了。”<br>“那他活过来了吗？”<br>“他死了。医生说本来可以救他一命，可是没想到他喝了那么多水，把自己给撑死了。”<br>“那另外一个学会了游泳的年轻人呢？”<br>“我们把他救上来以后他吃了点东西。可他一直很亢奋，说自己终于会游泳了，然后吃完东西他又跳回海里游泳去了。。。”</p>
+
+				<!-- 多说评论框 start -->
+				<div class="article-comment">
+					<div class="ds-thread" data-num-items="5" data-show-avatars="1" data-show-time="1" data-show-title="1" data-show-admin="1" data-excerpt-length="50" data-thread-key="post-feTired" data-title="前端疲劳" data-url="/"></div>
+				</div>
+				<!-- 多说评论框 end -->
 			
 		</div>
 		<footer class="article-footer">
-			<a data-url="https://utopia1991.github.io/2016/11/02/preventDefault/" data-id="civuju63s000mc9td94pq2ahq" class="article-share-link">分享</a>
+			<a data-url="https://utopia1991.github.io/2016/12/27/feTired/" data-id="cix8d5p7b0002vttdgsldcc87" class="article-share-link">分享</a>
 			
 			
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Javascript/">Javascript</a></li></ul>
@@ -467,430 +493,19 @@
 		</footer>
 	</div>
 	
-</article>
-
-
-
-	
-		<article id="post-mongoose" class="article article-type-post" itemscope itemprop="blogPost">
-	<div class="article-meta">
 		
-	</div>
-	<img class="festival" src="https://utopia1991.github.io/css/images/festival.gif">
-	<div class="article-inner">
-		
-		
-			<header class="article-header">
-				
-	
-		<h1 itemprop="name">
-			<a class="article-title" href="/2016/11/01/mongoose/">Mongoose 基本介绍</a>
-		</h1>
-	
+<nav id="article-nav">
+  
+  
+    <a href="/2016/12/27/reduceCoupling/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">减少前端代码耦合</div>
+    </a>
+  
+</nav>
 
-
-				<a href="/2016/11/01/mongoose/" class="article-date">
-  <time datetime="2016-11-01T05:53:39.000Z" itemprop="datePublished">2016-11-01</time>
-</a>
-			</header>
-		
-		<div class="article-entry" itemprop="articleBody">
-			
-				<p>Mongoose 简而言之就是在 node 环境中操作 MongoDB 数据库的一种便捷的封装，一种对象模型工具，类似 ORM ，Mongoose 将数据库中的数据转换为 JavaScript 对象以供你在应用中使用。<br>当然要使用的话，必须要先安装好环境Node.js与MongoDB。<br>MongoDB是目前最流行的noSQL数据库之一，它是专为node.js而开发的，理解下与我们常用的RDBMS关系型数据库的区别就可以基本使用了。</p>
-<p><img src="/images/mongoose/1.png" alt="" title="Mongoose"></p>
-				
-					<p class="article-more-link">
-						<a href="/2016/11/01/mongoose/#more">更多</a>
-					</p>
-				
-			
-		</div>
-		<footer class="article-footer">
-			<a data-url="https://utopia1991.github.io/2016/11/01/mongoose/" data-id="ciwn545jj00030qtd2an7rvqh" class="article-share-link">分享</a>
-			
-			
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MongoDB/">MongoDB</a></li></ul>
-
-		</footer>
-	</div>
 	
 </article>
-
-
-
-	
-		<article id="post-getPost" class="article article-type-post" itemscope itemprop="blogPost">
-	<div class="article-meta">
-		
-	</div>
-	<img class="festival" src="https://utopia1991.github.io/css/images/festival.gif">
-	<div class="article-inner">
-		
-		
-			<header class="article-header">
-				
-	
-		<h1 itemprop="name">
-			<a class="article-title" href="/2016/10/27/getPost/">Get 与 Post 区别</a>
-		</h1>
-	
-
-
-				<a href="/2016/10/27/getPost/" class="article-date">
-  <time datetime="2016-10-27T07:01:57.000Z" itemprop="datePublished">2016-10-27</time>
-</a>
-			</header>
-		
-		<div class="article-entry" itemprop="articleBody">
-			
-				<p>Http定义了与服务器交互的不同方法，最基本的方法有4种，分别是GET，POST，PUT，DELETE。URL全称是资源描述符，我们可以这样认为：一个URL地址，它用于描述一个网络上的资源，而HTTP中的GET，POST，PUT，DELETE就对应着对这个资源的查，改，增，删4个操作。到这里，大家应该有个大概的了解了，GET一般用于获取/查询资源信息，而POST一般用于更新资源信息。<br>
-				
-					<p class="article-more-link">
-						<a href="/2016/10/27/getPost/#more">更多</a>
-					</p>
-				
-			
-		</div>
-		<footer class="article-footer">
-			<a data-url="https://utopia1991.github.io/2016/10/27/getPost/" data-id="civuju63d0009c9tdkxfnorht" class="article-share-link">分享</a>
-			
-			
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Javascript/">Javascript</a></li></ul>
-
-		</footer>
-	</div>
-	
-</article>
-
-
-
-	
-		<article id="post-http" class="article article-type-post" itemscope itemprop="blogPost">
-	<div class="article-meta">
-		
-	</div>
-	<img class="festival" src="https://utopia1991.github.io/css/images/festival.gif">
-	<div class="article-inner">
-		
-		
-			<header class="article-header">
-				
-	
-		<h1 itemprop="name">
-			<a class="article-title" href="/2016/10/27/http/">HTTP 协议</a>
-		</h1>
-	
-
-
-				<a href="/2016/10/27/http/" class="article-date">
-  <time datetime="2016-10-27T06:34:24.000Z" itemprop="datePublished">2016-10-27</time>
-</a>
-			</header>
-		
-		<div class="article-entry" itemprop="articleBody">
-			
-				<p>HTTP是一个属于应用层的面向对象的协议，由于其简捷、快速的方式，适用于分布式超媒体信息系统。它于1990年提出，经过几年的使用与发展，得到不断地完善和扩展。目前在WWW中使用的是HTTP/1.0的第六版，HTTP/1.1的规范化工作正在进行之中，而且HTTP-NG(Next Generation of HTTP)的建议已经提出。<br>
-				
-					<p class="article-more-link">
-						<a href="/2016/10/27/http/#more">更多</a>
-					</p>
-				
-			
-		</div>
-		<footer class="article-footer">
-			<a data-url="https://utopia1991.github.io/2016/10/27/http/" data-id="civuju63g000bc9tdpr76ckdq" class="article-share-link">分享</a>
-			
-			
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HTTP/">HTTP</a></li></ul>
-
-		</footer>
-	</div>
-	
-</article>
-
-
-
-	
-		<article id="post-superAgent" class="article article-type-post" itemscope itemprop="blogPost">
-	<div class="article-meta">
-		
-	</div>
-	<img class="festival" src="https://utopia1991.github.io/css/images/festival.gif">
-	<div class="article-inner">
-		
-		
-			<header class="article-header">
-				
-	
-		<h1 itemprop="name">
-			<a class="article-title" href="/2016/10/25/superAgent/">SuperAgent 中文使用文档</a>
-		</h1>
-	
-
-
-				<a href="/2016/10/25/superAgent/" class="article-date">
-  <time datetime="2016-10-25T05:59:33.000Z" itemprop="datePublished">2016-10-25</time>
-</a>
-			</header>
-		
-		<div class="article-entry" itemprop="articleBody">
-			
-				<p>SuperAgent 是一个轻量的,渐进式的 ajax api,是一个流行的 nodejs 第三方模块，专注于处理服务端/客户端的http请求，可读性好,学习曲线低,内部依赖 nodejs 原生的请求api,适用于 nodejs 环境下。SuperAgent提供了更加简单、优雅的API，让你在处理请求时更加方便。而且它很轻量，学习曲线平滑，内部其实就是对内置模块的封装。SuperAgent 是一个写 node 爬虫的很好的 tools，当你想理 get,post,put,delete,head请求时,你就应该想起该用它了 :)<br>
-				
-					<p class="article-more-link">
-						<a href="/2016/10/25/superAgent/#more">更多</a>
-					</p>
-				
-			
-		</div>
-		<footer class="article-footer">
-			<a data-url="https://utopia1991.github.io/2016/10/25/superAgent/" data-id="civuju641000qc9tddwu4p40t" class="article-share-link">分享</a>
-			
-			
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Javascript/">Javascript</a></li></ul>
-
-		</footer>
-	</div>
-	
-</article>
-
-
-
-	
-		<article id="post-interview1" class="article article-type-post" itemscope itemprop="blogPost">
-	<div class="article-meta">
-		
-	</div>
-	<img class="festival" src="https://utopia1991.github.io/css/images/festival.gif">
-	<div class="article-inner">
-		
-		
-			<header class="article-header">
-				
-	
-		<h1 itemprop="name">
-			<a class="article-title" href="/2016/10/24/interview1/">一篇不错的前端面试文章(译)</a>
-		</h1>
-	
-
-
-				<a href="/2016/10/24/interview1/" class="article-date">
-  <time datetime="2016-10-25T03:23:01.000Z" itemprop="datePublished">2016-10-24</time>
-</a>
-			</header>
-		
-		<div class="article-entry" itemprop="articleBody">
-			
-				<p>面试的时候并不建议使用白板，通常希望面试者自己带上自己的笔记本，或者就使用自己的。我会将他们的代码运行，并告知结果。<br>ps: 原文地址：<a href="http://blog.sourcing.io/interview-questions">http://blog.sourcing.io/interview-questions</a> 文章来自翻译，其中忽略了一些无关紧要的内容直入主题。作者先后在twitter,Stripe工作，期间会参加面试工作。实际上参加面试工作的人都知道要想在一个较短的时间内（30min-1h）就对一个应聘者做出判断其实是很难的，因此我们不得不想尽办法去更加合理的去判断面试者。下面是作者理出的一个思路:如果对方有github账号，我们会尽可能的去了解TA在开源项目上的动态和他的开源项目。我们也会从中挑出一些切入点，通过交流他做这个项目的出发点也能够更好的了解面试者的设计思路，也可以初步的去判断该人是不是适合团队。如果双方交流顺畅，接下来会直接进行到代码等一些基础问题上来。自己的面试会很实际，几乎全部都是coding,很少会提到算法和一些抽象的概念。自己提出的问题看似简单，但是每一点都涉及到javascript的一些知识领域。<br>
-				
-					<p class="article-more-link">
-						<a href="/2016/10/24/interview1/#more">更多</a>
-					</p>
-				
-			
-		</div>
-		<footer class="article-footer">
-			<a data-url="https://utopia1991.github.io/2016/10/24/interview1/" data-id="ciwriix6f0000abtd1mqk8hum" class="article-share-link">分享</a>
-			
-			
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Interview-Questions/">Interview-Questions</a></li></ul>
-
-		</footer>
-	</div>
-	
-</article>
-
-
-
-	
-		<article id="post-express" class="article article-type-post" itemscope itemprop="blogPost">
-	<div class="article-meta">
-		
-	</div>
-	<img class="festival" src="https://utopia1991.github.io/css/images/festival.gif">
-	<div class="article-inner">
-		
-		
-			<header class="article-header">
-				
-	
-		<h1 itemprop="name">
-			<a class="article-title" href="/2016/10/24/express/">Node.js Express 框架</a>
-		</h1>
-	
-
-
-				<a href="/2016/10/24/express/" class="article-date">
-  <time datetime="2016-10-25T03:04:52.000Z" itemprop="datePublished">2016-10-24</time>
-</a>
-			</header>
-		
-		<div class="article-entry" itemprop="articleBody">
-			
-				<p>Express 是一个简洁而灵活的 node.js Web应用框架, 提供了一系列强大特性帮助你创建各种 Web 应用，和丰富的 HTTP 工具。<br>使用 Express 可以快速地搭建一个完整功能的网站。</p>
-<p><img src="/images/express/1.png" alt="" title="Express"></p>
-				
-					<p class="article-more-link">
-						<a href="/2016/10/24/express/#more">更多</a>
-					</p>
-				
-			
-		</div>
-		<footer class="article-footer">
-			<a data-url="https://utopia1991.github.io/2016/10/24/express/" data-id="civuju6320003c9tdpd7ytc09" class="article-share-link">分享</a>
-			
-			
-		</footer>
-	</div>
-	
-</article>
-
-
-
-	
-		<article id="post-commandLine" class="article article-type-post" itemscope itemprop="blogPost">
-	<div class="article-meta">
-		
-	</div>
-	<img class="festival" src="https://utopia1991.github.io/css/images/festival.gif">
-	<div class="article-inner">
-		
-		
-			<header class="article-header">
-				
-	
-		<h1 itemprop="name">
-			<a class="article-title" href="/2016/10/24/commandLine/">Mac 常用终端命令</a>
-		</h1>
-	
-
-
-				<a href="/2016/10/24/commandLine/" class="article-date">
-  <time datetime="2016-10-25T02:48:06.000Z" itemprop="datePublished">2016-10-24</time>
-</a>
-			</header>
-		
-		<div class="article-entry" itemprop="articleBody">
-			
-				<p>自认为用 Mac 来开发前端和 node 简直是神器，用过 Mac 做过开发的都知道，使用 Mac 的 terminal 执行命令非常的极客啊，在这里给大家介绍一些常用的 Mac 终端命令操作。<br>
-				
-					<p class="article-more-link">
-						<a href="/2016/10/24/commandLine/#more">更多</a>
-					</p>
-				
-			
-		</div>
-		<footer class="article-footer">
-			<a data-url="https://utopia1991.github.io/2016/10/24/commandLine/" data-id="civuju62s0000c9td7p3h4ks8" class="article-share-link">分享</a>
-			
-			
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Mac/">Mac</a></li></ul>
-
-		</footer>
-	</div>
-	
-</article>
-
-
-
-	
-		<article id="post-mvc" class="article article-type-post" itemscope itemprop="blogPost">
-	<div class="article-meta">
-		
-	</div>
-	<img class="festival" src="https://utopia1991.github.io/css/images/festival.gif">
-	<div class="article-inner">
-		
-		
-			<header class="article-header">
-				
-	
-		<h1 itemprop="name">
-			<a class="article-title" href="/2016/10/24/mvc/">MVC 可能快过气了</a>
-		</h1>
-	
-
-
-				<a href="/2016/10/24/mvc/" class="article-date">
-  <time datetime="2016-10-25T02:36:42.000Z" itemprop="datePublished">2016-10-24</time>
-</a>
-			</header>
-		
-		<div class="article-entry" itemprop="articleBody">
-			
-				<p>依我个人所见，后端框架，类似于MVC这样的组织方式已经显得过气了。我们先从后端MVC的历史开始讲起吧。MVC最初发端于客户端程序的开发，旨在用Controller在Model和View之间进行解耦。<br>
-				
-					<p class="article-more-link">
-						<a href="/2016/10/24/mvc/#more">更多</a>
-					</p>
-				
-			
-		</div>
-		<footer class="article-footer">
-			<a data-url="https://utopia1991.github.io/2016/10/24/mvc/" data-id="civuju63y000oc9tdvbf1w7id" class="article-share-link">分享</a>
-			
-			
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Javascript/">Javascript</a></li></ul>
-
-		</footer>
-	</div>
-	
-</article>
-
-
-
-	
-		<article id="post-dust" class="article article-type-post" itemscope itemprop="blogPost">
-	<div class="article-meta">
-		
-	</div>
-	<img class="festival" src="https://utopia1991.github.io/css/images/festival.gif">
-	<div class="article-inner">
-		
-		
-			<header class="article-header">
-				
-	
-		<h1 itemprop="name">
-			<a class="article-title" href="/2016/10/23/dust/">Dust 模版引擎</a>
-		</h1>
-	
-
-
-				<a href="/2016/10/23/dust/" class="article-date">
-  <time datetime="2016-10-24T03:27:39.000Z" itemprop="datePublished">2016-10-23</time>
-</a>
-			</header>
-		
-		<div class="article-entry" itemprop="articleBody">
-			
-				<p>Dust 模版引擎是 LinkedIn 使用的一套模版引擎，但是因为 Dust.js 缺少中文文档，导致在国内的普及率比较低。但是现在这家公司是一家外企，美国那边使用的就是Dust.js，于是我决定在这里对Dust的语法进行一些必要的介绍。<br>
-				
-					<p class="article-more-link">
-						<a href="/2016/10/23/dust/#more">更多</a>
-					</p>
-				
-			
-		</div>
-		<footer class="article-footer">
-			<a data-url="https://utopia1991.github.io/2016/10/23/dust/" data-id="civuju6350004c9tddwvzd0cc" class="article-share-link">分享</a>
-			
-			
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HTML/">HTML</a></li></ul>
-
-		</footer>
-	</div>
-	
-</article>
-
-
-
-	
-
-
-	<nav id="page-nav">
-		<a class="extend prev" rel="prev" href="/page/2/">前一页</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/4/">后一页</a>
-	</nav>
 
 
 
