@@ -13,7 +13,6 @@ a {
 }
 #main{
 	width:100%;
-	background: url('../statics/bg.jpg') center no-repeat;
 	background-size: cover;
 }
 #wrap{
@@ -34,21 +33,20 @@ a {
 	font-size:16px;
 	color: #fff;
 }
-.clock-box {
+#clock-box {
 	position:absolute;
 	left:60px;
 	top:550px;
 	font-size:28px;
 	display:none;
 }
-.clock-box a {
+#clock-box a {
 	font-size:28px;
 	text-decoration:none;
 }
 #clock{
 	display: inline-block;
 	margin-top: 15px;
-	margin-left: 20px;
 	margin-right: 132px;
 }
 #clock .digit {
