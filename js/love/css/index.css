@@ -32,6 +32,7 @@ a {
 #code{
 	display:none;
 	font-size:16px;
+	color: #fff;
 }
 .clock-box {
 	position:absolute;
