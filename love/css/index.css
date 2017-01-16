@@ -4,7 +4,7 @@ body{
 	background:#ffe;
 	font-size:14px;
 	font-family:'微软雅黑','宋体',sans-serif;
-	color:#231F20;
+	color: #231F20;
 	overflow:auto;
 }
 a {
@@ -31,7 +31,6 @@ a {
 #code{
 	display:none;
 	font-size:16px;
-	color: #fff;
 }
 #clock-box {
 	position:absolute;
@@ -66,7 +65,7 @@ a {
 	cursor:pointer;
 }
 .say{
-	margin-left:5px;
+	margin:3px 0 3px 5px;
 }
 .space{
 	margin-right:150px;
