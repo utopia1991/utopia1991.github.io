@@ -1,0 +1,86 @@
+body{
+	margin:0;
+	padding:0;
+	background:#ffe;
+	font-size:14px;
+	font-family:'微软雅黑','宋体',sans-serif;
+	color:#231F20;
+	overflow:auto;
+}
+a {
+	color:#000;
+	font-size:14px;
+}
+#main{
+	width:100%;
+	background: url('../statics/bg.jpg') center no-repeat;
+	background-size: cover;
+}
+#wrap{
+	position:relative;
+	margin:0 auto;
+	width:1100px;
+	height:675px;
+}
+#text{
+	width:400px;
+	height:425px;
+	left:60px;
+	top:80px;
+	position:absolute;
+}
+#code{
+	display:none;
+	font-size:16px;
+	color: #fff;
+}
+.clock-box {
+	position:absolute;
+	left:60px;
+	top:550px;
+	font-size:28px;
+	display:none;
+}
+.clock-box a {
+	font-size:28px;
+	text-decoration:none;
+}
+#clock{
+	display: inline-block;
+	margin-top: 15px;
+	margin-left: 20px;
+	margin-right: 132px;
+}
+#clock .digit {
+	font-size:64px;
+}
+#canvas{
+	width:1100px;
+	height:675px;
+}
+#error{
+	margin:0 auto;
+	text-align:center;
+	margin-top:60px;
+	display:none;
+}
+.hand{
+	cursor:pointer;
+}
+.say{
+	margin-left:5px;
+}
+.space{
+	margin-right:150px;
+}
+.en-markup-crop-options {
+	top: 18px !important;
+	left: 50% !important;
+	margin-left: -100px !important;
+	width: 200px !important;
+	border: 2px rgba(255,255,255,.38) solid !important;
+	border-radius: 4px !important;
+}
+.en-markup-crop-options div div:first-of-type {
+	margin-left: 0px !important;
+}
