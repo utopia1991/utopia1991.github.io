@@ -1,0 +1,78 @@
+<!Doctype html>
+<head>
+	<meta charset="utf-8">
+	<meta content="width=device-width, initial-scale=1" name="viewport">
+	<title>Fullscreen Video Background</title>
+	<link rel="icon" href="https://utopia1991.github.io/css/images/icon.png">
+	<meta name="keywords" content="background video, fullscreen video">
+	<meta name="description" content="Super easy to implement HTML5 fullscreen background video library in JavaScript.">
+	<link rel="stylesheet" href="./css/index.css">
+</head>
+<body>
+	<div id="container">
+		<video id="background_video" loop muted></video>
+		<div id="video_cover"></div>
+		<div id="overlay"></div>
+		<div id="video_controls">
+			<span id="play">
+				<img src="./statics/play.png">
+			</span>
+			<span id="pause">
+				<img src="./statics/pause.png">
+			</span>
+		</div>
+		<section id="main_content">
+			<div id="head">
+				<h1>Fv.js</h1>
+				<br>
+				<p class="sub_head">一个简单的以视频做全屏背景的 js 插件库，不需要依赖 jQuery 😊 。</p>
+				<p class="sub_head">A JS library that makes it add fullscreen background videos.</p>
+			</div>
+			<div id="links">
+				<a href="https://github.com/utopia1991/bevis-full-video">View on Github</a>
+			</div>
+		</section>
+	</div>
+
+	<script src="./js/fv.js"></script>
+	<script type="text/javascript">
+		(function () {
+			var bv = new Fideo();
+			bv.init({
+				// 视频区域
+				videoEl: document.querySelector('#background_video'),
+
+				// 容器区域
+				container: document.querySelector('body'),
+
+				// 是否适配屏幕
+				resize: true,
+
+				// 自动播放默认是 true
+				// autoplay: false,
+
+				isMobile: window.matchMedia('(max-width: 768px)').matches,
+				playButton: document.querySelector('#play'),
+				pauseButton: document.querySelector('#pause'),
+
+				// 视频源，适配多格式
+				src: [
+					{
+						src: 'statics/night.mp4',
+						type: 'video/mp4'
+					},
+					{
+						src: 'statics/night.webm',
+						type: 'video/webm;codecs="vp8, vorbis"'
+					}
+				],
+
+				// 初始加载
+				onLoad: function () {
+					document.querySelector('#video_cover').style.display = 'none';
+				}
+			});
+		}());
+	</script>
+</body>
+</html>
