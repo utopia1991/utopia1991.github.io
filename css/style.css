@@ -1467,6 +1467,7 @@ pre .javascript .function {
   text-align: center;
 }
 .aside-logo {
+  display: block;
   border-radius: 50%;
   border: 2px solid #eee;
   -webkit-box-shadow: 0px 0px 17px #999;
