@@ -1,7 +1,13 @@
-# [bevis-blog](https://utopia1991.github.io/)
+# bevis-blog
 
->我叫沈浩，一位前端 + Node开发，这个是我的个人博客（powerby hexo）。
+> 我的博客源代码，主题也是自己设计的，暂且叫做 hexo-theme-Bevis 吧
 
->My name is Bevis Shen, this is my personal tech blog. Bevis Blog
+> Bevis's personal blog theme
 
-![我的博客](images/blog.jpg "我的博客")
+## server
+
+> hexo server -p 5000
+
+## build
+
+> hexo generate
