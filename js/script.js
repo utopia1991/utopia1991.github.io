@@ -125,10 +125,10 @@
 	});
 
 	$('.article-share-weixin').hover(function(){
-		$('.wechat-pic').removeClass('none')
+		$('.wechat-pic').fadeIn(1000)
 	},
 	function () {
-		$('.wechat-pic').addClass('none')
+		$('.wechat-pic').fadeOut(1000)
 	})
 
 })(jQuery);

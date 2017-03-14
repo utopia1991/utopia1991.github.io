@@ -1018,6 +1018,9 @@ a .article-title:hover {
   background: #999;
   text-shadow: 0 1px #7a7a7a;
 }
+.article-share-weixin {
+  cursor: pointer;
+}
 .article-share-weixin:before {
   content: "\f1d7";
 }
@@ -1538,8 +1541,9 @@ pre .javascript .function {
   text-align: center;
   margin: 10px auto 0;
 }
-.wechat-pic,
-.qq-pic {
+.wechat-pic {
+  display: none;
+  z-index: 10;
   position: absolute;
   left: 0px;
   top: 72px;
