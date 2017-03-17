@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>商城</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=no">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<!-- mui css-->
+	<link rel="stylesheet" type="text/css" href="./css/app.css">
+	<link rel="stylesheet" href="./css/mui.min.css">
+	<link rel="stylesheet" href="./css/icons-extra.css">
+	<!-- 自定义 css -->
+	<link rel="stylesheet" href="./css/common/common.css">
+	<link rel="stylesheet" href="./css/common/order.css">
+</head>
+
+<body class="mui-ios mui-ios-9 mui-ios-9-1">
+	<header class="mui-bar mui-bar-nav shop-header">
+		<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left shop-back">返回</a>
+		<h1 class="mui-title">我的订单</h1>
+	</header>
+
+	<div class="mui-content">
+		<div class="shop-order">
+			<ul class="mui-table-view">
+				<li class="mui-table-view-cell">
+					<p class="shop-order-title">
+						<img src="./images/orders/user.png" alt="" />
+						<span class="shop-buyer">
+								<a href="./orderDetail.html">京城御面堂（翔鹭店）></a>
+								<span class="shop-cancel">订单已取消</span>
+						</span>
+						<span class="shop-order-time">
+								1小时13分钟前
+							</span>
+					</p>
+					<p class="shop-order-pic">
+						<img src="./images/orders/items.png" alt="" />
+						<img src="./images/orders/items.png" alt="" />
+						<img src="./images/orders/items.png" alt="" />
+						<img src="./images/orders/items.png" alt="" />
+					</p>
+					<p class="shop-order-price">
+						¥45
+						<a class="mui-btn mui-btn-success mui-btn-outlined shop-order-connect" href="tel:139xxxxxxxx">
+							联系商家
+						</a>
+					</p>
+				</li>
+				<li class="mui-table-view-cell">
+					<p class="shop-order-title">
+						<img src="./images/orders/user.png" alt="" />
+						<span class="shop-buyer">
+								<a href="./orderDetail.html">京城御面堂（翔鹭店）></a>
+								<span class="shop-paid">订单完成</span>
+						</span>
+						<span class="shop-order-time">
+								1小时13分钟前
+							</span>
+					</p>
+					<p class="shop-order-pic">
+						<img src="./images/orders/items.png" alt="" />
+						<img src="./images/orders/items.png" alt="" />
+						<img src="./images/orders/items.png" alt="" />
+						<img src="./images/orders/items.png" alt="" />
+					</p>
+					<p class="shop-order-price">
+						¥45
+						<button type="button" class="mui-btn mui-btn-success mui-btn-outlined shop-order-connect">
+							分享
+						</button>
+						<button type="button" class="mui-btn mui-btn-success mui-btn-outlined shop-order-connect">
+							评论
+						</button>
+					</p>
+				</li>
+				<li class="mui-table-view-cell">
+					<p class="shop-order-title">
+						<img src="./images/orders/user.png" alt="" />
+						<span class="shop-buyer">
+								<a href="./orderDetail.html">京城御面堂（翔鹭店）></a>
+								<span class="shop-no-paid">未付款</span>
+						</span>
+						<span class="shop-order-time">
+							1小时13分钟前
+						</span>
+					</p>
+					<p class="shop-order-pic">
+						<img src="./images/orders/items.png" alt="" />
+						<img src="./images/orders/items.png" alt="" />
+						<img src="./images/orders/items.png" alt="" />
+						<img src="./images/orders/items.png" alt="" />
+					</p>
+					<p class="shop-order-price">
+						¥45
+						<button type="button" class="mui-btn mui-btn-success mui-btn-outlined shop-order-connect">
+							取消订单
+						</button>
+						<button type="button" class="mui-btn mui-btn-success mui-btn-outlined shop-order-connect">
+							去支付
+						</button>
+					</p>
+				</li>
+			</ul>
+		</div>
+	</div>
+
+	<a class="shop-call-server" href="#cellPopover">
+		<img src="./images/details/bell.png" alt="" />
+	</a>
+
+	<!--呼叫服务弹窗-->
+	<div id="cellPopover" class="mui-popover">
+		<h3>是否呼叫服务</h3>
+		<a class="mui-btn mui-btn-success" href="tel:139xxxxxxxx">
+			确认
+		</a>
+		<a type="button" class="mui-btn" id="cellCancel">
+			放弃
+		</a>
+	</div>
+
+	<script src="./js/mui.js"></script>
+	<script src="./js/zepto.min.js"></script>
+	<script src="./js/shop/shop.js"></script>
+</body>
+
+</html>
