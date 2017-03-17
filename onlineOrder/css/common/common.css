@@ -93,6 +93,10 @@
 	color: #fff;
 }
 
+.shop-icon-active {
+	color: #7bd889;
+}
+
 .shop-tab-item {
 	display: table-cell;
 	overflow: hidden;
