@@ -96,6 +96,10 @@
 	width: 100%;
 }
 
+.shop-details-order-goods .mui-table-view {
+	margin-bottom: 50px;
+}
+
 .shop-goods-img {
 	width: 20%;
 	min-width: 80px;
