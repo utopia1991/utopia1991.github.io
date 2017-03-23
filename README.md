@@ -1,6 +1,6 @@
 # bevis-blog
 
-> 我的博客源代码，主题自己设计的，暂且叫做 hexo-theme-Bevis
+> 我的博客源代码，主题自己设计的，就叫 hexo-theme-Bevis
 
 > Bevis's personal blog theme
 
@@ -10,6 +10,6 @@
 
 ## build
 
-> hexo generate
+> 1. gulp g
 
-> when generate expect readme.md music/*
+> 2. hexo g
