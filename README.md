@@ -1,6 +1,6 @@
 # bevis-blog
 
-> 我的博客源代码，主题也是自己设计的，暂且叫做 hexo-theme-Bevis 吧
+> 我的博客源代码，主题自己设计的，暂且叫做 hexo-theme-Bevis
 
 > Bevis's personal blog theme
 
@@ -11,3 +11,5 @@
 ## build
 
 > hexo generate
+
+> when generate expect readme.md music/*

@@ -1,0 +1,1650 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta property="wb:webmaster" content="65a151beb5e21880" />
+	<!-- baidu analytics-->
+	<script>
+		var _hmt = _hmt || [];
+		(function() {
+			var hm = document.createElement("script");
+			hm.src = "https://hm.baidu.com/hm.js?09df6a0c610161ab3099d8e11e9c998e";
+			var s = document.getElementsByTagName("script")[0];
+			s.parentNode.insertBefore(hm, s);
+		})();
+	</script>
+	<!-- google analytics-->
+	<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+		ga('create', 'UA-86667923-1', 'auto');
+		ga('send', 'pageview');
+	</script>
+	
+	<title>做为优秀前端的学习资料 | Bevis Blog - 沈浩个人博客</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<meta name="description" content="Github 上看到的很全的前端学习资料，感觉不错，和大家分享一下。
+文章来自 小猫wscat">
+<meta property="og:type" content="article">
+<meta property="og:title" content="做为优秀前端的学习资料">
+<meta property="og:url" content="https://utopia1991.github.io/2017/03/23/learnSource/index.html">
+<meta property="og:site_name" content="Bevis Blog - 沈浩个人博客">
+<meta property="og:description" content="Github 上看到的很全的前端学习资料，感觉不错，和大家分享一下。
+文章来自 小猫wscat">
+<meta property="og:updated_time" content="2017-03-23T06:10:08.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="做为优秀前端的学习资料">
+<meta name="twitter:description" content="Github 上看到的很全的前端学习资料，感觉不错，和大家分享一下。
+文章来自 小猫wscat">
+	
+	
+		<link rel="icon" href="https://utopia1991.github.io/css/images/icon.png">
+	
+	
+		<link href="https://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+	
+	<link rel="stylesheet" href="/css/style.css">
+	
+
+	<script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+</head>
+
+<body>
+	<a href="https://github.com/utopia1991" target="_blank" class="githubFork">
+		<img src="https://camo.githubusercontent.com/e7bbb0521b397edbd5fe43e7f760759336b5e05f/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677265656e5f3030373230302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_green_007200.png">
+	</a>
+	<a class="backTop" onclick="backTop()">Top</a>
+	<div id="container">
+		<div id="wrap">
+			<header id="header">
+	<div id="header-outer" class="outer">
+		<div id="header-title" class="inner">
+			<h1 id="logo-wrap">
+				<a href="/" id="logo">
+					<span class="brand-logo">Bevis</span>
+					Blog
+				</a>
+			</h1>
+		</div>
+		<div id="header-inner" class="inner">
+			<nav id="main-nav">
+				<a id="main-nav-toggle" class="nav-icon"></a>
+				
+					<a class="main-nav-link" href="/">主页</a>
+				
+					<a class="main-nav-link" href="/archives">博文</a>
+				
+			</nav>
+		</div>
+	</div>
+</header>
+
+			<canvas width="100%" height="100%" id="canvas"></canvas>
+			<div class="outer">
+				
+				<aside id="sidebar">
+	<div class="aside-author">
+		<a class="aside-logo" href="https://utopia1991.github.io/project/lover/index.html" target="_blank"></a>
+		<p class="aside-title">Bevis Shen（沈浩）</p>
+		<p class="aside-subtitle">Node.js & Front-End Engineer</p>
+		<p class="aside-description">Google 重度粉，Mac 拥趸，前端 + Node 青年，对前沿技术有着狂热的激情，梦想环游世界，热爱生活、摄影、旅游、电影的文艺程序猿一枚</p>
+		<div class="aside-communicate">
+			<a href="https://github.com/utopia1991" target="_blank" class="article-share-github" title="github"></a>
+			<a href="https://www.linkedin.com/in/bevis1991" target="_blank" class="article-share-linkedin" title="linkedin"></a>
+			<a href="mailto:1304354608@qq.com" class="article-share-mail" title="email"></a>
+			<a href="https://weibo.com/u/2619492527/home" target="_blank" class="article-share-weibo" title="weibo"></a>
+			<a class="article-share-weixin" title="我的个人微信公众号"></a>
+			<img src="https://utopia1991.github.io/css/images/wechat.png" width="180" height="180" class="wechat-pic">
+			<a href="https://bevis1991.wordpress.com/" target="_blank" class="article-share-wordpress" title="WordPress 博客"></a>
+			<a href="https://www.facebook.com/bevis1991" target="_blank" class="article-share-facebook" title="facebook"></a>
+			<a href="https://twitter.com/bevis_shen" target="_blank" class="article-share-twitter" title="twitter"></a>
+		</div>
+		<audio controls="controls" loop="loop" preload="auto" style="width:100%;" src="https://utopia1991.github.io/music/IWantToBreakFree.mp3"></audio>
+	</div>
+	
+		
+
+	
+		
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/">CSS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Code-Style/">Code Style</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Coffeescript/">Coffeescript</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Google/">Google</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Gulp/">Gulp</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML/">HTML</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTTP/">HTTP</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Interview-Questions/">Interview-Questions</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Javascript/">Javascript</a><span class="tag-list-count">14</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mac/">Mac</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/">Markdown</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MongoDB/">MongoDB</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UnderscoreJS/">UnderscoreJS</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery/">jQuery</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nodeJs/">nodeJs</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+	
+		
+  <div class="widget-wrap">
+    <h3 class="widget-title">Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/CSS/" style="font-size: 10px;">CSS</a> <a href="/tags/Code-Style/" style="font-size: 17.5px;">Code Style</a> <a href="/tags/Coffeescript/" style="font-size: 10px;">Coffeescript</a> <a href="/tags/Google/" style="font-size: 10px;">Google</a> <a href="/tags/Gulp/" style="font-size: 10px;">Gulp</a> <a href="/tags/HTML/" style="font-size: 10px;">HTML</a> <a href="/tags/HTTP/" style="font-size: 10px;">HTTP</a> <a href="/tags/Interview-Questions/" style="font-size: 15px;">Interview-Questions</a> <a href="/tags/Javascript/" style="font-size: 20px;">Javascript</a> <a href="/tags/Mac/" style="font-size: 12.5px;">Mac</a> <a href="/tags/Markdown/" style="font-size: 10px;">Markdown</a> <a href="/tags/MongoDB/" style="font-size: 12.5px;">MongoDB</a> <a href="/tags/UnderscoreJS/" style="font-size: 12.5px;">UnderscoreJS</a> <a href="/tags/jQuery/" style="font-size: 10px;">jQuery</a> <a href="/tags/nodeJs/" style="font-size: 10px;">nodeJs</a>
+    </div>
+  </div>
+
+	
+		
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">三月 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">二月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">一月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">十二月 2016</a><span class="archive-list-count">12</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">十一月 2016</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">十月 2016</a><span class="archive-list-count">11</span></li></ul>
+    </div>
+  </div>
+
+
+	
+		
+	<div class="widget-wrap">
+		<h3 class="widget-title">最新文章</h3>
+		<div class="widget">
+			<ul>
+				
+					<li>
+						<a href="/2017/03/23/learnSource/">
+							做为优秀前端的学习资料
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2017/03/10/source/">
+							超全 web 开发工具和资源
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2017/02/15/jsBug/">
+							Javascript 设计缺陷
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2017/01/03/gulp/">
+							Gulp 快速入门
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2016/12/27/feTired/">
+							前端疲劳
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2016/12/27/reduceCoupling/">
+							减少前端代码耦合
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2016/12/21/codeStyle4/">
+							前端编码规范 4 —— CSS 和 SASS 规范
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2016/12/21/codeStyle3/">
+							前端编码规范 3 —— JavaScript 规范
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2016/12/21/codeStyle2/">
+							前端编码规范 2 —— HTML 规范
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2016/12/21/codeStyle1/">
+							前端编码规范 1 —— 一般规范
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2016/12/16/underscore2/">
+							UnderscoreJS 常用方法
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2016/12/15/interview3/">
+							JavaScript 单线程机制面试题
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2016/12/14/vue/">
+							Vue 基础学习笔记
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2016/12/13/mongodb/">
+							MongoDB 操作基础语法（shell）
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2016/12/13/eventLoop/">
+							JavaScript 运行机制
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2016/12/12/deferred/">
+							jQuery $.deferred()对象
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2016/11/25/nodemailer/">
+							使用 nodeJs 发送邮件
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2016/11/25/google/">
+							教你使用 Google
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2016/11/23/interview2/">
+							20个JS变态面试题解析
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2016/11/23/bem/">
+							BEM - CSS命名规则
+						</a>
+					</li>
+					
+				......
+			</ul>
+		</div>
+	</div>
+	
+
+	
+</aside>
+
+				
+				<section id="main">
+					<div class="main-header">
+						<p class="header-title">Any application that can be written in JavaScript, will eventually be written in JavaScript.</p>
+						<canvas id="bubbleCanvas" width="100%" height="300" style="margin-top:50px;"></canvas>
+						<script>
+							(function(){
+								var width, height, canvas, ctx, circles;
+								function initHeader() {
+									try{
+										canvas = document.getElementById('bubbleCanvas');
+										if($("#bubbleCanvas").length>0){
+											width = window.innerWidth*0.25>300?window.innerWidth*0.25:300;
+											//height = window.innerHeight;
+											height = 255;
+											canvas.width = width;
+											canvas.height = height;
+											ctx = canvas.getContext('2d');
+											circles = [];
+											for(var x = 0; x < width*0.5; x++) {
+												var c = new Circle();
+												circles.push(c);
+											}
+											animate();
+										}
+									} catch(ex) {
+										if(window.cosole&&window.cosole.log){cosole.log(ex)}
+									}
+								}
+								function addListeners() {
+									try{
+										if($("#bubbleCanvas").length>0){
+											window.addEventListener('resize', resize);
+										}
+									}catch(ex){if(window.cosole&&window.cosole.log){cosole.log(ex)}}
+								}
+								function resize() {
+									width = window.innerWidth*0.25>300?window.innerWidth*0.25:300;
+									height = window.innerHeight;
+									canvas.width = width;
+									canvas.height = height;
+								}
+								function animate() {
+									ctx.clearRect(0,0,width,height);
+									for(var i in circles) {
+										circles[i].draw();
+									}
+									window.requestAFrame = (function () {
+										return window.requestAnimationFrame||window.webkitRequestAnimationFrame||window.mozRequestAnimationFrame||window.oRequestAnimationFrame||window.msRequestAnimationFrame||
+											function (callback) {
+												return window.setTimeout(callback, 1000 / 60); // shoot for 60 fps
+											};
+									})();
+									requestAFrame(animate);
+								}
+								// Canvas manipulation
+								function Circle() {
+									var _this = this;
+									// constructor
+									(function() {
+										_this.pos = {};
+										init();
+									})();
+
+									function init() {
+										_this.pos.x = Math.random()*width;
+										_this.pos.y = height+Math.random()*100;
+										_this.alpha = 0.1+Math.random()*0.3;
+										_this.scale = 0.1+Math.random()*0.3;
+										_this.velocity = Math.random();
+									}
+
+									this.draw = function() {
+										if(_this.alpha <= 0) {
+											init();
+										}
+										_this.pos.y -= _this.velocity;
+										_this.alpha -= 0.0005;
+										ctx.beginPath();
+										ctx.arc(_this.pos.x, _this.pos.y, _this.scale*10, 0, 2 * Math.PI, false);
+										ctx.fillStyle = 'rgba(255,255,255,'+ _this.alpha+')';
+										ctx.fill();
+									};
+								}
+								initHeader();
+								addListeners();
+							}());
+						</script>
+					</div>
+					<article id="post-learnSource" class="article article-type-post" itemscope itemprop="blogPost">
+	<div class="article-meta">
+		
+	</div>
+	<div class="article-inner">
+		
+		
+			<header class="article-header">
+				
+	
+		<h1 class="article-title" itemprop="name">
+			做为优秀前端的学习资料
+		</h1>
+	
+
+
+				<a href="/2017/03/23/learnSource/" class="article-date">
+  <time datetime="2017-03-23T06:08:12.000Z" itemprop="datePublished">2017-03-23</time>
+</a>
+			</header>
+		
+		<div class="article-entry" itemprop="articleBody">
+			
+				<p>Github 上看到的很全的前端学习资料，感觉不错，和大家分享一下。</p>
+<p>文章来自 <a href="https://github.com/Wscats/Good-text-Share" target="_blank" rel="external">小猫wscat</a><br><a id="more"></a></p>
+<p><em>These share data are from my usual work and learning，hoping to help you，If you like you can star</em></p>
+<h2 id="Javascript"><a href="#Javascript" class="headerlink" title="Javascript"></a>Javascript</h2><table>
+<thead>
+<tr>
+<th>Article</th>
+<th style="text-align:center">Article</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://github.com/Wscats/Good-text-Share/issues/57" target="_blank" rel="external">Javascript深浅拷贝</a></td>
+<td style="text-align:center"><a href="https://github.com/Wscats/Good-text-Share/issues/56" target="_blank" rel="external">Javascript中的apply和call继承</a></td>
+</tr>
+<tr>
+<td><a href="https://github.com/Wscats/Good-text-Share/issues/55" target="_blank" rel="external">Javascript的jsonp原理</a></td>
+<td style="text-align:center"><a href="https://github.com/Wscats/Good-text-Share/issues/49" target="_blank" rel="external">Javascript监听触摸事件</a></td>
+</tr>
+<tr>
+<td><a href="https://github.com/Wscats/Good-text-Share/issues/52" target="_blank" rel="external">Javascript中的var self = this</a></td>
+<td style="text-align:center"><a href="https://github.com/Wscats/Good-text-Share/issues/32" target="_blank" rel="external">Javascript面向对象编程</a></td>
+</tr>
+<tr>
+<td><a href="https://github.com/Wscats/Good-text-Share/issues/14" target="_blank" rel="external">Javascript滑屏切换场景</a></td>
+<td style="text-align:center"><a href="https://github.com/Wscats/Good-text-Share/issues/16" target="_blank" rel="external">Javascript获取经纬度，关于调用百度API的问题</a></td>
+</tr>
+<tr>
+<td><a href="https://github.com/Wscats/Good-text-Share/issues/3" target="_blank" rel="external">妙用Javascript运算符</a></td>
+<td style="text-align:center"><a href="https://github.com/Wscats/Good-text-Share/issues/1" target="_blank" rel="external">深入理解Javascript函数编程</a></td>
+</tr>
+<tr>
+<td><a href="https://github.com/Wscats/Good-text-Share/issues/4" target="_blank" rel="external">Javascript的setTimeout详细用例</a></td>
+<td style="text-align:center"><a href="https://github.com/Wscats/Good-text-Share/issues/42" target="_blank" rel="external">sessionstorage，localstorage和cookie</a></td>
+</tr>
+<tr>
+<td><a href="https://github.com/Wscats/Good-text-Share/issues/11" target="_blank" rel="external">JS日期对比</a></td>
+<td style="text-align:center"><a href="https://github.com/Wscats/Good-text-Share/issues/10" target="_blank" rel="external">JSONP参考文章</a></td>
+</tr>
+<tr>
+<td><a href="https://wscats.github.io/angular-demo/createElement.html" target="_blank" rel="external">Javascript的createElement</a></td>
+<td style="text-align:center"><a href="https://wscats.github.io/angular-demo/createDocumentFragment.html" target="_blank" rel="external">Javascript的createDocumentFragment</a></td>
+</tr>
+<tr>
+<td><a href="https://wscats.github.io/angular-demo/sessionStoragelocalStorage.html" target="_blank" rel="external">sessionStorage和localStorage</a></td>
+<td style="text-align:center"><a href="https://wscats.github.io/angular-demo/像素动画.html" target="_blank" rel="external">像素帧动画</a></td>
+</tr>
+<tr>
+<td><strong>Reference</strong></td>
+<td style="text-align:center"><strong>Reference</strong></td>
+</tr>
+<tr>
+<td><a href="https://github.com/windiest/Front-end-tutorial" target="_blank" rel="external">收集最全前端学习资料</a></td>
+<td style="text-align:center"><a href="https://github.com/Wscats/Good-text-Share" target="_blank" rel="external">最全前端教程-猫的回忆录</a></td>
+</tr>
+<tr>
+<td><a href="https://segmentfault.com/a/1190000002640298" target="_blank" rel="external">JavaScript中的this陷阱的最全收集–没有之一</a></td>
+<td style="text-align:center"><a href="https://llh911001.gitbooks.io/mostly-adequate-guide-chinese/content/ch1.html" target="_blank" rel="external">JS函数式编程指南</a></td>
+</tr>
+<tr>
+<td><a href="http://liubin.github.io/promises-book" target="_blank" rel="external">JavaScript Promise迷你书（中文版）</a></td>
+<td style="text-align:center"><a href="http://javascript.ruanyifeng.com" target="_blank" rel="external">阮一峰 Javascript</a></td>
+</tr>
+<tr>
+<td><a href="https://www.awesomes.cn/rank" target="_blank" rel="external">前端 TOP 100</a></td>
+<td style="text-align:center"><a href="http://www.liaoxuefeng.com/wiki/001434446689867b27157e896e74d51a89c25cc8b43bdb3000" target="_blank" rel="external">小白的零基础JavaScript全栈教程</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="UI"><a href="#UI" class="headerlink" title="UI"></a>UI</h2><table>
+<thead>
+<tr>
+<th>Reference</th>
+<th style="text-align:center">Reference</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://github.com/weui/weui" target="_blank" rel="external">WeUI</a></td>
+<td style="text-align:center"><a href="http://www.bootcss.com" target="_blank" rel="external">Bootstrap</a></td>
+</tr>
+<tr>
+<td><a href="http://dev.dcloud.net.cn/mui/" target="_blank" rel="external">MUI-最接近原生APP体验的高性能前端框架</a></td>
+<td style="text-align:center"><a href="http://amazeui.org" target="_blank" rel="external">Amaze UI中国首个开源HTML5跨屏前端框架</a></td>
+</tr>
+<tr>
+<td><a href="http://frozenui.github.io/" target="_blank" rel="external">Frozen UI</a></td>
+<td style="text-align:center"><a href="http://foundation.zurb.com/" target="_blank" rel="external">Foundation</a></td>
+</tr>
+<tr>
+<td><a href="http://sui.taobao.org/sui/docs/" target="_blank" rel="external">SUI</a></td>
+<td style="text-align:center"><a href="https://github.com/easysoft/zui" target="_blank" rel="external">ZUI</a></td>
+</tr>
+<tr>
+<td><a href="http://m.sui.taobao.org" target="_blank" rel="external">淘宝HTML5前端框架</a></td>
+<td style="text-align:center"><a href="http://docs.kissyui.com" target="_blank" rel="external">KISSY - 阿里前端JavaScript库</a></td>
+</tr>
+<tr>
+<td><a href="http://nej.netease.com" target="_blank" rel="external">网易Nej - Nice Easy Javascript</a></td>
+<td style="text-align:center"><a href="http://demos.telerik.com/kendo-ui/mvvm/index" target="_blank" rel="external">Kendo UI MVVM Demo</a></td>
+</tr>
+<tr>
+<td><a href="http://smartui.chinamzz.com" target="_blank" rel="external">Smart UI</a></td>
+<td style="text-align:center"><a href="http://developer.yahoo.com/yui/grids" target="_blank" rel="external">雅虎UI - CSS UI</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="CSS"><a href="#CSS" class="headerlink" title="CSS"></a>CSS</h2><table>
+<thead>
+<tr>
+<th>Article</th>
+<th style="text-align:center">Article</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://github.com/Wscats/Good-text-Share/issues/41" target="_blank" rel="external">CSS Flex布局</a></td>
+<td style="text-align:center"><a href="https://github.com/Wscats/Good-text-Share/issues/38" target="_blank" rel="external">移动前端开发CSS3</a></td>
+</tr>
+<tr>
+<td><a href="https://github.com/Wscats/Good-text-Share/issues/43" target="_blank" rel="external">响应式布局 媒体查询</a></td>
+<td style="text-align:center"><a href="https://github.com/Wscats/Good-text-Share/issues/34" target="_blank" rel="external">CSS图片响应式布局</a></td>
+</tr>
+<tr>
+<td><a href="https://wscats.github.io/angular-demo/stylesheets/styles.less" target="_blank" rel="external">lessDemo的less文件</a></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td><strong>Reference</strong></td>
+<td style="text-align:center"><strong>Reference</strong></td>
+</tr>
+<tr>
+<td><a href="http://tympanus.net/codrops/css_reference" target="_blank" rel="external">CSS 语法参考</a></td>
+<td style="text-align:center"><a href="http://isux.tencent.com/css3/index.html" target="_blank" rel="external">CSS3动画手册</a></td>
+</tr>
+<tr>
+<td><a href="http://isux.tencent.com/css3/tools.html" target="_blank" rel="external">腾讯css3动画制作工具</a></td>
+<td style="text-align:center"><a href="http://daneden.github.io/animate.css" target="_blank" rel="external">animate.css</a></td>
+</tr>
+<tr>
+<td><a href="http://tympanus.net/Development/AnimatedBooks/" target="_blank" rel="external">Animated Books with CSS 3D Transforms</a></td>
+<td style="text-align:center"><a href="http://browserhacks.com/" target="_blank" rel="external">Browserhacks</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="HTML"><a href="#HTML" class="headerlink" title="HTML"></a>HTML</h2><table>
+<thead>
+<tr>
+<th>Article</th>
+<th style="text-align:center">Article</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><a href="http://www.zhihu.com/question/24398907" target="_blank" rel="external">HTML5有哪些让你惊艳的demo</a>|<a href="http://www.wallpaperbetter.com/" target="_blank" rel="external">Wallpaperbetter</a>|</p>
+<h2 id="Angular"><a href="#Angular" class="headerlink" title="Angular"></a>Angular</h2><table>
+<thead>
+<tr>
+<th>Article</th>
+<th style="text-align:center">Angular文档</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://github.com/Wscats/Good-text-Share/issues/26" target="_blank" rel="external">Angular源码解读publishExternalAPI函数</a></td>
+<td style="text-align:center"><a href="https://github.com/Wscats/Good-text-Share/issues/25" target="_blank" rel="external">Angular源码解读setupModuleLoader函数</a></td>
+</tr>
+<tr>
+<td><a href="https://github.com/Wscats/Good-text-Share/issues/35" target="_blank" rel="external">Angular的ng-style用法</a></td>
+<td style="text-align:center"><a href="https://github.com/Wscats/Good-text-Share/issues/29" target="_blank" rel="external">Angular判断在那个浏览器下打开的服务</a></td>
+</tr>
+<tr>
+<td><a href="https://github.com/Wscats/Good-text-Share/issues/28" target="_blank" rel="external">Angular文字折叠展开组件的原理分析</a></td>
+<td style="text-align:center"><a href="https://github.com/Wscats/Good-text-Share/issues/21" target="_blank" rel="external">Angular服务Request异步请求的详细分析</a></td>
+</tr>
+<tr>
+<td><a href="https://github.com/Wscats/Good-text-Share/issues/24" target="_blank" rel="external">Angular自定义service服务详解</a></td>
+<td style="text-align:center"><a href="https://github.com/Wscats/Good-text-Share/issues/22" target="_blank" rel="external">Angular自定义判断上一页是否存在的服务</a></td>
+</tr>
+<tr>
+<td><a href="https://github.com/Wscats/Good-text-Share/issues/19" target="_blank" rel="external">Angular操作cookies方法</a></td>
+<td style="text-align:center"><a href="https://github.com/Wscats/Good-text-Share/issues/18" target="_blank" rel="external">Angular打印错误的minErr函数</a></td>
+</tr>
+<tr>
+<td><a href="https://github.com/Wscats/Good-text-Share/issues/17" target="_blank" rel="external">Angular的fromJson与toJson方法</a></td>
+<td style="text-align:center"><a href="https://github.com/Wscats/Good-text-Share/issues/12" target="_blank" rel="external">Angular用ng-repeat生成表单并绑定ng-click时的一个细节</a></td>
+</tr>
+<tr>
+<td><a href="https://github.com/Wscats/Good-text-Share/issues/6" target="_blank" rel="external">Angular的run方法巧妙运用</a></td>
+<td style="text-align:center"><a href="https://github.com/Wscats/Good-text-Share/issues/5" target="_blank" rel="external">Angular处理Html转义问题</a></td>
+</tr>
+<tr>
+<td><a href="ng-repeat绑定事件和嵌套">ng-repeat绑定事件和嵌套</a></td>
+<td style="text-align:center"><a href="https://github.com/Wscats/angular-demo/issues/4" target="_blank" rel="external">Angular的post请求后台接受不了数据的解决方法</a></td>
+</tr>
+<tr>
+<td><a href="https://github.com/Wscats/angular-demo/issues/19" target="_blank" rel="external">ionic总结</a></td>
+<td style="text-align:center"><a href="https://github.com/Wscats/angular-demo/issues/17" target="_blank" rel="external">ui-route和ng-route</a></td>
+</tr>
+<tr>
+<td><a href="https://github.com/Wscats/angular-demo/issues/15" target="_blank" rel="external">ng-options&amp;&amp;ng-switch</a></td>
+<td style="text-align:center"><a href="https://github.com/Wscats/angular-demo/issues/14" target="_blank" rel="external">directive组件作用域</a></td>
+</tr>
+<tr>
+<td><a href="https://github.com/Wscats/angular-demo/issues/13" target="_blank" rel="external">表单认证</a></td>
+<td style="text-align:center"><a href="https://github.com/Wscats/angular-demo/issues/11" target="_blank" rel="external">$broadcast,$emit and $on</a></td>
+</tr>
+<tr>
+<td><a href="https://github.com/Wscats/angular-demo/issues/9" target="_blank" rel="external">自定义过滤器</a></td>
+<td style="text-align:center"><a href="https://github.com/Wscats/angular-demo/issues/8" target="_blank" rel="external">自定义手势指令ng-touch</a></td>
+</tr>
+<tr>
+<td><a href="https://github.com/Wscats/angular-demo/issues/7" target="_blank" rel="external">ng-animate</a></td>
+<td style="text-align:center"><a href="https://github.com/Wscats/angular-demo/issues/3" target="_blank" rel="external">单页面应用的技术点</a></td>
+</tr>
+<tr>
+<td><strong>Guess you like</strong></td>
+<td style="text-align:center"><strong>AppDemo</strong></td>
+</tr>
+<tr>
+<td><a href="https://wscats.github.io/angular-demo/spa/mobie-b2bdemo1/index.html" target="_blank" rel="external">Angular商城Demo</a></td>
+<td style="text-align:center"><a href="https://wscats.github.io/angular-demo/spa/CNode/index.html" target="_blank" rel="external">Angular的Cnode社区</a></td>
+</tr>
+<tr>
+<td><a href="https://wscats.github.io/angular-demo/spa/Stovepipe/index.html" target="_blank" rel="external">AngularStovepipe</a></td>
+<td style="text-align:center"><a href="https://wscats.github.io/angular-demo/spa/TT/index.html" target="_blank" rel="external">Angular的新闻客户端</a></td>
+</tr>
+<tr>
+<td><a href="https://wscats.github.io/angular-demo/spa/mobie-b2bdemo1/index.html" target="_blank" rel="external">Angular商城Demo</a></td>
+<td style="text-align:center"><a href="https://wscats.github.io/angular-demo/spa/CNode/index.html" target="_blank" rel="external">Angular的Cnode社区</a></td>
+</tr>
+<tr>
+<td><a href="https://wscats.github.io/angular-demo/angularjs5examples/inline-editor/index.html" target="_blank" rel="external">Angular内联编辑器</a></td>
+<td style="text-align:center"><a href="https://wscats.github.io/angular-demo/angularjs5examples/instant-search/index.html" target="_blank" rel="external">Angular即时搜索</a></td>
+</tr>
+<tr>
+<td><a href="https://wscats.github.io/angular-demo/angularjs5examples/navigation-menu/index.html" target="_blank" rel="external">Angular导航菜单</a></td>
+<td style="text-align:center"><a href="https://wscats.github.io/angular-demo/angularjs5examples/order-form/index.html" target="_blank" rel="external">Angular订单表单</a></td>
+</tr>
+<tr>
+<td><a href="https://wscats.github.io/angular-demo/angularjs5examples/switchable-grid/index.html" target="_blank" rel="external">Angular切换网格</a></td>
+<td style="text-align:center"><a href="https://wscats.github.io/angular-demo/spa/news/index.html" target="_blank" rel="external">Angular新闻＋WEUI DEMO</a> <a href="https://github.com/Wscats/angular-demo/tree/gh-pages/spa/NodeServerAndApi-Weui-News" target="_blank" rel="external">源码</a></td>
+</tr>
+<tr>
+<td><strong>Controller</strong></td>
+<td style="text-align:center"><strong>控制器</strong></td>
+</tr>
+<tr>
+<td><a href="https://wscats.github.io/angular-demo/view/student.html" target="_blank" rel="external">Angular控制器demo</a></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td><strong>SPA DEMO</strong></td>
+<td style="text-align:center"><strong>单页面应用</strong></td>
+</tr>
+<tr>
+<td><a href="https://wscats.github.io/angular-demo/weui每日笑话.html" target="_blank" rel="external">Angular+Weui单页面应用DEMO-每日笑话</a></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td><strong>Service</strong></td>
+<td style="text-align:center"><strong>服务</strong></td>
+</tr>
+<tr>
+<td><a href="https://github.com/Wscats/angular-demo/blob/gh-pages/%E5%B8%B8%E7%94%A8%E8%87%AA%E5%AE%9A%E4%B9%89%E6%9C%8D%E5%8A%A1%E6%96%B9%E6%B3%95.md" target="_blank" rel="external">Angular自定义服务的常用方法</a></td>
+<td style="text-align:center"><a href="https://wscats.github.io/angular-demo/部分服务demo.html" target="_blank" rel="external">Angular部分服务demo</a></td>
+</tr>
+<tr>
+<td><a href="https://wscats.github.io/angular-demo/Angular自定义Canvas画图服务.html" target="_blank" rel="external">Angular自定义Canvas画图服务</a></td>
+<td style="text-align:center"><a href="https://wscats.github.io/angular-demo/自定义http服务.html" target="_blank" rel="external">Angular自定义http服务 面向对象封装</a></td>
+</tr>
+<tr>
+<td><strong>Directive</strong></td>
+<td style="text-align:center"><strong>组件与指令</strong></td>
+</tr>
+<tr>
+<td><a href="https://wscats.github.io/angular-demo/自定义手势事件.html" target="_blank" rel="external">Angular自定义手势指令</a></td>
+<td style="text-align:center"><a href="https://wscats.github.io/angular-demo/自定义directive轮播图.html" target="_blank" rel="external">Angular自定义轮播图组件</a></td>
+</tr>
+<tr>
+<td><a href="https://wscats.github.io/angular-demo/下拉刷新.html" target="_blank" rel="external">Angular自定义下拉刷新组件1</a></td>
+<td style="text-align:center"><a href="https://wscats.github.io/angular-demo/Angular自定义下拉刷新组件.html" target="_blank" rel="external">Angular自定义下拉刷新组件2</a></td>
+</tr>
+<tr>
+<td><strong>Router</strong></td>
+<td style="text-align:center"><strong>路由</strong></td>
+</tr>
+<tr>
+<td><a href="https://wscats.github.io/angular-demo/UI路由嵌套DEMO.html" target="_blank" rel="external">Angular路由嵌套</a></td>
+<td style="text-align:center"><a href="https://wscats.github.io/angular-demo/uiRoute/index.html" target="_blank" rel="external">Angular路由单页多个ui-view</a></td>
+</tr>
+<tr>
+<td><strong>Filter</strong></td>
+<td style="text-align:center"><strong>过滤器</strong></td>
+</tr>
+<tr>
+<td><a href="https://wscats.github.io/angular-demo/angular自带过滤器.html" target="_blank" rel="external">Angular自带过滤器</a></td>
+<td style="text-align:center"><a href="https://wscats.github.io/angular-demo/自定义关键词检索过滤器.html" target="_blank" rel="external">Angular自定义关键词检索过滤器</a></td>
+</tr>
+<tr>
+<td><strong>Animate</strong></td>
+<td style="text-align:center"><strong>动画</strong></td>
+</tr>
+<tr>
+<td><a href="https://wscats.github.io/angular-demo/ng-animate动画.html" target="_blank" rel="external">Angular ng-animate动画1</a></td>
+<td style="text-align:center"><a href="https://wscats.github.io/angular-demo/ng-animate动画2.html" target="_blank" rel="external">Angular ng-animate动画2</a></td>
+</tr>
+<tr>
+<td><strong>Other</strong></td>
+<td style="text-align:center"><strong>其他</strong></td>
+</tr>
+<tr>
+<td><a href="https://wscats.github.io/angular-demo/iframesdemo.html" target="_blank" rel="external">Angular中使用iframe</a></td>
+<td style="text-align:center"><a href="https://wscats.github.io/angular-demo/%E4%B8%89%E7%BA%A7%E8%81%94%E5%8A%A8.html" target="_blank" rel="external">Angular三级联动(1)</a></td>
+</tr>
+<tr>
+<td><a href="https://wscats.github.io/angular-demo/ngSwitch.html" target="_blank" rel="external">Angular中使用ng-switch</a></td>
+<td style="text-align:center"><a href="https://wscats.github.io/angular-demo/百度地图定位DEMO.html" target="_blank" rel="external">百度定位DEMO</a></td>
+</tr>
+<tr>
+<td><a href="https://wscats.github.io/angular-demo/三级联动改进.html" target="_blank" rel="external">Angular三级联动(2)</a></td>
+<td style="text-align:center"><a href="https://wscats.github.io/angular-demo/事件监听.html" target="_blank" rel="external">Angular事件监听</a></td>
+</tr>
+<tr>
+<td><a href="https://wscats.github.io/angular-demo/jquery模拟ng-repeat.html" target="_blank" rel="external">jQuery模拟ng-repeat</a></td>
+<td style="text-align:center"><a href="https://wscats.github.io/angular-demo/lessDemo.html" target="_blank" rel="external">lessDemo</a></td>
+</tr>
+<tr>
+<td><a href="https://wscats.github.io/angular-demo/ngCookie.html" target="_blank" rel="external">Angular自定义cookie服务和ngCookie的使用</a></td>
+<td style="text-align:center"><a href="https://wscats.github.io/angular-demo/图灵机器人.html" target="_blank" rel="external">图灵机器人</a></td>
+</tr>
+<tr>
+<td><a href="https://wscats.github.io/angular-demo/angular模块化.html" target="_blank" rel="external">Angular利用angular.module()实现模块化</a></td>
+<td style="text-align:center"><a href="https://wscats.github.io/angular-demo/form表单验证.html" target="_blank" rel="external">Angular的form表单验证</a></td>
+</tr>
+<tr>
+<td><a href="https://wscats.github.io/angular-demo/ng-repeat嵌套.html" target="_blank" rel="external">Angular的ng-repeat嵌套</a></td>
+<td style="text-align:center"><a href="https://wscats.github.io/angular-demo/angular模块化2.html" target="_blank" rel="external">Angular利用angular.module()实现模块化2</a></td>
+</tr>
+<tr>
+<td><strong>PHP</strong></td>
+<td style="text-align:center"><strong>PHP</strong></td>
+</tr>
+<tr>
+<td><a href="https://github.com/Wscats/Good-text-Share/issues/53" target="_blank" rel="external">PHP CURL请求的小细节</a></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td><strong>Reference</strong></td>
+<td style="text-align:center"><strong>Reference</strong></td>
+</tr>
+<tr>
+<td><a href="https://segmentfault.com/a/1190000000443795" target="_blank" rel="external">最流行的PHP 代码规范</a></td>
+<td style="text-align:center"><a href="https://github.com/hfcorriez/fig-standards/blob/zh_CN/%E6%8E%A5%E5%8F%97/PSR-2-coding-style-guide.md" target="_blank" rel="external">最流行的PHP 代码规范</a></td>
+</tr>
+<tr>
+<td><a href="http://blog.aijc.net/AngularLearning/" target="_blank" rel="external">Angular.js的一些学习资源</a></td>
+<td style="text-align:center"><a href="http://angularjs.cn" target="_blank" rel="external">Angularjs中文社区</a></td>
+</tr>
+<tr>
+<td><a href="https://github.com/angular-ui" target="_blank" rel="external">一些扩展Angular UI组件</a></td>
+<td style="text-align:center"><a href="http://mgcrea.github.io/angular-strap" target="_blank" rel="external">Angular UI</a></td>
+</tr>
+<tr>
+<td><a href="http://each.sinaapp.com/angular" target="_blank" rel="external">AngularJS在线教程</a></td>
+<td style="text-align:center"><a href="http://www.zouyesheng.com/angular.html" target="_blank" rel="external">Angular学习笔记</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="React"><a href="#React" class="headerlink" title="React"></a>React</h2><table>
+<thead>
+<tr>
+<th>React</th>
+<th style="text-align:center">Reference</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="http://www.runoob.com/react/react-tutorial.html" target="_blank" rel="external">React教程 菜鸟教程</a></td>
+<td style="text-align:center"><a href="http://www.ruanyifeng.com/blog/2016/05/react_router.html?utm_source=tool.lu" target="_blank" rel="external">React Router 使用教程</a></td>
+</tr>
+<tr>
+<td><a href="http://wiki.jikexueyuan.com/project/react/" target="_blank" rel="external">React开发中文手册-极客学院</a></td>
+<td style="text-align:center"><a href="http://www.hubwiz.com/course/552762019964049d1872fc88/" target="_blank" rel="external">React教程-汇智网</a></td>
+</tr>
+<tr>
+<td><a href="http://www.phperz.com/article/15/0712/140537.html#" target="_blank" rel="external">React.js快速开始</a></td>
+<td style="text-align:center"><a href="http://www.alloyteam.com/2016/01/reactjs-best-practices-for-2016/" target="_blank" rel="external">Reactjs 2016最佳实践</a></td>
+</tr>
+<tr>
+<td><a href="https://hulufei.gitbooks.io/react-tutorial/content/introduction.html" target="_blank" rel="external">React 入门教程</a></td>
+<td style="text-align:center"><a href="http://www.hubwiz.com/course/552762019964049d1872fc88/?ch=alloyteam" target="_blank" rel="external">汇智网 React教程</a></td>
+</tr>
+<tr>
+<td><a href="https://segmentfault.com/a/1190000002767365" target="_blank" rel="external">轻松入门React和Webpack</a></td>
+<td style="text-align:center"><a href="http://nav.react-china.org/#docs" target="_blank" rel="external">React中文索引</a></td>
+</tr>
+<tr>
+<td><a href="http://cn.redux.js.org/" target="_blank" rel="external">Redux 中文文档</a></td>
+<td style="text-align:center"><a href="https://github.com/react-guide/react-router-cn" target="_blank" rel="external">React Router官方文档中文翻译</a></td>
+</tr>
+<tr>
+<td><a href="http://www.cnblogs.com/kunyashaw/p/5619256.html" target="_blank" rel="external">React入门教程</a></td>
+<td style="text-align:center"><a href="http://www.ibm.com/developerworks/cn/web/1509_dongyue_react/index.html" target="_blank" rel="external">React介绍及实践教程</a></td>
+</tr>
+<tr>
+<td><a href="https://facebook.github.io/react/index.html" target="_blank" rel="external">React.js 官方网址</a></td>
+<td style="text-align:center"><a href="https://facebook.github.io/react/docs/getting-started.html" target="_blank" rel="external">React.js 官方文档</a></td>
+</tr>
+<tr>
+<td><a href="http://material-ui.com/#" target="_blank" rel="external">React.js material UI</a></td>
+<td style="text-align:center"><a href="http://touchstonejs.io" target="_blank" rel="external">React.js TouchstoneJS UI</a></td>
+</tr>
+<tr>
+<td><a href="http://amazeui.org/react" target="_blank" rel="external">React.js amazeui UI</a></td>
+<td style="text-align:center"><a href="http://www.ruanyifeng.com/blog/2015/03/react.html" target="_blank" rel="external">React 入门实例教程 - 阮一峰</a></td>
+</tr>
+<tr>
+<td><a href="http://wiki.jikexueyuan.com/project/react-native" target="_blank" rel="external">React Native 中文版</a></td>
+<td style="text-align:center"><a href="https://fakefish.github.io/react-webpack-cookbook" target="_blank" rel="external">Webpack 和 React 小书 - gitbook</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="Vue"><a href="#Vue" class="headerlink" title="Vue"></a>Vue</h2><table>
+<thead>
+<tr>
+<th>Vue</th>
+<th style="text-align:center">AppDemo</th>
+<th style="text-align:center">Demo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://wscats.github.io/vue-demo/news/index.html" target="_blank" rel="external">NewsDemo</a></td>
+<td style="text-align:center"><a href="https://wscats.github.io/vue-demo/vue计算属性.html" target="_blank" rel="external">vue计算属性</a></td>
+<td style="text-align:center"><a href="https://wscats.github.io/vue-demo/vue生命周期.html" target="_blank" rel="external">vue生命周期</a></td>
+</tr>
+<tr>
+<td><strong>Article</strong></td>
+<td style="text-align:center"><strong>Vue文档</strong></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td><a href="https://github.com/Wscats/vue-demo/issues/2" target="_blank" rel="external">Vue-cli脚手架</a></td>
+<td style="text-align:center"><a href="https://github.com/Wscats/vue-demo/issues/3" target="_blank" rel="external">Vue组件</a></td>
+<td style="text-align:center"><a href="https://github.com/Wscats/vue-demo/issues/8" target="_blank" rel="external">vue自定义指令</a></td>
+</tr>
+<tr>
+<td><a href="https://github.com/Wscats/vue-demo/issues/9" target="_blank" rel="external">Vue过渡动画</a></td>
+<td style="text-align:center"><a href="https://github.com/Wscats/vue-demo/issues/7" target="_blank" rel="external">Vue指令</a></td>
+<td style="text-align:center"><a href="https://github.com/Wscats/vue-demo/issues/6" target="_blank" rel="external">Vue api文档</a></td>
+</tr>
+<tr>
+<td><a href="https://github.com/Wscats/vue-demo/issues/5" target="_blank" rel="external">Vue执行ajax请求</a></td>
+<td style="text-align:center"><a href="https://github.com/Wscats/vue-demo/issues/4" target="_blank" rel="external">vue实现类似angular服务的方法</a></td>
+<td style="text-align:center"><a href="https://github.com/Wscats/vue-demo/issues/10" target="_blank" rel="external">Vue源码参考文档</a></td>
+</tr>
+<tr>
+<td><strong>Router</strong></td>
+<td style="text-align:center"><strong>路由</strong></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td><a href="https://wscats.github.io/vue-demo/路由.html" target="_blank" rel="external">路由demo</a></td>
+<td style="text-align:center"><a href="https://wscats.github.io/vue-demo/路由2.html" target="_blank" rel="external">路由demo2</a></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td><strong>Directive</strong></td>
+<td style="text-align:center"><strong>指令</strong></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td><a href="https://wscats.github.io/vue-demo/指令.html" target="_blank" rel="external">指令demo</a></td>
+<td style="text-align:center"><a href="https://wscats.github.io/vue-demo/自定义指令.html" target="_blank" rel="external">自定义指令demo</a></td>
+<td style="text-align:center"><a href="https://wscats.github.io/vue-demo/滑动手势指令.html" target="_blank" rel="external">滑动手势demo</a></td>
+</tr>
+<tr>
+<td><strong>Filter</strong></td>
+<td style="text-align:center"><strong>过滤器</strong></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td><a href="https://wscats.github.io/vue-demo/过滤器.html" target="_blank" rel="external">过滤器demo</a></td>
+<td style="text-align:center"><a href="https://wscats.github.io/vue-demo/vue使用过滤器实现分页.html" target="_blank" rel="external">过滤器实现分页demo</a></td>
+<td style="text-align:center"><a href="https://wscats.github.io/vue-demo/vue过滤器读写数据.html" target="_blank" rel="external">过滤器读写数据</a></td>
+</tr>
+<tr>
+<td><strong>Transition</strong></td>
+<td style="text-align:center"><strong>过渡</strong></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td><a href="https://wscats.github.io/vue-demo/过渡.html" target="_blank" rel="external">过渡demo</a></td>
+<td style="text-align:center"><a href="https://wscats.github.io/vue-demo/过渡2.html" target="_blank" rel="external">过渡demo2</a></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td><strong>Form</strong></td>
+<td style="text-align:center"><strong>表单</strong></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td><a href="https://wscats.github.io/vue-demo/vue获取表单值.html" target="_blank" rel="external">获取表单值</a></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td><strong>Computed</strong></td>
+<td style="text-align:center"><strong>计算</strong></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td><a href="https://wscats.github.io/vue-demo/vue计算属性.html" target="_blank" rel="external">计算属性</a></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td>Component</td>
+<td style="text-align:center">组件</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td><a href="https://wscats.github.io/vue-demo/组件.html" target="_blank" rel="external">组件demo</a></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td><strong>Reference</strong></td>
+<td style="text-align:center"><strong>Reference</strong></td>
+<td style="text-align:center"><strong>Reference</strong></td>
+</tr>
+<tr>
+<td><a href="http://cn.vuejs.org" target="_blank" rel="external">Vue官网</a></td>
+<td style="text-align:center"><a href="http://forum.vuejs.org" target="_blank" rel="external">Vue论坛</a></td>
+<td style="text-align:center"><a href="https://github.com/vuejs/awesome-vue" target="_blank" rel="external">Awesome-vue</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="Node"><a href="#Node" class="headerlink" title="Node"></a>Node</h2><table>
+<thead>
+<tr>
+<th>Node</th>
+<th style="text-align:center">Article</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://github.com/Wscats/Good-text-Share/issues/44" target="_blank" rel="external">node技巧</a></td>
+<td style="text-align:center"><a href="https://github.com/Wscats/angular-demo/tree/gh-pages/diyNodeServer" target="_blank" rel="external">NodeJs静态服务器</a></td>
+</tr>
+<tr>
+<td><strong>Reference</strong></td>
+<td style="text-align:center"><strong>Reference</strong></td>
+</tr>
+<tr>
+<td><a href="https://github.com/alsotang/node-lessons" target="_blank" rel="external">Node.js 包教不包会</a></td>
+<td style="text-align:center"><a href="http://nqdeng.github.io/7-days-nodejs/" target="_blank" rel="external">七天学会NodeJS</a></td>
+</tr>
+<tr>
+<td><a href="http://blog.fens.me/series-nodejs" target="_blank" rel="external">从零开始nodejs系列文章</a></td>
+<td style="text-align:center"><a href="http://www.nodebeginner.org/index-zh-cn.html" target="_blank" rel="external">Node入门</a></td>
+</tr>
+<tr>
+<td><a href="http://ourjs.com/detail/529ca5950cb6498814000005" target="_blank" rel="external">Node初学者入门，一本全面的NodeJS教程</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="Gulp"><a href="#Gulp" class="headerlink" title="Gulp"></a>Gulp</h2><table>
+<thead>
+<tr>
+<th>Gulp</th>
+<th style="text-align:center">Article</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://github.com/Wscats/glup" target="_blank" rel="external">Gulp Demo</a></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td><strong>Gulp</strong></td>
+<td style="text-align:center"><strong>Reference</strong></td>
+</tr>
+<tr>
+<td><a href="http://gulpjs.com" target="_blank" rel="external">Gulp官网</a></td>
+<td style="text-align:center"><a href="http://www.gulpjs.com.cn" target="_blank" rel="external">Gulp中文网</a></td>
+</tr>
+<tr>
+<td><a href="https://github.com/Platform-CUF/use-gulp" target="_blank" rel="external">Gulp资料收集</a></td>
+<td style="text-align:center"><a href="http://javascript.ruanyifeng.com/tool/gulp.html" target="_blank" rel="external">Gulp：任务自动管理工具 - ruanyifeng</a></td>
+</tr>
+<tr>
+<td><a href="http://gulpjs.com/plugins]" target="_blank" rel="external">Gulp插件</a></td>
+<td style="text-align:center"><a href="http://www.ido321.com/1622.html" target="_blank" rel="external">Gulp不完全入门教程</a></td>
+</tr>
+<tr>
+<td><a href="https://github.com/nimojs/gulp-book" target="_blank" rel="external">Gulp 入门指南</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><table>
+<thead>
+<tr>
+<th>Other</th>
+<th style="text-align:center">Article</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://github.com/Wscats/node-demo/issues/4" target="_blank" rel="external">关于Pornographic website的一些前端分析</a></td>
+<td style="text-align:center"><a href="https://github.com/Wscats/Good-text-Share/issues/50" target="_blank" rel="external">微信公众号开发</a></td>
+</tr>
+<tr>
+<td><a href="https://github.com/Wscats/Good-text-Share/issues/30" target="_blank" rel="external">Atom技巧总结</a></td>
+<td style="text-align:center"><a href="https://github.com/Wscats/Good-text-Share/issues/46" target="_blank" rel="external">Mac小技巧</a></td>
+</tr>
+<tr>
+<td><a href="https://github.com/Wscats/Good-text-Share/issues/9" target="_blank" rel="external">CSDN页面内JS跳转脚本</a></td>
+<td style="text-align:center"><a href="https://github.com/Wscats/Good-text-Share/issues/8" target="_blank" rel="external">CSDN博客隐藏配置</a></td>
+</tr>
+<tr>
+<td><a href="https://github.com/Wscats/Good-text-Share/issues/7" target="_blank" rel="external">百度设置小度机器人出现</a></td>
+<td style="text-align:center"><a href="https://github.com/Wscats/Good-text-Share/issues/2" target="_blank" rel="external">前端冷知识，妙用浏览器地址栏</a></td>
+</tr>
+<tr>
+<td><a href="https://github.com/Wscats/Good-text-Share/issues/27" target="_blank" rel="external">Vim笔记</a></td>
+<td style="text-align:center"><a href="https://github.com/Wscats/Good-text-Share/issues/48" target="_blank" rel="external">Cordova配置&amp;&amp;Ionic配置（WebApp混合开发环境）</a></td>
+</tr>
+<tr>
+<td><a href="https://github.com/Wscats/Good-text-Share/issues/33" target="_blank" rel="external">IE8及以下按钮超链接无法跳转的问题</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="分享功能"><a href="#分享功能" class="headerlink" title="分享功能"></a>分享功能</h2><table>
+<thead>
+<tr>
+<th>Share</th>
+<th style="text-align:center">Reference</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="http://share.baidu.com" target="_blank" rel="external">百度分享(PC)</a></td>
+<td style="text-align:center"><a href="http://jiathis.com" target="_blank" rel="external">JiaThis(PC)</a></td>
+</tr>
+<tr>
+<td><a href="http://developer.baidu.com/soc/share" target="_blank" rel="external">社会化分享组件(Mobile)</a></td>
+<td style="text-align:center"><a href="http://www.mob.com" target="_blank" rel="external">ShareSDK轻松实现社会化功能(Mobile)</a></td>
+</tr>
+<tr>
+<td><a href="http://dev.umeng.com/social/android/quick-integration" target="_blank" rel="external">友盟分享(Mobile)</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="在线演示"><a href="#在线演示" class="headerlink" title="在线演示"></a>在线演示</h2><table>
+<thead>
+<tr>
+<th>Reference</th>
+<th style="text-align:center">Reference</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="http://runjs.cn" target="_blank" rel="external">js 在线编辑 - runjs</a></td>
+<td style="text-align:center"><a href="http://jsbin.com" target="_blank" rel="external">js 在线编辑 - jsbin</a></td>
+</tr>
+<tr>
+<td><a href="http://codepen.io" target="_blank" rel="external">js 在线编辑 - codepen</a></td>
+<td style="text-align:center"><a href="http://jsfiddle.net" target="_blank" rel="external">js 在线编辑 - jsfiddle</a></td>
+</tr>
+<tr>
+<td><a href="http://ideone.com" target="_blank" rel="external">java 在线编辑 - runjs</a></td>
+<td style="text-align:center"><a href="http://code.hcharts.cn" target="_blank" rel="external">js 在线编辑 - hcharts</a></td>
+</tr>
+<tr>
+<td><a href="http://jsdm.com" target="_blank" rel="external">js 在线编辑 - jsdm</a></td>
+<td style="text-align:center"><a href="http://sqlfiddle.com" target="_blank" rel="external">sql 在线编辑 - sqlfiddle</a></td>
+</tr>
+<tr>
+<td><a href="https://thimble.mozilla.org" target="_blank" rel="external">mozilla 在线编辑器</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="富文本编辑器"><a href="#富文本编辑器" class="headerlink" title="富文本编辑器"></a>富文本编辑器</h2><table>
+<thead>
+<tr>
+<th>Reference</th>
+<th style="text-align:center">Reference</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="http://ueditor.baidu.com/website" target="_blank" rel="external">百度ueditor</a></td>
+<td style="text-align:center"><a href="http://ckeditor.com" target="_blank" rel="external">ckeditor</a></td>
+</tr>
+<tr>
+<td><a href="https://www.tinymce.com" target="_blank" rel="external">tinymce</a></td>
+<td style="text-align:center"><a href="http://kindeditor.net" target="_blank" rel="external">kindeditor</a></td>
+</tr>
+<tr>
+<td><a href="http://www.bootcss.com/p/bootstrap-wysiwyg" target="_blank" rel="external">wysiwyg</a></td>
+<td style="text-align:center"><a href="http://integ.github.io/BachEditor" target="_blank" rel="external">BachEditor</a></td>
+</tr>
+<tr>
+<td><a href="https://github.com/mycolorway/simditor" target="_blank" rel="external">simditor</a></td>
+<td style="text-align:center"><a href="https://github.com/summernote/summernote" target="_blank" rel="external">summernote</a></td>
+</tr>
+<tr>
+<td><a href="http://neilj.github.io/Squire" target="_blank" rel="external">Squire</a></td>
+<td style="text-align:center"><a href="https://github.com/wangfupeng1988/wangEditor" target="_blank" rel="external">wangEditor</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="Chrome"><a href="#Chrome" class="headerlink" title="Chrome"></a>Chrome</h2><table>
+<thead>
+<tr>
+<th>Reference</th>
+<th style="text-align:center">Reference</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="http://www.cnblogs.com/constantince/p/4565261.html" target="_blank" rel="external">Chrome - 基础</a></td>
+<td style="text-align:center"><a href="http://www.cnblogs.com/constantince/p/4579121.html" target="_blank" rel="external">Chrome - 进阶</a></td>
+</tr>
+<tr>
+<td><a href="http://www.cnblogs.com/constantince/p/4585983.html" target="_blank" rel="external">Chrome - 性能</a></td>
+<td style="text-align:center"><a href="http://www.cnblogs.com/constantince/p/4607497.html" target="_blank" rel="external">Chrome - 性能进阶</a></td>
+</tr>
+<tr>
+<td><a href="http://www.cnblogs.com/constantince/p/4624241.html" target="_blank" rel="external">Chrome - 移动</a></td>
+<td style="text-align:center"><a href="http://www.cnblogs.com/liyunhua/p/4544738.html" target="_blank" rel="external">Chrome - 使用技巧</a></td>
+</tr>
+<tr>
+<td><a href="http://www.cnblogs.com/Wayou/p/chrome-console-tips-and-tricks.html" target="_blank" rel="external">Chrome - Console控制台不完全指南</a></td>
+<td style="text-align:center"><a href="http://anti-code.com/devtools-cheatsheet" target="_blank" rel="external">chrome开发工具快捷键</a></td>
+</tr>
+<tr>
+<td><a href="http://www.iinterest.net/2014/05/09/chrome-dev-tool-workspace" target="_blank" rel="external">Chrome 开发工具 Workspace 使用</a></td>
+<td style="text-align:center"><a href="http://www.cppblog.com/deercoder/archive/2011/10/22/158886.html" target="_blank" rel="external">Chrome神器Vimium快捷键学习记录</a></td>
+</tr>
+<tr>
+<td><a href="http://www.w3cplus.com/sassguide/debug.html" target="_blank" rel="external">Sass调试-w3cplus</a></td>
+<td style="text-align:center"><a href="http://www.w3cplus.com/tools/how-to-use-chrome-devtools-like-a-pro.html" target="_blank" rel="external">如何更专业的使用Chrome开发者工具-w3cplus</a></td>
+</tr>
+<tr>
+<td><a href="http://sentsin.com/web/253.html" target="_blank" rel="external">Chrome调试canvas</a></td>
+<td style="text-align:center"><a href="https://segmentfault.com/a/1190000000683599" target="_blank" rel="external">神器——Chrome开发者工具(一)</a></td>
+</tr>
+<tr>
+<td><a href="https://xinranliu.me/2015-05-22-qiqu-performance" target="_blank" rel="external">奇趣百科性能优化(Chrome DevTools 中的 Timeline Profils 等工具使用介绍</a></td>
+<td style="text-align:center"><a href="http://frontenddev.org/link/15-tips-of-chrome-developer-tools.html" target="_blank" rel="external">Chrome 开发者工具的 15 个小技巧</a></td>
+</tr>
+<tr>
+<td><a href="http://1ke.co/course/361" target="_blank" rel="external">Chrome开发者工具不完全指南</a></td>
+<td style="text-align:center"><a href="http://segmentfault.com/a/1190000003882567" target="_blank" rel="external">Chrome 开发者工具使用技巧</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="性能优化"><a href="#性能优化" class="headerlink" title="性能优化"></a>性能优化</h2><table>
+<thead>
+<tr>
+<th>Reference</th>
+<th style="text-align:center">Reference</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="http://www.infoq.com/cn/articles/javascript-high-performance-animation-and-page-rendering" target="_blank" rel="external">Javascript高性能动画与页面渲染</a></td>
+<td style="text-align:center"><a href="http://isux.tencent.com/h5-performance.html" target="_blank" rel="external">移动H5前端性能优化指南</a></td>
+</tr>
+<tr>
+<td><a href="http://www.uisdc.com/front-end-performance-for-web-designers-and-front-end-developers" target="_blank" rel="external">给网页设计师和前端开发者看的前端性能优化</a></td>
+<td style="text-align:center"><a href="http://www.zhangxinxu.com/wordpress/tag/%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD/" target="_blank" rel="external">张鑫旭——前端性能</a></td>
+</tr>
+<tr>
+<td><a href="http://www.aliued.cn/2013/01/20/web%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E8%BF%9B%E9%98%B6%E8%B7%AF.html" target="_blank" rel="external">web前端性能优化进阶路</a></td>
+<td style="text-align:center"><a href="http://www.feelcss.com/tag/%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD" target="_blank" rel="external">Hey——前端性能</a></td>
+</tr>
+<tr>
+<td><a href="http://www.cnblogs.com/yslow" target="_blank" rel="external">YSLOW中文介绍</a></td>
+<td style="text-align:center"><a href="http://www.360doc.com/content/10/0928/09/2588264_56971287.shtml" target="_blank" rel="external">Yahoo!团队实践分享：网站性能</a></td>
+</tr>
+<tr>
+<td><a href="http://tgideas.qq.com/webplat/info/news_version3/804/808/811/m579/201109/41355.shtml" target="_blank" rel="external">加载，不只是少一点点</a></td>
+<td style="text-align:center"><a href="http://coolshell.cn/articles/6470.html" target="_blank" rel="external">由12306谈谈网站前端性能和后端性能优化</a></td>
+</tr>
+<tr>
+<td><a href="http://www.alloyteam.com/2012/10/high-performance-html" target="_blank" rel="external">【高性能前端1】高性能HTML</a></td>
+<td style="text-align:center"><a href="http://www.alloyteam.com/2012/10/high-performance-css" target="_blank" rel="external">【高性能前端2】高性能CSS</a></td>
+</tr>
+<tr>
+<td><a href="http://www.infoq.com/cn/articles/front-end-engineering-and-performance-optimization-part1" target="_blank" rel="external">前端工程与性能优化（上）：静态资源版本更新与缓存</a></td>
+<td style="text-align:center"><a href="http://www.infoq.com/cn/articles/front-end-engineering-and-performance-optimization-part2" target="_blank" rel="external">前端工程与性能优化（下）：静态资源管理与模板框架</a></td>
+</tr>
+<tr>
+<td><a href="http://blog.jobbole.com/48369" target="_blank" rel="external">HTTPS连接的前几毫秒发生了什么</a></td>
+<td style="text-align:center"><a href="http://uicss.cn/yslow/#more-12319" target="_blank" rel="external">Yslow</a></td>
+</tr>
+<tr>
+<td><a href="https://github.com/amfe/article/issues/1" target="_blank" rel="external">阿里无线前端性能优化指南(Pt.1 加载期优化)</a></td>
+<td style="text-align:center"><a href="http://www.cnblogs.com/developersupport/p/3248695.html" target="_blank" rel="external">毫秒必争，前端网页性能最佳实践</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="CDN"><a href="#CDN" class="headerlink" title="CDN"></a>CDN</h2><table>
+<thead>
+<tr>
+<th>Reference</th>
+<th style="text-align:center">Reference</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="http://www.bootcdn.cn/jquery" target="_blank" rel="external">Jquery&amp;Bootstrap中文网开源项目免费 CDN 服务</a></td>
+<td style="text-align:center"><a href="http://www.bootcdn.cn" target="_blank" rel="external">Bootstrap中文网开源项目免费 CDN 服务</a></td>
+</tr>
+<tr>
+<td><a href="http://lib.sinaapp.com" target="_blank" rel="external">新浪CDN</a></td>
+<td style="text-align:center"><a href="http://cdn.code.baidu.com" target="_blank" rel="external">百度静态资源公共库</a></td>
+</tr>
+<tr>
+<td><a href="http://staticfile.org" target="_blank" rel="external">开放静态文件 CDN - 七牛</a></td>
+<td style="text-align:center"><a href="http://www.jq22.com/cdn" target="_blank" rel="external">CDN加速 - jq22</a></td>
+</tr>
+<tr>
+<td><a href="http://www.asp.net/ajax/cdn" target="_blank" rel="external">微软CDN</a></td>
+<td style="text-align:center"><a href="https://code.angularjs.org/1.5.8/" target="_blank" rel="external">Angular CDN</a></td>
+</tr>
+<tr>
+<td><a href="http://libs.useso.com" target="_blank" rel="external">360网站卫士常用前端公共库CDN服务</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="Git"><a href="#Git" class="headerlink" title="Git"></a>Git</h2><table>
+<thead>
+<tr>
+<th>Article</th>
+<th style="text-align:center">Article</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://github.com/Wscats/Good-text-Share/issues/20" target="_blank" rel="external">Git操作</a></td>
+<td style="text-align:center"><a href="http://blog.csdn.net/qq_27080247/article/details/49942991" target="_blank" rel="external">Git CSDN Blog</a></td>
+</tr>
+<tr>
+<td><strong>Reference</strong></td>
+<td style="text-align:center"><strong>Reference</strong></td>
+</tr>
+<tr>
+<td><a href="http://git-scm.com" target="_blank" rel="external">Git-scm</a></td>
+<td style="text-align:center"><a href="https://git-for-windows.github.io" target="_blank" rel="external">Git-for-windows</a></td>
+</tr>
+<tr>
+<td><a href="http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000" target="_blank" rel="external">廖雪峰-Git教程</a></td>
+<td style="text-align:center"><a href="http://www.worldhello.net/gotgithub/index.html" target="_blank" rel="external">Gogithub</a></td>
+</tr>
+<tr>
+<td><a href="http://pcottle.github.io/learnGitBranching" target="_blank" rel="external">Git常规命令练习</a></td>
+<td style="text-align:center"><a href="https://github.com/xirong/my-git" target="_blank" rel="external">Git的资料整理</a></td>
+</tr>
+<tr>
+<td><a href="http://www.cnblogs.com/fanfan259/p/4810517.html" target="_blank" rel="external">我所记录的git命令（非常实用）</a></td>
+<td style="text-align:center"><a href="https://github.com/phodal/github-roam" target="_blank" rel="external">GitHub 漫游指南</a></td>
+</tr>
+<tr>
+<td><a href="https://github.com/tiimgreen/github-cheat-sheet/blob/master/README.zh-cn.md" target="_blank" rel="external">GitHub秘籍</a></td>
+<td style="text-align:center"><a href="http://onlywei.github.io/explain-git-with-d3" target="_blank" rel="external">动画方式练习git</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="Sass-amp-Less"><a href="#Sass-amp-Less" class="headerlink" title="Sass&amp;Less"></a>Sass&amp;Less</h2><table>
+<thead>
+<tr>
+<th>Article</th>
+<th style="text-align:center">Article</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://github.com/Wscats/less-demo/issues/1" target="_blank" rel="external">Less教程</a></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td><strong>Reference</strong></td>
+<td style="text-align:center"><strong>Reference</strong></td>
+</tr>
+<tr>
+<td><a href="http://www.w3cplus.com/sassguide" target="_blank" rel="external">Sass</a></td>
+<td style="text-align:center"><a href="http://sass.bootcss.com" target="_blank" rel="external">Sass中文文档</a></td>
+</tr>
+<tr>
+<td><a href="http://less.bootcss.com" target="_blank" rel="external">Less</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="Markdown"><a href="#Markdown" class="headerlink" title="Markdown"></a>Markdown</h2><table>
+<thead>
+<tr>
+<th>Reference</th>
+<th style="text-align:center">Reference</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="http://wowubuntu.com/markdown" target="_blank" rel="external">Markdown 语法说明 (简体中文版)</a></td>
+<td style="text-align:center"><a href="https://github.com/LearnShare/Learning-Markdown/blob/master/README.md" target="_blank" rel="external">Markdown入门参考</a></td>
+</tr>
+<tr>
+<td><a href="https://www.zybuluo.com/mdeditor" target="_blank" rel="external">Mdeditor(一款国内的在线markdown编辑器)</a></td>
+<td style="text-align:center"><a href="https://stackedit.io" target="_blank" rel="external">Stackedit(国外的在线markdown编辑器，功能强大，同步云盘)</a></td>
+</tr>
+<tr>
+<td><a href="http://bh-lay.github.io/mditor" target="_blank" rel="external">Mditor一款轻量级的markdown编辑器</a></td>
+<td style="text-align:center"><a href="https://github.com/lepture/editor" target="_blank" rel="external">lepture-editor</a></td>
+</tr>
+<tr>
+<td><a href="https://github.com/jbt/markdown-editor" target="_blank" rel="external">Markdown-editor</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="前端文档"><a href="#前端文档" class="headerlink" title="前端文档"></a>前端文档</h2><table>
+<thead>
+<tr>
+<th>Reference</th>
+<th style="text-align:center">Reference</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://github.com/JacksonTian/fks" target="_blank" rel="external">前端知识结构</a></td>
+<td style="text-align:center"><a href="https://github.com/unruledboy/WebFrontEndStack" target="_blank" rel="external">Web前端开发大系概览</a></td>
+</tr>
+<tr>
+<td><a href="https://github.com/justjavac/free-programming-books-zh_CN" target="_blank" rel="external">免费的编程中文书籍索</a></td>
+<td style="text-align:center"><a href="https://github.com/dypsilon/frontend-dev-bookmarks" target="_blank" rel="external">前端书籍</a></td>
+</tr>
+<tr>
+<td><a href="https://github.com/vhf/free-programming-books" target="_blank" rel="external">前端免费书籍大全</a></td>
+<td style="text-align:center"><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/A_re-introduction_to_JavaScript" target="_blank" rel="external">重新介绍JavaScript（JS教程）</a></td>
+</tr>
+<tr>
+<td><a href="https://www.gitbook.com 国外的在线markdown可编辑成书" target="_blank" rel="external">Gitbook</a></td>
+<td style="text-align:center"><a href="https://github.com/Front-End-Developers-Hunan/Front-End-Develop-Guide" target="_blank" rel="external">Front-End-Develop-Guide 前端开发指南</a></td>
+</tr>
+<tr>
+<td><a href="https://li-xinyang.gitbooks.io/frontend-notebook/content" target="_blank" rel="external">前端开发笔记本</a></td>
+<td style="text-align:center"><a href="https://github.com/nieweidong/fetool" target="_blank" rel="external">大前端工具集</a></td>
+</tr>
+<tr>
+<td><a href="https://dwqs.gitbooks.io/frontenddevhandbook/content" target="_blank" rel="external">前端开发者手册</a></td>
+<td style="text-align:center"><a href="https://github.com/qiu-deqing/FE-learning" target="_blank" rel="external">结合个人经历总结的前端入门方法</a></td>
+</tr>
+<tr>
+<td><a href="http://blog.csdn.net/qq_25827845/article/details/53079094" target="_blank" rel="external">2016最新前端学习计划</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="前端规范"><a href="#前端规范" class="headerlink" title="前端规范"></a>前端规范</h2><table>
+<thead>
+<tr>
+<th>Reference</th>
+<th style="text-align:center">Reference</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="http://alloyteam.github.io/CodeGuide/" target="_blank" rel="external">通过分析github代码库总结出来的工程师代码书写习惯</a></td>
+<td style="text-align:center"><a href="http://codeguide.bootcss.com" target="_blank" rel="external">HTML&amp;CSS编码规范 by @mdo</a></td>
+</tr>
+<tr>
+<td><a href="http://yuwenhui.github.io" target="_blank" rel="external">前端编码规范之js - by yuwenhui</a></td>
+<td style="text-align:center"><a href="http://www.cnblogs.com/hustskyking/p/javascript-spec.html" target="_blank" rel="external">前端编码规范之js - by 李靖</a></td>
+</tr>
+<tr>
+<td><a href="https://github.com/yuche/javascript#table-of-contents" target="_blank" rel="external">Airbnb JavaScript 编码规范（简体中文版）</a></td>
+<td style="text-align:center"><a href="http://www.zhihu.com/question/20351507" target="_blank" rel="external">AMD与CMD规范的区别</a></td>
+</tr>
+<tr>
+<td><a href="http://www.cnblogs.com/tugenhua0707/p/3507957.html" target="_blank" rel="external">AMD与CMD规范的区别</a></td>
+<td style="text-align:center"><a href="http://docs.kissyui.com/1.4/docs/html/tutorials/style-guide/kissy-source-style.html" target="_blank" rel="external">KISSY 源码规范</a></td>
+</tr>
+<tr>
+<td><a href="http://blog.jobbole.com/79075" target="_blank" rel="external">前端代码规范及最佳实践</a></td>
+<td style="text-align:center"><a href="http://coderlmn.github.io/code-standards" target="_blank" rel="external">百度前端规范</a></td>
+</tr>
+<tr>
+<td><a href="http://blog.jobbole.com/79484" target="_blank" rel="external">JavaScript风格指南/编码规范（Airbnb公司版）</a></td>
+<td style="text-align:center"><a href="http://nec.netease.com/standard" target="_blank" rel="external">网易前端开发规范</a></td>
+</tr>
+<tr>
+<td><a href="https://github.com/ecomfe/spec" target="_blank" rel="external">前端规范资源列表</a></td>
+<td style="text-align:center"><a href="http://codecloud.net/5622.html" target="_blank" rel="external">Web 前端开发规范文档</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="前端面试"><a href="#前端面试" class="headerlink" title="前端面试"></a>前端面试</h2><table>
+<thead>
+<tr>
+<th>Reference</th>
+<th style="text-align:center">Reference</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="http://www.cnblogs.com/imwtr/p/4685546.html" target="_blank" rel="external">2016校招内推 – 阿里巴巴前端 – 四面面试经历</a></td>
+<td style="text-align:center"><a href="https://www.nowcoder.com/discuss/3196" target="_blank" rel="external">那几个月在找工作（百度，网易游戏，华为）</a></td>
+</tr>
+<tr>
+<td><a href="https://segmentfault.com/a/1190000000465431" target="_blank" rel="external">前端开发面试题</a></td>
+<td style="text-align:center"><a href="https://github.com/hawx1993/Front-end-Interview-questions" target="_blank" rel="external">Front-end-Interview-questions</a></td>
+</tr>
+<tr>
+<td><a href="http://ourjs.com/detail/5%E4%B8%AA%E7%BB%8F%E5%85%B8%E7%9A%84%E5%89%8D%E7%AB%AF%E" target="_blank" rel="external">5个经典的前端面试问题</a></td>
+<td style="text-align:center"><a href="https://github.com/h5bp/Front-end-Developer-Interview-Questions/tree/master/Translations/Chinese" target="_blank" rel="external">Front-end-Developer-Interview-Questions</a></td>
+</tr>
+<tr>
+<td><a href="http://blog.jobbole.com/78738/" target="_blank" rel="external">BAT及各大互联网公司2014前端笔试面试题：JavaScript篇</a></td>
+<td style="text-align:center"><a href="https://github.com/paddingme/Front-end-Web-Development-Interview-Question" target="_blank" rel="external">前端开发面试题大收集</a></td>
+</tr>
+<tr>
+<td><a href="https://github.com/qiu-deqing/FE-interview" target="_blank" rel="external">收集的前端面试题和答案</a></td>
+<td style="text-align:center"><a href="https://github.com/markyun/My-blog/blob/master/Front-end-Developer-Questions/Questions-and-Answers/README.md" target="_blank" rel="external">前端开发面试题</a></td>
+</tr>
+<tr>
+<td><a href="https://segmentfault.com/a/1190000005947094" target="_blank" rel="external">前端面试大全</a></td>
+<td style="text-align:center"><a href="https://mdluo.github.io/blog/about-front-end-interview/" target="_blank" rel="external">关于前端面试</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="前端网站"><a href="#前端网站" class="headerlink" title="前端网站"></a>前端网站</h2><table>
+<thead>
+<tr>
+<th>Reference</th>
+<th style="text-align:center">Reference</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://gold.xitu.io/" target="_blank" rel="external">掘金</a></td>
+<td style="text-align:center"><a href="http://fex.baidu.com/" target="_blank" rel="external">百度FEX</a></td>
+</tr>
+<tr>
+<td><a href="http://www.aliued.com/" target="_blank" rel="external">阿里UED</a></td>
+<td style="text-align:center"><a href="http://www.runoob.com/" target="_blank" rel="external">菜鸟教程</a></td>
+</tr>
+<tr>
+<td><a href="http://www.qdfuns.com/portal.php" target="_blank" rel="external">QDFuns</a></td>
+<td style="text-align:center"><a href="http://www.imooc.com/" target="_blank" rel="external">幕课网</a></td>
+</tr>
+<tr>
+<td><a href="http://codepen.io/" target="_blank" rel="external">Codepen</a></td>
+<td style="text-align:center"><a href="http://sentsin.com/daohang/" target="_blank" rel="external">Sentsin</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="JS练习"><a href="#JS练习" class="headerlink" title="JS练习"></a>JS练习</h2><table>
+<thead>
+<tr>
+<th>Reference</th>
+<th style="text-align:center">Reference</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://www.codewars.com/" target="_blank" rel="external">Codewars</a></td>
+<td style="text-align:center"><a href="http://javascript-puzzlers.herokuapp.com/" target="_blank" rel="external">Javascript-puzzlers</a></td>
+</tr>
+<tr>
+<td><a href="https://freecodecamp.cn/" target="_blank" rel="external">Freecodecamp中文版</a></td>
+<td style="text-align:center"><a href="http://es6katas.org/" target="_blank" rel="external">ES6katas</a></td>
+</tr>
+<tr>
+<td><a href="https://www.nowcoder.com/ta/js-assessment" target="_blank" rel="external">Now Coder牛客网</a></td>
+<td style="text-align:center"><a href="https://leetcode.com/" target="_blank" rel="external">Leetcode</a></td>
+</tr>
+<tr>
+<td><a href="https://nodeschool.io/" target="_blank" rel="external">Nodeschool</a></td>
+<td style="text-align:center"><a href="https://www.hackerrank.com/" target="_blank" rel="external">Hackerrank</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h2><table>
+<thead>
+<tr>
+<th>Reference</th>
+<th style="text-align:center">Reference</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://github.com/Ralph-Wang/algorithm.in.js" target="_blank" rel="external">数据结构与算法 JavaScript 描述. 章节练习</a></td>
+<td style="text-align:center"><a href="https://github.com/twobin/twobinSort" target="_blank" rel="external">常见排序算法（JS版）</a></td>
+</tr>
+<tr>
+<td><a href="https://github.com/luofei2011/jsAgm/blob/master/js/sort.js" target="_blank" rel="external">经典排序</a></td>
+<td style="text-align:center"><a href="https://github.com/hechangmin/jssort" target="_blank" rel="external">常见排序算法-js版本</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="ES"><a href="#ES" class="headerlink" title="ES"></a>ES</h2><table>
+<thead>
+<tr>
+<th>Reference</th>
+<th style="text-align:center">Reference</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="http://es6-org.github.io/exploring-es6/" target="_blank" rel="external">Exploring-ES6翻译</a></td>
+<td style="text-align:center"><a href="http://es6.ruanyifeng.com" target="_blank" rel="external">阮一峰 ES6</a></td>
+</tr>
+<tr>
+<td><a href="http://yanhaijing.com/es5" target="_blank" rel="external">ECMA-262，第 5 版</a></td>
+<td style="text-align:center"><a href="http://es5.github.io" target="_blank" rel="external">ES5</a></td>
+</tr>
+</tbody>
+</table>
+
+				<!-- 多说评论框 start -->
+				<div class="article-comment">
+					<div class="ds-thread" data-num-items="5" data-show-avatars="1" data-show-time="1" data-show-title="1" data-show-admin="1" data-excerpt-length="50" data-thread-key="post-learnSource" data-title="做为优秀前端的学习资料" data-url="/"></div>
+				</div>
+				<!-- 多说评论框 end -->
+			
+		</div>
+		<footer class="article-footer">
+			<a data-url="https://utopia1991.github.io/2017/03/23/learnSource/" data-id="cj0lzyg49000432tdlo6u2w05" class="article-share-link">分享</a>
+			
+			
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Javascript/">Javascript</a></li></ul>
+
+		</footer>
+	</div>
+	
+		
+<nav id="article-nav">
+  
+  
+    <a href="/2017/03/10/source/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">超全 web 开发工具和资源</div>
+    </a>
+  
+</nav>
+
+	
+</article>
+
+
+
+				</section>
+			</div>
+			<footer id="footer">
+	
+	<div class="outer">
+		<div id="footer-info">
+			Copyright &copy; Bevis Shen 2017<br>
+			Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+		</div>
+	</div>
+</footer>
+
+		</div>
+		<nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">主页</a>
+  
+    <a href="/archives" class="mobile-nav-link">博文</a>
+  
+</nav>
+		
+
+<script src="https://cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+	</div>
+</body>
+<script>
+	function backTop(){
+		document.documentElement.scrollTop = document.body.scrollTop = 0;
+	}
+
+	var c = document.getElementsByTagName('canvas')[0],
+		x = c.getContext('2d'),
+		pr = window.devicePixelRatio || 1,
+		w = window.innerWidth,
+		h = window.innerHeight,
+		f = 90,
+		q,
+		m = Math,
+		r = 0,
+		u = m.PI * 2,
+		v = m.cos,
+		z = m.random
+	c.width = w * pr
+	c.height = h * pr
+	x.scale(pr, pr)
+	x.globalAlpha = 0.6
+
+	function i() {
+		x.clearRect(0, 0, w, h)
+		q = [{
+			x: 0,
+			y: h * .7 + f
+		}, {
+			x: 0,
+			y: h * .7 - f
+		}]
+		while (q[1].x < w + f) d(q[0], q[1])
+	}
+
+	function d(i, j) {
+		x.beginPath()
+		x.moveTo(i.x, i.y)
+		x.lineTo(j.x, j.y)
+		var k = j.x + (z() * 2 - 0.25) * f,
+			n = y(j.y)
+		x.lineTo(k, n)
+		x.closePath()
+		r -= u / -50
+		x.fillStyle = '#' + (v(r) * 127 + 128 << 16 | v(r + u / 3) * 127 + 128 << 8 | v(r + u / 3 * 2) * 127 + 128).toString(16)
+		x.fill()
+		q[0] = q[1]
+		q[1] = {
+			x: k,
+			y: n
+		}
+	}
+
+	function y(p) {
+		var t = p + (z() * 2 - 1.1) * f
+		return (t > h || t < 0) ? y(p) : t
+	}
+	document.onclick = i
+	document.ontouchstart = i
+	i()
+</script>
+<script type="text/javascript" color="255,0,0" opacity="0.6" count="99" src="https://utopia1991.github.io/js/canvas-nest.min.js"></script>
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+	var duoshuoQuery = {short_name:"bevis"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0]
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+</script>
+<!-- 多说公共JS代码 end -->
+</html>
