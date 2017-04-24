@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta property="wb:webmaster" content="65a151beb5e21880" />
+	<!-- baidu analytics-->
+	<script>
+		var _hmt = _hmt || [];
+		(function() {
+			var hm = document.createElement("script");
+			hm.src = "https://hm.baidu.com/hm.js?09df6a0c610161ab3099d8e11e9c998e";
+			var s = document.getElementsByTagName("script")[0];
+			s.parentNode.insertBefore(hm, s);
+		})();
+	</script>
+	<!-- google analytics-->
+	<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+		ga('create', 'UA-86667923-1', 'auto');
+		ga('send', 'pageview');
+	</script>
+	
+	<title>一篇不错的前端面试文章(译) | Bevis Blog - 沈浩个人博客</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<meta name="description" content="面试的时候并不建议使用白板，通常希望面试者自己带上自己的笔记本，或者就使用自己的。我会将他们的代码运行，并告知结果。ps: 原文地址：http://blog.sourcing.io/interview-questions 文章来自翻译，其中忽略了一些无关紧要的内容直入主题。作者先后在twitter,Stripe工作，期间会参加面试工作。实际上参加面试工作的人都知道要想在一个较短的时间内（30min">
+<meta property="og:type" content="article">
+<meta property="og:title" content="一篇不错的前端面试文章(译)">
+<meta property="og:url" content="https://utopia1991.github.io/2016/10/24/interview1/index.html">
+<meta property="og:site_name" content="Bevis Blog - 沈浩个人博客">
+<meta property="og:description" content="面试的时候并不建议使用白板，通常希望面试者自己带上自己的笔记本，或者就使用自己的。我会将他们的代码运行，并告知结果。ps: 原文地址：http://blog.sourcing.io/interview-questions 文章来自翻译，其中忽略了一些无关紧要的内容直入主题。作者先后在twitter,Stripe工作，期间会参加面试工作。实际上参加面试工作的人都知道要想在一个较短的时间内（30min">
+<meta property="og:updated_time" content="2016-11-23T09:29:16.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="一篇不错的前端面试文章(译)">
+<meta name="twitter:description" content="面试的时候并不建议使用白板，通常希望面试者自己带上自己的笔记本，或者就使用自己的。我会将他们的代码运行，并告知结果。ps: 原文地址：http://blog.sourcing.io/interview-questions 文章来自翻译，其中忽略了一些无关紧要的内容直入主题。作者先后在twitter,Stripe工作，期间会参加面试工作。实际上参加面试工作的人都知道要想在一个较短的时间内（30min">
+	
+	
+		<link rel="icon" href="https://utopia1991.github.io/css/images/icon.png">
+	
+	
+		<link href="https://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+	
+	<link rel="stylesheet" href="/css/style.css">
+	
+
+	<script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+</head>
+
+<body>
+	<a href="https://github.com/utopia1991" target="_blank" class="githubFork">
+		<img src="https://camo.githubusercontent.com/e7bbb0521b397edbd5fe43e7f760759336b5e05f/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677265656e5f3030373230302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_green_007200.png">
+	</a>
+	<a class="backTop" onclick="backTop()">Top</a>
+	<div id="container">
+		<div id="wrap">
+			<header id="header">
+	<div id="header-outer" class="outer">
+		<div id="header-title" class="inner">
+			<h1 id="logo-wrap">
+				<a href="/" id="logo">
+					<span class="brand-logo">Bevis</span>
+					Blog
+				</a>
+			</h1>
+		</div>
+		<div id="header-inner" class="inner">
+			<nav id="main-nav">
+				<a id="main-nav-toggle" class="nav-icon"></a>
+				
+					<a class="main-nav-link" href="/">主页</a>
+				
+					<a class="main-nav-link" href="/archives">博文</a>
+				
+				<a class="main-nav-link" href="https://utopia1991.github.io/p/about/index.html">关于我</a>
+			</nav>
+		</div>
+	</div>
+</header>
+
+			<canvas width="100%" height="100%" id="canvas"></canvas>
+			<div class="outer">
+				
+				<aside id="sidebar">
+	<div class="aside-author">
+		<a class="aside-logo" href="https://utopia1991.github.io/p/lover/index.html" target="_blank"></a>
+		<p class="aside-title">Bevis Shen（沈浩）</p>
+		<p class="aside-subtitle">Node.js & Front-End Engineer</p>
+		<p class="aside-description">Google 重度粉，Mac 拥趸，前端 + Node 青年，对前沿技术有着狂热的激情，梦想环游世界，热爱生活、摄影、旅游、电影的文艺程序猿一枚</p>
+		<div class="aside-communicate">
+			<a href="https://github.com/utopia1991" target="_blank" class="article-share-github" title="github"></a>
+			<a href="https://www.linkedin.com/in/bevis1991" target="_blank" class="article-share-linkedin" title="linkedin"></a>
+			<a href="mailto:1304354608@qq.com" class="article-share-mail" title="email"></a>
+			<a href="https://weibo.com/u/2619492527/home" target="_blank" class="article-share-weibo" title="weibo"></a>
+			<a class="article-share-weixin" title="我的个人微信公众号"></a>
+			<img src="https://utopia1991.github.io/css/images/wechat.png" width="180" height="180" class="wechat-pic">
+			<a href="https://bevis1991.wordpress.com/" target="_blank" class="article-share-wordpress" title="WordPress 博客"></a>
+			<a href="https://www.facebook.com/bevis1991" target="_blank" class="article-share-facebook" title="facebook"></a>
+			<a href="https://twitter.com/bevis_shen" target="_blank" class="article-share-twitter" title="twitter"></a>
+		</div>
+	</div>
+	
+		
+
+	
+		
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/">CSS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Code-Style/">Code Style</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Coffeescript/">Coffeescript</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Google/">Google</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Gulp/">Gulp</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML/">HTML</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTTP/">HTTP</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Interview-Questions/">Interview-Questions</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Javascript/">Javascript</a><span class="tag-list-count">14</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mac/">Mac</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/">Markdown</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MongoDB/">MongoDB</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UnderscoreJS/">UnderscoreJS</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery/">jQuery</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nodeJs/">nodeJs</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+	
+		
+  <div class="widget-wrap">
+    <h3 class="widget-title">Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/CSS/" style="font-size: 10px;">CSS</a> <a href="/tags/Code-Style/" style="font-size: 17.5px;">Code Style</a> <a href="/tags/Coffeescript/" style="font-size: 10px;">Coffeescript</a> <a href="/tags/Google/" style="font-size: 10px;">Google</a> <a href="/tags/Gulp/" style="font-size: 10px;">Gulp</a> <a href="/tags/HTML/" style="font-size: 10px;">HTML</a> <a href="/tags/HTTP/" style="font-size: 10px;">HTTP</a> <a href="/tags/Interview-Questions/" style="font-size: 15px;">Interview-Questions</a> <a href="/tags/Javascript/" style="font-size: 20px;">Javascript</a> <a href="/tags/Mac/" style="font-size: 12.5px;">Mac</a> <a href="/tags/Markdown/" style="font-size: 10px;">Markdown</a> <a href="/tags/MongoDB/" style="font-size: 12.5px;">MongoDB</a> <a href="/tags/UnderscoreJS/" style="font-size: 12.5px;">UnderscoreJS</a> <a href="/tags/jQuery/" style="font-size: 10px;">jQuery</a> <a href="/tags/nodeJs/" style="font-size: 10px;">nodeJs</a>
+    </div>
+  </div>
+
+	
+		
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">三月 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">二月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">一月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">十二月 2016</a><span class="archive-list-count">12</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">十一月 2016</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">十月 2016</a><span class="archive-list-count">11</span></li></ul>
+    </div>
+  </div>
+
+
+	
+		
+	<div class="widget-wrap">
+		<h3 class="widget-title">最新文章</h3>
+		<div class="widget">
+			<ul>
+				
+					<li>
+						<a href="/2017/03/23/learnSource/">
+							做为优秀前端的必备学习资料
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2017/03/10/source/">
+							超全 web 开发工具和资源
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2017/02/15/jsBug/">
+							Javascript 设计缺陷
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2017/01/03/gulp/">
+							Gulp 快速入门
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2016/12/27/feTired/">
+							前端疲劳
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2016/12/27/reduceCoupling/">
+							减少前端代码耦合
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2016/12/21/codeStyle4/">
+							前端编码规范 4 —— CSS 和 SASS 规范
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2016/12/21/codeStyle3/">
+							前端编码规范 3 —— JavaScript 规范
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2016/12/21/codeStyle2/">
+							前端编码规范 2 —— HTML 规范
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2016/12/21/codeStyle1/">
+							前端编码规范 1 —— 一般规范
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2016/12/16/underscore2/">
+							UnderscoreJS 常用方法
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2016/12/15/interview3/">
+							JavaScript 单线程机制面试题
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2016/12/14/vue/">
+							Vue 基础学习笔记
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2016/12/13/mongodb/">
+							MongoDB 操作基础语法（shell）
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2016/12/13/eventLoop/">
+							JavaScript 运行机制
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2016/12/12/deferred/">
+							jQuery $.deferred()对象
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2016/11/25/nodemailer/">
+							使用 nodeJs 发送邮件
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2016/11/25/google/">
+							教你使用 Google
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2016/11/23/interview2/">
+							20个JS变态面试题解析
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2016/11/23/bem/">
+							BEM - CSS命名规则
+						</a>
+					</li>
+					
+				......
+			</ul>
+		</div>
+	</div>
+	
+
+	
+</aside>
+
+				
+				<section id="main">
+					<div class="main-header">
+						<p class="header-title">Any application that can be written in JavaScript, will eventually be written in JavaScript.</p>
+						<canvas id="bubbleCanvas" width="100%" height="300" style="margin-top:50px;"></canvas>
+						<script>
+							(function(){
+								var width, height, canvas, ctx, circles;
+								function initHeader() {
+									try{
+										canvas = document.getElementById('bubbleCanvas');
+										if($("#bubbleCanvas").length>0){
+											width = window.innerWidth*0.25>300?window.innerWidth*0.25:300;
+											//height = window.innerHeight;
+											height = 255;
+											canvas.width = width;
+											canvas.height = height;
+											ctx = canvas.getContext('2d');
+											circles = [];
+											for(var x = 0; x < width*0.5; x++) {
+												var c = new Circle();
+												circles.push(c);
+											}
+											animate();
+										}
+									} catch(ex) {
+										if(window.cosole&&window.cosole.log){cosole.log(ex)}
+									}
+								}
+								function addListeners() {
+									try{
+										if($("#bubbleCanvas").length>0){
+											window.addEventListener('resize', resize);
+										}
+									}catch(ex){if(window.cosole&&window.cosole.log){cosole.log(ex)}}
+								}
+								function resize() {
+									width = window.innerWidth*0.25>300?window.innerWidth*0.25:300;
+									height = window.innerHeight;
+									canvas.width = width;
+									canvas.height = height;
+								}
+								function animate() {
+									ctx.clearRect(0,0,width,height);
+									for(var i in circles) {
+										circles[i].draw();
+									}
+									window.requestAFrame = (function () {
+										return window.requestAnimationFrame||window.webkitRequestAnimationFrame||window.mozRequestAnimationFrame||window.oRequestAnimationFrame||window.msRequestAnimationFrame||
+											function (callback) {
+												return window.setTimeout(callback, 1000 / 60); // shoot for 60 fps
+											};
+									})();
+									requestAFrame(animate);
+								}
+								// Canvas manipulation
+								function Circle() {
+									var _this = this;
+									// constructor
+									(function() {
+										_this.pos = {};
+										init();
+									})();
+
+									function init() {
+										_this.pos.x = Math.random()*width;
+										_this.pos.y = height+Math.random()*100;
+										_this.alpha = 0.1+Math.random()*0.3;
+										_this.scale = 0.1+Math.random()*0.3;
+										_this.velocity = Math.random();
+									}
+
+									this.draw = function() {
+										if(_this.alpha <= 0) {
+											init();
+										}
+										_this.pos.y -= _this.velocity;
+										_this.alpha -= 0.0005;
+										ctx.beginPath();
+										ctx.arc(_this.pos.x, _this.pos.y, _this.scale*10, 0, 2 * Math.PI, false);
+										ctx.fillStyle = 'rgba(255,255,255,'+ _this.alpha+')';
+										ctx.fill();
+									};
+								}
+								initHeader();
+								addListeners();
+							}());
+						</script>
+					</div>
+					<article id="post-interview1" class="article article-type-post" itemscope itemprop="blogPost">
+	<div class="article-meta">
+		
+	</div>
+	<div class="article-inner">
+		
+		
+			<header class="article-header">
+				
+	
+		<h1 class="article-title" itemprop="name">
+			一篇不错的前端面试文章(译)
+		</h1>
+	
+
+
+				<a href="/2016/10/24/interview1/" class="article-date">
+  <time datetime="2016-10-25T03:23:01.000Z" itemprop="datePublished">2016-10-24</time>
+</a>
+			</header>
+		
+		<div class="article-entry" itemprop="articleBody">
+			
+				<p>面试的时候并不建议使用白板，通常希望面试者自己带上自己的笔记本，或者就使用自己的。我会将他们的代码运行，并告知结果。<br>ps: 原文地址：<a href="http://blog.sourcing.io/interview-questions" target="_blank" rel="external">http://blog.sourcing.io/interview-questions</a> 文章来自翻译，其中忽略了一些无关紧要的内容直入主题。作者先后在twitter,Stripe工作，期间会参加面试工作。实际上参加面试工作的人都知道要想在一个较短的时间内（30min-1h）就对一个应聘者做出判断其实是很难的，因此我们不得不想尽办法去更加合理的去判断面试者。下面是作者理出的一个思路:如果对方有github账号，我们会尽可能的去了解TA在开源项目上的动态和他的开源项目。我们也会从中挑出一些切入点，通过交流他做这个项目的出发点也能够更好的了解面试者的设计思路，也可以初步的去判断该人是不是适合团队。如果双方交流顺畅，接下来会直接进行到代码等一些基础问题上来。自己的面试会很实际，几乎全部都是coding,很少会提到算法和一些抽象的概念。自己提出的问题看似简单，但是每一点都涉及到javascript的一些知识领域。<br><a id="more"></a></p>
+<h2 id="Object-prototype"><a href="#Object-prototype" class="headerlink" title="Object prototype"></a>Object prototype</h2><p>我起初会提出一个非常简单的问题就是定义一个函数spacify ,将一个字符串作为参数传入，然后返回一个字符串，不过该字符串相对原有传入参数的变化是字母与字母之间多了一个空格。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">spacify(<span class="string">'hello world'</span>) <span class="comment">// =&gt; 'h e l l o  w o r l d'</span></div></pre></td></tr></table></figure></p>
+<p>虽然问题很简单，但这却是一个很好的开始，我们接下来的问题便可以围绕此展开, 尤其对于那些声称自己了解Javascript，但实际却连一个函数都不会写的面试者高下立判。<br>正确的答案如下，不过一些面试者或许会选择for循环，当然这并没有错<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">spacify</span>(<span class="params">str</span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> str.split(<span class="string">''</span>).join(<span class="string">' '</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>接下来，我会继续问如何将这个函数直接作用在一个字符串对象上.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="string">'hello world'</span>.spacify();</div></pre></td></tr></table></figure></p>
+<p>这个问题可以让我了解面试者对原型链的理解，这个问题可以让彼此展开一些有讨论，诸如直接在原型链上定义属性的危害等等.实际期待结果:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">String</span>.prototype.spacify = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">  <span class="keyword">return</span> <span class="keyword">this</span>.split(<span class="string">''</span>).join(<span class="string">' '</span>);</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
+<p>一般到这里我会让面试者讲讲函数声明和函数表达式的区别。</p>
+<h2 id="Arguments"><a href="#Arguments" class="headerlink" title="Arguments"></a>Arguments</h2><p>接下来，我会去了解面试者对于 arguments的理解，我们会要求面试者定一个log函数。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">log(<span class="string">'hello world'</span>);</div></pre></td></tr></table></figure></p>
+<p>函数类似实现一个简单的控制台输出，在控制台输出传入的字符串。一边面试者都会在定义的函数里直接写console.log，不过还是有更优秀的面试者会直接使用apply。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">log</span>(<span class="params">msg</span>)</span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(msg);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>接下来，我会继续问如果我传入多个参数依旧输出一个字符串 ，我会提示面试者传入的 参数是不固定的，我会暗示作者console.log实际上也接受多个参数。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">log(<span class="string">'hello'</span>, <span class="string">'world'</span>);</div></pre></td></tr></table></figure></p>
+<p>不过我还是希望您的面试者现在已经想起apply;面试者可能会在apply和 call上困惑，这个时候我会做点小提示，不过将console上下文传入也是非常重要的.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">log</span>(<span class="params"></span>)</span>&#123;</div><div class="line">  <span class="built_in">console</span>.log.apply(<span class="built_in">console</span>, <span class="built_in">arguments</span>);</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
+<p>接着我会继续追问，如果我希望在那个输出的字符串前统一加上(app) 这样的字符串，类似于这样:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="string">'(app) hello world'</span></div></pre></td></tr></table></figure></p>
+<p>这个问题明显会复杂很多，面试者应该知道arguments是一个伪数组，我们需要先将它转换成正常的数组，我们可以使用Array.prototype.slice,代码如下:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">log</span>(<span class="params"></span>)</span>&#123;  </div><div class="line">  <span class="keyword">var</span> args = <span class="built_in">Array</span>.prototype.slice.call(<span class="built_in">arguments</span>);</div><div class="line">  args.unshift(<span class="string">'(app)'</span>);</div><div class="line"></div><div class="line">  <span class="built_in">console</span>.log.apply(<span class="built_in">console</span>, args);</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
+<h3 id="Context"><a href="#Context" class="headerlink" title="Context"></a>Context</h3><p>接下来我想了解面试者对于上下文以及this的理解，我会给出下边的代码，让面试者去解释count的值。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> User = &#123;  </div><div class="line">  <span class="attr">count</span>: <span class="number">1</span>,</div><div class="line">  <span class="attr">getCount</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.count;</div><div class="line">  &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
+<p>接下来我会给出下面的代码，让面试者去回答应该输出的正确答案。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">console</span>.log(User.getCount());</div><div class="line"><span class="keyword">var</span> func = User.getCount;  </div><div class="line"><span class="built_in">console</span>.log(func());</div></pre></td></tr></table></figure></p>
+<p>上面的例子中正确输出1和undefined。实际上很多面试者都会在这里跌倒。func的上下文是 ｀window，因此已经失去了count属性。接下来我回继续追问面试者如何确保func的上下文始终都和User关联，这样可以使输出的答案是1。</p>
+<p>正确答案是使用Function.prototype.bind，代码如下:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> func = User.getCount.bind(User);  </div><div class="line"><span class="built_in">console</span>.log(func());</div></pre></td></tr></table></figure></p>
+<p>这个时候我会让面试者去进行完善，如果老的浏览器并不支持该方法，我们应该怎样去兼容。部分基础较差的面试者会比较纠结，但是个人认为任何一位前端工程师都应该对apply和call有着较为深刻的理解。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">Function</span>.prototype.bind = <span class="built_in">Function</span>.prototype.bind || <span class="function"><span class="keyword">function</span>(<span class="params">context</span>) </span>&#123;  </div><div class="line">    <span class="keyword">var</span> self = <span class="keyword">this</span>;</div><div class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        <span class="keyword">return</span> self.apply(context,   <span class="built_in">arguments</span>);</div><div class="line">  &#125;;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>Extra points if the candidate shims bind so that it uses the browser’s native version if available. At this point, if the candidate is doing really well, I’ll ask them to implement currying arguments.</p>
+<h3 id="一个弹窗库"><a href="#一个弹窗库" class="headerlink" title="一个弹窗库"></a>一个弹窗库</h3><p>面试的最后y一部分，我会要求面试者写点实际的东西。这个非常有用，足以了解前端的技术栈。如果前面的问题回答的较为理想，这个问题，我会非常迅速的展开最后一个问题的考察。<br>虽然最终效果取决于面试者的实现，但是这里依旧有足够的考察点。<br>最好不使用  position:absolute而是position:fixed，这个时候即使窗体有滚动，也可以很好的遮罩住全局。我会提示面试者这样使用，并且追问这两者的区别。<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.overlay</span> &#123;</div><div class="line">  <span class="attribute">position</span>: fixed;</div><div class="line">  <span class="attribute">left</span>: <span class="number">0</span>;</div><div class="line">  <span class="attribute">right</span>: <span class="number">0</span>;</div><div class="line">  <span class="attribute">bottom</span>: <span class="number">0</span>;</div><div class="line">  <span class="attribute">top</span>: <span class="number">0</span>;</div><div class="line">  <span class="attribute">background</span>: <span class="built_in">rgba</span>(0,0,0,.8);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>如何将里面的内容居中也是一个非常重要的考察点。一些面试者会使用绝对定位，而有的面试者则更擅长使用Js。<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.overlay</span> <span class="selector-tag">article</span> &#123;</div><div class="line">  <span class="attribute">position</span>: absolute;</div><div class="line">  <span class="attribute">left</span>: <span class="number">50%</span>;</div><div class="line">  <span class="attribute">top</span>: <span class="number">50%</span>;</div><div class="line">  <span class="attribute">margin</span>: -<span class="number">200px</span> <span class="number">0</span> <span class="number">0</span> -<span class="number">200px</span>;</div><div class="line">  <span class="attribute">width</span>: <span class="number">400px</span>;</div><div class="line">  <span class="attribute">height</span>: <span class="number">400px</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>我会继续问，如何确保点击遮罩层时遮罩层是关闭的？这个问题可以将我们的讨论落脚到 冒泡中来。很多面试者都会直接将点击实践绑定到遮罩层上。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">'.overlay'</span>).click(closeOverlay);</div></pre></td></tr></table></figure></p>
+<p>这个接下来可以工作了，但是你会发现如果点击了遮罩层中的子元素，遮罩层也会关闭。解决方案是便是判断event target ，并且保证 这个时间不会冒泡。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">'.overlay'</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</div><div class="line">  <span class="keyword">if</span> (e.target == e.currentTarget)</div><div class="line">    closeOverlay();</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<h3 id="尾声"><a href="#尾声" class="headerlink" title="尾声"></a>尾声</h3><p>当然前面的知识点仅仅是前端的一部分，实际上你还可以问:性能，HTML5 APIs， AMD vs CommonJS modules，constructors，数据类型，以及盒子模型。我经常都会随着面试者的进行去选择相应的问题。</p>
+
+				<!-- 多说评论框 start -->
+				<div class="article-comment">
+					<div class="ds-thread" data-num-items="5" data-show-avatars="1" data-show-time="1" data-show-title="1" data-show-admin="1" data-excerpt-length="50" data-thread-key="post-interview1" data-title="一篇不错的前端面试文章(译)" data-url="/"></div>
+				</div>
+				<!-- 多说评论框 end -->
+			
+		</div>
+		<footer class="article-footer">
+			<a data-url="https://utopia1991.github.io/2016/10/24/interview1/" data-id="ciy0w2cce000xwbtd51d768oy" class="article-share-link">分享</a>
+			
+			
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Interview-Questions/">Interview-Questions</a></li></ul>
+
+		</footer>
+	</div>
+	
+		
+<nav id="article-nav">
+  
+    <a href="/2016/10/25/superAgent/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          SuperAgent 中文使用文档
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/10/24/express/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">Node.js Express 框架</div>
+    </a>
+  
+</nav>
+
+	
+</article>
+
+
+
+				</section>
+			</div>
+			<footer id="footer">
+	
+	<div class="outer">
+		<div id="footer-info">
+			Copyright &copy; Bevis Shen 2017<br>
+			Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+		</div>
+	</div>
+</footer>
+
+		</div>
+		<nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">主页</a>
+  
+    <a href="/archives" class="mobile-nav-link">博文</a>
+  
+</nav>
+		
+
+<script src="https://cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+	</div>
+</body>
+<script>
+	function backTop(){
+		document.documentElement.scrollTop = document.body.scrollTop = 0;
+	}
+
+	var c = document.getElementsByTagName('canvas')[0],
+		x = c.getContext('2d'),
+		pr = window.devicePixelRatio || 1,
+		w = window.innerWidth,
+		h = window.innerHeight,
+		f = 90,
+		q,
+		m = Math,
+		r = 0,
+		u = m.PI * 2,
+		v = m.cos,
+		z = m.random
+	c.width = w * pr
+	c.height = h * pr
+	x.scale(pr, pr)
+	x.globalAlpha = 0.6
+
+	function i() {
+		x.clearRect(0, 0, w, h)
+		q = [{
+			x: 0,
+			y: h * .7 + f
+		}, {
+			x: 0,
+			y: h * .7 - f
+		}]
+		while (q[1].x < w + f) d(q[0], q[1])
+	}
+
+	function d(i, j) {
+		x.beginPath()
+		x.moveTo(i.x, i.y)
+		x.lineTo(j.x, j.y)
+		var k = j.x + (z() * 2 - 0.25) * f,
+			n = y(j.y)
+		x.lineTo(k, n)
+		x.closePath()
+		r -= u / -50
+		x.fillStyle = '#' + (v(r) * 127 + 128 << 16 | v(r + u / 3) * 127 + 128 << 8 | v(r + u / 3 * 2) * 127 + 128).toString(16)
+		x.fill()
+		q[0] = q[1]
+		q[1] = {
+			x: k,
+			y: n
+		}
+	}
+
+	function y(p) {
+		var t = p + (z() * 2 - 1.1) * f
+		return (t > h || t < 0) ? y(p) : t
+	}
+	document.onclick = i
+	document.ontouchstart = i
+	i()
+</script>
+
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+	var duoshuoQuery = {short_name:"bevis"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0]
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+</script>
+<!-- 多说公共JS代码 end -->
+</html>

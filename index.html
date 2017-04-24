@@ -1,1 +1,936 @@
-<!DOCTYPE html><html><head><meta charset=utf-8><title>我是女生，精选100元以下的女装好货</title><meta name=viewport content="user-scalable=0,width=device-width,initial-scale=1,maximum-scale=1"><meta name=description content=我是女生利用大数据分析天猫、淘宝亿万用户的购买喜好，挑选出价格实惠而又有品质的女装，她还涵盖了女鞋、包包、美妆、配饰、内衣等品类，全部精选月销量过万的实惠商品，只为更美的你。><meta name=Keywords content=我是女生，女装，蘑菇街，吊带，背心，连衣裙><link rel=icon href=/static/images/icon.png type=image/x-icon><link href=/static/css/app.css rel=stylesheet><link href=/static/css/app.2798933208edd2ae5ab42331a0d0a89f.css rel=stylesheet></head><body><div id=app></div><script type=text/javascript src=/static/js/libs/jquery.min.js></script><script type=text/javascript src=/static/js/libs/jquery.slides.min.js></script><script type=text/javascript src=/static/js/libs/underscore-min.js></script><script type=text/javascript src=/static/js/index.js></script><script type=text/javascript src=/static/js/manifest.134a934fe011465e742e.js></script><script type=text/javascript src=/static/js/vendor.8af4cc6fa3fffb67fd3e.js></script><script type=text/javascript src=/static/js/app.f5d4376449118b569d9a.js></script></body></html>
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta property="wb:webmaster" content="65a151beb5e21880" />
+	<!-- baidu analytics-->
+	<script>
+		var _hmt = _hmt || [];
+		(function() {
+			var hm = document.createElement("script");
+			hm.src = "https://hm.baidu.com/hm.js?09df6a0c610161ab3099d8e11e9c998e";
+			var s = document.getElementsByTagName("script")[0];
+			s.parentNode.insertBefore(hm, s);
+		})();
+	</script>
+	<!-- google analytics-->
+	<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+		ga('create', 'UA-86667923-1', 'auto');
+		ga('send', 'pageview');
+	</script>
+	
+	<title>Bevis Blog - 沈浩个人博客</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<meta name="description" content="google重度依赖者，mac拥趸，热爱前沿技术，梦想全栈">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Bevis Blog - 沈浩个人博客">
+<meta property="og:url" content="https://utopia1991.github.io/index.html">
+<meta property="og:site_name" content="Bevis Blog - 沈浩个人博客">
+<meta property="og:description" content="google重度依赖者，mac拥趸，热爱前沿技术，梦想全栈">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Bevis Blog - 沈浩个人博客">
+<meta name="twitter:description" content="google重度依赖者，mac拥趸，热爱前沿技术，梦想全栈">
+	
+	
+		<link rel="icon" href="https://utopia1991.github.io/css/images/icon.png">
+	
+	
+		<link href="https://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+	
+	<link rel="stylesheet" href="/css/style.css">
+	
+
+	<script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+</head>
+
+<body>
+	<a href="https://github.com/utopia1991" target="_blank" class="githubFork">
+		<img src="https://camo.githubusercontent.com/e7bbb0521b397edbd5fe43e7f760759336b5e05f/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677265656e5f3030373230302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_green_007200.png">
+	</a>
+	<a class="backTop" onclick="backTop()">Top</a>
+	<div id="container">
+		<div id="wrap">
+			<header id="header">
+	<div id="header-outer" class="outer">
+		<div id="header-title" class="inner">
+			<h1 id="logo-wrap">
+				<a href="/" id="logo">
+					<span class="brand-logo">Bevis</span>
+					Blog
+				</a>
+			</h1>
+		</div>
+		<div id="header-inner" class="inner">
+			<nav id="main-nav">
+				<a id="main-nav-toggle" class="nav-icon"></a>
+				
+					<a class="main-nav-link" href="/">主页</a>
+				
+					<a class="main-nav-link" href="/archives">博文</a>
+				
+				<a class="main-nav-link" href="https://utopia1991.github.io/p/about/index.html">关于我</a>
+			</nav>
+		</div>
+	</div>
+</header>
+
+			<canvas width="100%" height="100%" id="canvas"></canvas>
+			<div class="outer">
+				
+				<aside id="sidebar">
+	<div class="aside-author">
+		<a class="aside-logo" href="https://utopia1991.github.io/p/lover/index.html" target="_blank"></a>
+		<p class="aside-title">Bevis Shen（沈浩）</p>
+		<p class="aside-subtitle">Node.js & Front-End Engineer</p>
+		<p class="aside-description">Google 重度粉，Mac 拥趸，前端 + Node 青年，对前沿技术有着狂热的激情，梦想环游世界，热爱生活、摄影、旅游、电影的文艺程序猿一枚</p>
+		<div class="aside-communicate">
+			<a href="https://github.com/utopia1991" target="_blank" class="article-share-github" title="github"></a>
+			<a href="https://www.linkedin.com/in/bevis1991" target="_blank" class="article-share-linkedin" title="linkedin"></a>
+			<a href="mailto:1304354608@qq.com" class="article-share-mail" title="email"></a>
+			<a href="https://weibo.com/u/2619492527/home" target="_blank" class="article-share-weibo" title="weibo"></a>
+			<a class="article-share-weixin" title="我的个人微信公众号"></a>
+			<img src="https://utopia1991.github.io/css/images/wechat.png" width="180" height="180" class="wechat-pic">
+			<a href="https://bevis1991.wordpress.com/" target="_blank" class="article-share-wordpress" title="WordPress 博客"></a>
+			<a href="https://www.facebook.com/bevis1991" target="_blank" class="article-share-facebook" title="facebook"></a>
+			<a href="https://twitter.com/bevis_shen" target="_blank" class="article-share-twitter" title="twitter"></a>
+		</div>
+	</div>
+	
+		
+
+	
+		
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/">CSS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Code-Style/">Code Style</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Coffeescript/">Coffeescript</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Google/">Google</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Gulp/">Gulp</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML/">HTML</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTTP/">HTTP</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Interview-Questions/">Interview-Questions</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Javascript/">Javascript</a><span class="tag-list-count">14</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mac/">Mac</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/">Markdown</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MongoDB/">MongoDB</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UnderscoreJS/">UnderscoreJS</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery/">jQuery</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nodeJs/">nodeJs</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+	
+		
+  <div class="widget-wrap">
+    <h3 class="widget-title">Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/CSS/" style="font-size: 10px;">CSS</a> <a href="/tags/Code-Style/" style="font-size: 17.5px;">Code Style</a> <a href="/tags/Coffeescript/" style="font-size: 10px;">Coffeescript</a> <a href="/tags/Google/" style="font-size: 10px;">Google</a> <a href="/tags/Gulp/" style="font-size: 10px;">Gulp</a> <a href="/tags/HTML/" style="font-size: 10px;">HTML</a> <a href="/tags/HTTP/" style="font-size: 10px;">HTTP</a> <a href="/tags/Interview-Questions/" style="font-size: 15px;">Interview-Questions</a> <a href="/tags/Javascript/" style="font-size: 20px;">Javascript</a> <a href="/tags/Mac/" style="font-size: 12.5px;">Mac</a> <a href="/tags/Markdown/" style="font-size: 10px;">Markdown</a> <a href="/tags/MongoDB/" style="font-size: 12.5px;">MongoDB</a> <a href="/tags/UnderscoreJS/" style="font-size: 12.5px;">UnderscoreJS</a> <a href="/tags/jQuery/" style="font-size: 10px;">jQuery</a> <a href="/tags/nodeJs/" style="font-size: 10px;">nodeJs</a>
+    </div>
+  </div>
+
+	
+		
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">三月 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">二月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">一月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">十二月 2016</a><span class="archive-list-count">12</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">十一月 2016</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">十月 2016</a><span class="archive-list-count">11</span></li></ul>
+    </div>
+  </div>
+
+
+	
+		
+	<div class="widget-wrap">
+		<h3 class="widget-title">最新文章</h3>
+		<div class="widget">
+			<ul>
+				
+					<li>
+						<a href="/2017/03/23/learnSource/">
+							做为优秀前端的必备学习资料
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2017/03/10/source/">
+							超全 web 开发工具和资源
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2017/02/15/jsBug/">
+							Javascript 设计缺陷
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2017/01/03/gulp/">
+							Gulp 快速入门
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2016/12/27/feTired/">
+							前端疲劳
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2016/12/27/reduceCoupling/">
+							减少前端代码耦合
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2016/12/21/codeStyle4/">
+							前端编码规范 4 —— CSS 和 SASS 规范
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2016/12/21/codeStyle3/">
+							前端编码规范 3 —— JavaScript 规范
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2016/12/21/codeStyle2/">
+							前端编码规范 2 —— HTML 规范
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2016/12/21/codeStyle1/">
+							前端编码规范 1 —— 一般规范
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2016/12/16/underscore2/">
+							UnderscoreJS 常用方法
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2016/12/15/interview3/">
+							JavaScript 单线程机制面试题
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2016/12/14/vue/">
+							Vue 基础学习笔记
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2016/12/13/mongodb/">
+							MongoDB 操作基础语法（shell）
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2016/12/13/eventLoop/">
+							JavaScript 运行机制
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2016/12/12/deferred/">
+							jQuery $.deferred()对象
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2016/11/25/nodemailer/">
+							使用 nodeJs 发送邮件
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2016/11/25/google/">
+							教你使用 Google
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2016/11/23/interview2/">
+							20个JS变态面试题解析
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2016/11/23/bem/">
+							BEM - CSS命名规则
+						</a>
+					</li>
+					
+				......
+			</ul>
+		</div>
+	</div>
+	
+
+	
+</aside>
+
+				
+				<section id="main">
+					<div class="main-header">
+						<p class="header-title">Any application that can be written in JavaScript, will eventually be written in JavaScript.</p>
+						<canvas id="bubbleCanvas" width="100%" height="300" style="margin-top:50px;"></canvas>
+						<script>
+							(function(){
+								var width, height, canvas, ctx, circles;
+								function initHeader() {
+									try{
+										canvas = document.getElementById('bubbleCanvas');
+										if($("#bubbleCanvas").length>0){
+											width = window.innerWidth*0.25>300?window.innerWidth*0.25:300;
+											//height = window.innerHeight;
+											height = 255;
+											canvas.width = width;
+											canvas.height = height;
+											ctx = canvas.getContext('2d');
+											circles = [];
+											for(var x = 0; x < width*0.5; x++) {
+												var c = new Circle();
+												circles.push(c);
+											}
+											animate();
+										}
+									} catch(ex) {
+										if(window.cosole&&window.cosole.log){cosole.log(ex)}
+									}
+								}
+								function addListeners() {
+									try{
+										if($("#bubbleCanvas").length>0){
+											window.addEventListener('resize', resize);
+										}
+									}catch(ex){if(window.cosole&&window.cosole.log){cosole.log(ex)}}
+								}
+								function resize() {
+									width = window.innerWidth*0.25>300?window.innerWidth*0.25:300;
+									height = window.innerHeight;
+									canvas.width = width;
+									canvas.height = height;
+								}
+								function animate() {
+									ctx.clearRect(0,0,width,height);
+									for(var i in circles) {
+										circles[i].draw();
+									}
+									window.requestAFrame = (function () {
+										return window.requestAnimationFrame||window.webkitRequestAnimationFrame||window.mozRequestAnimationFrame||window.oRequestAnimationFrame||window.msRequestAnimationFrame||
+											function (callback) {
+												return window.setTimeout(callback, 1000 / 60); // shoot for 60 fps
+											};
+									})();
+									requestAFrame(animate);
+								}
+								// Canvas manipulation
+								function Circle() {
+									var _this = this;
+									// constructor
+									(function() {
+										_this.pos = {};
+										init();
+									})();
+
+									function init() {
+										_this.pos.x = Math.random()*width;
+										_this.pos.y = height+Math.random()*100;
+										_this.alpha = 0.1+Math.random()*0.3;
+										_this.scale = 0.1+Math.random()*0.3;
+										_this.velocity = Math.random();
+									}
+
+									this.draw = function() {
+										if(_this.alpha <= 0) {
+											init();
+										}
+										_this.pos.y -= _this.velocity;
+										_this.alpha -= 0.0005;
+										ctx.beginPath();
+										ctx.arc(_this.pos.x, _this.pos.y, _this.scale*10, 0, 2 * Math.PI, false);
+										ctx.fillStyle = 'rgba(255,255,255,'+ _this.alpha+')';
+										ctx.fill();
+									};
+								}
+								initHeader();
+								addListeners();
+							}());
+						</script>
+					</div>
+					
+	
+		<article id="post-learnSource" class="article article-type-post" itemscope itemprop="blogPost">
+	<div class="article-meta">
+		
+	</div>
+	<div class="article-inner">
+		
+		
+			<header class="article-header">
+				
+	
+		<h1 itemprop="name">
+			<a class="article-title" href="/2017/03/23/learnSource/">做为优秀前端的必备学习资料</a>
+		</h1>
+	
+
+
+				<a href="/2017/03/23/learnSource/" class="article-date">
+  <time datetime="2017-03-23T06:08:12.000Z" itemprop="datePublished">2017-03-23</time>
+</a>
+			</header>
+		
+		<div class="article-entry" itemprop="articleBody">
+			
+				<p>Github 上看到的很全的前端学习资料，感觉不错，和大家分享一下。</p>
+<p>文章来自 <a href="https://github.com/Wscats/Good-text-Share">小猫wscat</a><br>
+				
+					<p class="article-more-link">
+						<a href="/2017/03/23/learnSource/#more">更多</a>
+					</p>
+				
+			
+		</div>
+		<footer class="article-footer">
+			<a data-url="https://utopia1991.github.io/2017/03/23/learnSource/" data-id="cj0lzyg49000432tdlo6u2w05" class="article-share-link">分享</a>
+			
+			
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Javascript/">Javascript</a></li></ul>
+
+		</footer>
+	</div>
+	
+</article>
+
+
+
+	
+		<article id="post-source" class="article article-type-post" itemscope itemprop="blogPost">
+	<div class="article-meta">
+		
+	</div>
+	<div class="article-inner">
+		
+		
+			<header class="article-header">
+				
+	
+		<h1 itemprop="name">
+			<a class="article-title" href="/2017/03/10/source/">超全 web 开发工具和资源</a>
+		</h1>
+	
+
+
+				<a href="/2017/03/10/source/" class="article-date">
+  <time datetime="2017-03-10T05:26:09.000Z" itemprop="datePublished">2017-03-10</time>
+</a>
+			</header>
+		
+		<div class="article-entry" itemprop="articleBody">
+			
+				<p>作为Web开发者，这是好的时代，也是坏的时代。Web开发技术也在不断变化。虽然很令人兴奋，但是这也意味着Web开发人员需要要积极主动的学习新技术和新的编程语言，并愿意和渴望接受新的挑战，以适应变化。新的挑战可能会包括一些开发上的要求，如利用适应现有的框架来满足业务需求。测试一个网站，能从中知道出了哪些技术上的问题，并且我们针对这些问题进行优化和消除。便于后端的开发进程加快和测试。所以我们列出了完整的web开发所需要的工具和资源，助力开发者提高开发效率！学不止步，让我们努力成为一个优秀的开发者！</p>
+<p>注：工具和资源排序不分先后。</p>
+<p><img src="/images/source/1.png" alt="" title="JavaScript库"><br>
+				
+					<p class="article-more-link">
+						<a href="/2017/03/10/source/#more">更多</a>
+					</p>
+				
+			
+		</div>
+		<footer class="article-footer">
+			<a data-url="https://utopia1991.github.io/2017/03/10/source/" data-id="cj03dq3yu0000futdqp5qlbpz" class="article-share-link">分享</a>
+			
+			
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Javascript/">Javascript</a></li></ul>
+
+		</footer>
+	</div>
+	
+</article>
+
+
+
+	
+		<article id="post-jsBug" class="article article-type-post" itemscope itemprop="blogPost">
+	<div class="article-meta">
+		
+	</div>
+	<div class="article-inner">
+		
+		
+			<header class="article-header">
+				
+	
+		<h1 itemprop="name">
+			<a class="article-title" href="/2017/02/15/jsBug/">Javascript 设计缺陷</a>
+		</h1>
+	
+
+
+				<a href="/2017/02/15/jsBug/" class="article-date">
+  <time datetime="2017-02-15T08:27:19.000Z" itemprop="datePublished">2017-02-15</time>
+</a>
+			</header>
+		
+		<div class="article-entry" itemprop="articleBody">
+			
+				<p>随着 ES6 的普及，加上 babel 这种工具的使用，慢慢越多越多的前端开发或者 node 开发使用 ES6 来建立项目，之所以能走到 ES6 也是因为一开始创造 JS 的 Brendan Eich 这这哥们花了十来天时间创造了这语言（没看错，发明 js 就花了10天）一开始只是为了在浏览器端执行，当时的浏览器功能又非常的 low，导致一开始的 js 语言也同样比较简陋，虽然到 ES3 和 ES4 的改进依然存在一些问题，直到 ES6 诞生，js 之前的好多 bug 被修复，那我们来看看我总结的一些对于 js 的设计缺陷（这些还是比较浅显的，还有深层次的，还在研究中）。</p>
+<p><img src="/images/jsBug/1.jpg" alt=""></p>
+				
+					<p class="article-more-link">
+						<a href="/2017/02/15/jsBug/#more">更多</a>
+					</p>
+				
+			
+		</div>
+		<footer class="article-footer">
+			<a data-url="https://utopia1991.github.io/2017/02/15/jsBug/" data-id="ciz6p2nju0001bmtde77nxblg" class="article-share-link">分享</a>
+			
+			
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Javascript/">Javascript</a></li></ul>
+
+		</footer>
+	</div>
+	
+</article>
+
+
+
+	
+		<article id="post-gulp" class="article article-type-post" itemscope itemprop="blogPost">
+	<div class="article-meta">
+		
+	</div>
+	<div class="article-inner">
+		
+		
+			<header class="article-header">
+				
+	
+		<h1 itemprop="name">
+			<a class="article-title" href="/2017/01/03/gulp/">Gulp 快速入门</a>
+		</h1>
+	
+
+
+				<a href="/2017/01/03/gulp/" class="article-date">
+  <time datetime="2017-01-03T05:25:41.000Z" itemprop="datePublished">2017-01-03</time>
+</a>
+			</header>
+		
+		<div class="article-entry" itemprop="articleBody">
+			
+				<p>现今，gulp 在前端工程化开发中的重要程度可见一斑，好多重复繁琐的操作 gulp 都可以帮助完成，不像以前的手动去操作，简直是前端开发人员的福音，之前学习 gulp 时没有整理出清晰的学习笔记，这次特地把之前零零散散的笔记整理一份出来。</p>
+				
+					<p class="article-more-link">
+						<a href="/2017/01/03/gulp/#more">更多</a>
+					</p>
+				
+			
+		</div>
+		<footer class="article-footer">
+			<a data-url="https://utopia1991.github.io/2017/01/03/gulp/" data-id="ciy0w2ccg0010wbtdsqh3thv1" class="article-share-link">分享</a>
+			
+			
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Gulp/">Gulp</a></li></ul>
+
+		</footer>
+	</div>
+	
+</article>
+
+
+
+	
+		<article id="post-feTired" class="article article-type-post" itemscope itemprop="blogPost">
+	<div class="article-meta">
+		
+	</div>
+	<div class="article-inner">
+		
+		
+			<header class="article-header">
+				
+	
+		<h1 itemprop="name">
+			<a class="article-title" href="/2016/12/27/feTired/">前端疲劳</a>
+		</h1>
+	
+
+
+				<a href="/2016/12/27/feTired/" class="article-date">
+  <time datetime="2016-12-28T03:10:00.000Z" itemprop="datePublished">2016-12-27</time>
+</a>
+			</header>
+		
+		<div class="article-entry" itemprop="articleBody">
+			
+				<p><img src="/images/feTired/1.png" alt=""></p>
+<p>最近项目老美过年放假，项目比较轻松😉 ，看了一些技术文档，翻来翻去，看到这么一篇文章，作为一位 FE 和 NodeJS 开发，简直感同身受，特意转过来给大家看下。原文地址：<a href="https://medium.com/@withinsight1/the-front-end-spectrum-c0f30998c9f0#.284fx8170">链接</a><br>
+				
+					<p class="article-more-link">
+						<a href="/2016/12/27/feTired/#more">更多</a>
+					</p>
+				
+			
+		</div>
+		<footer class="article-footer">
+			<a data-url="https://utopia1991.github.io/2016/12/27/feTired/" data-id="ciy0w2cby000nwbtd7znqzl42" class="article-share-link">分享</a>
+			
+			
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Javascript/">Javascript</a></li></ul>
+
+		</footer>
+	</div>
+	
+</article>
+
+
+
+	
+		<article id="post-reduceCoupling" class="article article-type-post" itemscope itemprop="blogPost">
+	<div class="article-meta">
+		
+	</div>
+	<div class="article-inner">
+		
+		
+			<header class="article-header">
+				
+	
+		<h1 itemprop="name">
+			<a class="article-title" href="/2016/12/27/reduceCoupling/">减少前端代码耦合</a>
+		</h1>
+	
+
+
+				<a href="/2016/12/27/reduceCoupling/" class="article-date">
+  <time datetime="2016-12-28T02:51:45.000Z" itemprop="datePublished">2016-12-27</time>
+</a>
+			</header>
+		
+		<div class="article-entry" itemprop="articleBody">
+			
+				<p>平时在开发过程中经常会碰到牵一发而动全身的事情：改了一点毛发而牵动了全身，或者是想要改点东西，需要在一堆代码里面找半天。这种代码耦合度过高会导致以后修改代码中的困难，一般良好的项目开发是保持低耦合高聚合的编码形式，网上最近找了一些如何减少代码耦合的方法，可以做个笔记看下。由于前端需要组织js/css/html，耦合的问题可能会更加明显，下面按照耦合的情况分别说明。</p>
+				
+					<p class="article-more-link">
+						<a href="/2016/12/27/reduceCoupling/#more">更多</a>
+					</p>
+				
+			
+		</div>
+		<footer class="article-footer">
+			<a data-url="https://utopia1991.github.io/2016/12/27/reduceCoupling/" data-id="ciy0w2cdg001nwbtdvrrg14ni" class="article-share-link">分享</a>
+			
+			
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Javascript/">Javascript</a></li></ul>
+
+		</footer>
+	</div>
+	
+</article>
+
+
+
+	
+		<article id="post-codeStyle4" class="article article-type-post" itemscope itemprop="blogPost">
+	<div class="article-meta">
+		
+	</div>
+	<div class="article-inner">
+		
+		
+			<header class="article-header">
+				
+	
+		<h1 itemprop="name">
+			<a class="article-title" href="/2016/12/21/codeStyle4/">前端编码规范 4 —— CSS 和 SASS 规范</a>
+		</h1>
+	
+
+
+				<a href="/2016/12/21/codeStyle4/" class="article-date">
+  <time datetime="2016-12-21T09:01:14.000Z" itemprop="datePublished">2016-12-21</time>
+</a>
+			</header>
+		
+		<div class="article-entry" itemprop="articleBody">
+			
+				<p><img src="/images/codeStyle/4.png" alt=""></p>
+<p>原文：<a href="https://github.com/gionkunz/chartist-js/blob/develop/CODINGSTYLE.md">Web Styleguide – Style guide to harmonize HTML, Javascript and CSS / SASS coding style</a></p>
+				
+					<p class="article-more-link">
+						<a href="/2016/12/21/codeStyle4/#more">更多</a>
+					</p>
+				
+			
+		</div>
+		<footer class="article-footer">
+			<a data-url="https://utopia1991.github.io/2016/12/21/codeStyle4/" data-id="ciy0w2cba000awbtdilefxgt9" class="article-share-link">分享</a>
+			
+			
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Code-Style/">Code Style</a></li></ul>
+
+		</footer>
+	</div>
+	
+</article>
+
+
+
+	
+		<article id="post-codeStyle3" class="article article-type-post" itemscope itemprop="blogPost">
+	<div class="article-meta">
+		
+	</div>
+	<div class="article-inner">
+		
+		
+			<header class="article-header">
+				
+	
+		<h1 itemprop="name">
+			<a class="article-title" href="/2016/12/21/codeStyle3/">前端编码规范 3 —— JavaScript 规范</a>
+		</h1>
+	
+
+
+				<a href="/2016/12/21/codeStyle3/" class="article-date">
+  <time datetime="2016-12-21T07:03:35.000Z" itemprop="datePublished">2016-12-21</time>
+</a>
+			</header>
+		
+		<div class="article-entry" itemprop="articleBody">
+			
+				<p><img src="/images/codeStyle/3.png" alt=""></p>
+<p>原文：<a href="https://github.com/gionkunz/chartist-js/blob/develop/CODINGSTYLE.md">Web Styleguide – Style guide to harmonize HTML, Javascript and CSS / SASS coding style</a></p>
+				
+					<p class="article-more-link">
+						<a href="/2016/12/21/codeStyle3/#more">更多</a>
+					</p>
+				
+			
+		</div>
+		<footer class="article-footer">
+			<a data-url="https://utopia1991.github.io/2016/12/21/codeStyle3/" data-id="ciy0w2cb40005wbtd0zwkgtkt" class="article-share-link">分享</a>
+			
+			
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Code-Style/">Code Style</a></li></ul>
+
+		</footer>
+	</div>
+	
+</article>
+
+
+
+	
+		<article id="post-codeStyle2" class="article article-type-post" itemscope itemprop="blogPost">
+	<div class="article-meta">
+		
+	</div>
+	<div class="article-inner">
+		
+		
+			<header class="article-header">
+				
+	
+		<h1 itemprop="name">
+			<a class="article-title" href="/2016/12/21/codeStyle2/">前端编码规范 2 —— HTML 规范</a>
+		</h1>
+	
+
+
+				<a href="/2016/12/21/codeStyle2/" class="article-date">
+  <time datetime="2016-12-21T06:07:31.000Z" itemprop="datePublished">2016-12-21</time>
+</a>
+			</header>
+		
+		<div class="article-entry" itemprop="articleBody">
+			
+				<p><img src="/images/codeStyle/2.png" alt=""></p>
+<p>原文：<a href="https://github.com/gionkunz/chartist-js/blob/develop/CODINGSTYLE.md">Web Styleguide – Style guide to harmonize HTML, Javascript and CSS / SASS coding style</a></p>
+				
+					<p class="article-more-link">
+						<a href="/2016/12/21/codeStyle2/#more">更多</a>
+					</p>
+				
+			
+		</div>
+		<footer class="article-footer">
+			<a data-url="https://utopia1991.github.io/2016/12/21/codeStyle2/" data-id="ciy0w2caz0003wbtd27vz79ef" class="article-share-link">分享</a>
+			
+			
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Code-Style/">Code Style</a></li></ul>
+
+		</footer>
+	</div>
+	
+</article>
+
+
+
+	
+		<article id="post-codeStyle1" class="article article-type-post" itemscope itemprop="blogPost">
+	<div class="article-meta">
+		
+	</div>
+	<div class="article-inner">
+		
+		
+			<header class="article-header">
+				
+	
+		<h1 itemprop="name">
+			<a class="article-title" href="/2016/12/21/codeStyle1/">前端编码规范 1 —— 一般规范</a>
+		</h1>
+	
+
+
+				<a href="/2016/12/21/codeStyle1/" class="article-date">
+  <time datetime="2016-12-21T05:42:16.000Z" itemprop="datePublished">2016-12-21</time>
+</a>
+			</header>
+		
+		<div class="article-entry" itemprop="articleBody">
+			
+				<p>最近在开发的时候发现老美（公司项目是美国的）的代码的编程规范非常严格，严谨的编程规范在开发中非常重要，有利于提高代码质量，当一个团队开始指定并实行编码规范的话，错误就会变得更加显而易见。如果一段特定的代码不符合规范的话，它有可能只是代码风格错误，而也有可能会是 bug。早期指定规范就使得代码审核得以更好的开展，并且可以更精确的地定位到错误。只要开发者们能够保证源代码源文件都严格遵循规范，那接下去所使用的混淆、压缩和编译工具则可投其所好不尽相同。</p>
+<p><img src="/images/codeStyle/1.png" alt=""></p>
+<p>原文：<a href="https://github.com/gionkunz/chartist-js/blob/develop/CODINGSTYLE.md">Web Styleguide – Style guide to harmonize HTML, Javascript and CSS / SASS coding style</a></p>
+				
+					<p class="article-more-link">
+						<a href="/2016/12/21/codeStyle1/#more">更多</a>
+					</p>
+				
+			
+		</div>
+		<footer class="article-footer">
+			<a data-url="https://utopia1991.github.io/2016/12/21/codeStyle1/" data-id="ciy0w2ca90000wbtdklelepke" class="article-share-link">分享</a>
+			
+			
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Code-Style/">Code Style</a></li></ul>
+
+		</footer>
+	</div>
+	
+</article>
+
+
+
+	
+
+
+	<nav id="page-nav">
+		<span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">后一页</a>
+	</nav>
+
+
+
+				</section>
+			</div>
+			<footer id="footer">
+	
+	<div class="outer">
+		<div id="footer-info">
+			Copyright &copy; Bevis Shen 2017<br>
+			Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+		</div>
+	</div>
+</footer>
+
+		</div>
+		<nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">主页</a>
+  
+    <a href="/archives" class="mobile-nav-link">博文</a>
+  
+</nav>
+		
+
+<script src="https://cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+	</div>
+</body>
+<script>
+	function backTop(){
+		document.documentElement.scrollTop = document.body.scrollTop = 0;
+	}
+
+	var c = document.getElementsByTagName('canvas')[0],
+		x = c.getContext('2d'),
+		pr = window.devicePixelRatio || 1,
+		w = window.innerWidth,
+		h = window.innerHeight,
+		f = 90,
+		q,
+		m = Math,
+		r = 0,
+		u = m.PI * 2,
+		v = m.cos,
+		z = m.random
+	c.width = w * pr
+	c.height = h * pr
+	x.scale(pr, pr)
+	x.globalAlpha = 0.6
+
+	function i() {
+		x.clearRect(0, 0, w, h)
+		q = [{
+			x: 0,
+			y: h * .7 + f
+		}, {
+			x: 0,
+			y: h * .7 - f
+		}]
+		while (q[1].x < w + f) d(q[0], q[1])
+	}
+
+	function d(i, j) {
+		x.beginPath()
+		x.moveTo(i.x, i.y)
+		x.lineTo(j.x, j.y)
+		var k = j.x + (z() * 2 - 0.25) * f,
+			n = y(j.y)
+		x.lineTo(k, n)
+		x.closePath()
+		r -= u / -50
+		x.fillStyle = '#' + (v(r) * 127 + 128 << 16 | v(r + u / 3) * 127 + 128 << 8 | v(r + u / 3 * 2) * 127 + 128).toString(16)
+		x.fill()
+		q[0] = q[1]
+		q[1] = {
+			x: k,
+			y: n
+		}
+	}
+
+	function y(p) {
+		var t = p + (z() * 2 - 1.1) * f
+		return (t > h || t < 0) ? y(p) : t
+	}
+	document.onclick = i
+	document.ontouchstart = i
+	i()
+</script>
+
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+	var duoshuoQuery = {short_name:"bevis"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0]
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+</script>
+<!-- 多说公共JS代码 end -->
+</html>

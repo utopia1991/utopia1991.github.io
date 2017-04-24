@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>商城</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=no">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<link rel="stylesheet" type="text/css" href="./css/app.css">
+	<link rel="stylesheet" href="./css/mui.min.css">
+	<link rel="stylesheet" href="./css/icons-extra.css">
+	<!--自己定义的 css-->
+	<link rel="stylesheet" href="./css/common/common.css">
+	<link rel="stylesheet" href="./css/common/productDetail.css">
+</head>
+
+<body class="mui-ios mui-ios-9 mui-ios-9-1">
+	<header class="mui-bar mui-bar-nav shop-header">
+		<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left shop-back">返回</a>
+		<h1 class="mui-title" style="color:#fff;">产品详情</h1>
+	</header>
+
+	<div class="mui-content">
+		<div class="shop-p-images">
+			<img src="./images/product/bg.png" alt="" />
+		</div>
+		<div class="shop-p-title">
+			<p class="shop-p-name">特制糖醋三杯鸡</p>
+			<p class="shop-p-sell">月销量500份 &nbsp;&nbsp; 好评率90%</p>
+			<p class="shop-p-price">
+				<span class="red">¥45</span>
+				<a class="mui-btn mui-btn-success" href="#">
+					加入购物车
+				</a>
+			</p>
+		</div>
+		<div class="shop-p-details">
+			<p class="shop-p-discuss-title">
+				<span>商品评价</span>
+				<a href="/">查看全部评论</a>
+			</p>
+			<ul>
+				<li class="shop-p-details-commont">
+					<span class="shop-p-circle-pink"></span>
+					<p class="shop-p-details-user">Lofter Luff</p>
+					<p class="shop-p-details-words"><span class="mui-icon mui-icon-chatboxes"></span> 真的蛮好吃，下次还回来。</p>
+				</li>
+				<li class="shop-p-details-commont">
+					<span class="shop-p-circle-green"></span>
+					<p class="shop-p-details-user">Lofter Luff</p>
+					<p class="shop-p-details-words"><span class="mui-icon mui-icon-chatboxes"></span> 真的蛮好吃，下次还回来。</p>
+				</li>
+				<li class="shop-p-details-commont">
+					<span class="shop-p-circle-yellow"></span>
+					<p class="shop-p-details-user">Lofter Luff</p>
+					<p class="shop-p-details-words"><span class="mui-icon mui-icon-chatboxes"></span> 真的蛮好吃，下次还回来。</p>
+				</li>
+			</ul>
+		</div>
+		<div class="shop-p-discription">
+			<p class="shop-p-details-title">
+				<span>商品详情</span>
+			</p>
+			<p class="shop-p-discription-video">
+				<video controls="controls">
+					<source src="./video/movie.ogg" type="video/ogg">
+					<source src="./video/movie.mp4" type="video/mp4">
+					Your browser does not support the video tag.
+				</video>
+			</p>
+			<p class="shop-p-name">特制糖醋三杯鸡</p>
+			<p class="shop-p-introduce">三杯鸡发源于圣诞节北京斯巴达克举不胜举啊的卡巴斯基肯定不睡觉啊看不大的基本发ID是部分宝宝的水分上帝的身份开杀戒的博客叫啥</p>
+		</div>
+		<div class="shop-p-like">
+			<p class="shop-p-details-title">
+				<span>您可能还喜欢</span>
+			</p>
+			<p class="shop-p-like-items">
+				<span>
+					<img src="./images/product/bg.png" alt=""/>
+				</span>
+				<span>
+					<img src="./images/product/bg.png" alt=""/>
+				</span>
+				<span>
+					<img src="./images/product/bg.png" alt=""/>
+				</span>
+				<span>
+					<img src="./images/product/bg.png" alt=""/>
+				</span>
+			</p>
+		</div>
+	</div>
+
+	<nav class="mui-bar mui-bar-tab shop-nav">
+		<a class="shop-tab-item" href="./cart.html">
+			<span class="mui-icon-extra mui-icon-extra-cart"></span>
+			<span class="shop-nav-title">购物车</span>
+		</a>
+		<a class="shop-tab-item shop-icon-active" href="./index.html">
+			<span class="mui-icon-extra mui-icon-extra-cate shop-icon-active"></span>
+			<span class="shop-nav-title">点餐</span>
+		</a>
+		<a class="shop-tab-item" href="./order.html">
+			<span class="mui-icon-extra mui-icon-extra-topic"></span>
+			<span class="shop-nav-title">订单</span>
+		</a>
+	</nav>
+
+	<a class="shop-call-server" href="#cellPopover">
+		<img src="./images/details/bell.png" alt="" />
+	</a>
+
+	<!--呼叫服务弹窗-->
+	<div id="cellPopover" class="mui-popover">
+		<h3>是否呼叫服务</h3>
+		<a class="mui-btn mui-btn-success" href="tel:139xxxxxxxx">
+			确认
+		</a>
+		<a type="button" class="mui-btn" id="cellCancel">
+			放弃
+		</a>
+	</div>
+
+	<script src="./js/mui.js"></script>
+	<script src="./js/zepto.min.js"></script>
+	<script src="./js/shop/shop.js"></script>
+</body>
+
+</html>
