@@ -32,7 +32,7 @@
 <meta property="og:site_name" content="Bevis Blog - 沈浩个人博客">
 <meta property="og:description" content="前端技术变化这么大，但是面试爱好者总喜欢面试一些重复的内容，整理了一些面试官经常问的问题，无非一些闭包的理解，继承，call 和 apply的区别，get 和 post 的区别，等等，js框架怎么日新月异，真正的本质还是不变，以下面试题可参考。">
 <meta property="og:image" content="https://utopia1991.github.io/images/interview/1.png">
-<meta property="og:updated_time" content="2017-05-16T04:38:56.000Z">
+<meta property="og:updated_time" content="2017-05-16T04:41:28.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="web 前端常见面试题">
 <meta name="twitter:description" content="前端技术变化这么大，但是面试爱好者总喜欢面试一些重复的内容，整理了一些面试官经常问的问题，无非一些闭包的理解，继承，call 和 apply的区别，get 和 post 的区别，等等，js框架怎么日新月异，真正的本质还是不变，以下面试题可参考。">
@@ -385,7 +385,7 @@
 				<p>前端技术变化这么大，但是面试爱好者总喜欢面试一些重复的内容，整理了一些面试官经常问的问题，无非一些闭包的理解，继承，call 和 apply的区别，get 和 post 的区别，等等，js框架怎么日新月异，真正的本质还是不变，以下面试题可参考。</p>
 <p><img src="/images/interview/1.png" alt=""></p>
 <a id="more"></a>
-<h3 id="1-的-title-和-alt-有什么区别"><a href="#1-的-title-和-alt-有什么区别" class="headerlink" title="1. 的 title 和 alt 有什么区别"></a>1.<img> 的 title 和 alt 有什么区别</h3><p>alt是<img>的特有属性，是图片内容的等价描述，用于图片无法加载时显示、读屏器阅读图片。可提图片高可访问性，除了纯装饰图片外都必须设置有意义的值，搜索引擎会重点分析。</p>
+<h3 id="1-img-标签中的-title-和-alt-有什么区别"><a href="#1-img-标签中的-title-和-alt-有什么区别" class="headerlink" title="1.img 标签中的 title 和 alt 有什么区别"></a>1.img 标签中的 title 和 alt 有什么区别</h3><p>alt是<img>的特有属性，是图片内容的等价描述，用于图片无法加载时显示、读屏器阅读图片。可提图片高可访问性，除了纯装饰图片外都必须设置有意义的值，搜索引擎会重点分析。</p>
 <p>title 表示鼠标在图片上停留时，显示一个悬浮框，其中显示的文字。HTML的绝大多数标签都支持title属性，title属性就是专门做提示信息的。</p>
 <h3 id="2-call-和-apply-方法"><a href="#2-call-和-apply-方法" class="headerlink" title="2.call() 和 apply()方法"></a>2.call() 和 apply()方法</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">obj.call(thisObj, arg1, arg2, ...);</div><div class="line">obj.apply(thisObj, [arg1, arg2, ...]);</div></pre></td></tr></table></figure>
 <p>两者作用一致，都是把obj(即this)绑定到thisObj，这时候thisObj具备了obj的属性和方法。或者说thisObj『继承』了obj的属性和方法。<br>唯一区别是apply接受的是数组参数，call接受的是连续参数。</p>
@@ -397,7 +397,7 @@
 <p>（3）语义Header和Footer (The Semantic Header and Footer)</p>
 <p>（4）Audio 支持 (Audio Support)</p>
 <p>（5）Video 支持 (Video Support)</p>
-<p>（6）视频预载 (Preload attribute in Videos element) 当用户访问页面时这一属性使得视频得以预载。为了实现这个功能，可以在<video>元素中加上preload=”preload”或者只是preload。</video></p>
+<p>（6）视频预载 (Preload attribute in Videos element) 当用户访问页面时这一属性使得视频得以预载。为了实现这个功能，可以在 video 元素中加上 preload=”preload” 或者只是 preload。</p>
 <p>（7）增加画布 canvas</p>
 <h3 id="4-为什么利用多个域名来存储网站资源会更有效"><a href="#4-为什么利用多个域名来存储网站资源会更有效" class="headerlink" title="4.为什么利用多个域名来存储网站资源会更有效"></a>4.为什么利用多个域名来存储网站资源会更有效</h3><p>除了节约cookie带宽的因素，另一个重要因素是节约主域名的连接数，从而提高客户端网络带宽的利用率，优化页面响应。因为老的浏览器（IE6是典型），针对同一个域名只允许同时保持两个HTTP连接。将图片等资源请求分配到其他域名上，避免了大图片之类的并不一定重要的内容阻塞住主域名上其他后续资源的连接（比如ajax请求)。</p>
 <h3 id="5-写一个11为电话号码正则表达式"><a href="#5-写一个11为电话号码正则表达式" class="headerlink" title="5.写一个11为电话号码正则表达式"></a>5.写一个11为电话号码正则表达式</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">/^<span class="number">1</span>[<span class="number">34578</span>]\d&#123;<span class="number">9</span>&#125;$/.test(phone)</div></pre></td></tr></table></figure>
