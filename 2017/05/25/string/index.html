@@ -23,21 +23,18 @@
 		ga('send', 'pageview');
 	</script>
 	
-	<title>教你使用 Google | Bevis Blog - 沈浩个人博客</title>
+	<title>Javascript中的字符串方法 | Bevis Blog - 沈浩个人博客</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-	<meta name="description" content="「搜索引擎」作为我们日常上网中使用频率最高的一项服务，但你知道它的真正威力吗？这里用一张图介绍了 Google 的很多功能，感兴趣的就收藏起来吧。: )">
+	<meta name="description" content="Javascript 中提供了几个字符串方法，字符串是不可以修改的，所以字符串方法都是会返回一个新的字符。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="教你使用 Google">
-<meta property="og:url" content="https://utopia1991.github.io/2016/11/25/google/index.html">
+<meta property="og:title" content="Javascript中的字符串方法">
+<meta property="og:url" content="https://utopia1991.github.io/2017/05/25/string/index.html">
 <meta property="og:site_name" content="Bevis Blog - 沈浩个人博客">
-<meta property="og:description" content="「搜索引擎」作为我们日常上网中使用频率最高的一项服务，但你知道它的真正威力吗？这里用一张图介绍了 Google 的很多功能，感兴趣的就收藏起来吧。: )">
-<meta property="og:image" content="https://utopia1991.github.io/images/google/google.png">
-<meta property="og:image" content="https://utopia1991.github.io/images/google/google.jpg">
-<meta property="og:updated_time" content="2016-12-01T08:45:45.000Z">
+<meta property="og:description" content="Javascript 中提供了几个字符串方法，字符串是不可以修改的，所以字符串方法都是会返回一个新的字符。">
+<meta property="og:updated_time" content="2017-05-26T02:02:41.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="教你使用 Google">
-<meta name="twitter:description" content="「搜索引擎」作为我们日常上网中使用频率最高的一项服务，但你知道它的真正威力吗？这里用一张图介绍了 Google 的很多功能，感兴趣的就收藏起来吧。: )">
-<meta name="twitter:image" content="https://utopia1991.github.io/images/google/google.png">
+<meta name="twitter:title" content="Javascript中的字符串方法">
+<meta name="twitter:description" content="Javascript 中提供了几个字符串方法，字符串是不可以修改的，所以字符串方法都是会返回一个新的字符。">
 	
 	
 		<link rel="icon" href="https://utopia1991.github.io/css/images/icon.png">
@@ -360,7 +357,7 @@
 							}());
 						</script>
 					</div>
-					<article id="post-google" class="article article-type-post" itemscope itemprop="blogPost">
+					<article id="post-string" class="article article-type-post" itemscope itemprop="blogPost">
 	<div class="article-meta">
 		
 	</div>
@@ -371,37 +368,59 @@
 				
 	
 		<h1 class="article-title" itemprop="name">
-			教你使用 Google
+			Javascript中的字符串方法
 		</h1>
 	
 
 
-				<a href="/2016/11/25/google/" class="article-date">
-  <time datetime="2016-11-25T06:34:10.000Z" itemprop="datePublished">2016-11-25</time>
+				<a href="/2017/05/25/string/" class="article-date">
+  <time datetime="2017-05-26T01:47:56.000Z" itemprop="datePublished">2017-05-25</time>
 </a>
 			</header>
 		
 		<div class="article-entry" itemprop="articleBody">
 			
-				<p>「搜索引擎」作为我们日常上网中使用频率最高的一项服务，但你知道它的真正威力吗？这里用一张图介绍了 Google 的很多功能，感兴趣的就收藏起来吧。: )</p>
-<p><img src="/images/google/google.png" alt="" title="Google"><br><a id="more"></a></p>
-<blockquote>
-<p>tips：其实如果真的想发挥 Google 的最大威力，大家最好还是用英文来搜索。</p>
-</blockquote>
-<p><img src="/images/google/google.jpg" alt="" title="Google"></p>
+				<p>Javascript 中提供了几个字符串方法，字符串是不可以修改的，所以字符串方法都是会返回一个新的字符。</p>
+<a id="more"></a>
+<h3 id="1-charAt"><a href="#1-charAt" class="headerlink" title="1.charAt()"></a>1.charAt()</h3><p>charAt() 方法返回索引中的字符。</p>
+<p>可以看下例子:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> s = <span class="string">"hello world"</span>;</div><div class="line"><span class="keyword">var</span> s1 = s.charAt(<span class="number">2</span>);</div><div class="line"><span class="keyword">var</span> s2 = s.charAt(s.length - <span class="number">1</span>);</div><div class="line"><span class="built_in">console</span>.log(<span class="string">"charAt: "</span>, s1);  <span class="comment">// l</span></div><div class="line"><span class="built_in">console</span>.log(<span class="string">"charAt: "</span>, s2);  <span class="comment">// d</span></div></pre></td></tr></table></figure>
+<h3 id="2-substring-和-slice"><a href="#2-substring-和-slice" class="headerlink" title="2.substring() 和 slice()"></a>2.substring() 和 slice()</h3><p>substring() 和 slice() 方法返回索引中指定的字符串。<br>substring() 和 slice() 这两个方法功能其实是一样的，包头不包尾。<br>但是区别是 slice() 可以传入负数，substring() 不接受负数。<br>slice() 传入负数，-1代表最后一个元素，-2代表倒数第二个元素，以此类推。<br>之所以 string 有 slice() 这个方法是因为字符串也可以当作字符的数组。</p>
+<p>可以看下例子:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> s3 = s.substring(<span class="number">1</span>,<span class="number">4</span>);</div><div class="line"><span class="keyword">var</span> s4 = s.slice(<span class="number">1</span>,<span class="number">4</span>);</div><div class="line"><span class="keyword">var</span> s41 = s.slice(<span class="number">-5</span>,<span class="number">-1</span>);</div><div class="line"><span class="keyword">var</span> s42 = s.slice(<span class="number">-7</span>);</div><div class="line"><span class="keyword">var</span> s43 = s.substring(<span class="number">-5</span>);</div><div class="line"><span class="built_in">console</span>.log(<span class="string">"substring: "</span>, s3); <span class="comment">//  ell</span></div><div class="line"><span class="built_in">console</span>.log(<span class="string">"slice: "</span>, s4);  <span class="comment">// ell</span></div><div class="line"><span class="built_in">console</span>.log(<span class="string">"slice: "</span>, s41);  <span class="comment">// worl</span></div><div class="line"><span class="built_in">console</span>.log(<span class="string">"slice: "</span>, s42);  <span class="comment">// o world</span></div><div class="line"><span class="built_in">console</span>.log(<span class="string">"substring: "</span>, s43);  <span class="comment">// hello world</span></div></pre></td></tr></table></figure>
+<h3 id="3-indexOf-和-lastIndexOf"><a href="#3-indexOf-和-lastIndexOf" class="headerlink" title="3.indexOf() 和 lastIndexOf()"></a>3.indexOf() 和 lastIndexOf()</h3><p>indexOf() 和 lastIndexOf() 方法返回指定元素的索引。<br>lastIndexOf() 返回指定元素最后一次出现的索引。</p>
+<p>可以看下例子:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> s5 = s.indexOf(<span class="string">"l"</span>);</div><div class="line"><span class="keyword">var</span> s6 = s.lastIndexOf(<span class="string">"l"</span>);</div><div class="line"><span class="built_in">console</span>.log(<span class="string">"indexOf: "</span>, s5); <span class="comment">// 2</span></div><div class="line"><span class="built_in">console</span>.log(<span class="string">"lastIndexOf: "</span>, s6); <span class="comment">// 9</span></div></pre></td></tr></table></figure>
+<h3 id="4-toUpperCase-和-toLowerCase"><a href="#4-toUpperCase-和-toLowerCase" class="headerlink" title="4.toUpperCase() 和 toLowerCase()"></a>4.toUpperCase() 和 toLowerCase()</h3><p>toUpperCase() 和 toLowerCase() 方法，返回字母全大写／字母全小写的字符串。</p>
+<p>可以看下例子:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> s7 = s.toUpperCase();</div><div class="line"><span class="keyword">var</span> s8 = s.toLowerCase();</div><div class="line"><span class="built_in">console</span>.log(<span class="string">"toUpperCase: "</span>, s7); <span class="comment">// HELLO WORLD</span></div><div class="line"><span class="built_in">console</span>.log(<span class="string">"toLowerCase: "</span>, s8); <span class="comment">// hello world</span></div></pre></td></tr></table></figure>
+<h3 id="5-trim"><a href="#5-trim" class="headerlink" title="5.trim()"></a>5.trim()</h3><p>trim() 方法返回去除开头和结尾处的空白字符。<br>这个字符串方法在 ES5 被引入，ie9 以上浏览器才可以使用。</p>
+<p>可以看下例子:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> d = <span class="string">" hello world "</span>;</div><div class="line"><span class="keyword">var</span> s9 = s.trim();</div><div class="line"><span class="built_in">console</span>.log(<span class="string">"trim: "</span>, s9); <span class="comment">// hello world</span></div></pre></td></tr></table></figure>
+<p>为了兼容就环境，如果当前的浏览器没有这个方法，我们可以使用一下代码给 String 的原型添加一个方法：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> (!<span class="built_in">String</span>.prototype.trim) &#123;</div><div class="line">  <span class="built_in">String</span>.prototype.trim = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.replace(<span class="regexp">/^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g</span>, <span class="string">''</span>);</div><div class="line">  &#125;;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="6-split"><a href="#6-split" class="headerlink" title="6.split()"></a>6.split()</h3><p>split() 将一个字符串切分为数组。<br>第一个参数是切分处的字符串或者正则。<br>第二个参数是限制返回数组的最大长度。</p>
+<p>可以看下例子:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> s10 = s.split(<span class="string">" "</span>,<span class="number">1</span>);</div><div class="line"><span class="built_in">console</span>.log(<span class="string">"split: "</span>, s10); <span class="comment">// ["hello"]</span></div></pre></td></tr></table></figure>
+<h3 id="7-replace"><a href="#7-replace" class="headerlink" title="7.replace()"></a>7.replace()</h3><p>replace() 替换给定的正则式的子串。</p>
+<p>可以看下例子:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> s11 = s.replace(<span class="regexp">/l/g</span>,<span class="string">"L"</span>);</div><div class="line"><span class="built_in">console</span>.log(<span class="string">"replace: "</span>, s11);  <span class="comment">// heLLo worLd</span></div></pre></td></tr></table></figure>
+<h3 id="8-补充"><a href="#8-补充" class="headerlink" title="8.补充"></a>8.补充</h3><p>因为字符串可以当作是单个字符组成的数组，所以可以直接用[n]来直接索引返回的元素。<br>length 是字符串的一个属性，代表这个字符串的字符长度。</p>
+<p>可以看下例子:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> s12 = s[<span class="number">6</span>];</div><div class="line"><span class="keyword">var</span> s13 = s.length;</div><div class="line"><span class="built_in">console</span>.log(s12); <span class="comment">// w</span></div><div class="line"><span class="built_in">console</span>.log(s13); <span class="comment">// 11</span></div></pre></td></tr></table></figure>
 
 				<!-- 多说评论框 start -->
 				<div class="article-comment">
-					<div class="ds-thread" data-num-items="5" data-show-avatars="1" data-show-time="1" data-show-title="1" data-show-admin="1" data-excerpt-length="50" data-thread-key="post-google" data-title="教你使用 Google" data-url="/"></div>
+					<div class="ds-thread" data-num-items="5" data-show-avatars="1" data-show-time="1" data-show-title="1" data-show-admin="1" data-excerpt-length="50" data-thread-key="post-string" data-title="Javascript中的字符串方法" data-url="/"></div>
 				</div>
 				<!-- 多说评论框 end -->
 			
 		</div>
 		<footer class="article-footer">
-			<a data-url="https://utopia1991.github.io/2016/11/25/google/" data-id="ciy0w2cc9000swbtdyafhdzr6" class="article-share-link">分享</a>
+			<a data-url="https://utopia1991.github.io/2017/05/25/string/" data-id="cj357hlc90000umtd8dtr1uym" class="article-share-link">分享</a>
 			
 			
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Google/">Google</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Javascript/">Javascript</a></li></ul>
 
 		</footer>
 	</div>
@@ -409,19 +428,10 @@
 		
 <nav id="article-nav">
   
-    <a href="/2016/11/25/nodemailer/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">上一篇</strong>
-      <div class="article-nav-title">
-        
-          使用 nodeJs 发送邮件
-        
-      </div>
-    </a>
   
-  
-    <a href="/2016/11/23/interview2/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2017/05/25/arrayOld/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">下一篇</strong>
-      <div class="article-nav-title">20个JS变态面试题解析</div>
+      <div class="article-nav-title">Javascript中的经典数组方法</div>
     </a>
   
 </nav>

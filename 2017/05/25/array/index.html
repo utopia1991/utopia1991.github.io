@@ -25,16 +25,16 @@
 	
 	<title>ES5中新增加的数组方法 | Bevis Blog - 沈浩个人博客</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-	<meta name="description" content="ES5中新定义了一些数组方法（一共有9个）来遍历，映射，过滤，检测，简化和搜索数组。这些大多数方法的第一个参数是传入一个函数，并且对每一个数组元素调用这个函数，大多数函数接受三个参数，第一个数组元素，第二个元素索引，第三个数组本身。通常只使用第一个参数，后面两个参数可选。">
+	<meta name="description" content="ES5（ES5 至少要在 IE9 以上才可以支持）中新定义了一些数组方法（一共有9个）来遍历，映射，过滤，检测，简化和搜索数组。这些大多数方法的第一个参数是传入一个函数，并且对每一个数组元素调用这个函数，大多数函数接受三个参数，第一个数组元素，第二个元素索引，第三个数组本身。通常只使用第一个参数，后面两个参数可选。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ES5中新增加的数组方法">
 <meta property="og:url" content="https://utopia1991.github.io/2017/05/25/array/index.html">
 <meta property="og:site_name" content="Bevis Blog - 沈浩个人博客">
-<meta property="og:description" content="ES5中新定义了一些数组方法（一共有9个）来遍历，映射，过滤，检测，简化和搜索数组。这些大多数方法的第一个参数是传入一个函数，并且对每一个数组元素调用这个函数，大多数函数接受三个参数，第一个数组元素，第二个元素索引，第三个数组本身。通常只使用第一个参数，后面两个参数可选。">
-<meta property="og:updated_time" content="2017-05-25T09:31:06.000Z">
+<meta property="og:description" content="ES5（ES5 至少要在 IE9 以上才可以支持）中新定义了一些数组方法（一共有9个）来遍历，映射，过滤，检测，简化和搜索数组。这些大多数方法的第一个参数是传入一个函数，并且对每一个数组元素调用这个函数，大多数函数接受三个参数，第一个数组元素，第二个元素索引，第三个数组本身。通常只使用第一个参数，后面两个参数可选。">
+<meta property="og:updated_time" content="2017-05-26T02:05:34.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ES5中新增加的数组方法">
-<meta name="twitter:description" content="ES5中新定义了一些数组方法（一共有9个）来遍历，映射，过滤，检测，简化和搜索数组。这些大多数方法的第一个参数是传入一个函数，并且对每一个数组元素调用这个函数，大多数函数接受三个参数，第一个数组元素，第二个元素索引，第三个数组本身。通常只使用第一个参数，后面两个参数可选。">
+<meta name="twitter:description" content="ES5（ES5 至少要在 IE9 以上才可以支持）中新定义了一些数组方法（一共有9个）来遍历，映射，过滤，检测，简化和搜索数组。这些大多数方法的第一个参数是传入一个函数，并且对每一个数组元素调用这个函数，大多数函数接受三个参数，第一个数组元素，第二个元素索引，第三个数组本身。通常只使用第一个参数，后面两个参数可选。">
 	
 	
 		<link rel="icon" href="https://utopia1991.github.io/css/images/icon.png">
@@ -108,7 +108,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/">CSS</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Code-Style/">Code Style</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Coffeescript/">Coffeescript</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Google/">Google</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Gulp/">Gulp</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML/">HTML</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTTP/">HTTP</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Interview-Questions/">Interview-Questions</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Javascript/">Javascript</a><span class="tag-list-count">16</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mac/">Mac</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/">Markdown</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MongoDB/">MongoDB</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UnderscoreJS/">UnderscoreJS</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery/">jQuery</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nodeJs/">nodeJs</a><span class="tag-list-count">1</span></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/">CSS</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Code-Style/">Code Style</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Coffeescript/">Coffeescript</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Google/">Google</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Gulp/">Gulp</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML/">HTML</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTTP/">HTTP</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Interview-Questions/">Interview-Questions</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Javascript/">Javascript</a><span class="tag-list-count">17</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mac/">Mac</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/">Markdown</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MongoDB/">MongoDB</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UnderscoreJS/">UnderscoreJS</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery/">jQuery</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nodeJs/">nodeJs</a><span class="tag-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -127,7 +127,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">五月 2017</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">三月 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">二月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">一月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">十二月 2016</a><span class="archive-list-count">12</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">十一月 2016</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">十月 2016</a><span class="archive-list-count">11</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">五月 2017</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">三月 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">二月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">一月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">十二月 2016</a><span class="archive-list-count">12</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">十一月 2016</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">十月 2016</a><span class="archive-list-count">11</span></li></ul>
     </div>
   </div>
 
@@ -140,8 +140,14 @@
 			<ul>
 				
 					<li>
+						<a href="/2017/05/25/string/">
+							Javascript中的字符串方法
+						</a>
+					</li>
+					
+					<li>
 						<a href="/2017/05/25/arrayOld/">
-							经典数组方法
+							Javascript中的经典数组方法
 						</a>
 					</li>
 					
@@ -250,12 +256,6 @@
 					<li>
 						<a href="/2016/12/13/eventLoop/">
 							JavaScript 运行机制
-						</a>
-					</li>
-					
-					<li>
-						<a href="/2016/12/12/deferred/">
-							jQuery $.deferred()对象
 						</a>
 					</li>
 					
@@ -380,7 +380,7 @@
 		
 		<div class="article-entry" itemprop="articleBody">
 			
-				<p>ES5中新定义了一些数组方法（一共有9个）来遍历，映射，过滤，检测，简化和搜索数组。这些大多数方法的第一个参数是传入一个函数，并且对每一个数组元素调用这个函数，大多数函数接受三个参数，第一个数组元素，第二个元素索引，第三个数组本身。通常只使用第一个参数，后面两个参数可选。</p>
+				<p>ES5（ES5 至少要在 IE9 以上才可以支持）中新定义了一些数组方法（一共有9个）来遍历，映射，过滤，检测，简化和搜索数组。这些大多数方法的第一个参数是传入一个函数，并且对每一个数组元素调用这个函数，大多数函数接受三个参数，第一个数组元素，第二个元素索引，第三个数组本身。通常只使用第一个参数，后面两个参数可选。</p>
 <a id="more"></a>
 <h3 id="1-forEach"><a href="#1-forEach" class="headerlink" title="1.forEach()"></a>1.forEach()</h3><p>forEach() 从头到位遍历数组，为每个元素调用传入的函数，不会返回一个返回值，会修改数组本身。</p>
 <p>可以看下例子:</p>
@@ -427,7 +427,7 @@
       <strong class="article-nav-caption">上一篇</strong>
       <div class="article-nav-title">
         
-          经典数组方法
+          Javascript中的经典数组方法
         
       </div>
     </a>
