@@ -23,17 +23,18 @@
 		ga('send', 'pageview');
 	</script>
 	
-	<title>标签: MongoDB | Bevis Blog - 沈浩个人博客</title>
+	<title>Javascript BOM | Bevis Blog - 沈浩个人博客</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-	<meta name="description" content="google重度依赖者，mac拥趸，热爱前沿技术，梦想全栈">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Bevis Blog - 沈浩个人博客">
-<meta property="og:url" content="https://utopia1991.github.io/tags/MongoDB/index.html">
+	<meta name="description" content="Javascript 中的浏览器对象模型。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Javascript BOM">
+<meta property="og:url" content="https://utopia1991.github.io/2017/05/31/bom/index.html">
 <meta property="og:site_name" content="Bevis Blog - 沈浩个人博客">
-<meta property="og:description" content="google重度依赖者，mac拥趸，热爱前沿技术，梦想全栈">
+<meta property="og:description" content="Javascript 中的浏览器对象模型。">
+<meta property="og:updated_time" content="2017-05-31T07:15:15.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Bevis Blog - 沈浩个人博客">
-<meta name="twitter:description" content="google重度依赖者，mac拥趸，热爱前沿技术，梦想全栈">
+<meta name="twitter:title" content="Javascript BOM">
+<meta name="twitter:description" content="Javascript 中的浏览器对象模型。">
 	
 	
 		<link rel="icon" href="https://utopia1991.github.io/css/images/icon.png">
@@ -356,64 +357,78 @@
 							}());
 						</script>
 					</div>
-					
-	
-	
+					<article id="post-bom" class="article article-type-post" itemscope itemprop="blogPost">
+	<div class="article-meta">
+		
+	</div>
+	<div class="article-inner">
 		
 		
+			<header class="article-header">
+				
+	
+		<h1 class="article-title" itemprop="name">
+			Javascript BOM
+		</h1>
+	
+
+
+				<a href="/2017/05/31/bom/" class="article-date">
+  <time datetime="2017-05-31T07:06:11.000Z" itemprop="datePublished">2017-05-31</time>
+</a>
+			</header>
+		
+		<div class="article-entry" itemprop="articleBody">
 			
-			
-			<section class="archives-wrap">
-				<div class="archive-year-wrap">
-					<a href="/archives/2016" class="archive-year">
-						2016
-					</a>
+				<p>Javascript 中的浏览器对象模型。</p>
+<a id="more"></a>
+<h3 id="开头"><a href="#开头" class="headerlink" title="开头"></a>开头</h3><p>回调：想要让程序响应一个事件，写一个函数，这个函数就叫做“回调”，或者“事件处理程序”或者“事件监听器”。<br>事件处理程序的属性的名字以 “on” 开始，后面跟着事件的名字。<br>然后注册这个函数，这样他就会在事件发生时调用它，例如以下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> a  = <span class="built_in">document</span>.getElementById(<span class="string">"demo"</span>);</div><div class="line"><span class="comment">// addEventListener() 在 ie9 之后才实现，第三个参数是实现冒泡或者捕获，默认是false</span></div><div class="line">a.addEventListener(<span class="string">"click"</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(<span class="string">'aaaa'</span>);</div><div class="line">&#125;,<span class="literal">false</span>);</div></pre></td></tr></table></figure>
+<h3 id="1-setTimeout-和-setInterval"><a href="#1-setTimeout-和-setInterval" class="headerlink" title="1. setTimeout() 和 setInterval()"></a>1. setTimeout() 和 setInterval()</h3><p>setTimeout() 设置延时一定时间之后执行操作；<br>setInterval() 设置以一定时间循环操作；<br>clearTimeout() 取消 setTimeout() 函数调用执行；<br>clearInterval() 取消 setInterval() 函数调用执行。</p>
+<p>如果给 setTimeout() 传入了0毫秒的话，那么指定的函数不会立即执行，而会把这个函数放在队列中，等前面处于等待的状态的事件处理完了才会调用它</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(<span class="string">'zzzz'</span>);</div><div class="line">&#125;,<span class="number">3000</span>);</div><div class="line">clearTimeout();</div><div class="line">setInterval(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(<span class="string">'xxxx'</span>);</div><div class="line">&#125;,<span class="number">1000</span>);</div><div class="line">clearInterval();</div></pre></td></tr></table></figure>
+<h3 id="2-window-location"><a href="#2-window-location" class="headerlink" title="2. window.location"></a>2. window.location</h3><p>window.location 属性引用的是 Location 对象，表示窗口当前显示文档的 url，<br>这个对象的属性有：href，protocol，host，hostname，port，pathname，search 和 hash，这些被称为 url 分解属性。<br>search 和 hash 返回的是“？”之后的 url（包括“？”），这个属性对于解析 url 很有帮助。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">urlArgs</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">var</span> args = &#123;&#125;;</div><div class="line">  <span class="keyword">var</span> query = <span class="built_in">window</span>.location.search.substring(<span class="number">1</span>); <span class="comment">// 去掉 “？”</span></div><div class="line">  <span class="keyword">var</span> pairs = query.split(<span class="string">"&amp;"</span>);</div><div class="line">  <span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>;i &lt; pairs.length; i++) &#123;</div><div class="line">    <span class="keyword">var</span> pos = pairs[i].indexOf(<span class="string">"="</span>);</div><div class="line">    <span class="keyword">if</span>(pos == <span class="number">-1</span>) <span class="keyword">continue</span>;</div><div class="line">    <span class="keyword">var</span> name = pairs[i].substring(<span class="number">0</span>,pos);</div><div class="line">    <span class="keyword">var</span> value = pairs[i].substring(pos+<span class="number">1</span>);</div><div class="line">    args[name] = value;</div><div class="line">  &#125;</div><div class="line">  <span class="keyword">return</span> args;</div><div class="line">&#125;;</div><div class="line"><span class="built_in">console</span>.log(<span class="string">"url: "</span>, urlArgs()); <span class="comment">// &#123;aa: "11", bb: "22", cc: "33"&#125;</span></div></pre></td></tr></table></figure>
+<p>Location 对象常用有三个方法 assign()，replace() 和 reload()。<br>assign() 和 replace()这两个方法都是载入并且显示你指定的url文档。<br>但是 replace() 在载入新文档之前会从浏览历史中把当前文档删除，所以这个方法比 assign() 更好。<br>reload() 方法可以重新载入当前文档。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span>(!XMLHttpRequest) &#123;</div><div class="line">  <span class="built_in">window</span>.location.replace(<span class="string">"static.html"</span>); <span class="comment">// 若不支持 XMLHttpRequest 则跳转页面</span></div><div class="line">&#125;</div><div class="line"><span class="comment">// 其实使浏览器跳转到新页面的方法传统的是直接给 location 属性赋值新的 url</span></div><div class="line"><span class="built_in">window</span>.location = <span class="string">"page2.html"</span></div></pre></td></tr></table></figure>
+<h3 id="3-window-history"><a href="#3-window-history" class="headerlink" title="3. window.history"></a>3. window.history</h3><p>window.history 属性引用的是 History 对象。<br>history 属性常用的有三个方法 back()，forward() 和 go()。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">window</span>.history.back();  <span class="comment">// 使当前页面后退一步，后退1步</span></div><div class="line"><span class="built_in">window</span>.history.forward();  <span class="comment">// 使向前一步，前进1步</span></div><div class="line"><span class="built_in">window</span>.history.go(<span class="number">-4</span>);  <span class="comment">// 接受传入整数参数的页数，后退4步</span></div></pre></td></tr></table></figure>
+<h3 id="4-window-navigator"><a href="#4-window-navigator" class="headerlink" title="4. window.navigator"></a>4. window.navigator</h3><p>window.navigator 属性获取浏览器信息，引用的是 Navigator 对象。<br>Navigator 对象有四个属性，这些属性可以进行浏览器嗅探：appName, appVersion, userAgent, platform。<br>appName：浏览器全程，appVersion：浏览器版本，但是没有办法直接用它判断浏览器类型。<br>userAgent：通常包括 appVersion 中的所有信息，通常使用这个来嗅探浏览器。<br>platform：运行浏览器的操作系统。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> browser = <span class="built_in">window</span>.navigator.userAgent.toLowerCase();</div><div class="line"><span class="built_in">console</span>.log(<span class="string">"browser: "</span>, browser);</div></pre></td></tr></table></figure>
+<h3 id="5-window-screen"><a href="#5-window-screen" class="headerlink" title="5. window.screen"></a>5. window.screen</h3><p>window.screen 属性获取窗口的大小和单位像素可用颜色的数量，引用的是 Screen 对象。<br>Screen 对象有五个属性。<br>width 和 height 指定窗口的大小。<br>availWidth 和 availHeight 指定实际可用窗口的大小，排除导航栏之外的空间。<br>colorDepth 指定单位像素可用颜色的数量。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> screenWidth = <span class="built_in">window</span>.screen.width,</div><div class="line">screenHeight = <span class="built_in">window</span>.screen.height,</div><div class="line">availWidth = <span class="built_in">window</span>.screen.availWidth,</div><div class="line">availHeight = <span class="built_in">window</span>.screen.availHeight,</div><div class="line">colorDepth = <span class="built_in">window</span>.screen.colorDepth;</div><div class="line"><span class="built_in">console</span>.log(<span class="string">"screen: "</span>, screenWidth, screenHeight, availWidth, availHeight, colorDepth);</div></pre></td></tr></table></figure>
+<h3 id="5-window-open"><a href="#5-window-open" class="headerlink" title="5. window.open()"></a>5. window.open()</h3><p>window.open() 使浏览器打开一个新的窗口，有四个参数。<br>第一个参数是新窗口显示的 url。<br>第二个参数是新窗口显示的名字，忽略这个参数将以 “_blank” 打开。<br>第三个参数是逗号分隔列表，包括大小属性，但是 html5 中不推荐使用了。<br>第四个参数在第二个参数存在时才可以使用，true 代表第一个参数的 url 是否要替换掉窗口浏览历史的当前记录。<br>通常 open() 只有当用户手动单击按钮或链接的时候才会调用，否则一般浏览器都增加了弹出窗口过滤系统。</p>
+<h3 id="6-window-close"><a href="#6-window-close" class="headerlink" title="6. window.close()"></a>6. window.close()</h3><p>window.close() 关闭当前窗口</p>
+
+				<!-- 多说评论框 start -->
+				<div class="article-comment">
+					<div class="ds-thread" data-num-items="5" data-show-avatars="1" data-show-time="1" data-show-title="1" data-show-admin="1" data-excerpt-length="50" data-thread-key="post-bom" data-title="Javascript BOM" data-url="/"></div>
 				</div>
-				<div class="archives">
-		
-		<article class="archive-article archive-type-post">
-	<div class="archive-article-inner">
-		<header class="archive-article-header">
+				<!-- 多说评论框 end -->
 			
-	
-		<h1 itemprop="name">
-			<a class="archive-article-title" href="/2016/12/13/mongodb/">MongoDB 操作基础语法（shell）</a>
-		</h1>
-	
-
-
-			<a href="/2016/12/13/mongodb/" class="archive-article-date">
-  <time datetime="2016-12-13T06:19:44.000Z" itemprop="datePublished">12月 13</time>
-</a>
-		</header>
-	</div>
-</article>
-
-	
-		
-		
-		<article class="archive-article archive-type-post">
-	<div class="archive-article-inner">
-		<header class="archive-article-header">
+		</div>
+		<footer class="article-footer">
+			<a data-url="https://utopia1991.github.io/2017/05/31/bom/" data-id="cj3cno6p90000f5tdr6y86me4" class="article-share-link">分享</a>
 			
-	
-		<h1 itemprop="name">
-			<a class="archive-article-title" href="/2016/11/01/mongoose/">Mongoose 基本介绍</a>
-		</h1>
-	
+			
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Javascript/">Javascript</a></li></ul>
 
-
-			<a href="/2016/11/01/mongoose/" class="archive-article-date">
-  <time datetime="2016-11-01T05:53:39.000Z" itemprop="datePublished">11月 1</time>
-</a>
-		</header>
+		</footer>
 	</div>
-</article>
+	
+		
+<nav id="article-nav">
+  
+  
+    <a href="/2017/05/31/inherit/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">Javascript中的继承方法：经典继承，ES5 继承，ES6 继承</div>
+    </a>
+  
+</nav>
 
 	
-	
-		</div></section>
-	
+</article>
 
 
 
