@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta property="wb:webmaster" content="65a151beb5e21880" />
+	<!-- baidu analytics-->
+	<script>
+		var _hmt = _hmt || [];
+		(function() {
+			var hm = document.createElement("script");
+			hm.src = "https://hm.baidu.com/hm.js?09df6a0c610161ab3099d8e11e9c998e";
+			var s = document.getElementsByTagName("script")[0];
+			s.parentNode.insertBefore(hm, s);
+		})();
+	</script>
+	<!-- google analytics-->
+	<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+		ga('create', 'UA-86667923-1', 'auto');
+		ga('send', 'pageview');
+	</script>
+	
+	<title>Javascript 对象 | Bevis Blog - 沈浩个人博客</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<meta name="description" content="js 中对象是动态的，可以新增属性，也可以删除属性。除了字符串，数字，布尔值，null 和 undefined 之外的所有类似都是对象，函数，数组，日期，正则表达式都是特殊的对象。">
+<meta name="keywords" content="Javascript">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Javascript 对象">
+<meta property="og:url" content="https://utopia1991.github.io/2017/06/08/object/index.html">
+<meta property="og:site_name" content="Bevis Blog - 沈浩个人博客">
+<meta property="og:description" content="js 中对象是动态的，可以新增属性，也可以删除属性。除了字符串，数字，布尔值，null 和 undefined 之外的所有类似都是对象，函数，数组，日期，正则表达式都是特殊的对象。">
+<meta property="og:updated_time" content="2017-06-08T07:19:54.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Javascript 对象">
+<meta name="twitter:description" content="js 中对象是动态的，可以新增属性，也可以删除属性。除了字符串，数字，布尔值，null 和 undefined 之外的所有类似都是对象，函数，数组，日期，正则表达式都是特殊的对象。">
+	
+	
+		<link rel="icon" href="https://utopia1991.github.io/css/images/icon.png">
+	
+	
+		<link href="https://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+	
+	<link rel="stylesheet" href="/css/style.css">
+	
+
+	<script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+</head>
+
+<body>
+	<a href="https://github.com/utopia1991" target="_blank" class="githubFork">
+		<img src="https://camo.githubusercontent.com/e7bbb0521b397edbd5fe43e7f760759336b5e05f/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677265656e5f3030373230302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_green_007200.png">
+	</a>
+	<a class="backTop" onclick="backTop()">Top</a>
+	<div id="container">
+		<div id="wrap">
+			<header id="header">
+	<div id="header-outer" class="outer">
+		<div id="header-title" class="inner">
+			<h1 id="logo-wrap">
+				<a href="/" id="logo">
+					<span class="brand-logo">Bevis</span>
+					Blog
+				</a>
+			</h1>
+		</div>
+		<div id="header-inner" class="inner">
+			<nav id="main-nav">
+				<a id="main-nav-toggle" class="nav-icon"></a>
+				
+					<a class="main-nav-link" href="/">主页</a>
+				
+					<a class="main-nav-link" href="/archives">博文</a>
+				
+				<a class="main-nav-link" href="https://utopia1991.github.io/p/about/index.html">关于我</a>
+			</nav>
+		</div>
+	</div>
+</header>
+
+			<canvas width="100%" height="100%" id="canvas"></canvas>
+			<div class="outer">
+				
+				<aside id="sidebar">
+	<div class="aside-author">
+		<a class="aside-logo" href="https://utopia1991.github.io/p/lover/index.html" target="_blank"></a>
+		<p class="aside-title">Bevis Shen（沈浩）</p>
+		<p class="aside-subtitle">Node.js & Front-End Engineer</p>
+		<p class="aside-description">Google 重度粉，Mac 拥趸，前端 + Node 青年，对前沿技术有着狂热的激情，梦想环游世界，热爱生活、摄影、旅游、电影的文艺程序猿一枚</p>
+		<div class="aside-communicate">
+			<a href="https://github.com/utopia1991" target="_blank" class="article-share-github" title="github"></a>
+			<a href="https://www.linkedin.com/in/bevis1991" target="_blank" class="article-share-linkedin" title="linkedin"></a>
+			<a href="mailto:1304354608@qq.com" class="article-share-mail" title="email"></a>
+			<a href="https://weibo.com/u/2619492527/home" target="_blank" class="article-share-weibo" title="weibo"></a>
+			<a class="article-share-weixin" title="我的个人微信公众号"></a>
+			<img src="https://utopia1991.github.io/css/images/wechat.png" width="180" height="180" class="wechat-pic">
+			<a href="https://bevis1991.wordpress.com/" target="_blank" class="article-share-wordpress" title="WordPress 博客"></a>
+			<a href="https://www.facebook.com/bevis1991" target="_blank" class="article-share-facebook" title="facebook"></a>
+			<a href="https://twitter.com/bevis_shen" target="_blank" class="article-share-twitter" title="twitter"></a>
+		</div>
+	</div>
+	
+		
+
+	
+		
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/">CSS</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Code-Style/">Code Style</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Coffeescript/">Coffeescript</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Google/">Google</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Gulp/">Gulp</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML/">HTML</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTTP/">HTTP</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Interview-Questions/">Interview-Questions</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Javascript/">Javascript</a><span class="tag-list-count">17</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mac/">Mac</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/">Markdown</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MongoDB/">MongoDB</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UnderscoreJS/">UnderscoreJS</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery/">jQuery</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nodeJs/">nodeJs</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+	
+		
+  <div class="widget-wrap">
+    <h3 class="widget-title">Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/CSS/" style="font-size: 13.33px;">CSS</a> <a href="/tags/Code-Style/" style="font-size: 16.67px;">Code Style</a> <a href="/tags/Coffeescript/" style="font-size: 10px;">Coffeescript</a> <a href="/tags/Google/" style="font-size: 10px;">Google</a> <a href="/tags/Gulp/" style="font-size: 10px;">Gulp</a> <a href="/tags/HTML/" style="font-size: 10px;">HTML</a> <a href="/tags/HTTP/" style="font-size: 10px;">HTTP</a> <a href="/tags/Interview-Questions/" style="font-size: 16.67px;">Interview-Questions</a> <a href="/tags/Javascript/" style="font-size: 20px;">Javascript</a> <a href="/tags/Mac/" style="font-size: 13.33px;">Mac</a> <a href="/tags/Markdown/" style="font-size: 10px;">Markdown</a> <a href="/tags/MongoDB/" style="font-size: 13.33px;">MongoDB</a> <a href="/tags/UnderscoreJS/" style="font-size: 13.33px;">UnderscoreJS</a> <a href="/tags/jQuery/" style="font-size: 13.33px;">jQuery</a> <a href="/tags/nodeJs/" style="font-size: 10px;">nodeJs</a>
+    </div>
+  </div>
+
+	
+		
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">六月 2017</a><span class="archive-list-count">42</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">五月 2017</a><span class="archive-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+	
+		
+	<div class="widget-wrap">
+		<h3 class="widget-title">最新文章</h3>
+		<div class="widget">
+			<ul>
+				
+					<li>
+						<a href="/2017/06/08/event/">
+							Javascript 事件处理
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2017/06/08/align/">
+							CSS未知宽高元素水平垂直居中
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2017/06/08/bom/">
+							Javascript BOM
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2017/06/08/baseInterviews/">
+							web 前端常见面试题
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2017/06/08/codeStyle1/">
+							前端编码规范 1 —— 一般规范
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2017/06/08/bem/">
+							BEM - CSS命名规则
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2017/06/08/codeStyle3/">
+							前端编码规范 3 —— JavaScript 规范
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2017/06/08/codeStyle2/">
+							前端编码规范 2 —— HTML 规范
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2017/06/08/codeStyle4/">
+							前端编码规范 4 —— CSS 和 SASS 规范
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2017/06/08/coffee/">
+							Coffeescript 学习笔记
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2017/06/08/commandLine/">
+							Mac 常用终端命令
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2017/06/08/eslint/">
+							EsLint入门
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2017/06/08/deferred/">
+							jQuery $.deferred()对象
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2017/06/08/dust/">
+							Dust 模版引擎
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2017/06/08/eventLoop/">
+							JavaScript 运行机制
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2017/06/08/express/">
+							Node.js Express 框架
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2017/06/08/fisher/">
+							Fisher–Yates shuffle 洗牌算法
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2017/06/08/google/">
+							教你使用 Google
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2017/06/08/getPost/">
+							Get 与 Post 区别
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2017/06/08/inherit/">
+							Javascript 继承：经典继承，ES5 继承，ES6 继承
+						</a>
+					</li>
+					
+				......
+			</ul>
+		</div>
+	</div>
+	
+
+	
+</aside>
+
+				
+				<section id="main">
+					<div class="main-header">
+						<p class="header-title">Any application that can be written in JavaScript, will eventually be written in JavaScript.</p>
+						<canvas id="bubbleCanvas" width="100%" height="300" style="margin-top:50px;"></canvas>
+						<script>
+							(function(){
+								var width, height, canvas, ctx, circles;
+								function initHeader() {
+									try{
+										canvas = document.getElementById('bubbleCanvas');
+										if($("#bubbleCanvas").length>0){
+											width = window.innerWidth*0.25>300?window.innerWidth*0.25:300;
+											//height = window.innerHeight;
+											height = 255;
+											canvas.width = width;
+											canvas.height = height;
+											ctx = canvas.getContext('2d');
+											circles = [];
+											for(var x = 0; x < width*0.5; x++) {
+												var c = new Circle();
+												circles.push(c);
+											}
+											animate();
+										}
+									} catch(ex) {
+										if(window.cosole&&window.cosole.log){cosole.log(ex)}
+									}
+								}
+								function addListeners() {
+									try{
+										if($("#bubbleCanvas").length>0){
+											window.addEventListener('resize', resize);
+										}
+									}catch(ex){if(window.cosole&&window.cosole.log){cosole.log(ex)}}
+								}
+								function resize() {
+									width = window.innerWidth*0.25>300?window.innerWidth*0.25:300;
+									height = window.innerHeight;
+									canvas.width = width;
+									canvas.height = height;
+								}
+								function animate() {
+									ctx.clearRect(0,0,width,height);
+									for(var i in circles) {
+										circles[i].draw();
+									}
+									window.requestAFrame = (function () {
+										return window.requestAnimationFrame||window.webkitRequestAnimationFrame||window.mozRequestAnimationFrame||window.oRequestAnimationFrame||window.msRequestAnimationFrame||
+											function (callback) {
+												return window.setTimeout(callback, 1000 / 60); // shoot for 60 fps
+											};
+									})();
+									requestAFrame(animate);
+								}
+								// Canvas manipulation
+								function Circle() {
+									var _this = this;
+									// constructor
+									(function() {
+										_this.pos = {};
+										init();
+									})();
+
+									function init() {
+										_this.pos.x = Math.random()*width;
+										_this.pos.y = height+Math.random()*100;
+										_this.alpha = 0.1+Math.random()*0.3;
+										_this.scale = 0.1+Math.random()*0.3;
+										_this.velocity = Math.random();
+									}
+
+									this.draw = function() {
+										if(_this.alpha <= 0) {
+											init();
+										}
+										_this.pos.y -= _this.velocity;
+										_this.alpha -= 0.0005;
+										ctx.beginPath();
+										ctx.arc(_this.pos.x, _this.pos.y, _this.scale*10, 0, 2 * Math.PI, false);
+										ctx.fillStyle = 'rgba(255,255,255,'+ _this.alpha+')';
+										ctx.fill();
+									};
+								}
+								initHeader();
+								addListeners();
+							}());
+						</script>
+					</div>
+					<article id="post-object" class="article article-type-post" itemscope itemprop="blogPost">
+	<div class="article-meta">
+		
+	</div>
+	<div class="article-inner">
+		
+		
+			<header class="article-header">
+				
+	
+		<h1 class="article-title" itemprop="name">
+			Javascript 对象
+		</h1>
+	
+
+
+				<a href="/2017/06/08/object/" class="article-date">
+  <time datetime="2017-06-08T06:53:50.000Z" itemprop="datePublished">2017-06-08</time>
+</a>
+			</header>
+		
+		<div class="article-entry" itemprop="articleBody">
+			
+				<p>js 中对象是动态的，可以新增属性，也可以删除属性。<br>除了字符串，数字，布尔值，null 和 undefined 之外的所有类似都是对象，函数，数组，日期，正则表达式都是特殊的对象。</p>
+<a id="more"></a>
+<h3 id="1-对象是一个引用类型"><a href="#1-对象是一个引用类型" class="headerlink" title="1.对象是一个引用类型"></a>1.对象是一个引用类型</h3><p>对象是一个引用类型（reference type），对象值都是引用的。</p>
+<p>可以看下例子:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> a = []; <span class="comment">// 定义了一个引用空数组的对象a</span></div><div class="line"><span class="keyword">var</span> b = a;  <span class="comment">// b对象就引用了a对象，两者都指向了同一个对象，而非这个这个对象的副本</span></div><div class="line">b[<span class="number">0</span>] = <span class="number">1</span>;   <span class="comment">// b 修改了引用的数组，那么 a 的引用的数组也会被改变</span></div><div class="line"><span class="built_in">console</span>.log(<span class="string">"reference: "</span>, a); <span class="comment">// 输出 [1]</span></div></pre></td></tr></table></figure>
+<h3 id="2-每一个对象都从原型继承属性"><a href="#2-每一个对象都从原型继承属性" class="headerlink" title="2.每一个对象都从原型继承属性"></a>2.每一个对象都从原型继承属性</h3><p>如果一个对象b通过原型继承了另外一个对象a，对象a中有了x属性，假如b自行添加了一个x属性，那么调用b.x属性时会覆盖原来继承的x属性，但是原型上的a.x没有被修改。</p>
+<h3 id="3-delete-删除对象的属性"><a href="#3-delete-删除对象的属性" class="headerlink" title="3.delete 删除对象的属性"></a>3.delete 删除对象的属性</h3><p>delete 操作符可以删除对象的属性。<br>delete 属性只能删除自有属性，而不能删除原型上继承的属性。<br>要删除原型上继承的属性，必须从定义这个对象的原型上去删除，这样其他继承这个原型的对象都会失去这个属性。</p>
+<p>可以看下例子:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> c = &#123;&#125;;</div><div class="line">c.x = <span class="string">'fuck'</span>;</div><div class="line">c.y = <span class="string">'you'</span>;</div><div class="line"><span class="built_in">console</span>.log(<span class="string">"object c: "</span>, c);</div><div class="line"><span class="keyword">delete</span> c.y;</div><div class="line"><span class="built_in">console</span>.log(<span class="string">"object c: "</span>, c);</div></pre></td></tr></table></figure>
+<p>通过变量声明和函数声明的创建的全局对象属性是不可以删除的。<br>但是给全局对象this赋值的属性确是可以删除的。</p>
+<p>可以看下例子:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> x = <span class="number">1</span>;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">a</span>(<span class="params"></span>) </span>&#123;&#125;;</div><div class="line"><span class="keyword">this</span>.y = <span class="number">1</span>; <span class="comment">// 没有用var，设置一个可配置的全局属性</span></div><div class="line"><span class="built_in">console</span>.log(<span class="keyword">this</span>.x);</div><div class="line"><span class="keyword">delete</span> <span class="keyword">this</span>.x; <span class="comment">// 不能删除</span></div><div class="line"><span class="keyword">delete</span> <span class="keyword">this</span>.a; <span class="comment">// 不能删除</span></div><div class="line"><span class="keyword">delete</span> <span class="keyword">this</span>.y; <span class="comment">// 可以删除</span></div></pre></td></tr></table></figure>
+<h3 id="4-判断属性是否存在于对象"><a href="#4-判断属性是否存在于对象" class="headerlink" title="4.判断属性是否存在于对象"></a>4.判断属性是否存在于对象</h3><p>判断属性是否存在于对象中有几个方法：in 运算符，hasOwnProperty()，propertyIsEnumerable()。<br>in 运算符：如果对象的自有属性或者继承属性中包含这个属性则返回true。<br>hasOwnProperty()：用来检测给定的名字是否是对象的自有属性。</p>
+<p>可以看下例子:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> o = &#123;<span class="attr">x</span>:<span class="number">1</span>&#125;;</div><div class="line"><span class="built_in">console</span>.log(<span class="string">"in: "</span>, <span class="string">"x"</span> <span class="keyword">in</span> o); <span class="comment">// true</span></div><div class="line"><span class="comment">// 假若y是o继承来的属性，那么返回也是true</span></div><div class="line"><span class="built_in">console</span>.log(<span class="string">"hasOwnProperty: "</span>, o.hasOwnProperty(<span class="string">"x"</span>)); <span class="comment">// true</span></div><div class="line"><span class="comment">// 除了in运算符之外，有一个更加简便的方法使用 “!==” 来判断属性是否是 undefined</span></div><div class="line"><span class="built_in">console</span>.log(<span class="string">"!==: "</span>, o.x !== <span class="literal">undefined</span>); <span class="comment">// true</span></div></pre></td></tr></table></figure>
+<h3 id="5-枚举属性"><a href="#5-枚举属性" class="headerlink" title="5.枚举属性"></a>5.枚举属性</h3><p>枚举属性通常使用for in来循环遍历属性。<br>ES5 提供了两个用以枚举属性名称的函数：Object.keys() 和 Object.getOwnPropertyNames()。<br>Object.keys() 和 Object.getOwnPropertyNames() 是类似的，返回由可枚举自有属性名称组成的数组。</p>
+<p>可以看下例子:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> d = &#123;<span class="attr">x</span>:<span class="number">1</span>,<span class="attr">y</span>:<span class="number">2</span>,<span class="attr">z</span>:<span class="number">3</span>&#125;;</div><div class="line"><span class="keyword">for</span> (o <span class="keyword">in</span> d)</div><div class="line"><span class="built_in">console</span>.log(<span class="string">"for in: "</span>, o); <span class="comment">// x y z</span></div><div class="line"><span class="built_in">console</span>.log(<span class="string">"getOwnPropertyNames: "</span>, <span class="built_in">Object</span>.getOwnPropertyNames(d)); <span class="comment">// ["x", "y", "z"]</span></div><div class="line"><span class="built_in">console</span>.log(<span class="string">"keys: "</span>, <span class="built_in">Object</span>.keys(d)); <span class="comment">// ["x", "y", "z"]</span></div></pre></td></tr></table></figure>
+<h3 id="6-getter（读取）-和-setter（写入）-属性"><a href="#6-getter（读取）-和-setter（写入）-属性" class="headerlink" title="6.getter（读取） 和 setter（写入） 属性"></a>6.getter（读取） 和 setter（写入） 属性</h3><p>getter：有时候希望访问属性时能返回一个动态计算后的值，或希望不通过使用明确的方法调用二显示内部变量的状态。<br>同一个属性不能有两个get，也不能既有get又有属性键值对(不允许使用 { get x() { }, get x() { } } 和 { x: …, get x() { }}。<br>getter必须不带参数。<br>setter必须有一个明确的参数。</p>
+<p>可以看下例子:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> log = [<span class="string">'aaa'</span>,<span class="string">'ccc'</span>,<span class="string">'bbb'</span>,<span class="string">'test'</span>];</div><div class="line"><span class="keyword">var</span> obj = &#123;</div><div class="line">	get latest() &#123;</div><div class="line">		<span class="keyword">return</span> log[log.length - <span class="number">2</span>];</div><div class="line">	&#125;,</div><div class="line">	set a(x) &#123;</div><div class="line">		<span class="keyword">return</span> <span class="keyword">this</span>.b.push(x);</div><div class="line">	&#125;,</div><div class="line">	<span class="attr">b</span>:[]</div><div class="line">&#125;;</div><div class="line"><span class="built_in">console</span>.log(<span class="string">"getter: "</span>, obj.latest); <span class="comment">// bbb</span></div><div class="line">obj.a = log;  <span class="comment">// 设置setter，将log参数传到setter中</span></div><div class="line"><span class="built_in">console</span>.log(<span class="string">"setter: "</span>, obj.b); <span class="comment">// ['aaa','ccc','bbb','test']</span></div></pre></td></tr></table></figure>
+<h3 id="7-对象属性"><a href="#7-对象属性" class="headerlink" title="7.对象属性"></a>7.对象属性</h3><p>对象有三个属性：原型 prototype，类 class，可扩展性。<br>在 ES5 中增加了一个方法来创建对象 Object.create(prototye)。<br>在 ES5 中增加了 isPrototypeOf() 来判断对象的原型是否是带入的对象，这个使用和 instanceof 运算符是类似的。</p>
+<p>原型 prototype:</p>
+<p>可以看下例子:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> p = &#123; <span class="attr">x</span>:<span class="number">1</span> &#125;;</div><div class="line"><span class="keyword">var</span> o = <span class="built_in">Object</span>.create(p);</div><div class="line"><span class="built_in">console</span>.log(<span class="string">"create: "</span>,o.x);  <span class="comment">// 1，这个1的值继承自p</span></div><div class="line">p.isPrototypeOf(o);</div><div class="line"><span class="built_in">console</span>.log(<span class="string">"isPrototypeOf: "</span>,p.isPrototypeOf(o)); <span class="comment">// true</span></div></pre></td></tr></table></figure>
+<p>类 class，表示对象的类型信息而已:</p>
+<p>包括ES5以及之前的都没有提供其属性的方法，有个间接的方法去调用：toString()。<br>然后提取第八个到最后一个位置的字符。<br>为了正确调用 toString() 方法我们可以写一个 classof() 方法。</p>
+<p>可以看下例子:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">console</span>.log(<span class="string">"class: "</span>,p.toString()); <span class="comment">// [object Object]</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">classof</span>(<span class="params">o</span>)</span>&#123;</div><div class="line">	<span class="keyword">if</span> (o == <span class="literal">null</span>) <span class="keyword">return</span> <span class="string">"Null"</span>;</div><div class="line">	<span class="keyword">if</span> (o == <span class="literal">undefined</span>) <span class="keyword">return</span> <span class="string">"Undefined"</span>;</div><div class="line">	<span class="keyword">return</span> <span class="built_in">Object</span>.prototype.toString.call(o).slice(<span class="number">8</span>,<span class="number">-1</span>);</div><div class="line">&#125;</div><div class="line"><span class="built_in">console</span>.log(<span class="string">"classof: "</span>,classof(p)); <span class="comment">// Object</span></div></pre></td></tr></table></figure>
+<h3 id="8-对象序列化"><a href="#8-对象序列化" class="headerlink" title="8.对象序列化"></a>8.对象序列化</h3><p>对象序列化，就是将对象转化成字符串。。<br>ES5提供了两个函数 JSON.stringify() 序列化js对象，JSON.parse() 还原js对象。<br>JSON 是 JavaScript Object Notation – js对象表示法。</p>
+<p>可以看下例子:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> str1 = <span class="built_in">JSON</span>.stringify(p);</div><div class="line"><span class="keyword">var</span> str2 = <span class="built_in">JSON</span>.parse(str1);</div><div class="line"><span class="built_in">console</span>.log(<span class="string">"stringify: "</span>, str1); <span class="comment">// '&#123;"x":1&#125;' 将对象变成了字符串</span></div><div class="line"><span class="built_in">console</span>.log(<span class="string">"parse: "</span>, str2); <span class="comment">// &#123;x: 1&#125; 将字符串解析成对象</span></div></pre></td></tr></table></figure>
+<h3 id="9-对象的方法"><a href="#9-对象的方法" class="headerlink" title="9.对象的方法"></a>9.对象的方法</h3><p>对象的方法常用的有7个：<br>(1) hasOwnProperty() 用来检测给定的名字是否是对象的自有属性，返回布尔值<br>(2) propertyIsEnumerable() 用来检测指定的属性是否是可枚举的，返回布尔值<br>(3) isPrototypeOf() 用来检测一个对象是否存在于另一个对象的原型链上，返回布尔值<br>(4) Object.create(prototye) 用来指定的原型对象和其属性创建了一个新的对象<br>(5) toString() 用来将对象变成字符串，类似 JSON.stringify()，但是这个方法却不会输出更多信息<br>(6) valueOf() 用来返回指定对象的原始值<br>(7) Object.keys() 和 Object.getOwnPropertyNames() 用来枚举属性名称的函数（ES5），返回由可枚举自有属性名称组成的数组</p>
+<p>可以看下例子:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> g = &#123;<span class="attr">x</span>:<span class="number">1</span>&#125;;</div><div class="line"><span class="built_in">console</span>.log(<span class="string">"hasOwnProperty: "</span>, g.hasOwnProperty(<span class="string">"x"</span>)); <span class="comment">// true</span></div><div class="line"><span class="built_in">console</span>.log(<span class="string">"propertyIsEnumerable: "</span>, g.propertyIsEnumerable(<span class="string">"x"</span>)); <span class="comment">// true</span></div><div class="line"><span class="built_in">console</span>.log(<span class="string">"isPrototypeOf: "</span>, <span class="built_in">Object</span>.prototype.isPrototypeOf(g)); <span class="comment">// true</span></div><div class="line"><span class="built_in">console</span>.log(<span class="string">"Object.create: "</span>, <span class="built_in">Object</span>.create(g)); <span class="comment">// &#123;&#125;</span></div><div class="line"><span class="built_in">console</span>.log(<span class="string">"toString: "</span>, g.toString()); <span class="comment">// [object Object]</span></div><div class="line"><span class="built_in">console</span>.log(<span class="string">"valueOf: "</span>, g.valueOf()); <span class="comment">// &#123;x: 1&#125;</span></div><div class="line"><span class="built_in">console</span>.log(<span class="string">"keys: "</span>, <span class="built_in">Object</span>.keys(g)); <span class="comment">// ["x"]</span></div><div class="line"><span class="built_in">console</span>.log(<span class="string">"getOwnPropertyNames: "</span>, <span class="built_in">Object</span>.getOwnPropertyNames(g)); <span class="comment">// ["x"]</span></div></pre></td></tr></table></figure>
+<h3 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h3><p>在对象或者数组使用上，经常会使用到for循环，for in枚举是非常方便的方法。</p>
+<p>可以看下例子:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> k = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">5</span>,<span class="number">2</span>,<span class="number">5</span>,<span class="number">45</span>,<span class="number">65</span>];</div><div class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>; i&lt;k.length; i++)&#123;</div><div class="line">	<span class="built_in">console</span>.log(<span class="string">"for: "</span>, k[i]);</div><div class="line">	<span class="comment">// for:  1</span></div><div class="line">	<span class="comment">// for:  2</span></div><div class="line">	<span class="comment">// for:  5</span></div><div class="line">	<span class="comment">// for:  2</span></div><div class="line">	<span class="comment">// for:  5</span></div><div class="line">	<span class="comment">// for:  45</span></div><div class="line">	<span class="comment">// for:  65</span></div><div class="line">&#125;</div><div class="line"><span class="comment">// 这个循环我们可以直接写成枚举，两者结果是一样的</span></div><div class="line"><span class="keyword">for</span>(<span class="keyword">var</span> j <span class="keyword">in</span> k)&#123;</div><div class="line">	<span class="built_in">console</span>.log(<span class="string">"for in:"</span>, k[j]);</div><div class="line">	<span class="comment">// for:  1</span></div><div class="line">	<span class="comment">// for:  2</span></div><div class="line">	<span class="comment">// for:  5</span></div><div class="line">	<span class="comment">// for:  2</span></div><div class="line">	<span class="comment">// for:  5</span></div><div class="line">	<span class="comment">// for:  45</span></div><div class="line">	<span class="comment">// for:  65</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
+				<!-- 多说评论框 start -->
+				<div class="article-comment">
+					<div class="ds-thread" data-num-items="5" data-show-avatars="1" data-show-time="1" data-show-title="1" data-show-admin="1" data-excerpt-length="50" data-thread-key="post-object" data-title="Javascript 对象" data-url="/"></div>
+				</div>
+				<!-- 多说评论框 end -->
+			
+		</div>
+		<footer class="article-footer">
+			<a data-url="https://utopia1991.github.io/2017/06/08/object/" data-id="cj3o2kjvf00285jtdg6t8zenc" class="article-share-link">分享</a>
+			
+			
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Javascript/">Javascript</a></li></ul>
+
+		</footer>
+	</div>
+	
+		
+<nav id="article-nav">
+  
+    <a href="/2017/06/08/preventDefault/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          Javascript 注意点
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/06/08/reduceCoupling/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">减少前端代码耦合</div>
+    </a>
+  
+</nav>
+
+	
+</article>
+
+
+
+				</section>
+			</div>
+			<footer id="footer">
+	
+	<div class="outer">
+		<div id="footer-info">
+			Copyright &copy; Bevis Shen 2017<br>
+			Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+		</div>
+	</div>
+</footer>
+
+		</div>
+		<nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">主页</a>
+  
+    <a href="/archives" class="mobile-nav-link">博文</a>
+  
+</nav>
+		
+
+<script src="https://cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+	</div>
+</body>
+<script>
+	function backTop(){
+		document.documentElement.scrollTop = document.body.scrollTop = 0;
+	}
+
+	var c = document.getElementsByTagName('canvas')[0],
+		x = c.getContext('2d'),
+		pr = window.devicePixelRatio || 1,
+		w = window.innerWidth,
+		h = window.innerHeight,
+		f = 90,
+		q,
+		m = Math,
+		r = 0,
+		u = m.PI * 2,
+		v = m.cos,
+		z = m.random
+	c.width = w * pr
+	c.height = h * pr
+	x.scale(pr, pr)
+	x.globalAlpha = 0.6
+
+	function i() {
+		x.clearRect(0, 0, w, h)
+		q = [{
+			x: 0,
+			y: h * .7 + f
+		}, {
+			x: 0,
+			y: h * .7 - f
+		}]
+		while (q[1].x < w + f) d(q[0], q[1])
+	}
+
+	function d(i, j) {
+		x.beginPath()
+		x.moveTo(i.x, i.y)
+		x.lineTo(j.x, j.y)
+		var k = j.x + (z() * 2 - 0.25) * f,
+			n = y(j.y)
+		x.lineTo(k, n)
+		x.closePath()
+		r -= u / -50
+		x.fillStyle = '#' + (v(r) * 127 + 128 << 16 | v(r + u / 3) * 127 + 128 << 8 | v(r + u / 3 * 2) * 127 + 128).toString(16)
+		x.fill()
+		q[0] = q[1]
+		q[1] = {
+			x: k,
+			y: n
+		}
+	}
+
+	function y(p) {
+		var t = p + (z() * 2 - 1.1) * f
+		return (t > h || t < 0) ? y(p) : t
+	}
+	document.onclick = i
+	document.ontouchstart = i
+	i()
+</script>
+</html>

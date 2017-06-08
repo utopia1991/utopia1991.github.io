@@ -23,18 +23,19 @@
 		ga('send', 'pageview');
 	</script>
 	
-	<title>ES5中新增加的数组方法 | Bevis Blog - 沈浩个人博客</title>
+	<title>Javascript 数组方法 | Bevis Blog - 沈浩个人博客</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-	<meta name="description" content="ES5（ES5 至少要在 IE9 以上才可以支持）中新定义了一些数组方法（一共有9个）来遍历，映射，过滤，检测，简化和搜索数组。这些大多数方法的第一个参数是传入一个函数，并且对每一个数组元素调用这个函数，大多数函数接受三个参数，第一个数组元素，第二个元素索引，第三个数组本身。通常只使用第一个参数，后面两个参数可选。">
+	<meta name="description" content="在 ES4 之前已经给数组定义了一些经典的方法，经典方法一共有12个。ES5 新增加了9个方法，一共21个。对数组直接操作，会修改原数组有7个：reverse(), sort(), splice(), push(), pop(), unshift(), shift()。 ES5（ES5 至少要在 IE9 以上才可以支持）中新定义了一些数组方法（一共有9个）来遍历，映射，过滤，检测，简化和搜索数组。">
+<meta name="keywords" content="Javascript">
 <meta property="og:type" content="article">
-<meta property="og:title" content="ES5中新增加的数组方法">
+<meta property="og:title" content="Javascript 数组方法">
 <meta property="og:url" content="https://utopia1991.github.io/2017/05/25/array/index.html">
 <meta property="og:site_name" content="Bevis Blog - 沈浩个人博客">
-<meta property="og:description" content="ES5（ES5 至少要在 IE9 以上才可以支持）中新定义了一些数组方法（一共有9个）来遍历，映射，过滤，检测，简化和搜索数组。这些大多数方法的第一个参数是传入一个函数，并且对每一个数组元素调用这个函数，大多数函数接受三个参数，第一个数组元素，第二个元素索引，第三个数组本身。通常只使用第一个参数，后面两个参数可选。">
-<meta property="og:updated_time" content="2017-05-26T02:05:34.000Z">
+<meta property="og:description" content="在 ES4 之前已经给数组定义了一些经典的方法，经典方法一共有12个。ES5 新增加了9个方法，一共21个。对数组直接操作，会修改原数组有7个：reverse(), sort(), splice(), push(), pop(), unshift(), shift()。 ES5（ES5 至少要在 IE9 以上才可以支持）中新定义了一些数组方法（一共有9个）来遍历，映射，过滤，检测，简化和搜索数组。">
+<meta property="og:updated_time" content="2017-06-08T07:18:35.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ES5中新增加的数组方法">
-<meta name="twitter:description" content="ES5（ES5 至少要在 IE9 以上才可以支持）中新定义了一些数组方法（一共有9个）来遍历，映射，过滤，检测，简化和搜索数组。这些大多数方法的第一个参数是传入一个函数，并且对每一个数组元素调用这个函数，大多数函数接受三个参数，第一个数组元素，第二个元素索引，第三个数组本身。通常只使用第一个参数，后面两个参数可选。">
+<meta name="twitter:title" content="Javascript 数组方法">
+<meta name="twitter:description" content="在 ES4 之前已经给数组定义了一些经典的方法，经典方法一共有12个。ES5 新增加了9个方法，一共21个。对数组直接操作，会修改原数组有7个：reverse(), sort(), splice(), push(), pop(), unshift(), shift()。 ES5（ES5 至少要在 IE9 以上才可以支持）中新定义了一些数组方法（一共有9个）来遍历，映射，过滤，检测，简化和搜索数组。">
 	
 	
 		<link rel="icon" href="https://utopia1991.github.io/css/images/icon.png">
@@ -108,7 +109,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/">CSS</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Code-Style/">Code Style</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Coffeescript/">Coffeescript</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Google/">Google</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Gulp/">Gulp</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML/">HTML</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTTP/">HTTP</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Interview-Questions/">Interview-Questions</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Javascript/">Javascript</a><span class="tag-list-count">20</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mac/">Mac</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/">Markdown</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MongoDB/">MongoDB</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UnderscoreJS/">UnderscoreJS</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery/">jQuery</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nodeJs/">nodeJs</a><span class="tag-list-count">1</span></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/">CSS</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Code-Style/">Code Style</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Coffeescript/">Coffeescript</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Google/">Google</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Gulp/">Gulp</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML/">HTML</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTTP/">HTTP</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Interview-Questions/">Interview-Questions</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Javascript/">Javascript</a><span class="tag-list-count">17</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mac/">Mac</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/">Markdown</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MongoDB/">MongoDB</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UnderscoreJS/">UnderscoreJS</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery/">jQuery</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nodeJs/">nodeJs</a><span class="tag-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -118,7 +119,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/CSS/" style="font-size: 13.33px;">CSS</a> <a href="/tags/Code-Style/" style="font-size: 16.67px;">Code Style</a> <a href="/tags/Coffeescript/" style="font-size: 10px;">Coffeescript</a> <a href="/tags/Google/" style="font-size: 10px;">Google</a> <a href="/tags/Gulp/" style="font-size: 10px;">Gulp</a> <a href="/tags/HTML/" style="font-size: 10px;">HTML</a> <a href="/tags/HTTP/" style="font-size: 10px;">HTTP</a> <a href="/tags/Interview-Questions/" style="font-size: 16.67px;">Interview-Questions</a> <a href="/tags/Javascript/" style="font-size: 20px;">Javascript</a> <a href="/tags/Mac/" style="font-size: 13.33px;">Mac</a> <a href="/tags/Markdown/" style="font-size: 10px;">Markdown</a> <a href="/tags/MongoDB/" style="font-size: 13.33px;">MongoDB</a> <a href="/tags/UnderscoreJS/" style="font-size: 13.33px;">UnderscoreJS</a> <a href="/tags/jQuery/" style="font-size: 10px;">jQuery</a> <a href="/tags/nodeJs/" style="font-size: 10px;">nodeJs</a>
+      <a href="/tags/CSS/" style="font-size: 13.33px;">CSS</a> <a href="/tags/Code-Style/" style="font-size: 16.67px;">Code Style</a> <a href="/tags/Coffeescript/" style="font-size: 10px;">Coffeescript</a> <a href="/tags/Google/" style="font-size: 10px;">Google</a> <a href="/tags/Gulp/" style="font-size: 10px;">Gulp</a> <a href="/tags/HTML/" style="font-size: 10px;">HTML</a> <a href="/tags/HTTP/" style="font-size: 10px;">HTTP</a> <a href="/tags/Interview-Questions/" style="font-size: 16.67px;">Interview-Questions</a> <a href="/tags/Javascript/" style="font-size: 20px;">Javascript</a> <a href="/tags/Mac/" style="font-size: 13.33px;">Mac</a> <a href="/tags/Markdown/" style="font-size: 10px;">Markdown</a> <a href="/tags/MongoDB/" style="font-size: 13.33px;">MongoDB</a> <a href="/tags/UnderscoreJS/" style="font-size: 13.33px;">UnderscoreJS</a> <a href="/tags/jQuery/" style="font-size: 13.33px;">jQuery</a> <a href="/tags/nodeJs/" style="font-size: 10px;">nodeJs</a>
     </div>
   </div>
 
@@ -127,7 +128,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">五月 2017</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">三月 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">二月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">一月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">十二月 2016</a><span class="archive-list-count">12</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">十一月 2016</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">十月 2016</a><span class="archive-list-count">11</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">六月 2017</a><span class="archive-list-count">42</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">五月 2017</a><span class="archive-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -140,122 +141,122 @@
 			<ul>
 				
 					<li>
-						<a href="/2017/05/31/bom/">
-							Javascript BOM
+						<a href="/2017/06/08/event/">
+							Javascript 事件处理
 						</a>
 					</li>
 					
 					<li>
-						<a href="/2017/05/31/inherit/">
-							Javascript中的继承方法：经典继承，ES5 继承，ES6 继承
-						</a>
-					</li>
-					
-					<li>
-						<a href="/2017/05/26/object/">
-							Javascript中的对象介绍以及方法
-						</a>
-					</li>
-					
-					<li>
-						<a href="/2017/05/25/string/">
-							Javascript中的字符串方法
-						</a>
-					</li>
-					
-					<li>
-						<a href="/2017/05/25/arrayOld/">
-							Javascript中的经典数组方法
-						</a>
-					</li>
-					
-					<li>
-						<a href="/2017/05/25/array/">
-							ES5中新增加的数组方法
-						</a>
-					</li>
-					
-					<li>
-						<a href="/2017/05/16/baseInterviews/">
-							web 前端常见面试题
-						</a>
-					</li>
-					
-					<li>
-						<a href="/2017/05/15/align/">
+						<a href="/2017/06/08/align/">
 							CSS未知宽高元素水平垂直居中
 						</a>
 					</li>
 					
 					<li>
-						<a href="/2017/03/23/learnSource/">
-							做为优秀前端的必备学习资料
+						<a href="/2017/06/08/bom/">
+							Javascript BOM
 						</a>
 					</li>
 					
 					<li>
-						<a href="/2017/03/10/source/">
-							超全 web 开发工具和资源
+						<a href="/2017/06/08/baseInterviews/">
+							web 前端常见面试题
 						</a>
 					</li>
 					
 					<li>
-						<a href="/2017/02/15/jsBug/">
-							Javascript 设计缺陷
-						</a>
-					</li>
-					
-					<li>
-						<a href="/2017/01/03/gulp/">
-							Gulp 快速入门
-						</a>
-					</li>
-					
-					<li>
-						<a href="/2016/12/27/feTired/">
-							前端疲劳
-						</a>
-					</li>
-					
-					<li>
-						<a href="/2016/12/27/reduceCoupling/">
-							减少前端代码耦合
-						</a>
-					</li>
-					
-					<li>
-						<a href="/2016/12/21/codeStyle4/">
-							前端编码规范 4 —— CSS 和 SASS 规范
-						</a>
-					</li>
-					
-					<li>
-						<a href="/2016/12/21/codeStyle3/">
-							前端编码规范 3 —— JavaScript 规范
-						</a>
-					</li>
-					
-					<li>
-						<a href="/2016/12/21/codeStyle2/">
-							前端编码规范 2 —— HTML 规范
-						</a>
-					</li>
-					
-					<li>
-						<a href="/2016/12/21/codeStyle1/">
+						<a href="/2017/06/08/codeStyle1/">
 							前端编码规范 1 —— 一般规范
 						</a>
 					</li>
 					
 					<li>
-						<a href="/2016/12/16/underscore2/">
-							UnderscoreJS 常用方法
+						<a href="/2017/06/08/bem/">
+							BEM - CSS命名规则
 						</a>
 					</li>
 					
 					<li>
-						<a href="/2016/12/15/interview3/">
-							JavaScript 单线程机制面试题
+						<a href="/2017/06/08/codeStyle3/">
+							前端编码规范 3 —— JavaScript 规范
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2017/06/08/codeStyle2/">
+							前端编码规范 2 —— HTML 规范
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2017/06/08/codeStyle4/">
+							前端编码规范 4 —— CSS 和 SASS 规范
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2017/06/08/coffee/">
+							Coffeescript 学习笔记
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2017/06/08/commandLine/">
+							Mac 常用终端命令
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2017/06/08/eslint/">
+							EsLint入门
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2017/06/08/deferred/">
+							jQuery $.deferred()对象
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2017/06/08/dust/">
+							Dust 模版引擎
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2017/06/08/eventLoop/">
+							JavaScript 运行机制
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2017/06/08/express/">
+							Node.js Express 框架
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2017/06/08/fisher/">
+							Fisher–Yates shuffle 洗牌算法
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2017/06/08/google/">
+							教你使用 Google
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2017/06/08/getPost/">
+							Get 与 Post 区别
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2017/06/08/inherit/">
+							Javascript 继承：经典继承，ES5 继承，ES6 继承
 						</a>
 					</li>
 					
@@ -368,7 +369,7 @@
 				
 	
 		<h1 class="article-title" itemprop="name">
-			ES5中新增加的数组方法
+			Javascript 数组方法
 		</h1>
 	
 
@@ -380,9 +381,37 @@
 		
 		<div class="article-entry" itemprop="articleBody">
 			
-				<p>ES5（ES5 至少要在 IE9 以上才可以支持）中新定义了一些数组方法（一共有9个）来遍历，映射，过滤，检测，简化和搜索数组。这些大多数方法的第一个参数是传入一个函数，并且对每一个数组元素调用这个函数，大多数函数接受三个参数，第一个数组元素，第二个元素索引，第三个数组本身。通常只使用第一个参数，后面两个参数可选。</p>
+				<p>在 ES4 之前已经给数组定义了一些经典的方法，经典方法一共有12个。ES5 新增加了9个方法，一共21个。<br>对数组直接操作，会修改原数组有7个：reverse(), sort(), splice(), push(), pop(), unshift(), shift()。</p>
+<p>ES5（ES5 至少要在 IE9 以上才可以支持）中新定义了一些数组方法（一共有9个）来遍历，映射，过滤，检测，简化和搜索数组。这些大多数方法的第一个参数是传入一个函数，并且对每一个数组元素调用这个函数，大多数函数接受三个参数，第一个数组元素，第二个元素索引，第三个数组本身。通常只使用第一个参数，后面两个参数可选。</p>
 <a id="more"></a>
-<h3 id="1-forEach"><a href="#1-forEach" class="headerlink" title="1.forEach()"></a>1.forEach()</h3><p>forEach() 从头到位遍历数组，为每个元素调用传入的函数，不会返回一个返回值，会修改数组本身。</p>
+<h2 id="ES4-经典数组方法"><a href="#ES4-经典数组方法" class="headerlink" title="ES4 经典数组方法"></a>ES4 经典数组方法</h2><h3 id="1-join"><a href="#1-join" class="headerlink" title="1.join()"></a>1.join()</h3><p>join() 方法将数组的所有元素转化为字符串，这个方法不会改变自身数组，会返回一个新的字符串。Array.join() 方法是 String.split() 方法的逆操作。</p>
+<p>可以看下例子:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> a = [<span class="string">"A"</span>,<span class="string">"da"</span>,<span class="string">"34"</span>,<span class="string">"7"</span>];</div><div class="line"><span class="keyword">var</span> a1 = a.join(<span class="string">"-"</span>);</div><div class="line"><span class="built_in">console</span>.log(<span class="string">"join: "</span>, a);  <span class="comment">// ["A", "da", "34", "7"]</span></div><div class="line"><span class="built_in">console</span>.log(<span class="string">"join: "</span>, a1); <span class="comment">// "A-da-34-7"</span></div><div class="line"><span class="built_in">console</span>.log(<span class="string">"join: "</span>, <span class="keyword">typeof</span> a1); <span class="comment">// string</span></div></pre></td></tr></table></figure>
+<h3 id="2-reverse"><a href="#2-reverse" class="headerlink" title="2.reverse()"></a>2.reverse()</h3><p>reverse() 方法将数组的元素顺序颠倒，这个方法会将原数组覆盖。</p>
+<p>可以看下例子:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> b = [<span class="number">1</span>,<span class="number">32</span>,<span class="number">23</span>,<span class="number">56</span>,<span class="number">3</span>];</div><div class="line">b.reverse();</div><div class="line"><span class="built_in">console</span>.log(<span class="string">"reverse: "</span>, b);  <span class="comment">// [3, 56, 23, 32, 1]</span></div></pre></td></tr></table></figure>
+<h3 id="3-sort"><a href="#3-sort" class="headerlink" title="3.sort()"></a>3.sort()</h3><p>sort() 方法将数组中的元素排序，这个方法会将原数组覆盖。<br>注意到这个排序是按照字母表的顺序排序的，所以数字的排序其实不准确，应该传入参数（函数）。<br>假如我们排序时首字母大小写不要区分时，比较函数首先将参数都转化为小写 toLowerCase()。</p>
+<p>可以看下例子:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> c1 = [<span class="number">21</span>,<span class="number">324</span>,<span class="number">234</span>,<span class="number">34</span>,<span class="number">1</span>,<span class="number">96</span>];</div><div class="line"><span class="keyword">var</span> c2 = [<span class="string">"dfa"</span>,<span class="string">"saf"</span>,<span class="string">"faf"</span>,<span class="string">"rad"</span>,<span class="string">"gv"</span>];</div><div class="line"><span class="keyword">var</span> c3 = [<span class="number">21</span>,<span class="number">12</span>,<span class="number">5</span>,<span class="number">14</span>,<span class="number">1</span>,<span class="number">96</span>];</div><div class="line"><span class="keyword">var</span> c4 = [<span class="string">"ant"</span>,<span class="string">"Bug"</span>,<span class="string">"cat"</span>,<span class="string">"Dog"</span>];</div><div class="line">c1.sort(</div><div class="line">  <span class="function"><span class="keyword">function</span>(<span class="params">a,b</span>)</span>&#123;</div><div class="line">    <span class="keyword">return</span> a-b; <span class="comment">//正序排列</span></div><div class="line">  &#125;</div><div class="line">);</div><div class="line">c2.sort();</div><div class="line">c3.sort(</div><div class="line">  <span class="function"><span class="keyword">function</span>(<span class="params">a,b</span>)</span>&#123;</div><div class="line">    <span class="keyword">return</span> b-a; <span class="comment">//倒序排列</span></div><div class="line">  &#125;</div><div class="line">);</div><div class="line">c4.sort(</div><div class="line">  <span class="function"><span class="keyword">function</span>(<span class="params">a,b</span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> i = a.toLowerCase();</div><div class="line">    <span class="keyword">var</span> j = b.toLowerCase();</div><div class="line">    <span class="keyword">if</span>(i&lt;j) <span class="keyword">return</span> <span class="number">-1</span>;</div><div class="line">    <span class="keyword">if</span>(i&gt;j) <span class="keyword">return</span> <span class="number">1</span>;</div><div class="line">  &#125;</div><div class="line">)</div><div class="line"><span class="built_in">console</span>.log(<span class="string">"sort: "</span>, c1);  <span class="comment">// [1, 21, 34, 96, 234, 324]</span></div><div class="line"><span class="built_in">console</span>.log(<span class="string">"sort: "</span>, c2);  <span class="comment">// ["dfa", "faf", "gv", "rad", "saf"]</span></div><div class="line"><span class="built_in">console</span>.log(<span class="string">"sort: "</span>, c3);  <span class="comment">// [96, 21, 14, 12, 5, 1]</span></div><div class="line"><span class="built_in">console</span>.log(<span class="string">"sort: "</span>, c4);  <span class="comment">// [96, 21, 14, 12, 5, 1]</span></div></pre></td></tr></table></figure>
+<h3 id="4-concat"><a href="#4-concat" class="headerlink" title="4.concat()"></a>4.concat()</h3><p>concat() 方法将数组合并，这个方法不会改变自身数组，会返回一个新的数组。<br>如果 concat() 的参数是数组，那么连接的是数组的元素，而不是数组本身，对于多维数组，只能解析第一层。</p>
+<p>可以看下例子:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> d = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>];</div><div class="line"><span class="keyword">var</span> d1 = d.concat(<span class="number">4</span>,<span class="number">5</span>);</div><div class="line"><span class="keyword">var</span> d2 = d.concat([<span class="number">4</span>,<span class="number">5</span>]);</div><div class="line"><span class="keyword">var</span> d3 = d.concat([<span class="number">4</span>,<span class="number">5</span>],[<span class="number">6</span>,<span class="number">7</span>]);</div><div class="line"><span class="keyword">var</span> d4 = d.concat(<span class="number">4</span>,[<span class="number">5</span>,[<span class="number">6</span>,<span class="number">7</span>]]);</div><div class="line"><span class="built_in">console</span>.log(<span class="string">"concat: "</span>, d); <span class="comment">// [1, 2, 3]</span></div><div class="line"><span class="built_in">console</span>.log(<span class="string">"concat: "</span>, d1); <span class="comment">// [1, 2, 3, 4, 5]</span></div><div class="line"><span class="built_in">console</span>.log(<span class="string">"concat: "</span>, d2); <span class="comment">// [1, 2, 3, 4, 5]</span></div><div class="line"><span class="built_in">console</span>.log(<span class="string">"concat: "</span>, d3); <span class="comment">// [1, 2, 3, 4, 5, 6, 7]</span></div><div class="line"><span class="built_in">console</span>.log(<span class="string">"concat: "</span>, d4); <span class="comment">// [1, 2, 3, 4, 5, [6, 7]]</span></div></pre></td></tr></table></figure>
+<h3 id="5-slice"><a href="#5-slice" class="headerlink" title="5.slice()"></a>5.slice()</h3><p>slice() 方法返回指定数组的一个片段子数组，这个方法不会改变自身数组，会返回一个新的数组。<br>包含两个参数，第一个参数是开始，且包含，第二个是结束，不包含。</p>
+<p>可以看下例子:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> e = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>];</div><div class="line"><span class="keyword">var</span> e1 = e.slice(<span class="number">1</span>,<span class="number">3</span>);</div><div class="line"><span class="built_in">console</span>.log(<span class="string">'slice: '</span>, e);  <span class="comment">// [1, 2, 3, 4, 5]</span></div><div class="line"><span class="built_in">console</span>.log(<span class="string">'slice: '</span>, e1); <span class="comment">// [2, 3]</span></div></pre></td></tr></table></figure>
+<h3 id="6-splice"><a href="#6-splice" class="headerlink" title="6.splice()"></a>6.splice()</h3><p>splice() 方法是数组中插入或删除元素的通用方法。这个方法会将原数组覆盖。<br>splice() 第一个参数是插入或者删除的起始位置。<br>第二个参数是删除元素的个数，如果忽略了第二个参数那么从起始点到末尾的元素都会删除。<br>splice() 返回一个由删除元素组成的数组，而且原数组会变成修改后的数组。<br>这两个参数之后跟随的参数就是要插入的元素。</p>
+<p>可以看下例子:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> f1 = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>];</div><div class="line"><span class="keyword">var</span> f2 = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>];</div><div class="line"><span class="keyword">var</span> f3 = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>];</div><div class="line">f1.splice(<span class="number">4</span>);</div><div class="line">f2.splice(<span class="number">1</span>,<span class="number">2</span>);</div><div class="line">f3.splice(<span class="number">1</span>,<span class="number">0</span>,<span class="string">"a"</span>,<span class="string">"b"</span>,<span class="string">"c"</span>);</div><div class="line"><span class="built_in">console</span>.log(<span class="string">"splice: "</span>, f1);  <span class="comment">// [1, 2, 3, 4]</span></div><div class="line"><span class="built_in">console</span>.log(<span class="string">"splice: "</span>, f2);  <span class="comment">// [1, 4, 5, 6, 7, 8]</span></div><div class="line"><span class="built_in">console</span>.log(<span class="string">"splice: "</span>, f3);  <span class="comment">// [1, "a", "b", "c", 2, 3, 4, 5, 6, 7, 8]</span></div></pre></td></tr></table></figure>
+<h3 id="7-push-和-pop"><a href="#7-push-和-pop" class="headerlink" title="7.push() 和 pop()"></a>7.push() 和 pop()</h3><p>push() 和 pop()，push()在尾部添加一个或者多个元素，pop() 删除尾部最后一个元素。<br>push() 这个方法会覆盖原来的数组，并且返回新的数组的长度。<br>pop() 这个方法会覆盖原来的数组，并且返回删除的元素。</p>
+<p>可以看下例子:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> g1 = [];</div><div class="line"><span class="keyword">var</span> g2 = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">4</span>];</div><div class="line">g1.push(<span class="number">1</span>,<span class="number">3</span>,<span class="number">8</span>); <span class="comment">// [1,3,8]</span></div><div class="line">g2.pop(); <span class="comment">// [1,3]</span></div><div class="line"><span class="built_in">console</span>.log(<span class="string">"push: "</span>, g1);  <span class="comment">// [1, 3, 8]</span></div><div class="line"><span class="built_in">console</span>.log(<span class="string">"pop: "</span>, g2);  <span class="comment">// [1, 2]</span></div></pre></td></tr></table></figure>
+<h3 id="8-unshift-和-shift"><a href="#8-unshift-和-shift" class="headerlink" title="8.unshift() 和 shift()"></a>8.unshift() 和 shift()</h3><p>unshift() 和 shift()，unshift()在数组头部添加一个或者多个元素，shift() 删除头部第一个元素。<br>unshift() 和 shift() 方法会覆盖原来的数组。</p>
+<p>可以看下例子:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> h1 = [<span class="number">2</span>,<span class="number">4</span>,<span class="number">5</span>];</div><div class="line"><span class="keyword">var</span> h2 = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">4</span>];</div><div class="line">h1.unshift(<span class="number">1</span>,<span class="number">3</span>,<span class="number">8</span>); <span class="comment">// [1,3,8]</span></div><div class="line">h2.shift(); <span class="comment">// [1,3]</span></div><div class="line"><span class="built_in">console</span>.log(<span class="string">"unshift: "</span>, h1);  <span class="comment">// [1, 3, 8, 2, 4, 5]</span></div><div class="line"><span class="built_in">console</span>.log(<span class="string">"shift: "</span>, h2);  <span class="comment">// [2, 4]</span></div></pre></td></tr></table></figure>
+<h3 id="9-toString-和-toLocaleString"><a href="#9-toString-和-toLocaleString" class="headerlink" title="9.toString() 和 toLocaleString()"></a>9.toString() 和 toLocaleString()</h3><p>toString() 和 toLocaleString() 方法，这个方法不会覆盖原数组。<br>数组的这个方法是将每个元素转化为字符串，并且用“,”连接起来的字符串。<br>与不带入参数的 join() 方法是一样的。<br>toLocaleString() 是 toString() 的本地化版本，实际使用不多。</p>
+<p>可以看下例子:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> i = [<span class="number">2</span>,<span class="number">4</span>,<span class="number">5</span>];</div><div class="line"><span class="keyword">var</span> i1 = i.toString();</div><div class="line"><span class="built_in">console</span>.log(<span class="string">"toString: "</span>, i);  <span class="comment">// [2,4,5]</span></div><div class="line"><span class="built_in">console</span>.log(<span class="string">"toString: "</span>, i1);  <span class="comment">// "2,4,5"</span></div></pre></td></tr></table></figure>
+<h2 id="ES5-新增数组方法"><a href="#ES5-新增数组方法" class="headerlink" title="ES5 新增数组方法"></a>ES5 新增数组方法</h2><h3 id="1-forEach"><a href="#1-forEach" class="headerlink" title="1.forEach()"></a>1.forEach()</h3><p>forEach() 从头到位遍历数组，为每个元素调用传入的函数，不会返回一个返回值，会修改数组本身。</p>
 <p>可以看下例子:</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> data1 = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>];</div><div class="line"><span class="keyword">var</span> sum = <span class="number">0</span>;</div><div class="line"><span class="keyword">var</span> data11 = data1.forEach(<span class="function"><span class="keyword">function</span>(<span class="params">v,i,a</span>)</span>&#123;</div><div class="line">  a[i] = v+<span class="number">1</span>;</div><div class="line">&#125;);</div><div class="line"><span class="built_in">console</span>.log(<span class="string">"forEach: "</span>, data1);  <span class="comment">// [2,3,4,5,6]</span></div><div class="line"><span class="built_in">console</span>.log(<span class="string">"forEach: "</span>, data11); <span class="comment">// undefined</span></div></pre></td></tr></table></figure>
 <h3 id="2-map"><a href="#2-map" class="headerlink" title="2.map()"></a>2.map()</h3><p>map() 也是从头到尾遍历数组，为每个元素调用传入的参数，会返回一个新的数组。map() 和 forEach() 的差别是 map() 有返回指的，返回一个新的数组，不影响之前的数组。</p>
@@ -406,13 +435,13 @@
 
 				<!-- 多说评论框 start -->
 				<div class="article-comment">
-					<div class="ds-thread" data-num-items="5" data-show-avatars="1" data-show-time="1" data-show-title="1" data-show-admin="1" data-excerpt-length="50" data-thread-key="post-array" data-title="ES5中新增加的数组方法" data-url="/"></div>
+					<div class="ds-thread" data-num-items="5" data-show-avatars="1" data-show-time="1" data-show-title="1" data-show-admin="1" data-excerpt-length="50" data-thread-key="post-array" data-title="Javascript 数组方法" data-url="/"></div>
 				</div>
 				<!-- 多说评论框 end -->
 			
 		</div>
 		<footer class="article-footer">
-			<a data-url="https://utopia1991.github.io/2017/05/25/array/" data-id="cj340pwe80000i1tdqdws98sp" class="article-share-link">分享</a>
+			<a data-url="https://utopia1991.github.io/2017/05/25/array/" data-id="cj3o2kjsj00015jtdofyt9pc3" class="article-share-link">分享</a>
 			
 			
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Javascript/">Javascript</a></li></ul>
@@ -423,20 +452,15 @@
 		
 <nav id="article-nav">
   
-    <a href="/2017/05/25/arrayOld/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2017/06/08/interview1/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">上一篇</strong>
       <div class="article-nav-title">
         
-          Javascript中的经典数组方法
+          一篇不错的前端面试文章(译)
         
       </div>
     </a>
   
-  
-    <a href="/2017/05/16/baseInterviews/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">下一篇</strong>
-      <div class="article-nav-title">web 前端常见面试题</div>
-    </a>
   
 </nav>
 
