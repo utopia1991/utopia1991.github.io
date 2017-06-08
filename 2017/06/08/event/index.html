@@ -32,7 +32,7 @@
 <meta property="og:url" content="https://utopia1991.github.io/2017/06/08/event/index.html">
 <meta property="og:site_name" content="Bevis Blog - 沈浩个人博客">
 <meta property="og:description" content="客户端 js 采用了异步事件驱动编程模型，有大概5个类型的事件。事件处理需要注意以下五点：(1) 事件类型（event type）：用来说明发生什么类型事件的字符串，事件类型只是字符串，因此实际上有时会称之为事件名字(2) 事件目标（event target）：是发生的事件或与之相关的对象，window、document 和 element 都是常见的事件目标(3) 事件处理程序（event ha">
-<meta property="og:updated_time" content="2017-06-08T07:36:34.000Z">
+<meta property="og:updated_time" content="2017-06-08T07:51:08.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Javascript 事件处理">
 <meta name="twitter:description" content="客户端 js 采用了异步事件驱动编程模型，有大概5个类型的事件。事件处理需要注意以下五点：(1) 事件类型（event type）：用来说明发生什么类型事件的字符串，事件类型只是字符串，因此实际上有时会称之为事件名字(2) 事件目标（event target）：是发生的事件或与之相关的对象，window、document 和 element 都是常见的事件目标(3) 事件处理程序（event ha">
@@ -141,14 +141,14 @@
 			<ul>
 				
 					<li>
-						<a href="/2017/06/08/event/">
-							Javascript 事件处理
+						<a href="/2017/06/08/dom/">
+							Javascript DOM
 						</a>
 					</li>
 					
 					<li>
-						<a href="/2017/06/08/align/">
-							CSS未知宽高元素水平垂直居中
+						<a href="/2017/06/08/event/">
+							Javascript 事件处理
 						</a>
 					</li>
 					
@@ -383,7 +383,8 @@
 			
 				<p>客户端 js 采用了异步事件驱动编程模型，有大概5个类型的事件。<br>事件处理需要注意以下五点：<br>(1) 事件类型（event type）：用来说明发生什么类型事件的字符串，事件类型只是字符串，因此实际上有时会称之为事件名字<br>(2) 事件目标（event target）：是发生的事件或与之相关的对象，window、document 和 element 都是常见的事件目标<br>(3) 事件处理程序（event handler）：是处理或响应事件的函数<br>(4) 事件对象（event object）：是与特定事件相关且包含有关该事件详细信息的对象<br>(5) 事件传播（event propagation）：是浏览器决定哪个对象触发其事件处理程序的过程</p>
 <a id="more"></a>
-<p>我们为了测试作为的 demo：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"t1"</span>&gt;</span></div><div class="line">  you are successed</div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"t2"</span>&gt;</span></div><div class="line">  you are faild</div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"t4"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">span</span> <span class="attr">id</span>=<span class="string">"t3"</span>&gt;</span></div><div class="line">    you are good</div><div class="line">  <span class="tag">&lt;/<span class="name">span</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"t5"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"t6"</span>&gt;</span></div><div class="line">  this is a test</div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>我们为了测试作为的 demo：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"t1"</span>&gt;</span></div><div class="line">  you are successed</div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"t2"</span>&gt;</span></div><div class="line">  you are faild</div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"t4"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">span</span> <span class="attr">id</span>=<span class="string">"t3"</span>&gt;</span></div><div class="line">    you are good</div><div class="line">  <span class="tag">&lt;/<span class="name">span</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"t5"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"t6"</span>&gt;</span></div><div class="line">  this is a test</div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
 <h3 id="1-文档加载事件"><a href="#1-文档加载事件" class="headerlink" title="1.文档加载事件"></a>1.文档加载事件</h3><p>有时候需要浏览器通知文档加载完毕和操作准备就绪的事件。</p>
 <ul>
 <li>load 当文档和外部资源完全加载并显示给用户且可以操作时会触发它</li>
@@ -452,10 +453,19 @@
 		
 <nav id="article-nav">
   
+    <a href="/2017/06/08/dom/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          Javascript DOM
+        
+      </div>
+    </a>
   
-    <a href="/2017/06/08/align/" id="article-nav-older" class="article-nav-link-wrap">
+  
+    <a href="/2017/06/08/bom/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">下一篇</strong>
-      <div class="article-nav-title">CSS未知宽高元素水平垂直居中</div>
+      <div class="article-nav-title">Javascript BOM</div>
     </a>
   
 </nav>
