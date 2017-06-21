@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta property="wb:webmaster" content="65a151beb5e21880" />
+	<!-- baidu analytics-->
+	<script>
+		var _hmt = _hmt || [];
+		(function() {
+			var hm = document.createElement("script");
+			hm.src = "https://hm.baidu.com/hm.js?09df6a0c610161ab3099d8e11e9c998e";
+			var s = document.getElementsByTagName("script")[0];
+			s.parentNode.insertBefore(hm, s);
+		})();
+	</script>
+	
+	<title>Coffeescript 学习笔记 | Bevis Blog - 沈浩个人博客</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<meta name="description" content="CoffeeScript 是一门编译到 JavaScript 的小巧语言. 在 Java 般笨拙的外表下, JavaScript 其实有着一颗华丽的心脏. CoffeeScript 尝试用简洁的方式展示 JavaScript 优秀的部分.CoffeeScript 的指导原则是: “她仅仅是 JavaScript”. 代码一一对应地编译到 JS, 不会在编译过程中进行解释. 已有的 JavaScri">
+<meta name="keywords" content="Coffeescript">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Coffeescript 学习笔记">
+<meta property="og:url" content="https://utopia1991.github.io/2017/06/20/coffee/index.html">
+<meta property="og:site_name" content="Bevis Blog - 沈浩个人博客">
+<meta property="og:description" content="CoffeeScript 是一门编译到 JavaScript 的小巧语言. 在 Java 般笨拙的外表下, JavaScript 其实有着一颗华丽的心脏. CoffeeScript 尝试用简洁的方式展示 JavaScript 优秀的部分.CoffeeScript 的指导原则是: “她仅仅是 JavaScript”. 代码一一对应地编译到 JS, 不会在编译过程中进行解释. 已有的 JavaScri">
+<meta property="og:updated_time" content="2017-06-20T08:23:01.641Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Coffeescript 学习笔记">
+<meta name="twitter:description" content="CoffeeScript 是一门编译到 JavaScript 的小巧语言. 在 Java 般笨拙的外表下, JavaScript 其实有着一颗华丽的心脏. CoffeeScript 尝试用简洁的方式展示 JavaScript 优秀的部分.CoffeeScript 的指导原则是: “她仅仅是 JavaScript”. 代码一一对应地编译到 JS, 不会在编译过程中进行解释. 已有的 JavaScri">
+	
+	
+		<link rel="icon" href="https://utopia1991.github.io/css/images/icon.png">
+	
+	
+		<link href="https://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+	
+	<link rel="stylesheet" href="/css/style.css">
+	
+
+	<script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+</head>
+
+<body>
+	<a href="https://github.com/utopia1991" target="_blank" class="githubFork">
+		<img src="https://camo.githubusercontent.com/e7bbb0521b397edbd5fe43e7f760759336b5e05f/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677265656e5f3030373230302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_green_007200.png">
+	</a>
+	<a class="backTop" onclick="backTop()">Top</a>
+	<div id="container">
+		<div id="wrap">
+			<header id="header">
+	<div id="header-outer" class="outer">
+		<div id="header-title" class="inner">
+			<h1 id="logo-wrap">
+				<a href="/" id="logo">
+					<span class="brand-logo">Bevis</span>
+					Blog
+				</a>
+			</h1>
+		</div>
+		<div id="header-inner" class="inner">
+			<nav id="main-nav">
+				<a id="main-nav-toggle" class="nav-icon"></a>
+				
+					<a class="main-nav-link" href="/">主页</a>
+				
+					<a class="main-nav-link" href="/archives">博文</a>
+				
+				<a class="main-nav-link" href="https://utopia1991.github.io/p/about/index.html">关于我</a>
+			</nav>
+		</div>
+	</div>
+</header>
+
+			<canvas width="100%" height="100%" id="canvas"></canvas>
+			<div class="outer">
+				
+				<aside id="sidebar">
+	<div class="aside-author">
+		<a class="aside-logo" href="https://utopia1991.github.io/p/lover/index.html" target="_blank"></a>
+		<p class="aside-title">Bevis Shen（沈浩）</p>
+		<p class="aside-subtitle">Node.js & Front-End Engineer</p>
+		<p class="aside-description">Google 重度粉，Mac 拥趸，前端 + Node 青年，对前沿技术有着狂热的激情，梦想环游世界，热爱生活、摄影、旅游、电影的文艺程序猿一枚</p>
+		<div class="aside-communicate">
+			<a href="https://github.com/utopia1991" target="_blank" class="article-share-github" title="github"></a>
+			<a href="https://www.linkedin.com/in/bevis1991" target="_blank" class="article-share-linkedin" title="linkedin"></a>
+			<a href="mailto:1304354608@qq.com" class="article-share-mail" title="email"></a>
+			<a href="https://weibo.com/u/2619492527/home" target="_blank" class="article-share-weibo" title="weibo"></a>
+			<a class="article-share-weixin" title="我的个人微信公众号"></a>
+			<img src="https://utopia1991.github.io/css/images/wechat.png" width="180" height="180" class="wechat-pic">
+			<a href="https://bevis1991.wordpress.com/" target="_blank" class="article-share-wordpress" title="WordPress 博客"></a>
+			<a href="https://www.facebook.com/bevis1991" target="_blank" class="article-share-facebook" title="facebook"></a>
+			<a href="https://twitter.com/bevis_shen" target="_blank" class="article-share-twitter" title="twitter"></a>
+		</div>
+	</div>
+	
+		
+
+	
+		
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/">CSS</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Code-Style/">Code Style</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Coffeescript/">Coffeescript</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Google/">Google</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Gulp/">Gulp</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML/">HTML</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTTP/">HTTP</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Interview-Questions/">Interview-Questions</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Javascript/">Javascript</a><span class="tag-list-count">17</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mac/">Mac</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/">Markdown</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MongoDB/">MongoDB</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UnderscoreJS/">UnderscoreJS</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery/">jQuery</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nodeJs/">nodeJs</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+	
+		
+  <div class="widget-wrap">
+    <h3 class="widget-title">Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/CSS/" style="font-size: 13.33px;">CSS</a> <a href="/tags/Code-Style/" style="font-size: 16.67px;">Code Style</a> <a href="/tags/Coffeescript/" style="font-size: 10px;">Coffeescript</a> <a href="/tags/Google/" style="font-size: 10px;">Google</a> <a href="/tags/Gulp/" style="font-size: 10px;">Gulp</a> <a href="/tags/HTML/" style="font-size: 10px;">HTML</a> <a href="/tags/HTTP/" style="font-size: 10px;">HTTP</a> <a href="/tags/Interview-Questions/" style="font-size: 16.67px;">Interview-Questions</a> <a href="/tags/Javascript/" style="font-size: 20px;">Javascript</a> <a href="/tags/Mac/" style="font-size: 13.33px;">Mac</a> <a href="/tags/Markdown/" style="font-size: 10px;">Markdown</a> <a href="/tags/MongoDB/" style="font-size: 13.33px;">MongoDB</a> <a href="/tags/UnderscoreJS/" style="font-size: 13.33px;">UnderscoreJS</a> <a href="/tags/jQuery/" style="font-size: 13.33px;">jQuery</a> <a href="/tags/nodeJs/" style="font-size: 10px;">nodeJs</a>
+    </div>
+  </div>
+
+	
+		
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">六月 2017</a><span class="archive-list-count">43</span></li></ul>
+    </div>
+  </div>
+
+
+	
+		
+	<div class="widget-wrap">
+		<h3 class="widget-title">最新文章</h3>
+		<div class="widget">
+			<ul>
+				
+					<li>
+						<a href="/2017/06/20/vue/">
+							Vue 基础学习笔记
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2017/06/20/underscore2/">
+							UnderscoreJS 常用方法
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2017/06/20/vide/">
+							Vide 视频背景jQuery插件
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2017/06/20/underscore1/">
+							UnderscoreJS 使用介绍
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2017/06/20/superAgent/">
+							SuperAgent 中文使用文档
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2017/06/20/string/">
+							Javascript 字符串
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2017/06/20/source/">
+							超全 web 开发工具和资源
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2017/06/20/reduceCoupling/">
+							减少前端代码耦合
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2017/06/20/object/">
+							Javascript 对象
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2017/06/20/nodemailer/">
+							使用 nodeJs 发送邮件
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2017/06/20/mongoose/">
+							Mongoose 基本介绍
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2017/06/20/mongodb/">
+							MongoDB 操作基础语法（shell）
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2017/06/20/markdown/">
+							Markdown 编辑器语法指南
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2017/06/20/macIcon/">
+							Mac 更改 OS X 应用程序的图标
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2017/06/20/learnSource/">
+							做为优秀前端的必备学习资料
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2017/06/20/jsBug/">
+							Javascript 设计缺陷
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2017/06/20/interview3/">
+							JavaScript 单线程机制面试题
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2017/06/20/interview2/">
+							20个JS变态面试题解析
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2017/06/20/interview1/">
+							一篇不错的前端面试文章(译)
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2017/06/20/inherit/">
+							Javascript 继承：经典继承，ES5 继承，ES6 继承
+						</a>
+					</li>
+					
+				......
+			</ul>
+		</div>
+	</div>
+	
+
+	
+</aside>
+
+				
+				<section id="main">
+					<div class="main-header">
+						<p class="header-title">Any application that can be written in JavaScript, will eventually be written in JavaScript.</p>
+						<canvas id="bubbleCanvas" width="100%" height="300" style="margin-top:50px;"></canvas>
+						<script>
+							(function(){
+								var width, height, canvas, ctx, circles;
+								function initHeader() {
+									try{
+										canvas = document.getElementById('bubbleCanvas');
+										if($("#bubbleCanvas").length>0){
+											width = window.innerWidth*0.25>300?window.innerWidth*0.25:300;
+											//height = window.innerHeight;
+											height = 255;
+											canvas.width = width;
+											canvas.height = height;
+											ctx = canvas.getContext('2d');
+											circles = [];
+											for(var x = 0; x < width*0.5; x++) {
+												var c = new Circle();
+												circles.push(c);
+											}
+											animate();
+										}
+									} catch(ex) {
+										if(window.cosole&&window.cosole.log){cosole.log(ex)}
+									}
+								}
+								function addListeners() {
+									try{
+										if($("#bubbleCanvas").length>0){
+											window.addEventListener('resize', resize);
+										}
+									}catch(ex){if(window.cosole&&window.cosole.log){cosole.log(ex)}}
+								}
+								function resize() {
+									width = window.innerWidth*0.25>300?window.innerWidth*0.25:300;
+									height = window.innerHeight;
+									canvas.width = width;
+									canvas.height = height;
+								}
+								function animate() {
+									ctx.clearRect(0,0,width,height);
+									for(var i in circles) {
+										circles[i].draw();
+									}
+									window.requestAFrame = (function () {
+										return window.requestAnimationFrame||window.webkitRequestAnimationFrame||window.mozRequestAnimationFrame||window.oRequestAnimationFrame||window.msRequestAnimationFrame||
+											function (callback) {
+												return window.setTimeout(callback, 1000 / 60); // shoot for 60 fps
+											};
+									})();
+									requestAFrame(animate);
+								}
+								// Canvas manipulation
+								function Circle() {
+									var _this = this;
+									// constructor
+									(function() {
+										_this.pos = {};
+										init();
+									})();
+
+									function init() {
+										_this.pos.x = Math.random()*width;
+										_this.pos.y = height+Math.random()*100;
+										_this.alpha = 0.1+Math.random()*0.3;
+										_this.scale = 0.1+Math.random()*0.3;
+										_this.velocity = Math.random();
+									}
+
+									this.draw = function() {
+										if(_this.alpha <= 0) {
+											init();
+										}
+										_this.pos.y -= _this.velocity;
+										_this.alpha -= 0.0005;
+										ctx.beginPath();
+										ctx.arc(_this.pos.x, _this.pos.y, _this.scale*10, 0, 2 * Math.PI, false);
+										ctx.fillStyle = 'rgba(255,255,255,'+ _this.alpha+')';
+										ctx.fill();
+									};
+								}
+								initHeader();
+								addListeners();
+							}());
+						</script>
+					</div>
+					<article id="post-coffee" class="article article-type-post" itemscope itemprop="blogPost">
+	<div class="article-meta">
+		
+	</div>
+	<div class="article-inner">
+		
+		
+			<header class="article-header">
+				
+	
+		<h1 class="article-title" itemprop="name">
+			Coffeescript 学习笔记
+		</h1>
+	
+
+
+				<a href="/2017/06/20/coffee/" class="article-date">
+  <time datetime="2017-06-20T08:23:01.641Z" itemprop="datePublished">2017-06-20</time>
+</a>
+			</header>
+		
+		<div class="article-entry" itemprop="articleBody">
+			
+				<p>CoffeeScript 是一门编译到 JavaScript 的小巧语言. 在 Java 般笨拙的外表下, JavaScript 其实有着一颗华丽的心脏. CoffeeScript 尝试用简洁的方式展示 JavaScript 优秀的部分.<br>CoffeeScript 的指导原则是: “她仅仅是 JavaScript”. 代码一一对应地编译到 JS, 不会在编译过程中进行解释. 已有的 JavaScript 类库可以无缝地和 CoffeeScript 搭配使用, 反之亦然. 编译后的代码是可读的, 且经过美化, 能在所有 JavaScript 环境中运行, 并且应该和对应手写的 JavaScript 一样快或者更快.<br><a id="more"></a></p>
+<h2 id="1-coffee注释："><a href="#1-coffee注释：" class="headerlink" title="1.coffee注释："></a>1.coffee注释：</h2><p>注释是用 ‘ # ‘ 来标记的。coffee不需要 ‘ ; ‘ 作为结束标签。有时候你想把整块的注释传给生成的 JavaScript. 使用“###”比如在文件顶部嵌入协议. 块级的注释, 仿照了块级字符串的语法, 将会在生成的代码当中保留.</p>
+<p>js:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">/*</div><div class="line">SkinnyMochaHalfCaffScript Compiler v1.0</div><div class="line">Released under the MIT License</div><div class="line">*/</div></pre></td></tr></table></figure></p>
+<p>coffee:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># SkinnyMochaHalfCaffScript Compiler v1.0</span></div><div class="line"><span class="comment"># Released under the MIT License</span></div></pre></td></tr></table></figure></p>
+<h2 id="2-创建对象："><a href="#2-创建对象：" class="headerlink" title="2.创建对象："></a>2.创建对象：</h2><p>js：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">obj = &#123;</div><div class="line">  Name: <span class="string">"Bevis"</span>,</div><div class="line">  Sex: <span class="string">"male"</span></div><div class="line">&#125;</div><div class="line">e = obj.Name</div></pre></td></tr></table></figure></p>
+<p>coffee：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">obj =</div><div class="line">  Name: <span class="string">"Bevis"</span></div><div class="line">  Sex: <span class="string">"male"</span></div><div class="line">e = obj.Name</div></pre></td></tr></table></figure></p>
+<h2 id="3-创建数组"><a href="#3-创建数组" class="headerlink" title="3.创建数组"></a>3.创建数组</h2><p>js：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">arr = [</div><div class="line">  3,45,457,3242</div><div class="line">]</div></pre></td></tr></table></figure></p>
+<p>coffee：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">arr =［</div><div class="line">  3,45,457,3242</div><div class="line">］</div></pre></td></tr></table></figure></p>
+<h2 id="4-创建嵌套对象（对象的’-’是去掉不写）"><a href="#4-创建嵌套对象（对象的’-’是去掉不写）" class="headerlink" title="4.创建嵌套对象（对象的’{}’是去掉不写）"></a>4.创建嵌套对象（对象的’{}’是去掉不写）</h2><p>coffee：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">school =</div><div class="line">  teacher:</div><div class="line">  name:<span class="string">'utopia'</span></div><div class="line">  sex:<span class="string">'male'</span></div><div class="line">  student:</div><div class="line">  name:<span class="string">'bevis'</span></div><div class="line">  sex:<span class="string">'male'</span></div><div class="line">a = school.teacher.name</div></pre></td></tr></table></figure></p>
+<h2 id="5-coffee可以与jquery结合（jquery的dom查询的方法和jquery原先一样）"><a href="#5-coffee可以与jquery结合（jquery的dom查询的方法和jquery原先一样）" class="headerlink" title="5.coffee可以与jquery结合（jquery的dom查询的方法和jquery原先一样）"></a>5.coffee可以与jquery结合（jquery的dom查询的方法和jquery原先一样）</h2><p>coffee：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">$ <span class="string">'.demo1'</span>.addClass <span class="string">'demo2'</span></div><div class="line">$ <span class="string">'body'</span>.click (e) -&gt;</div><div class="line">  $ <span class="string">'.box'</span></div><div class="line">    .fadeIn <span class="string">'fast'</span></div><div class="line">    .addClass <span class="string">'.active'</span></div><div class="line">  .css <span class="string">'background'</span>, <span class="string">'white'</span></div></pre></td></tr></table></figure></p>
+<h2 id="6-if-else语句"><a href="#6-if-else语句" class="headerlink" title="6.if else语句"></a>6.if else语句</h2><h3 id="第1种方式：then后参数是为true，else后参数是false"><a href="#第1种方式：then后参数是为true，else后参数是false" class="headerlink" title="第1种方式：then后参数是为true，else后参数是false"></a>第1种方式：then后参数是为true，else后参数是false</h3><p>coffee：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">singing = <span class="literal">true</span></div><div class="line">mood = <span class="keyword">if</span> singing <span class="keyword">then</span> <span class="string">'happy'</span> <span class="keyword">else</span> <span class="string">'sad'</span></div></pre></td></tr></table></figure></p>
+<h3 id="第2种方式-就是原始的if-else，但是不用’-’"><a href="#第2种方式-就是原始的if-else，但是不用’-’" class="headerlink" title="第2种方式,就是原始的if else，但是不用’{}’"></a>第2种方式,就是原始的if else，但是不用’{}’</h3><p>coffee：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">high = <span class="literal">true</span></div><div class="line"><span class="keyword">if</span> high</div><div class="line">  ...</div><div class="line"><span class="keyword">else</span></div><div class="line">  ...</div></pre></td></tr></table></figure></p>
+<p>也可以把条件里面的运行函数单独写成方法</p>
+<p>coffee：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">one = -&gt;</div><div class="line">  console.log 1</div><div class="line">two = -&gt;</div><div class="line">  console.log 2</div><div class="line"><span class="keyword">if</span> high</div><div class="line">  one()</div><div class="line"><span class="keyword">else</span></div><div class="line">  two()</div></pre></td></tr></table></figure></p>
+<h2 id="7-变参-splats-…"><a href="#7-变参-splats-…" class="headerlink" title="7.变参(splats)…"></a>7.变参(splats)…</h2><p>coffee：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">gold = silver = rest = <span class="string">"unknown"</span></div><div class="line">awardMedals = (first, second, others) -&gt;</div><div class="line">  gold = first</div><div class="line">  silver = second</div><div class="line">  rest = others</div><div class="line">contenders = [</div><div class="line">  <span class="string">"Michael Phelps"</span></div><div class="line">  <span class="string">"Liu Xiang"</span></div><div class="line">  <span class="string">"Yao Ming"</span></div><div class="line">]</div><div class="line">awardMedals contenders...</div><div class="line">console.log gold</div><div class="line">console.log silver</div><div class="line">console.log rest</div></pre></td></tr></table></figure></p>
+<h2 id="8-循环"><a href="#8-循环" class="headerlink" title="8.循环"></a>8.循环</h2><p>coffee：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">foods = [<span class="string">'toast'</span>,<span class="string">'cheese'</span>,<span class="string">'wine'</span>]</div><div class="line">an = (food <span class="keyword">for</span> food <span class="keyword">in</span> foods)</div><div class="line">console.log an</div><div class="line">student = &#123;</div><div class="line">  excellentWork:<span class="literal">false</span></div><div class="line">  okayStuff:<span class="literal">true</span></div><div class="line">  triedHard:<span class="literal">false</span></div><div class="line">&#125;</div><div class="line">grade = (a) -&gt;  <span class="comment">#function = (x) -&gt; x为代入的参数</span></div><div class="line"><span class="keyword">if</span> a.excellentWork</div><div class="line">  <span class="string">"A+"</span></div><div class="line"><span class="keyword">else</span> <span class="keyword">if</span> a.okayStuff</div><div class="line">  <span class="keyword">if</span> a.triedHard <span class="keyword">then</span> <span class="string">"B"</span> <span class="keyword">else</span> <span class="string">"B-"</span></div><div class="line"><span class="keyword">else</span></div><div class="line">  <span class="string">"C"</span></div><div class="line">console.log grade(student)</div></pre></td></tr></table></figure></p>
+<h2 id="9-操作符"><a href="#9-操作符" class="headerlink" title="9.操作符"></a>9.操作符</h2><ul>
+<li>CoffeeScript 会把 == 编译为 ===, 把 != 变异为 !==. 此外, is 编译我 ===, 而 isn’t 编译为 !==</li>
+<li>not 可以作为 ! 使用.</li>
+<li>逻辑操作方面, and 编译为 &amp;&amp;, 而 or 编译为 ||</li>
+<li>在 while, if/else, switch/when 的语句当中, then 可以被用来分隔判断条件跟表达式, 这样就不用强制写换行或者分号了</li>
+<li>unless 可以认为是 if 相反的版本.</li>
+<li>this.property 简短的写法可以用 @property</li>
+</ul>
+<p>js：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> (ignition === <span class="literal">true</span>) &#123;</div><div class="line">  launch();</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>coffee：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">launch() <span class="keyword">if</span> ignition ison</div></pre></td></tr></table></figure></p>
+<p>js：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> (band !== SpinalTap) &#123;</div><div class="line">  volume = 10;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>coffee：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">volume = 10if band isnt SpinalTap</div></pre></td></tr></table></figure></p>
+<p>js：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> (answer !== <span class="literal">false</span>) &#123;</div><div class="line">  letTheWildRumpusBegin();</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>coffee：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">letTheWildRumpusBegin() unless answer isno</div></pre></td></tr></table></figure></p>
+<p>js：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> (car.speed &lt; <span class="built_in">limit</span>) &#123;</div><div class="line">  accelerate();</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>coffee：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> car.speed &lt; <span class="built_in">limit</span> <span class="keyword">then</span> accelerate()</div></pre></td></tr></table></figure></p>
+<p>ps：这个使用then因为前面的是一个表达式，加入前面只是一个正确判断则不要写then，加入为表达式防止表达式混淆，用then</p>
+<p>js：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> (pick === 47 || pick === 92 || pick === 13) &#123;</div><div class="line">  winner = <span class="literal">true</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>coffee：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">winner = yes <span class="keyword">if</span> pick <span class="keyword">in</span> [47, 92, 13]</div></pre></td></tr></table></figure></p>
+<p>ps：if pick in [47, 92, 13]这里 in 的意思是是否包含里面元素中的一个</p>
+<p>extends 操作符可以用来恰当地定义任何一对构造函数的原型链; 用 :: 可以快速访问对象的原型; super() 可以编译为一个父类上同名方法的调用.</p>
+<p>js：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">String.prototype.dasherize = <span class="function"><span class="title">function</span></span>() &#123;</div><div class="line">  returnthis.replace(/_/g, <span class="string">"-"</span>);</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
+<p>coffee：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">String::dasherize = -&gt;this.replace /_/g, <span class="string">"-"</span></div></pre></td></tr></table></figure></p>
+<p>##10.解构赋值</p>
+<p>CoffeeScript 实现 ECMAScript Harmony 的提议 解构赋值 语法, 这样从复杂的数组和对象展开数据会更方便一些. 当你把数组或者对象的字面量赋值到一个变量时, CoffeeScript 把等式两边都解开配对, 把右边的值赋值给左边的变量. 最简单的例子, 可以用来并行赋值:</p>
+<p>js：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var theBait, theSwitch, _ref;</div><div class="line">theBait = 1000;</div><div class="line">theSwitch = 0;</div><div class="line">_ref = [theSwitch, theBait], theBait = _ref[0], theSwitch = _ref[1];</div></pre></td></tr></table></figure></p>
+<p>coffee：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">theBait   = 1000</div><div class="line">theSwitch = 0</div><div class="line">[theBait, theSwitch] = [theSwitch, theBait]</div></pre></td></tr></table></figure></p>
+<p>这样theBait的值就为0，theSwitch的值为1000了，就是一一对应的关系</p>
+<p>##11.Switch语句</p>
+<p>js：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">switch (day) &#123;</div><div class="line">  <span class="keyword">case</span><span class="string">"Mon"</span>:</div><div class="line">    go(work);</div><div class="line">    <span class="built_in">break</span>;</div><div class="line">  <span class="keyword">case</span><span class="string">"Tue"</span>:</div><div class="line">    go(relax);</div><div class="line">    <span class="built_in">break</span>;</div><div class="line">  <span class="keyword">case</span><span class="string">"Thu"</span>:</div><div class="line">    go(iceFishing);</div><div class="line">    <span class="built_in">break</span>;</div><div class="line">  <span class="keyword">case</span><span class="string">"Fri"</span>:</div><div class="line">  <span class="keyword">case</span><span class="string">"Sat"</span>:</div><div class="line">    <span class="keyword">if</span> (day === bingoDay) &#123;</div><div class="line">      go(bingo);</div><div class="line">      go(dancing);</div><div class="line">    &#125;</div><div class="line">    <span class="built_in">break</span>;</div><div class="line">  <span class="keyword">case</span><span class="string">"Sun"</span>:</div><div class="line">    go(church);</div><div class="line">    <span class="built_in">break</span>;</div><div class="line">  default:</div><div class="line">    go(work);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>CoffeeScript 支持多行字符串. 行与行会用一个空格拼接, 除非结尾用了反斜杠. 其中缩进会被忽略.</p>
+<p>coffee：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">switch day</div><div class="line">when<span class="string">"Mon"</span><span class="keyword">then</span> go work</div><div class="line">  when<span class="string">"Tue"</span><span class="keyword">then</span> go relax</div><div class="line">  when<span class="string">"Thu"</span><span class="keyword">then</span> go iceFishing</div><div class="line">  when<span class="string">"Fri"</span>, <span class="string">"Sat"</span><span class="keyword">if</span> day is bingoDay</div><div class="line">    go bingo</div><div class="line">    go dancing</div><div class="line">  when<span class="string">"Sun"</span><span class="keyword">then</span> go church</div><div class="line">  <span class="keyword">else</span> go work</div></pre></td></tr></table></figure></p>
+<p>coffee中switch语句的写法是when … then …，最后一个default用else来替代</p>
+
+				<!-- 多说评论框 start -->
+				<div class="article-comment">
+					<div class="ds-thread" data-num-items="5" data-show-avatars="1" data-show-time="1" data-show-title="1" data-show-admin="1" data-excerpt-length="50" data-thread-key="post-coffee" data-title="Coffeescript 学习笔记" data-url="/"></div>
+				</div>
+				<!-- 多说评论框 end -->
+			
+		</div>
+		<footer class="article-footer">
+			<a data-url="https://utopia1991.github.io/2017/06/20/coffee/" data-id="cj46ctk09000cdcr0v0n8b469" class="article-share-link">分享</a>
+			
+			
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Coffeescript/">Coffeescript</a></li></ul>
+
+		</footer>
+	</div>
+	
+		
+<nav id="article-nav">
+  
+    <a href="/2017/06/20/commandLine/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          Mac 常用终端命令
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/06/20/codeStyle4/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">前端编码规范 4 —— CSS 和 SASS 规范</div>
+    </a>
+  
+</nav>
+
+	
+</article>
+
+
+
+				</section>
+			</div>
+			<footer id="footer">
+	
+	<div class="outer">
+		<div id="footer-info">
+			Copyright &copy; Bevis Shen 2017<br>
+			Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+		</div>
+	</div>
+</footer>
+
+		</div>
+		<nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">主页</a>
+  
+    <a href="/archives" class="mobile-nav-link">博文</a>
+  
+</nav>
+		
+
+<script src="https://cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+	</div>
+</body>
+<script>
+	function backTop(){
+		document.documentElement.scrollTop = document.body.scrollTop = 0;
+	}
+
+	var c = document.getElementsByTagName('canvas')[0],
+		x = c.getContext('2d'),
+		pr = window.devicePixelRatio || 1,
+		w = window.innerWidth,
+		h = window.innerHeight,
+		f = 90,
+		q,
+		m = Math,
+		r = 0,
+		u = m.PI * 2,
+		v = m.cos,
+		z = m.random
+	c.width = w * pr
+	c.height = h * pr
+	x.scale(pr, pr)
+	x.globalAlpha = 0.6
+
+	function i() {
+		x.clearRect(0, 0, w, h)
+		q = [{
+			x: 0,
+			y: h * .7 + f
+		}, {
+			x: 0,
+			y: h * .7 - f
+		}]
+		while (q[1].x < w + f) d(q[0], q[1])
+	}
+
+	function d(i, j) {
+		x.beginPath()
+		x.moveTo(i.x, i.y)
+		x.lineTo(j.x, j.y)
+		var k = j.x + (z() * 2 - 0.25) * f,
+			n = y(j.y)
+		x.lineTo(k, n)
+		x.closePath()
+		r -= u / -50
+		x.fillStyle = '#' + (v(r) * 127 + 128 << 16 | v(r + u / 3) * 127 + 128 << 8 | v(r + u / 3 * 2) * 127 + 128).toString(16)
+		x.fill()
+		q[0] = q[1]
+		q[1] = {
+			x: k,
+			y: n
+		}
+	}
+
+	function y(p) {
+		var t = p + (z() * 2 - 1.1) * f
+		return (t > h || t < 0) ? y(p) : t
+	}
+	document.onclick = i
+	document.ontouchstart = i
+	i()
+</script>
+</html>

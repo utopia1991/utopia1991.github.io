@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta property="wb:webmaster" content="65a151beb5e21880" />
+	<!-- baidu analytics-->
+	<script>
+		var _hmt = _hmt || [];
+		(function() {
+			var hm = document.createElement("script");
+			hm.src = "https://hm.baidu.com/hm.js?09df6a0c610161ab3099d8e11e9c998e";
+			var s = document.getElementsByTagName("script")[0];
+			s.parentNode.insertBefore(hm, s);
+		})();
+	</script>
+	
+	<title>Javascript DOM | Bevis Blog - 沈浩个人博客</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<meta name="description" content="Javascript 中的文档对象模型。">
+<meta name="keywords" content="Javascript">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Javascript DOM">
+<meta property="og:url" content="https://utopia1991.github.io/2017/06/20/dom/index.html">
+<meta property="og:site_name" content="Bevis Blog - 沈浩个人博客">
+<meta property="og:description" content="Javascript 中的文档对象模型。">
+<meta property="og:updated_time" content="2017-06-20T08:23:01.643Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Javascript DOM">
+<meta name="twitter:description" content="Javascript 中的文档对象模型。">
+	
+	
+		<link rel="icon" href="https://utopia1991.github.io/css/images/icon.png">
+	
+	
+		<link href="https://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+	
+	<link rel="stylesheet" href="/css/style.css">
+	
+
+	<script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+</head>
+
+<body>
+	<a href="https://github.com/utopia1991" target="_blank" class="githubFork">
+		<img src="https://camo.githubusercontent.com/e7bbb0521b397edbd5fe43e7f760759336b5e05f/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677265656e5f3030373230302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_green_007200.png">
+	</a>
+	<a class="backTop" onclick="backTop()">Top</a>
+	<div id="container">
+		<div id="wrap">
+			<header id="header">
+	<div id="header-outer" class="outer">
+		<div id="header-title" class="inner">
+			<h1 id="logo-wrap">
+				<a href="/" id="logo">
+					<span class="brand-logo">Bevis</span>
+					Blog
+				</a>
+			</h1>
+		</div>
+		<div id="header-inner" class="inner">
+			<nav id="main-nav">
+				<a id="main-nav-toggle" class="nav-icon"></a>
+				
+					<a class="main-nav-link" href="/">主页</a>
+				
+					<a class="main-nav-link" href="/archives">博文</a>
+				
+				<a class="main-nav-link" href="https://utopia1991.github.io/p/about/index.html">关于我</a>
+			</nav>
+		</div>
+	</div>
+</header>
+
+			<canvas width="100%" height="100%" id="canvas"></canvas>
+			<div class="outer">
+				
+				<aside id="sidebar">
+	<div class="aside-author">
+		<a class="aside-logo" href="https://utopia1991.github.io/p/lover/index.html" target="_blank"></a>
+		<p class="aside-title">Bevis Shen（沈浩）</p>
+		<p class="aside-subtitle">Node.js & Front-End Engineer</p>
+		<p class="aside-description">Google 重度粉，Mac 拥趸，前端 + Node 青年，对前沿技术有着狂热的激情，梦想环游世界，热爱生活、摄影、旅游、电影的文艺程序猿一枚</p>
+		<div class="aside-communicate">
+			<a href="https://github.com/utopia1991" target="_blank" class="article-share-github" title="github"></a>
+			<a href="https://www.linkedin.com/in/bevis1991" target="_blank" class="article-share-linkedin" title="linkedin"></a>
+			<a href="mailto:1304354608@qq.com" class="article-share-mail" title="email"></a>
+			<a href="https://weibo.com/u/2619492527/home" target="_blank" class="article-share-weibo" title="weibo"></a>
+			<a class="article-share-weixin" title="我的个人微信公众号"></a>
+			<img src="https://utopia1991.github.io/css/images/wechat.png" width="180" height="180" class="wechat-pic">
+			<a href="https://bevis1991.wordpress.com/" target="_blank" class="article-share-wordpress" title="WordPress 博客"></a>
+			<a href="https://www.facebook.com/bevis1991" target="_blank" class="article-share-facebook" title="facebook"></a>
+			<a href="https://twitter.com/bevis_shen" target="_blank" class="article-share-twitter" title="twitter"></a>
+		</div>
+	</div>
+	
+		
+
+	
+		
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/">CSS</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Code-Style/">Code Style</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Coffeescript/">Coffeescript</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Google/">Google</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Gulp/">Gulp</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML/">HTML</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTTP/">HTTP</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Interview-Questions/">Interview-Questions</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Javascript/">Javascript</a><span class="tag-list-count">17</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mac/">Mac</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/">Markdown</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MongoDB/">MongoDB</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UnderscoreJS/">UnderscoreJS</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery/">jQuery</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nodeJs/">nodeJs</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+	
+		
+  <div class="widget-wrap">
+    <h3 class="widget-title">Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/CSS/" style="font-size: 13.33px;">CSS</a> <a href="/tags/Code-Style/" style="font-size: 16.67px;">Code Style</a> <a href="/tags/Coffeescript/" style="font-size: 10px;">Coffeescript</a> <a href="/tags/Google/" style="font-size: 10px;">Google</a> <a href="/tags/Gulp/" style="font-size: 10px;">Gulp</a> <a href="/tags/HTML/" style="font-size: 10px;">HTML</a> <a href="/tags/HTTP/" style="font-size: 10px;">HTTP</a> <a href="/tags/Interview-Questions/" style="font-size: 16.67px;">Interview-Questions</a> <a href="/tags/Javascript/" style="font-size: 20px;">Javascript</a> <a href="/tags/Mac/" style="font-size: 13.33px;">Mac</a> <a href="/tags/Markdown/" style="font-size: 10px;">Markdown</a> <a href="/tags/MongoDB/" style="font-size: 13.33px;">MongoDB</a> <a href="/tags/UnderscoreJS/" style="font-size: 13.33px;">UnderscoreJS</a> <a href="/tags/jQuery/" style="font-size: 13.33px;">jQuery</a> <a href="/tags/nodeJs/" style="font-size: 10px;">nodeJs</a>
+    </div>
+  </div>
+
+	
+		
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">六月 2017</a><span class="archive-list-count">43</span></li></ul>
+    </div>
+  </div>
+
+
+	
+		
+	<div class="widget-wrap">
+		<h3 class="widget-title">最新文章</h3>
+		<div class="widget">
+			<ul>
+				
+					<li>
+						<a href="/2017/06/20/vue/">
+							Vue 基础学习笔记
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2017/06/20/underscore2/">
+							UnderscoreJS 常用方法
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2017/06/20/vide/">
+							Vide 视频背景jQuery插件
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2017/06/20/underscore1/">
+							UnderscoreJS 使用介绍
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2017/06/20/superAgent/">
+							SuperAgent 中文使用文档
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2017/06/20/string/">
+							Javascript 字符串
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2017/06/20/source/">
+							超全 web 开发工具和资源
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2017/06/20/reduceCoupling/">
+							减少前端代码耦合
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2017/06/20/object/">
+							Javascript 对象
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2017/06/20/nodemailer/">
+							使用 nodeJs 发送邮件
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2017/06/20/mongoose/">
+							Mongoose 基本介绍
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2017/06/20/mongodb/">
+							MongoDB 操作基础语法（shell）
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2017/06/20/markdown/">
+							Markdown 编辑器语法指南
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2017/06/20/macIcon/">
+							Mac 更改 OS X 应用程序的图标
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2017/06/20/learnSource/">
+							做为优秀前端的必备学习资料
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2017/06/20/jsBug/">
+							Javascript 设计缺陷
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2017/06/20/interview3/">
+							JavaScript 单线程机制面试题
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2017/06/20/interview2/">
+							20个JS变态面试题解析
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2017/06/20/interview1/">
+							一篇不错的前端面试文章(译)
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2017/06/20/inherit/">
+							Javascript 继承：经典继承，ES5 继承，ES6 继承
+						</a>
+					</li>
+					
+				......
+			</ul>
+		</div>
+	</div>
+	
+
+	
+</aside>
+
+				
+				<section id="main">
+					<div class="main-header">
+						<p class="header-title">Any application that can be written in JavaScript, will eventually be written in JavaScript.</p>
+						<canvas id="bubbleCanvas" width="100%" height="300" style="margin-top:50px;"></canvas>
+						<script>
+							(function(){
+								var width, height, canvas, ctx, circles;
+								function initHeader() {
+									try{
+										canvas = document.getElementById('bubbleCanvas');
+										if($("#bubbleCanvas").length>0){
+											width = window.innerWidth*0.25>300?window.innerWidth*0.25:300;
+											//height = window.innerHeight;
+											height = 255;
+											canvas.width = width;
+											canvas.height = height;
+											ctx = canvas.getContext('2d');
+											circles = [];
+											for(var x = 0; x < width*0.5; x++) {
+												var c = new Circle();
+												circles.push(c);
+											}
+											animate();
+										}
+									} catch(ex) {
+										if(window.cosole&&window.cosole.log){cosole.log(ex)}
+									}
+								}
+								function addListeners() {
+									try{
+										if($("#bubbleCanvas").length>0){
+											window.addEventListener('resize', resize);
+										}
+									}catch(ex){if(window.cosole&&window.cosole.log){cosole.log(ex)}}
+								}
+								function resize() {
+									width = window.innerWidth*0.25>300?window.innerWidth*0.25:300;
+									height = window.innerHeight;
+									canvas.width = width;
+									canvas.height = height;
+								}
+								function animate() {
+									ctx.clearRect(0,0,width,height);
+									for(var i in circles) {
+										circles[i].draw();
+									}
+									window.requestAFrame = (function () {
+										return window.requestAnimationFrame||window.webkitRequestAnimationFrame||window.mozRequestAnimationFrame||window.oRequestAnimationFrame||window.msRequestAnimationFrame||
+											function (callback) {
+												return window.setTimeout(callback, 1000 / 60); // shoot for 60 fps
+											};
+									})();
+									requestAFrame(animate);
+								}
+								// Canvas manipulation
+								function Circle() {
+									var _this = this;
+									// constructor
+									(function() {
+										_this.pos = {};
+										init();
+									})();
+
+									function init() {
+										_this.pos.x = Math.random()*width;
+										_this.pos.y = height+Math.random()*100;
+										_this.alpha = 0.1+Math.random()*0.3;
+										_this.scale = 0.1+Math.random()*0.3;
+										_this.velocity = Math.random();
+									}
+
+									this.draw = function() {
+										if(_this.alpha <= 0) {
+											init();
+										}
+										_this.pos.y -= _this.velocity;
+										_this.alpha -= 0.0005;
+										ctx.beginPath();
+										ctx.arc(_this.pos.x, _this.pos.y, _this.scale*10, 0, 2 * Math.PI, false);
+										ctx.fillStyle = 'rgba(255,255,255,'+ _this.alpha+')';
+										ctx.fill();
+									};
+								}
+								initHeader();
+								addListeners();
+							}());
+						</script>
+					</div>
+					<article id="post-dom" class="article article-type-post" itemscope itemprop="blogPost">
+	<div class="article-meta">
+		
+	</div>
+	<div class="article-inner">
+		
+		
+			<header class="article-header">
+				
+	
+		<h1 class="article-title" itemprop="name">
+			Javascript DOM
+		</h1>
+	
+
+
+				<a href="/2017/06/20/dom/" class="article-date">
+  <time datetime="2017-06-20T08:23:01.643Z" itemprop="datePublished">2017-06-20</time>
+</a>
+			</header>
+		
+		<div class="article-entry" itemprop="articleBody">
+			
+				<p>Javascript 中的文档对象模型。</p>
+<a id="more"></a>
+<p>我们为了测试作为的 demo：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div></pre></td><td class="code"><pre><div class="line"><span class="comment">&lt;!-- 给文档元素设置 contenteditable="true" 就可以使这个变成可以编辑 --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"demo"</span> <span class="attr">contenteditable</span>=<span class="string">"false"</span>&gt;</span></div><div class="line">  test</div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">name</span>=<span class="string">"form-address"</span> <span class="attr">action</span>=<span class="string">"#form"</span> <span class="attr">method</span>=<span class="string">"post"</span> <span class="attr">data-width</span>=<span class="string">"100"</span>&gt;</span></div><div class="line">  address</div><div class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">span</span>&gt;</span></div><div class="line">  this is a span1</div><div class="line"><span class="tag">&lt;/<span class="name">span</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"demo"</span> <span class="attr">style</span>=<span class="string">"position:relative;"</span>&gt;</span></div><div class="line">  this is a span2</div><div class="line">  <span class="tag">&lt;<span class="name">p</span> <span class="attr">style</span>=<span class="string">"margin:30px;position:relative;"</span>&gt;</span>13023981769<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"container"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"navbar-header"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">a</span> <span class="attr">class</span>=<span class="string">"navbar-brand "</span> <span class="attr">href</span>=<span class="string">"/"</span> <span class="attr">title</span>=<span class="string">"Agile Health insurance - Affordable Health Insurance Quotes, Short Term Health Insurance"</span>&gt;</span>Agile Health Insurance<span class="tag">&lt;/<span class="name">a</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"navbar"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">form</span> <span class="attr">class</span>=<span class="string">"navbar-form navbar-right"</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"form-group phoneCTA"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">"header-phone reset"</span>&gt;</span>(800) 314-5594<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">"header-phone-text reset"</span>&gt;</span>Licensed Agents Available<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line">      <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"form-group mobilePhoneCTA"</span> <span class="attr">id</span>=<span class="string">"mobilePhoneCTA"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"tel:8447335143"</span> <span class="attr">class</span>=<span class="string">"click-to-call"</span>&gt;</span></div><div class="line">          Speak with a Licensed Agent</div><div class="line">        <span class="tag">&lt;/<span class="name">a</span>&gt;</span></div><div class="line">      <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">form</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"navbar-list-menu"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">ul</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"/health-insurance-quotes"</span> <span class="attr">class</span>=<span class="string">"navbar-list-link"</span>&gt;</span>Short Term Health Insurance<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"/dental-insurance-quotes"</span> <span class="attr">class</span>=<span class="string">"navbar-list-link"</span>&gt;</span>Dental Insurance<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"/help"</span> <span class="attr">class</span>=<span class="string">"navbar-list-link"</span>&gt;</span>Help Center<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"spark"</span> <span class="attr">data-min</span>=<span class="string">"0"</span> <span class="attr">data-max</span>=<span class="string">"10"</span>&gt;</span></div><div class="line">  1 1 3 5 3 6 8 2 7 3 8 4 6</div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">br</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">br</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">br</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">br</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">br</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">br</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">br</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">br</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">br</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">br</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">br</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">br</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">br</span>&gt;</span></div></pre></td></tr></table></figure>
+<h3 id="1-获取文档元素"><a href="#1-获取文档元素" class="headerlink" title="1. 获取文档元素"></a>1. 获取文档元素</h3><h4 id="1-通过-id-选取元素：getElementById"><a href="#1-通过-id-选取元素：getElementById" class="headerlink" title="(1) 通过 id 选取元素：getElementById()"></a>(1) 通过 id 选取元素：getElementById()</h4><p>只有这个方法是 “getElementBy”，因为 id 是唯一的<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> a = <span class="built_in">document</span>.getElementById(<span class="string">"demo"</span>);</div><div class="line"><span class="built_in">console</span>.log(<span class="string">"getElementById"</span>, a);  <span class="comment">// &lt;div id="demo"&gt;test&lt;/div&gt;</span></div></pre></td></tr></table></figure></p>
+<h4 id="2-通过-name-选取元素：getElementsByName"><a href="#2-通过-name-选取元素：getElementsByName" class="headerlink" title="(2)通过 name 选取元素：getElementsByName()"></a>(2)通过 name 选取元素：getElementsByName()</h4><p>这个方法返回 NodeList（一组数组），但是 name属性只有少数元素才有，表单，表单元素，iframe 和 img<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> b = <span class="built_in">document</span>.getElementsByName(<span class="string">"form-address"</span>);</div><div class="line"><span class="built_in">console</span>.log(<span class="string">"getElementsByName"</span>, b);  <span class="comment">// [form]</span></div></pre></td></tr></table></figure></p>
+<h4 id="3-通过-tag-name-选取元素：getElementsByTagName"><a href="#3-通过-tag-name-选取元素：getElementsByTagName" class="headerlink" title="(3)通过 tag name 选取元素：getElementsByTagName()"></a>(3)通过 tag name 选取元素：getElementsByTagName()</h4><p>这个方法返回 NodeList（一组数组）</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> c = <span class="built_in">document</span>.getElementsByTagName(<span class="string">"span"</span>)[<span class="number">0</span>];</div><div class="line"><span class="built_in">console</span>.log(<span class="string">"getElementsByTagName"</span>, c);  <span class="comment">//  &lt;span&gt;this is a span1&lt;/span&gt;</span></div></pre></td></tr></table></figure>
+<h4 id="4-通过-css-选取元素：getElementsByClassName"><a href="#4-通过-css-选取元素：getElementsByClassName" class="headerlink" title="(4)通过 css 选取元素：getElementsByClassName()"></a>(4)通过 css 选取元素：getElementsByClassName()</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> d = <span class="built_in">document</span>.getElementsByClassName(<span class="string">"demo"</span>);</div><div class="line"><span class="built_in">console</span>.log(<span class="string">"getElementsByClassName"</span>, d);  <span class="comment">//  &lt;span&gt;this is a span1&lt;/span&gt;</span></div></pre></td></tr></table></figure>
+<h4 id="5-通过-css-选择器选取元素：querySelectorAll-，（css3-新增的获取元素的方法）"><a href="#5-通过-css-选择器选取元素：querySelectorAll-，（css3-新增的获取元素的方法）" class="headerlink" title="(5)通过 css 选择器选取元素：querySelectorAll()，（css3 新增的获取元素的方法）"></a>(5)通过 css 选择器选取元素：querySelectorAll()，（css3 新增的获取元素的方法）</h4><p>querySelectorAll() 方法返回的是 NodeList，一个数组<br>还有一个 querySelector()，这个方法会返回寻找元素的第一个元素，因此不是数组<br>这个强大的方法和 jquery 中的 $() 方法功能是类似的</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> e1 = <span class="built_in">document</span>.querySelectorAll(<span class="string">".demo"</span>),</div><div class="line">  e2 = <span class="built_in">document</span>.querySelectorAll(<span class="string">"#demo"</span>)[<span class="number">0</span>].innerHTML,</div><div class="line">  e3 = <span class="built_in">document</span>.querySelectorAll(<span class="string">"form"</span>);</div><div class="line"><span class="built_in">console</span>.log(<span class="string">"querySelectorAll"</span>, e1);  <span class="comment">// [span.demo]</span></div><div class="line"><span class="built_in">console</span>.log(<span class="string">"querySelectorAll"</span>, e2);  <span class="comment">// test</span></div><div class="line"><span class="built_in">console</span>.log(<span class="string">"querySelectorAll"</span>, e3);  <span class="comment">// [form]</span></div></pre></td></tr></table></figure>
+<h3 id="2-文档结构的遍历"><a href="#2-文档结构的遍历" class="headerlink" title="2. 文档结构的遍历"></a>2. 文档结构的遍历</h3><p>document 里面的对象都是 node 对象，都有以下属性</p>
+<ul>
+<li>parentNode 该节点的父节点，父节点只有一个</li>
+<li>childNodes 该节点的子节点，子节点可以很多个，推荐使用去text和comment版本：children</li>
+<li>firstNode/lastNode 第一个子节点／最后一个子节点，推荐使用去text和comment版本：firstElementChild／lastElementChild</li>
+<li>nextSibling/previousSibling 前一个兄弟节点／后一个兄弟节点，推荐使用去text和comment版本：nextElementSibling／previousElementSibling</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> f1 = <span class="built_in">document</span>.querySelector(<span class="string">".navbar-list-link"</span>).parentNode;</div><div class="line"><span class="comment">// var f2 = document.querySelector("#navbar").childNodes;</span></div><div class="line"><span class="comment">// 我们可以使用去除 text（之间的空白）更实用的属性：children</span></div><div class="line"><span class="keyword">var</span> f22 = <span class="built_in">document</span>.querySelector(<span class="string">"#navbar"</span>).children;</div><div class="line"><span class="comment">// var f3 = document.querySelector("#navbar").firstChild;</span></div><div class="line"><span class="comment">// 我们可以使用去除 text（之间的空白）更实用的属性：firstElementChild</span></div><div class="line"><span class="keyword">var</span> f33 = <span class="built_in">document</span>.querySelector(<span class="string">".container"</span>).firstElementChild;</div><div class="line"><span class="comment">// var f4 = document.querySelector("#navbar").lastChild;</span></div><div class="line"><span class="comment">// 我们可以使用去除 text（之间的空白）更实用的属性：lastElementChild</span></div><div class="line"><span class="keyword">var</span> f44 = <span class="built_in">document</span>.querySelector(<span class="string">".container"</span>).lastElementChild;</div><div class="line"><span class="keyword">var</span> f55 = <span class="built_in">document</span>.querySelector(<span class="string">"#navbar"</span>).nextElementSibling;</div><div class="line"><span class="keyword">var</span> f66 = <span class="built_in">document</span>.querySelector(<span class="string">"#navbar"</span>).previousElementSibling;</div><div class="line"><span class="built_in">console</span>.log(<span class="string">"parentNode"</span>, f1);  <span class="comment">// &lt;li&gt;...&lt;/li&gt;</span></div><div class="line"><span class="comment">// console.log("childNodes", f2);  // [text, form.navbar-form.navbar-right, text]</span></div><div class="line"><span class="built_in">console</span>.log(<span class="string">"children"</span>, f22);  <span class="comment">// [form.navbar-form.navbar-right]</span></div><div class="line"><span class="comment">// console.log("firstChild", f3);  // #text</span></div><div class="line"><span class="built_in">console</span>.log(<span class="string">"firstElementChild"</span>, f33);  <span class="comment">// &lt;div class="navbar-header"&gt;...&lt;/div&gt;</span></div><div class="line"><span class="built_in">console</span>.log(<span class="string">"lastElementChild"</span>, f44);  <span class="comment">// &lt;div class="navbar-list-menu"&gt;...&lt;/div&gt;</span></div><div class="line"><span class="built_in">console</span>.log(<span class="string">"nextElementSibling"</span>, f55);  <span class="comment">// &lt;div class="navbar-list-menu"&gt;...&lt;/div&gt;</span></div><div class="line"><span class="built_in">console</span>.log(<span class="string">"previousElementSibling"</span>, f66);  <span class="comment">// &lt;div class="navbar-header"&gt;...&lt;/div&gt;</span></div></pre></td></tr></table></figure>
+<h3 id="3-文档元素属性"><a href="#3-文档元素属性" class="headerlink" title="3. 文档元素属性"></a>3. 文档元素属性</h3><p>html 元素由一个标签和一组属性的名／值对组成</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> g = <span class="built_in">document</span>.forms[<span class="number">0</span>];</div><div class="line"><span class="keyword">var</span> action = g.action;</div><div class="line"><span class="keyword">var</span> method = g.method;  <span class="comment">// action 和 method 都是其元素的属性</span></div><div class="line"><span class="built_in">console</span>.log(<span class="string">"attr: "</span>, action, method);</div></pre></td></tr></table></figure>
+<p>属性的增删改</p>
+<ul>
+<li>getAttribute() 获取其元素属性（属性值是被当成字符串的）（查）</li>
+<li>setAttribute() 设置其元素属性（增，改）</li>
+<li>hasAttribute() 检测是是否存在某属性（查）</li>
+<li>removeAttribute() 删除某属性（删）</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">console</span>.log(<span class="string">"getAttribute: "</span>, <span class="built_in">parseInt</span>(g.getAttribute(<span class="string">"data-width"</span>)));  <span class="comment">// 100</span></div><div class="line">g.setAttribute(<span class="string">"class"</span>, <span class="string">"newSet"</span>);</div><div class="line"><span class="built_in">console</span>.log(<span class="string">"setAttribute: "</span>, g);  <span class="comment">// &lt;form name="form-address" action="#form" method="post" class="newSet"&gt;&lt;/form&gt;</span></div><div class="line"><span class="built_in">console</span>.log(<span class="string">"hasAttribute: "</span>, g.hasAttribute(<span class="string">"class"</span>));  <span class="comment">// true</span></div><div class="line">g.removeAttribute(<span class="string">"class"</span>);</div><div class="line"><span class="built_in">console</span>.log(<span class="string">"removeAttribute: "</span>, g);  <span class="comment">// &lt;form name="form-address" action="#form" method="post"&gt;&lt;/form&gt;</span></div></pre></td></tr></table></figure>
+<p>在 html5 中给 dom 元素添加以 “data-” 开头的属性是合法的，且不会对元素属性造成影响<br>而且 html5 新增了一个 dataset 属性（IE11以上和当前的chrome浏览器支持），它是一个对象，每个属性对应去掉“data-”前缀的属性</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> spark = <span class="built_in">document</span>.querySelector(<span class="string">".spark"</span>);</div><div class="line"><span class="keyword">var</span> dataset = spark.dataset;</div><div class="line"><span class="built_in">console</span>.log(<span class="string">"dataset: "</span>, dataset);  <span class="comment">// &#123;min: "0", max: "10"&#125;</span></div><div class="line"></div><div class="line"><span class="comment">// attributes 是一个属性，因此我们可以直接使用这个来访问元素属性（只针对 element 节点）</span></div><div class="line"><span class="comment">// 这个属性返回的是所有的属性</span></div><div class="line"><span class="built_in">console</span>.log(<span class="string">"attributes: "</span>, spark.attributes[<span class="number">0</span>]);  <span class="comment">// class="spark"</span></div><div class="line"><span class="built_in">console</span>.log(<span class="string">"attributes class: "</span>, spark.attributes.class);  <span class="comment">// class="spark"</span></div><div class="line"><span class="built_in">console</span>.log(<span class="string">"attributes data-min: "</span>, spark.attributes[<span class="string">"data-min"</span>]);  <span class="comment">// data-min="0"</span></div></pre></td></tr></table></figure>
+<h3 id="4-文档元素内容"><a href="#4-文档元素内容" class="headerlink" title="4. 文档元素内容"></a>4. 文档元素内容</h3><h4 id="1-返回-html-内容：innerHTML-和-outerHTML"><a href="#1-返回-html-内容：innerHTML-和-outerHTML" class="headerlink" title="(1) 返回 html 内容：innerHTML 和 outerHTML"></a>(1) 返回 html 内容：innerHTML 和 outerHTML</h4><ul>
+<li>innerHTML 属性返回的那个元素的内容，但是这个属性 “+=” 操作符重复拼接文本效率底下，因为即要序列化又要解析</li>
+<li>outerHTML 属性返回元素本身，包括开头和结尾标签</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> nav = <span class="built_in">document</span>.querySelector(<span class="string">"#navbar"</span>);</div><div class="line"><span class="built_in">console</span>.log(<span class="string">"innerHTML: "</span>, nav.innerHTML);</div></pre></td></tr></table></figure>
+<p>返回</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// &lt;form class="navbar-form navbar-right"&gt;</span></div><div class="line"><span class="comment">//     &lt;div class="form-group phoneCTA"&gt;</span></div><div class="line"><span class="comment">//       &lt;p class="header-phone reset"&gt;(800) 314-5594&lt;/p&gt;</span></div><div class="line"><span class="comment">//       &lt;p class="header-phone-text reset"&gt;Licensed Agents Available&lt;/p&gt;</span></div><div class="line"><span class="comment">//     &lt;/div&gt;</span></div><div class="line"><span class="comment">//     &lt;div class="form-group mobilePhoneCTA" id="mobilePhoneCTA"&gt;</span></div><div class="line"><span class="comment">//       &lt;a href="tel:8447335143" class="click-to-call"&gt;</span></div><div class="line"><span class="comment">//         Speak with a Licensed Agent</span></div><div class="line"><span class="comment">//       &lt;/a&gt;</span></div><div class="line"><span class="comment">//     &lt;/div&gt;</span></div><div class="line"><span class="comment">//   &lt;/form&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">console</span>.log(<span class="string">"outerHTML: "</span>, nav.outerHTML);</div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 返回</span></div><div class="line"><span class="comment">// &lt;div id="navbar"&gt;</span></div><div class="line"><span class="comment">//   &lt;form class="navbar-form navbar-right"&gt;</span></div><div class="line"><span class="comment">//     &lt;div class="form-group phoneCTA"&gt;</span></div><div class="line"><span class="comment">//       &lt;p class="header-phone reset"&gt;(800) 314-5594&lt;/p&gt;</span></div><div class="line"><span class="comment">//       &lt;p class="header-phone-text reset"&gt;Licensed Agents Available&lt;/p&gt;</span></div><div class="line"><span class="comment">//     &lt;/div&gt;</span></div><div class="line"><span class="comment">//     &lt;div class="form-group mobilePhoneCTA" id="mobilePhoneCTA"&gt;</span></div><div class="line"><span class="comment">//       &lt;a href="tel:8447335143" class="click-to-call"&gt;</span></div><div class="line"><span class="comment">//         Speak with a Licensed Agent</span></div><div class="line"><span class="comment">//       &lt;/a&gt;</span></div><div class="line"><span class="comment">//     &lt;/div&gt;</span></div><div class="line"><span class="comment">//   &lt;/form&gt;</span></div><div class="line"><span class="comment">// &lt;/div&gt;</span></div></pre></td></tr></table></figure>
+<h4 id="2-返回-text-内容：innerText-和-textContent"><a href="#2-返回-text-内容：innerText-和-textContent" class="headerlink" title="(2) 返回 text 内容：innerText 和 textContent"></a>(2) 返回 text 内容：innerText 和 textContent</h4><p>两者的功能都是一样的，返回内容里面的文本</p>
+<ul>
+<li>innerText 是 ie 引入的，除了 firefox 之外的可以使用</li>
+<li>textContent 除了 ie 之外的可以使用，推荐使用这个属性</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">console</span>.log(<span class="string">"textContent: "</span>, nav.textContent);</div><div class="line"><span class="comment">// 返回元素的所有文本</span></div><div class="line"><span class="comment">// (800) 314-5594</span></div><div class="line"><span class="comment">// Licensed Agents Available</span></div><div class="line"><span class="comment">// Speak with a Licensed Agent</span></div></pre></td></tr></table></figure>
+<h3 id="5-文档节点的增删改"><a href="#5-文档节点的增删改" class="headerlink" title="5. 文档节点的增删改"></a>5. 文档节点的增删改</h3><h4 id="1-创建节点：createElement"><a href="#1-创建节点：createElement" class="headerlink" title="(1) 创建节点：createElement()"></a>(1) 创建节点：createElement()</h4><p>创建文本节点：createTextNode()<br>每个节点都有一个方法复制本身的副本：cloneNode()</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> newNode1 = <span class="built_in">document</span>.createElement(<span class="string">"p"</span>);</div><div class="line"><span class="keyword">var</span> newNode2 = <span class="built_in">document</span>.createElement(<span class="string">"p"</span>);</div><div class="line"><span class="keyword">var</span> newNode3 = <span class="built_in">document</span>.createElement(<span class="string">"p"</span>);</div><div class="line">newNode1.textContent = <span class="string">"Bevis1!"</span>;</div><div class="line">newNode2.textContent = <span class="string">"Bevis2!"</span>;</div><div class="line">newNode3.textContent = <span class="string">"Bevis3!"</span>;</div></pre></td></tr></table></figure>
+<h4 id="2-插入节点：insertBefore-或者-appendChild"><a href="#2-插入节点：insertBefore-或者-appendChild" class="headerlink" title="(2) 插入节点：insertBefore() 或者 appendChild()"></a>(2) 插入节点：insertBefore() 或者 appendChild()</h4><ul>
+<li>appendChild() 插入一个节点并且成为这个节点的最后一个子节点</li>
+<li>insertBefore() 插入到节点的前面</li>
+<li>insertBefore() 接受两个参数，第一个是要插入的节点，第二个是已存在的节点（必须是父节点的子节点）<br>第二个参数传入 null 则和 appendChild() 方法一样就插在最后</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> node = <span class="built_in">document</span>.querySelector(<span class="string">".phoneCTA"</span>);</div><div class="line">node.appendChild(newNode1);</div><div class="line">node.insertBefore(newNode2,node.children[<span class="number">1</span>]);</div></pre></td></tr></table></figure>
+<h4 id="3-删除节点：removeChild"><a href="#3-删除节点：removeChild" class="headerlink" title="(3) 删除节点：removeChild()"></a>(3) 删除节点：removeChild()</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">  node.removeChild(node.firstElementChild);</div><div class="line">&#125;,<span class="number">1000</span>);</div></pre></td></tr></table></figure>
+<h4 id="4-替换节点：replaceChild"><a href="#4-替换节点：replaceChild" class="headerlink" title="(4) 替换节点：replaceChild()"></a>(4) 替换节点：replaceChild()</h4><p>删除一个子节点，用一个新的节点取而代之，接受两个参数<br>第一个参数是新节点，第二个参数是被替换掉的节点</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">  node.replaceChild(newNode3,node.firstElementChild);</div><div class="line">&#125;,<span class="number">2000</span>);</div></pre></td></tr></table></figure>
+<h3 id="6-文档滚动方法"><a href="#6-文档滚动方法" class="headerlink" title="6.文档滚动方法"></a>6.文档滚动方法</h3><p>window.scrollTo()（这个方法和 scrollTo() 是一样的） 第一个参数是 x 坐标，第二个参数是 y 坐标，并作为滚动条的偏移量设置它们</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">  <span class="built_in">window</span>.scrollTo(<span class="number">0</span>,<span class="number">100</span>);</div><div class="line">  <span class="comment">// 或者</span></div><div class="line">  <span class="built_in">window</span>.scroll(<span class="number">0</span>,<span class="number">100</span>);</div><div class="line">&#125;,<span class="number">3000</span>);</div></pre></td></tr></table></figure>
+<p>window.scrollBy() 方法与scrollTo() 类似，但是他的参数是相对的<br>这样会没 1 毫秒下降 10px</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">setInterval(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">  <span class="built_in">window</span>.scrollBy(<span class="number">0</span>,<span class="number">10</span>);</div><div class="line">&#125;,<span class="number">100</span>);</div></pre></td></tr></table></figure>
+<h3 id="7-文档元素尺寸和位置"><a href="#7-文档元素尺寸和位置" class="headerlink" title="7.文档元素尺寸和位置"></a>7.文档元素尺寸和位置</h3><p>这些属性除了 scrollTop／scrollLeft 是可读可写之外，其他的都只是可读的</p>
+<ul>
+<li>offsetWidth／offsetHeight 返回元素的宽度和高度，返回的尺寸包含了边框和内边距，除去了外边距</li>
+<li>offsetLeft 返回元素的 x 坐标</li>
+<li>offsetTop 返回元素的 y 坐标</li>
+<li>offsetParent 当前元素相对的父元素，若这个相对父元素为 null，则相对文档</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> con = <span class="built_in">document</span>.querySelector(<span class="string">'.demo &gt; p'</span>);</div><div class="line"><span class="built_in">console</span>.log(<span class="string">"offsetWidth"</span>, con.offsetWidth);  <span class="comment">// 1290</span></div><div class="line"><span class="built_in">console</span>.log(<span class="string">"offsetHeight"</span>, con.offsetHeight);  <span class="comment">// 22</span></div><div class="line"><span class="built_in">console</span>.log(<span class="string">"offsetLeft"</span>, con.offsetLeft);  <span class="comment">// 30</span></div><div class="line"><span class="built_in">console</span>.log(<span class="string">"offsetTop"</span>, con.offsetTop);  <span class="comment">// 52</span></div><div class="line"><span class="built_in">console</span>.log(<span class="string">"offsetParent"</span>, con.offsetParent);  <span class="comment">// &lt;div class="demo" style="position:relative;"&gt;...&lt;/div&gt;</span></div><div class="line"></div><div class="line"><span class="comment">// clientWidth／clientHeight 类似 offsetWidth／offsetHeight，只是不包含边框</span></div><div class="line"><span class="built_in">console</span>.log(<span class="string">"clientWidth"</span>, con.clientWidth);  <span class="comment">// 1290，因为元素无边框，所以和 offsetWidth 一样</span></div><div class="line"><span class="built_in">console</span>.log(<span class="string">"clientHeight"</span>, con.clientHeight);  <span class="comment">// 22，因为元素无边框，所以和 clientHeight 一样</span></div></pre></td></tr></table></figure>
+<p>scrollWidth／scrollHeight 相当与 clientWidth／clientHeight 加上溢出的内容尺寸，假如没有溢出则相等<br>scrollTop／scrollLeft 用来指定元素的滚动条位置，通过设置它可以让元素中的内容滚动</p>
+
+				<!-- 多说评论框 start -->
+				<div class="article-comment">
+					<div class="ds-thread" data-num-items="5" data-show-avatars="1" data-show-time="1" data-show-title="1" data-show-admin="1" data-excerpt-length="50" data-thread-key="post-dom" data-title="Javascript DOM" data-url="/"></div>
+				</div>
+				<!-- 多说评论框 end -->
+			
+		</div>
+		<footer class="article-footer">
+			<a data-url="https://utopia1991.github.io/2017/06/20/dom/" data-id="cj46ctk0j000kdcr0mzgpaj76" class="article-share-link">分享</a>
+			
+			
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Javascript/">Javascript</a></li></ul>
+
+		</footer>
+	</div>
+	
+		
+<nav id="article-nav">
+  
+    <a href="/2017/06/20/dust/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          Dust 模版引擎
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/06/20/deferred/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">jQuery $.deferred()对象</div>
+    </a>
+  
+</nav>
+
+	
+</article>
+
+
+
+				</section>
+			</div>
+			<footer id="footer">
+	
+	<div class="outer">
+		<div id="footer-info">
+			Copyright &copy; Bevis Shen 2017<br>
+			Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+		</div>
+	</div>
+</footer>
+
+		</div>
+		<nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">主页</a>
+  
+    <a href="/archives" class="mobile-nav-link">博文</a>
+  
+</nav>
+		
+
+<script src="https://cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+	</div>
+</body>
+<script>
+	function backTop(){
+		document.documentElement.scrollTop = document.body.scrollTop = 0;
+	}
+
+	var c = document.getElementsByTagName('canvas')[0],
+		x = c.getContext('2d'),
+		pr = window.devicePixelRatio || 1,
+		w = window.innerWidth,
+		h = window.innerHeight,
+		f = 90,
+		q,
+		m = Math,
+		r = 0,
+		u = m.PI * 2,
+		v = m.cos,
+		z = m.random
+	c.width = w * pr
+	c.height = h * pr
+	x.scale(pr, pr)
+	x.globalAlpha = 0.6
+
+	function i() {
+		x.clearRect(0, 0, w, h)
+		q = [{
+			x: 0,
+			y: h * .7 + f
+		}, {
+			x: 0,
+			y: h * .7 - f
+		}]
+		while (q[1].x < w + f) d(q[0], q[1])
+	}
+
+	function d(i, j) {
+		x.beginPath()
+		x.moveTo(i.x, i.y)
+		x.lineTo(j.x, j.y)
+		var k = j.x + (z() * 2 - 0.25) * f,
+			n = y(j.y)
+		x.lineTo(k, n)
+		x.closePath()
+		r -= u / -50
+		x.fillStyle = '#' + (v(r) * 127 + 128 << 16 | v(r + u / 3) * 127 + 128 << 8 | v(r + u / 3 * 2) * 127 + 128).toString(16)
+		x.fill()
+		q[0] = q[1]
+		q[1] = {
+			x: k,
+			y: n
+		}
+	}
+
+	function y(p) {
+		var t = p + (z() * 2 - 1.1) * f
+		return (t > h || t < 0) ? y(p) : t
+	}
+	document.onclick = i
+	document.ontouchstart = i
+	i()
+</script>
+</html>
