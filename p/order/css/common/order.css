@@ -1,0 +1,78 @@
+.shop-order {
+	width: 100%;
+}
+
+.shop-order li {
+	margin-top: 10px;
+}
+
+.shop-order-title {
+	width: 100%;
+	height: 34px;
+}
+
+.shop-order-title img {
+	height: 34px;
+	width: 34px;
+	float: left;
+}
+
+.shop-buyer {
+	float: left;
+	width: 85%;
+	margin-left: 10px;
+	color: #999;
+	height: 18px;
+}
+
+.shop-buyer a {
+	color: #000;
+}
+
+.shop-buyer span {
+	float: right;
+}
+
+.shop-order-time {
+	color: #999;
+	font-size: 12px;
+	margin-left: 10px;
+}
+
+.shop-order-pic {
+	margin: 10px 0 0 40px;
+}
+
+.shop-order-pic img {
+	width: 44px;
+	height: 44px;
+	margin: 0 2px;
+}
+
+.shop-order-price {
+	margin: 10px 0 0 40px;
+	height: 30px;
+	line-height: 30px;
+}
+
+.shop-no-paid {
+	color: red;
+}
+
+.shop-paid, .shop-cancel {
+	color: #999;
+}
+
+.shop-order-connect {
+	float: right;
+	margin-left: 10px;
+}
+
+.shop-call-server {
+	display: inline-block;
+	height: 56px;
+	width: 56px;
+	position: fixed;
+	bottom: 40px;
+	right: 20px;
+}
