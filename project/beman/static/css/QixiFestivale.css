@@ -413,17 +413,10 @@ a.c-green:visited {
     background-color: rgba(0, 0, 0, .6)
 }
 
-@font-face {
-    font-family: iconography;
-    src: url(http://static.iqiyi.com/ext/common/iconography/iconfont.eot);
-    src: url(http://static.iqiyi.com/ext/common/iconography/iconfont.ttf) format("truetype"), url(http://static.iqiyi.com/ext/common/iconography/iconfont.svg#iconfont) format("svg")
-}
-
 .c-glyphicon {
     position: relative;
     display: inline-block;
     font-size: .13rem;
-    font-family: iconography;
     line-height: 1;
     color: #20bc22;
     -webkit-font-smoothing: antialiased;
