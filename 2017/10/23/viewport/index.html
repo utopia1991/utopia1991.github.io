@@ -14,17 +14,19 @@
 		})();
 	</script>
 	
-	<title>归档 | Bevis Blog - 沈浩个人博客</title>
+	<title>HTML meta viewport属性说明 | Bevis Blog - 沈浩个人博客</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-	<meta name="description" content="google重度依赖者，mac拥趸，热爱前沿技术，梦想全栈">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Bevis Blog - 沈浩个人博客">
-<meta property="og:url" content="https://utopia1991.github.io/archives/page/5/index.html">
+	<meta name="description" content="手机浏览器是把页面放在一个虚拟的窗口（viewport）通常这个虚拟的窗口比屏幕宽，这样就不用吧每个页面挤在很小的窗口中，用户可以通过平移和缩放来看网页的不同部分。移动版的 Safari 浏览器最先引进 viewport 这个 meta tag，让网页开发者来控制 viewport 的大小和缩放，其他手机浏览器也支持。">
+<meta name="keywords" content="HTML">
+<meta property="og:type" content="article">
+<meta property="og:title" content="HTML meta viewport属性说明">
+<meta property="og:url" content="https://utopia1991.github.io/2017/10/23/viewport/index.html">
 <meta property="og:site_name" content="Bevis Blog - 沈浩个人博客">
-<meta property="og:description" content="google重度依赖者，mac拥趸，热爱前沿技术，梦想全栈">
+<meta property="og:description" content="手机浏览器是把页面放在一个虚拟的窗口（viewport）通常这个虚拟的窗口比屏幕宽，这样就不用吧每个页面挤在很小的窗口中，用户可以通过平移和缩放来看网页的不同部分。移动版的 Safari 浏览器最先引进 viewport 这个 meta tag，让网页开发者来控制 viewport 的大小和缩放，其他手机浏览器也支持。">
+<meta property="og:updated_time" content="2017-10-23T03:27:28.633Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Bevis Blog - 沈浩个人博客">
-<meta name="twitter:description" content="google重度依赖者，mac拥趸，热爱前沿技术，梦想全栈">
+<meta name="twitter:title" content="HTML meta viewport属性说明">
+<meta name="twitter:description" content="手机浏览器是把页面放在一个虚拟的窗口（viewport）通常这个虚拟的窗口比屏幕宽，这样就不用吧每个页面挤在很小的窗口中，用户可以通过平移和缩放来看网页的不同部分。移动版的 Safari 浏览器最先引进 viewport 这个 meta tag，让网页开发者来控制 viewport 的大小和缩放，其他手机浏览器也支持。">
 	
 	
 		<link rel="icon" href="https://utopia1991.github.io/css/images/icon.jpg">
@@ -343,174 +345,94 @@
 							}());
 						</script>
 					</div>
-					
-	
-	
+					<article id="post-viewport" class="article article-type-post" itemscope itemprop="blogPost">
+	<div class="article-meta">
+		
+	</div>
+	<div class="article-inner">
 		
 		
+			<header class="article-header">
+				
+	
+		<h1 class="article-title" itemprop="name">
+			HTML meta viewport属性说明
+		</h1>
+	
+
+
+				<a href="/2017/10/23/viewport/" class="article-date">
+  <time datetime="2017-10-23T02:33:57.295Z" itemprop="datePublished">2017-10-23</time>
+</a>
+			</header>
+		
+		<div class="article-entry" itemprop="articleBody">
 			
-			
-			<section class="archives-wrap">
-				<div class="archive-year-wrap">
-					<a href="/archives/2017" class="archive-year">
-						2017
-					</a>
+				<p>手机浏览器是把页面放在一个虚拟的窗口（viewport）通常这个虚拟的窗口比屏幕宽，这样就不用吧每个页面挤在很小的窗口中，用户可以通过平移和缩放来看网页的不同部分。移动版的 Safari 浏览器最先引进 viewport 这个 meta tag，让网页开发者来控制 viewport 的大小和缩放，其他手机浏览器也支持。</p>
+<a id="more"></a>
+<h3 id="Viewport-基础"><a href="#Viewport-基础" class="headerlink" title="Viewport 基础"></a>Viewport 基础</h3><p>一个常用的针对移动网页优化过的页面 viewport meta 标签大致如下：</p>
+<p>html 代码:</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"viewport"</span> <span class="attr">content</span>=<span class="string">"width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1"</span>&gt;</span></div></pre></td></tr></table></figure>
+<ul>
+<li>width：控制 viewport 的大小，可以指定一个值，如是600，或者其他特殊的值，device-width 为设备的宽度（单位为缩放为100%时的CSS的像素）。</li>
+<li>height：和 width 相对应，指定高度。</li>
+<li>initial-scale：初始缩放比例，页面第一次 load 的时候缩放比例。</li>
+<li>maximum-scale：允许用户缩放的最大比例。</li>
+<li>minimum-scale：允许用户缩放的最小比例。</li>
+<li>user-scalable：用户是否可以手动缩放。</li>
+</ul>
+<h3 id="关于-Viewport-的一些问题"><a href="#关于-Viewport-的一些问题" class="headerlink" title="关于 Viewport 的一些问题"></a>关于 Viewport 的一些问题</h3><p>viewport 在 ios，android，winphone 上都适用，解决的问题都是相同的，即无视设备的真实分辨率，直接通过 dpi（每英寸分辨率），在物理尺寸和浏览器之间重设分辨率，这个分辨率和设备的分辨率无关。比如，你拿个 320 <em> 480 的 iphone3 gs、640 </em> 960 的 iphone4 或者 1024 * 768的 ipad2，虽然设备的分辨率不同,物理尺寸也不同，但你可以通过设置 viewport 让它们在浏览器里有相同的分辨率。比如说，你的网站是800px宽，你可以通过设置 viewport 的 width=800，来让你的网站在这三个不同的设备上都刚好满屏显示你的网站。</p>
+<p>以上的知识，相信每个对viewport稍有了解的同学应该都已经了解了。这不是我今天想说的重点。我想说明的是viewport在ios和android上的一些差异表现。</p>
+<p>网上一搜关于viewport的知识，基本上全都是如下信息:</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"viewport"</span> <span class="attr">content</span>=<span class="string">"width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0,user-scalable=no"</span> /&gt;</span></div></pre></td></tr></table></figure>
+<p>这段代码的意思是，让viewport的宽度等于物理设备上的真实分辨率，不允许用户缩放。一都主流的 web app都是这么设置的，它的作用其实是故意舍弃viewport，不缩放页面，这样dpi肯定和设备上的真实分辨率是一样的，不做任何缩放，网页会因此显得更高细腻。</p>
+<p>但我要做的一个应用却恰恰相反，需要利用viewport，利用缩放。不论真实分辨率是多少，无论物理尺寸是多少，我都希望在浏览器里，能有统一的分辨率，同时也不允许用户缩放。我用来测试的设备有：iphone4、ipad2、htc 的 g11、不知道什么厂商的 aquos phone（android系统）、华硕的 android pad、dell的 winphone 然后我一路遇到了如下问题：</p>
+<ul>
+<li>如果不显示地设置 viewport，那么 width 的默认为980。如果页面的所有元素宽度都小于980，此时 width 为980，如果页面最宽的位置超过980，那么 width 等于最大宽度。总之，默认能将整个页面从左到右显示出来。如果设置了 viewport，比如，只单纯地设置了 user-scalable=no，例如<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"viewport"</span> <span class="attr">content</span>=<span class="string">"user-scalable=no"</span> /&gt;</span></div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>那么ios下width还是按980显示（即默认就会通过dpi缩放），但 android 和 winphone 下却不会再缩放了，浏览器分辨率和真实设置分辨率一致。</p>
+<ul>
+<li>对于 ios 设备，设置 width 可以生效，但对于 android，设置 width 并不会生效。ios 设备，缩放的比率即dpi是通过你设置的 width 和设置真实分辨率自动计算的，而 android 下你设置 width 无效，你能设置的是一个特殊的字段 target-densitydpi。也就是说，有三个变量：浏览器 width、设备真实 width、dpi。 我们简单地用个公式来表达它们之间的关系吧（并非真实关系，简单说明用） 设备真实 width * dpi = 浏览器 width，这里的三个变量，设备真实 width是个我们不能操作的已知值，另外两个变量我们可以设置一个来影响另一个，在ios中，我们能改的是浏览器 width，dpi 自动生成，而在 android 中，我们能改的是dpi，浏览器 width 自动生成。对于 android，无论我们如何设置 width，也不会对浏览器 width 产生影响。</li>
+</ul>
+<p>ps：这里我另外再说一个奇怪的问题：在htc的g11里（htc的手机我只有这一个，别的没有测），如果设置了dpi而不显示地设置width，则user-scalable=no不生效，即是说：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"viewport"</span> <span class="attr">content</span>=<span class="string">"target-densitydpi=300,user-scalable=no"</span> /&gt;</span></div></pre></td></tr></table></figure></p>
+<p>无法阻止用户缩放屏幕。我们需要显示地设置一下 width 值，仅管这个值对 android 下的浏览器分辨屏并不产生任何影响（对ios还是会产生影响的），我们仍然要设置它，而且这个值一定要大于320，如果小于等于320，也无法使 user-scalable=no 生效。这个问题只在htc的 g11 手机上出现，在 aquos phone没有这个问题。兼容android真是件头痛的事，未来还不知道有多少坑呢。而在 winphone上，结果就更奇怪了：我给 viewport 的 width 设一个大于480的值，user-scalable=no 就失效了，而设一个小于480的值，user-scalable=no 能生效。但无论我给 viewport 的 width 设多少值，对 winphone 真正显示的 width 却并不产生我预期的影响，通过 target-densitydpi 也没有影响。设置 width，如果小于480的话，屏幕会缩放，但缩小的比例却和我预期完全不一样，我不知道它是按照什么规律缩放的。不知道这是winphone的问题，还是dell实现的问题。</p>
+<ul>
+<li><p>这一条和上一条应该是直接相关的：ios设备在横竖屏时，会自动调整 dpi，无论横屏还是竖屏，都能保证浏览器 width 等于 viewport 中设置的值，所以横竖屏的时候，页面里显示的内容的大小是会自动缩放产生变化的。而 android 手机在横竖屏的时候，不会改变 dpi，在横竖屏的时候，网页不会产生缩放。也正因此，ios 可以保证横竖屏页面都不会产生滚动条，满屏显示，而 android 却无法保证这一点，横着满屏则竖着无法满屏，反之亦然。</p>
+</li>
+<li><p>对于ios设备，如果 width 显示定义了，而页面最宽的位置超过 width 的话，width 无效，仍按最宽的宽度来显示（不会有滚动条）。但此时会出现一个很奇怪的问题，当你将手机横竖屏切换几次之后，会发现你的页面自动放大了，出现了滚动条，但其实放大后的宽度其实和你设的 width 也并没有关系。为了防止这种情况出现，你需要将 width 的宽度设置得比页面最宽的地方更大，或者相同。</p>
+</li>
+</ul>
+
+				<!-- 多说评论框 start -->
+				<div class="article-comment">
+					<div class="ds-thread" data-num-items="5" data-show-avatars="1" data-show-time="1" data-show-title="1" data-show-admin="1" data-excerpt-length="50" data-thread-key="post-viewport" data-title="HTML meta viewport属性说明" data-url="/"></div>
 				</div>
-				<div class="archives">
-		
-		<article class="archive-article archive-type-post">
-	<div class="archive-article-inner">
-		<header class="archive-article-header">
+				<!-- 多说评论框 end -->
 			
-	
-		<h1 itemprop="name">
-			<a class="archive-article-title" href="/2017/06/20/codeStyle2/">前端编码规范 2 —— HTML 规范</a>
-		</h1>
-	
-
-
-			<a href="/2017/06/20/codeStyle2/" class="archive-article-date">
-  <time datetime="2017-06-20T08:23:01.637Z" itemprop="datePublished">6月 20</time>
-</a>
-		</header>
-	</div>
-</article>
-
-	
-		
-		
-		<article class="archive-article archive-type-post">
-	<div class="archive-article-inner">
-		<header class="archive-article-header">
+		</div>
+		<footer class="article-footer">
+			<a data-url="https://utopia1991.github.io/2017/10/23/viewport/" data-id="cj93kj0w500003kr05dlqeekv" class="article-share-link">分享</a>
 			
-	
-		<h1 itemprop="name">
-			<a class="archive-article-title" href="/2017/06/20/codeStyle1/">前端编码规范 1 —— 一般规范</a>
-		</h1>
-	
-
-
-			<a href="/2017/06/20/codeStyle1/" class="archive-article-date">
-  <time datetime="2017-06-20T08:23:01.637Z" itemprop="datePublished">6月 20</time>
-</a>
-		</header>
-	</div>
-</article>
-
-	
-		
-		
-		<article class="archive-article archive-type-post">
-	<div class="archive-article-inner">
-		<header class="archive-article-header">
 			
-	
-		<h1 itemprop="name">
-			<a class="archive-article-title" href="/2017/06/20/bom/">Javascript BOM</a>
-		</h1>
-	
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HTML/">HTML</a></li></ul>
 
-
-			<a href="/2017/06/20/bom/" class="archive-article-date">
-  <time datetime="2017-06-20T08:23:01.636Z" itemprop="datePublished">6月 20</time>
-</a>
-		</header>
+		</footer>
 	</div>
+	
+		
+<nav id="article-nav">
+  
+  
+    <a href="/2017/10/20/flex/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">CSS3中Flex弹性布局</div>
+    </a>
+  
+</nav>
+
+	
 </article>
-
-	
-		
-		
-		<article class="archive-article archive-type-post">
-	<div class="archive-article-inner">
-		<header class="archive-article-header">
-			
-	
-		<h1 itemprop="name">
-			<a class="archive-article-title" href="/2017/06/20/bem/">BEM - CSS 命名规则</a>
-		</h1>
-	
-
-
-			<a href="/2017/06/20/bem/" class="archive-article-date">
-  <time datetime="2017-06-20T08:23:01.636Z" itemprop="datePublished">6月 20</time>
-</a>
-		</header>
-	</div>
-</article>
-
-	
-		
-		
-		<article class="archive-article archive-type-post">
-	<div class="archive-article-inner">
-		<header class="archive-article-header">
-			
-	
-		<h1 itemprop="name">
-			<a class="archive-article-title" href="/2017/06/20/baseInterviews/">web 前端常见面试题</a>
-		</h1>
-	
-
-
-			<a href="/2017/06/20/baseInterviews/" class="archive-article-date">
-  <time datetime="2017-06-20T08:23:01.635Z" itemprop="datePublished">6月 20</time>
-</a>
-		</header>
-	</div>
-</article>
-
-	
-		
-		
-		<article class="archive-article archive-type-post">
-	<div class="archive-article-inner">
-		<header class="archive-article-header">
-			
-	
-		<h1 itemprop="name">
-			<a class="archive-article-title" href="/2017/06/20/array/">Javascript 数组方法</a>
-		</h1>
-	
-
-
-			<a href="/2017/06/20/array/" class="archive-article-date">
-  <time datetime="2017-06-20T08:23:01.634Z" itemprop="datePublished">6月 20</time>
-</a>
-		</header>
-	</div>
-</article>
-
-	
-		
-		
-		<article class="archive-article archive-type-post">
-	<div class="archive-article-inner">
-		<header class="archive-article-header">
-			
-	
-		<h1 itemprop="name">
-			<a class="archive-article-title" href="/2017/06/20/align/">CSS未知宽高元素水平垂直居中</a>
-		</h1>
-	
-
-
-			<a href="/2017/06/20/align/" class="archive-article-date">
-  <time datetime="2017-06-20T08:23:01.633Z" itemprop="datePublished">6月 20</time>
-</a>
-		</header>
-	</div>
-</article>
-
-	
-	
-		</div></section>
-	
-
-
-	<nav id="page-nav">
-		<a class="extend prev" rel="prev" href="/archives/page/4/">前一页</a><a class="page-number" href="/archives/">1</a><span class="space">&hellip;</span><a class="page-number" href="/archives/page/3/">3</a><a class="page-number" href="/archives/page/4/">4</a><span class="page-number current">5</span>
-	</nav>
 
 
 
