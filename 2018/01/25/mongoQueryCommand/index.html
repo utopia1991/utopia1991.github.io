@@ -14,17 +14,19 @@
 		})();
 	</script>
 	
-	<title>标签: jQuery | Bevis Blog - 沈浩个人博客</title>
+	<title>Mongodb 常见的查询语句及与 mysql 对比 | Bevis Blog - 沈浩个人博客</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-	<meta name="description" content="google重度依赖者，mac拥趸，热爱前沿技术，梦想全栈">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Bevis Blog - 沈浩个人博客">
-<meta property="og:url" content="https://utopia1991.github.io/tags/jQuery/index.html">
+	<meta name="description" content="mongo数据库的各种查询语句示例，罗列的还比较全，想从 mysql 丝滑的转到 mongodb 也是 so easy ~">
+<meta name="keywords" content="MongoDB">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Mongodb 常见的查询语句及与 mysql 对比">
+<meta property="og:url" content="https://utopia1991.github.io/2018/01/25/mongoQueryCommand/index.html">
 <meta property="og:site_name" content="Bevis Blog - 沈浩个人博客">
-<meta property="og:description" content="google重度依赖者，mac拥趸，热爱前沿技术，梦想全栈">
+<meta property="og:description" content="mongo数据库的各种查询语句示例，罗列的还比较全，想从 mysql 丝滑的转到 mongodb 也是 so easy ~">
+<meta property="og:updated_time" content="2018-01-25T06:08:18.385Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Bevis Blog - 沈浩个人博客">
-<meta name="twitter:description" content="google重度依赖者，mac拥趸，热爱前沿技术，梦想全栈">
+<meta name="twitter:title" content="Mongodb 常见的查询语句及与 mysql 对比">
+<meta name="twitter:description" content="mongo数据库的各种查询语句示例，罗列的还比较全，想从 mysql 丝滑的转到 mongodb 也是 so easy ~">
 	
 	
 		<link rel="icon" href="https://utopia1991.github.io/css/images/icon.jpg">
@@ -343,64 +345,63 @@
 							}());
 						</script>
 					</div>
-					
-	
-	
+					<article id="post-mongoQueryCommand" class="article article-type-post" itemscope itemprop="blogPost">
+	<div class="article-meta">
+		
+	</div>
+	<div class="article-inner">
 		
 		
+			<header class="article-header">
+				
+	
+		<h1 class="article-title" itemprop="name">
+			Mongodb 常见的查询语句及与 mysql 对比
+		</h1>
+	
+
+
+				<a href="/2018/01/25/mongoQueryCommand/" class="article-date">
+  <time datetime="2018-01-25T06:01:02.772Z" itemprop="datePublished">2018-01-25</time>
+</a>
+			</header>
+		
+		<div class="article-entry" itemprop="articleBody">
 			
-			
-			<section class="archives-wrap">
-				<div class="archive-year-wrap">
-					<a href="/archives/2017" class="archive-year">
-						2017
-					</a>
+				<p>mongo数据库的各种查询语句示例，罗列的还比较全，想从 mysql 丝滑的转到 mongodb 也是 so easy ~</p>
+<a id="more"></a>
+<p>上面是 mongodb 查询语句，下面是 sql 语句，对照着用，挺方便。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div></pre></td><td class="code"><pre><div class="line">db.users.find()</div><div class="line">select * <span class="keyword">from</span> users  </div><div class="line"></div><div class="line">db.users.find(&#123;<span class="string">"age"</span> : <span class="number">27</span>&#125;)</div><div class="line">select * <span class="keyword">from</span> users where age = <span class="number">27</span>  </div><div class="line"></div><div class="line">db.users.find(&#123;<span class="string">"username"</span> : <span class="string">"joe"</span>, <span class="string">"age"</span> : <span class="number">27</span>&#125;)</div><div class="line">select * <span class="keyword">from</span> users where <span class="string">"username"</span> = <span class="string">"joe"</span> and age = <span class="number">27</span>  </div><div class="line"></div><div class="line">db.users.find(&#123;&#125;, &#123;<span class="string">"username"</span> : <span class="number">1</span>, <span class="string">"email"</span> : <span class="number">1</span>&#125;)</div><div class="line">select username, email <span class="keyword">from</span> users  </div><div class="line"></div><div class="line">db.users.find(&#123;<span class="string">"age"</span> : &#123;<span class="string">"$gte"</span> : <span class="number">18</span>, <span class="string">"$lte"</span> : <span class="number">30</span>&#125;&#125;)</div><div class="line">select * <span class="keyword">from</span> users where age &gt;=<span class="number">18</span> and age &lt;= <span class="number">30</span> </div><div class="line"> </div><div class="line"></div><div class="line">db.users.find(&#123;<span class="string">"username"</span> : &#123;<span class="string">"$ne"</span> : <span class="string">"joe"</span>&#125;&#125;)</div><div class="line">select * <span class="keyword">from</span> users where username &lt;&gt; <span class="string">"joe"</span>  </div><div class="line"></div><div class="line">db.users.find(&#123;<span class="string">"ticket_no"</span> : &#123;<span class="string">"$in"</span> : [<span class="number">725</span>, <span class="number">542</span>, <span class="number">390</span>]&#125;&#125;)</div><div class="line">select * <span class="keyword">from</span> users where ticket_no <span class="keyword">in</span> (<span class="number">725</span>, <span class="number">542</span>, <span class="number">390</span>)  </div><div class="line"></div><div class="line">db.users.find(&#123;<span class="string">"ticket_no"</span> : &#123;<span class="string">"$nin"</span> : [<span class="number">725</span>, <span class="number">542</span>, <span class="number">390</span>]&#125;&#125;)</div><div class="line">select * <span class="keyword">from</span> users where ticket_no not <span class="keyword">in</span> (<span class="number">725</span>, <span class="number">542</span>, <span class="number">390</span>) </div><div class="line"></div><div class="line">db.users.find(&#123;<span class="string">"$or"</span> : [&#123;<span class="string">"ticket_no"</span> : <span class="number">725</span>&#125;, &#123;<span class="string">"winner"</span> : <span class="literal">true</span>&#125;]&#125;)</div><div class="line">select * form users where ticket_no = <span class="number">725</span> or winner = <span class="literal">true</span>  </div><div class="line"></div><div class="line">db.users.find(&#123;<span class="string">"id_num"</span> : &#123;<span class="string">"$mod"</span> : [<span class="number">5</span>, <span class="number">1</span>]&#125;&#125;)</div><div class="line">select * <span class="keyword">from</span> users where (id_num mod <span class="number">5</span>) = <span class="number">1</span>  </div><div class="line"></div><div class="line">db.users.find(&#123;<span class="string">"$not"</span>: &#123;<span class="string">"age"</span> : <span class="number">27</span>&#125;&#125;)</div><div class="line">select * <span class="keyword">from</span> users where not (age = <span class="number">27</span>)  </div><div class="line"></div><div class="line"><span class="comment">// 如果直接通过find(&#123;"username" : null&#125;)进行查询，那么连带"没有username"的纪录一并筛选出来  </span></div><div class="line">db.users.find(&#123;<span class="string">"username"</span> : &#123;<span class="string">"$in"</span> : [<span class="literal">null</span>], <span class="string">"$exists"</span> : <span class="literal">true</span>&#125;&#125;)</div><div class="line">select * <span class="keyword">from</span> users where username is <span class="literal">null</span> </div><div class="line"></div><div class="line"><span class="comment">// 正则查询，value是符合PCRE的表达式  </span></div><div class="line">db.users.find(&#123;<span class="string">"name"</span> : <span class="regexp">/joey?/i</span>&#125;) </div><div class="line"></div><div class="line"><span class="comment">// 对数组的查询, 字段fruit中，既包含"apple",又包含"banana"的纪录  </span></div><div class="line">db.food.find(&#123;<span class="attr">fruit</span> : &#123;<span class="attr">$all</span> : [<span class="string">"apple"</span>, <span class="string">"banana"</span>]&#125;&#125;) </div><div class="line"></div><div class="line"><span class="comment">// 对数组的查询, 字段fruit中，第3个(从0开始)元素是peach的纪录  </span></div><div class="line">db.food.find(&#123;<span class="string">"fruit.2"</span> : <span class="string">"peach"</span>&#125;) </div><div class="line"></div><div class="line"><span class="comment">// 对数组的查询, 查询数组元素个数是3的记录，$size前面无法和其他的操作符复合使用  </span></div><div class="line">db.food.find(&#123;<span class="string">"fruit"</span> : &#123;<span class="string">"$size"</span> : <span class="number">3</span>&#125;&#125;) </div><div class="line"></div><div class="line"><span class="comment">// 对数组的查询，只返回数组comments中的前十条，还可以&#123;"$slice" : -10&#125;， &#123;"$slice" : [23, 10]&#125;; 分别返回最后10条，和中间10条  </span></div><div class="line">db.users.findOne(criteria, &#123;<span class="string">"comments"</span> : &#123;<span class="string">"$slice"</span> : <span class="number">10</span>&#125;&#125;) </div><div class="line"></div><div class="line"><span class="comment">// 嵌套查询  </span></div><div class="line">db.people.find(&#123;<span class="string">"name.first"</span> : <span class="string">"Joe"</span>, <span class="string">"name.last"</span> : <span class="string">"Schmoe"</span>&#125;)  </div><div class="line"></div><div class="line"><span class="comment">// 嵌套查询，仅当嵌套的元素是数组时使用</span></div><div class="line">db.blog.find(&#123;<span class="string">"comments"</span> : &#123;<span class="string">"$elemMatch"</span> : &#123;<span class="string">"author"</span> : <span class="string">"joe"</span>, <span class="string">"score"</span> : &#123;<span class="string">"$gte"</span> : <span class="number">5</span>&#125;&#125;&#125;&#125;) </div><div class="line"></div><div class="line"><span class="comment">// 复杂的查询，$where当然是非常方便的，但效率低下。对于复杂查询，考虑的顺序应当是 正则 -&gt; MapReduce -&gt; $where  </span></div><div class="line">db.foo.find(&#123;<span class="string">"$where"</span> : <span class="string">"this.x + this.y == 10"</span>&#125;) </div><div class="line"></div><div class="line"><span class="comment">// $where可以支持javascript函数作为查询条件  </span></div><div class="line">db.foo.find(&#123;<span class="string">"$where"</span> : <span class="string">"function() &#123; return this.x + this.y == 10; &#125;"</span>&#125;) </div><div class="line"></div><div class="line"><span class="comment">// 返回第(10, 11]条，按"x"进行排序; 三个limit的顺序是任意的，应该尽量避免skip中使用large-number  </span></div><div class="line">db.foo.find().sort(&#123;<span class="string">"x"</span> : <span class="number">1</span>&#125;).limit(<span class="number">1</span>).skip(<span class="number">10</span>);</div></pre></td></tr></table></figure>
+
+				<!-- 多说评论框 start -->
+				<div class="article-comment">
+					<div class="ds-thread" data-num-items="5" data-show-avatars="1" data-show-time="1" data-show-title="1" data-show-admin="1" data-excerpt-length="50" data-thread-key="post-mongoQueryCommand" data-title="Mongodb 常见的查询语句及与 mysql 对比" data-url="/"></div>
 				</div>
-				<div class="archives">
-		
-		<article class="archive-article archive-type-post">
-	<div class="archive-article-inner">
-		<header class="archive-article-header">
+				<!-- 多说评论框 end -->
 			
-	
-		<h1 itemprop="name">
-			<a class="archive-article-title" href="/2017/06/20/vide/">Vide 视频背景jQuery插件</a>
-		</h1>
-	
-
-
-			<a href="/2017/06/20/vide/" class="archive-article-date">
-  <time datetime="2017-06-20T08:23:01.663Z" itemprop="datePublished">6月 20</time>
-</a>
-		</header>
-	</div>
-</article>
-
-	
-		
-		
-		<article class="archive-article archive-type-post">
-	<div class="archive-article-inner">
-		<header class="archive-article-header">
+		</div>
+		<footer class="article-footer">
+			<a data-url="https://utopia1991.github.io/2018/01/25/mongoQueryCommand/" data-id="cjcu3mwem0000xsr0g5ck1plj" class="article-share-link">分享</a>
 			
-	
-		<h1 itemprop="name">
-			<a class="archive-article-title" href="/2017/06/20/deferred/">jQuery $.deferred()对象</a>
-		</h1>
-	
+			
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MongoDB/">MongoDB</a></li></ul>
 
-
-			<a href="/2017/06/20/deferred/" class="archive-article-date">
-  <time datetime="2017-06-20T08:23:01.642Z" itemprop="datePublished">6月 20</time>
-</a>
-		</header>
+		</footer>
 	</div>
-</article>
+	
+		
+<nav id="article-nav">
+  
+  
+    <a href="/2018/01/24/throttleDebounce/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">JS 函数节流和函数防抖之间的区别</div>
+    </a>
+  
+</nav>
 
 	
-	
-		</div></section>
-	
+</article>
 
 
 
