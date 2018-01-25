@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>商城</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=no">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<!-- mui css-->
+	<link rel="stylesheet" type="text/css" href="./css/app.css">
+	<link rel="stylesheet" href="./css/mui.min.css">
+	<link rel="stylesheet" href="./css/icons-extra.css">
+	<!-- 自定义 css -->
+	<link rel="stylesheet" href="./css/common/common.css">
+	<link rel="stylesheet" href="./css/common/cart.css">
+</head>
+
+<body class="mui-ios mui-ios-9 mui-ios-9-1">
+	<header class="mui-bar mui-bar-nav shop-header">
+		<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left shop-back">返回</a>
+		<h1 class="mui-title" style="color:#fff;">购物车</h1>
+	</header>
+
+	<div class="mui-content">
+		<div class="shop-service">
+			叫餐号：100
+		</div>
+
+		<div class="shop-cart">
+			<div class="shop-consumer">
+				<span class="shop-consumer-img">
+						<img src="./images/orders/user.png" alt=""/>
+					</span>
+				<span class="shop-consumer-name">
+						用户名
+					</span>
+			</div>
+
+			<ul class="mui-table-view">
+				<li class="mui-table-view-cell shop-items">
+					<span class="shop-items-img">
+							<img src="./images/orders/items.png" alt=""/>
+						</span>
+					<span class="shop-items-name">
+							巴西产手工焦糖拿铁
+							<span class="mui-numbox shop-items-count" data-numbox-min="0" data-numbox-max="">
+								<button class="mui-btn mui-btn-numbox-minus" type="button" disabled="">-</button>
+								<input id="test" class="mui-input-numbox" type="number" value="5">
+								<button class="mui-btn mui-btn-numbox-plus" type="button">+</button>
+							</span>
+					</span>
+				</li>
+				<li class="mui-table-view-cell shop-items">
+					<span class="shop-items-img">
+							<img src="./images/orders/items.png" alt=""/>
+						</span>
+					<span class="shop-items-name">
+							巴西产手工焦糖拿铁
+							<span class="mui-numbox shop-items-count" data-numbox-min="0" data-numbox-max="">
+								<button class="mui-btn mui-btn-numbox-minus" type="button" disabled="">-</button>
+								<input id="test" class="mui-input-numbox" type="number" value="5">
+								<button class="mui-btn mui-btn-numbox-plus" type="button">+</button>
+							</span>
+					</span>
+				</li>
+				<li class="mui-table-view-cell shop-items">
+					<span class="shop-items-img">
+							<img src="./images/orders/items.png" alt=""/>
+						</span>
+					<span class="shop-items-name">
+							餐具
+							<!-- <span class="mui-numbox shop-items-count" data-numbox-min="0" data-numbox-max="">
+								<button class="mui-btn mui-btn-numbox-minus" type="button" disabled="">-</button>
+								<input id="test" class="mui-input-numbox" type="number" value="5">
+								<button class="mui-btn mui-btn-numbox-plus" type="button">+</button>
+							</span> -->
+					</span>
+				</li>
+			</ul>
+
+			<p class="shop-consumer-total">共计：<span class="shop-consumer-price">¥45</span></p>
+
+			<div class="mui-content-padded shop-consumer-bottom-block">
+				<button type="button" class="mui-btn shop-consumer-bottom">
+						继续选择
+					</button>
+				<button type="button" class="mui-btn shop-consumer-bottom">
+						清空购物车
+					</button>
+			</div>
+		</div>
+
+		<div class="shop-consumer-comment">
+			<p>人数 <input type="text" value="" id="consumer-count" /></p>
+			<p>备注 <input type="text" value="" id="consumer-comment" /></p>
+		</div>
+	</div>
+
+	<nav class="mui-bar mui-bar-tab shop-nav shop-check">
+		<span class="shop-check-number">
+				待支付 ¥45<span class="shop-check-promot"> | 优惠 ¥6</span>
+		</span>
+		<a href="./order.html" class="shop-check-submit">
+			提交订单
+		</a>
+	</nav>
+
+	<a class="shop-call-server" href="#cellPopover">
+		<img src="./images/details/bell.png" alt="" />
+	</a>
+
+	<!--呼叫服务弹窗-->
+	<div id="cellPopover" class="mui-popover">
+		<h3>是否呼叫服务</h3>
+		<a class="mui-btn mui-btn-success" href="tel:139xxxxxxxx">
+			确认
+		</a>
+		<a type="button" class="mui-btn" id="cellCancel">
+			放弃
+		</a>
+	</div>
+
+	<script src="./js/mui.js"></script>
+	<script src="./js/zepto.min.js"></script>
+	<script src="./js/shop/shop.js"></script>
+	<script>
+		mui.init({
+			swipeBack: true //启用右滑关闭功能
+		});
+	</script>
+</body>
+
+</html>
