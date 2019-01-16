@@ -289,6 +289,7 @@ h5 {
 
 body {
 	background: #fff url("../images/background/bg.png");
+	overflow-x: hidden;
 }
 
 .center {
@@ -542,7 +543,7 @@ body {
 
 @media (min-width: 1200px) {
 	.container {
-		width: 1320px;
+		width: 1200px;
 		max-width: 100%;
 	}
 }
