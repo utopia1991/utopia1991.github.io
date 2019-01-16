@@ -68,6 +68,13 @@
                   帮助中心
                 </a>
               </li>
+              <li class="navitem"> 
+                <select name="citys" class="city-select js-city-select">
+                  <option value="">开通城市</option>
+                  <option value="fuzhou">福州</option>
+                </select>
+                </a>
+              </li>
             </ul>
           </div> 
         </div> 
@@ -194,19 +201,7 @@
         <div class="clearfix"></div>
       </div>
     </div>
-    <script>
-      // 轮播图
-      $('.bxslider').bxSlider({
-        auto: true,
-        speed: 600
-      })
-
-      $('.help-block-l ul li').click(function() {
-        let id = $(this).attr('data-id')
-
-        $(this).addClass('active').siblings().removeClass('active')
-        $('#' + id).removeClass('hide').siblings().addClass('hide')
-      })
+    <script src="./js/base.js"></script>   
     </script>   
   </body>
 </html>

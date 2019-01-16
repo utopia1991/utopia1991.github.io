@@ -76,7 +76,7 @@ img {
   margin-top: 30px;
 }
 #header .content a#logo {
-  display: block;
+  display: inline-block;
   height: 60px;
 }
 #header .content a#logo img {
@@ -95,12 +95,24 @@ img {
   position: relative;
 }
 #header .nav > li > a {
-  margin: 0 25px;
+  margin: 0 20px;
   height: 100%;
   line-height: 60px;
   color: #848683;
   padding-bottom: 10px;
   font-size: 15px;
+}
+#header .nav > li > .city-select {
+  display: inline-block;
+  position: relative;
+  text-align: center;
+  padding: 4px;
+  background-color: #fff;
+  border: 1px solid #82c426;
+  text-shadow: none;
+  border-radius: 4px;
+  margin-left: 14px;
+  color: #82c426;
 }
 #header .nav > li > a:hover, 
 #header .nav > li > a.active {
@@ -510,6 +522,24 @@ img {
 #partner ul li p.title {
   line-height: 30px;
   font-size: 18px;
+}
+.peisong p.title {
+  font-size: 18px;
+  padding: 5px 0;
+  border-bottom: 1px solid #82c426;
+  margin-bottom: 20px;
+  width: 74%;
+}
+.peisong p.hove:hover {
+  color: #82c426;  
+  cursor: pointer;
+}
+.peisong p {
+  font-size: 14px;
+  line-height: 30px;
+}
+#to-cart ul.peisong li {
+  cursor: auto;
 }
 /* 内容结束 */
 
@@ -6646,190 +6676,4 @@ trols-direction a.bx-next:hover i {
   padding-left: 5%;
   margin-left: 4%;
   width: 16%;
-}
-
-/* 手机适配 */
-@media screen and (max-width: 440px) {
-  ::-webkit-scrollbar-track-piece {
-    width: 8px;
-    background-color: #221f1f;
-  }
-  ::-webkit-scrollbar {
-    width: 8px;
-    background-color: #999;
-  }
-  ::-webkit-scrollbar-thumb {
-    width: 8px;
-    background-color: #333;
-  }
-  ::-webkit-scrollbar-thumb:hover {
-    width: 8px;
-    background-color: #999;
-  }
-  .agent-pc body,
-  .module .module_container {
-    min-width: auto;
-    max-width: 400px;
-    padding-left: 8px;
-    padding-right: 12px;
-  }
-  #contain .module .container_header {
-    margin-top: 0;
-  }
-  #contain .news_list li:hover .details {
-    display: none;
-  }
-  .container_category a {
-    margin: 0 20px;
-  }
-  .project_exp li .words .title {
-    margin-left: -30px;
-    font-size: 12px;
-  }
-  .project_exp li .words .title {
-    top: 32px;
-  }
-  .agent-pc .service .title {
-    font-size: 12px;
-  }
-  .project_exp li:nth-child(1) .words .title {
-    margin-left: -15px;
-  }
-  .project_exp li:nth-child(4) .words .title {
-    margin-left: -23px;
-  }
-  #headTop {
-    text-align: center;
-  }
-  #header .content a#logo {
-    margin-top: 18px;
-    height: 38px;
-    margin-bottom: 10px;
-  }
-  #header .nav > li > a {
-    padding: 0 10px;
-  }
-  .agent-pc .service .title {
-    margin-top: 30px !important;
-  }
-  #contain .project-thumbs {
-    margin-left: 0px;
-  }
-  .agent-pc .service {
-    background-size: 100% 87%;
-  }
-  .news-center .news-right .news-list .news-list-msg .title {
-    font-size: 12px;
-  }
-  .news-center .news-right .news-list .news-list-date .title {
-    text-align: left;
-    font-size: 28px;
-    width: 40px;
-    height: 30px;
-    margin-top: 5px;
-  }
-  .news-center .news-right .news-list .news-list-msg .content {
-    display: inline-block;
-    height: 47px;
-    overflow: hidden;
-  }
-  #contain .project-thumbs #projectGrand {
-    height: auto;
-  }
-  #contain .project-details .left {
-    width: 68%;
-    margin-right: 0%;
-  }
-  #contain .project-details .right {
-    margin-left: 4%;
-    width: 22%;
-  }
-  #contain .details-pagitation {
-    width: 95%;
-  }
-  #contain .details-pagitation a {
-    margin-bottom: 20px;
-  }
-  #contain .details-pagitation img {
-    height: 50px;
-  }
-  #contain .news-banner, #contain .project-banner, #contain .cooperation-banner, #contain .recruitment-banner {
-    height: 146px;
-    background-size: contain;
-    margin-top: 102px;
-  }
-  #contain .cooperation-content {
-    margin-top: 0px !important;
-    width: 100%;
-  }
-  #contain .project_list li {
-    width: 49%;
-    margin-right: 2%;
-  }
-  #contain .recruit {
-    margin-top: 0px;
-  }
-  #contain .recruit .recruit-left ul li .num {
-    font-size: 30px;
-  }
-  #contain .recruit .recruit-right p.title {
-    margin-top: 15px;
-  }
-  #contain .recruit .recruit-right .name {
-    font-size: 18px;
-  }
-  #contain .recruit .recruit-left ul li .name .en, 
-  #contain .recruit .recruit-left ul li .name .zh {
-    font-size: 12px;
-  }
-  #contain .recruit .recruit-right {
-    width: 56%;
-  }
-  #contain .project_list li:nth-child(2n) {
-    margin-right: 0%;
-  }
-  #contain .recruit .recruit-left {
-    width: 30%;
-    margin-right: 6%;
-    padding-right: 6%;
-  }
-  .about-us-content .about-right .title {
-    font-size: 30px;
-  }
-  .about-us-content .about-right .content {
-    height: 96px;
-    overflow: hidden;
-  }
-  #mcontact #contactinfo.wow,
-  .agent-pc #contain #contactlist #contactform {
-    float: none;
-  }
-  .agent-pc #contain #contactlist #contactform {
-    width: 100%;
-    margin-top: 20px;
-  }
-  .project_exp li .mask-border i {
-    display: none;
-  }
-  .news-center .news-left .slide {
-    height: 90px;
-  }
-  .pc-banner .button {
-    top: -146px;
-  }
-  .pc-banner .swiper-button-prev {
-    left: 7px;
-  }
-  .pc-banner .swiper-button-next {
-    right: 7px;
-  }
-  .side-nav {
-    display: none;
-  }
-  #footer {
-    padding: 10px 48px;
-  }
-  #contain {
-    margin-top: -78px;
-  }
 }
