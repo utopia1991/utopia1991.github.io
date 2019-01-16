@@ -479,6 +479,38 @@ img {
   line-height: 28px;
   font-size: 14px;
 }
+#partner {
+  margin-top: 50px;
+}
+#partner ul li {
+  width: 22%;
+  height: 310px;
+  margin-right: 4%;
+  float: left;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+#partner ul li:last-child {
+  margin-right: 0;
+}
+#partner ul li hr {
+  border-color: #82c426;
+  margin: 14px;
+  border-top: 0;
+}
+#partner ul li .logo {
+  width: 100%;
+  padding: 30px 0 10px;
+}
+#partner ul li p {
+  line-height: 30px;
+  font-size: 14px;
+  color: #7d807c;
+}
+#partner ul li p.title {
+  line-height: 30px;
+  font-size: 18px;
+}
 /* 内容结束 */
 
 /* 底部开始 */
