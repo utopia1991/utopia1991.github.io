@@ -1,0 +1,293 @@
+
+/* 因为需求改写了 mui 的部分代码 */
+#list {
+	margin-top: -1px;
+}
+
+#hide {
+	display: none !important;
+}
+
+.mui-backdrop {
+	background-color: rgba(0,0,0,.6);
+}
+
+.mui-btn-cancel {
+	background: #999;
+}
+
+.mui-popover {
+	height: 300px;
+}
+
+.mui-title {
+	color:#fff;
+}
+.mui-bar-nav~.mui-content {
+	padding-top: 54px;
+}
+
+.mui-icon-extra {
+	font-size: 35px;
+}
+
+.mui-table-view-cell:after {
+	background: none;
+}
+
+.mui-numbox {
+	position: relative;
+	display: inline-block;
+	overflow: hidden;
+	width: 66px;
+	height: 20px;
+	padding: 0;
+	vertical-align: initial;
+	border: 0;
+	background: none;
+}
+
+.mui-numbox [class*=btn-numbox], .mui-numbox [class*=numbox-btn] {
+	width: 22px;
+	background: #7bd889;
+	border-radius: 50%;
+	color: #fff;
+}
+
+.mui-numbox [class*=btn-numbox][disabled], .mui-numbox [class*=numbox-btn][disabled] {
+	background: #fff;
+	color: #7bd889;
+	border: 2px solid #7bd889;
+}
+
+.mui-numbox {
+	width: 70px;
+	height: 22px;
+}
+
+.mui-numbox .mui-input-numbox, .mui-numbox .mui-numbox-input {
+	border-right: none !important;
+	border-left: none !important;
+}
+
+.mui-popover .mui-popover-arrow:after {
+	display: none;
+}
+
+.shop-range {
+	width: 100%;
+	display: inline-block;
+}
+
+.shop-plus {
+	font-size: 18px;
+	font-weight: 400;
+	line-height: 100%;
+	overflow: hidden;
+	padding: 0;
+	border: none;
+	height: 22px;
+	width: 22px;
+	background: #7bd889;
+	border-radius: 50%;
+	color: #fff;
+}
+
+.shop-icon-active {
+	color: #7bd889;
+}
+
+.shop-tab-item {
+	display: table-cell;
+	overflow: hidden;
+	width: 33%;
+	height: 50px;
+	text-align: center;
+	vertical-align: middle;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	color: #929292;
+}
+
+.red {
+	color: red;
+}
+
+/* common header*/
+.shop-header {
+	background: #7bd889;
+	height: 54px;
+	color: #fff;
+	border: 0;
+	box-shadow: none;
+}
+
+.shop-header .shop-back {
+	color: #fff;
+	font-size: 20px;
+	font-weight: 500;
+	line-height: 36px;
+}
+
+.shop-header h1 {
+	line-height: 54px;
+	font-weight: 200;
+	font-size: 20px;
+	color: #fff;
+}
+
+/* common bottom nav*/
+.shop-nav {
+	background: #fff;
+	height: 72px;
+	box-shadow: none;
+}
+
+.shop-nav-title {
+	font-size: 14px;
+	display: block;
+	margin-top: 5px;
+}
+
+.mui-bar-tab .mui-tab-item.mui-active {
+	color: #7bd889;
+}
+
+/* cell popup */
+#cellPopover, #orderPopover {
+	position: fixed;
+	width: 296px;
+	height: 334px;
+	width: 296px;
+	height: 334px;
+	left: -148px;
+	margin-left: 50%;
+	margin-top: 50%;
+	top: -40px;
+	background: #fff;
+}
+
+#cellPopover {
+	text-align: center;
+	padding: 60px 30px;
+}
+
+#orderPopover {
+	text-align: center;
+}
+
+#cellPopover h3 {
+	font-weight: 400;
+	color: #7bd889;
+	font-size: 26px;
+	margin: 30px auto 50px;
+}
+
+#cellPopover a {
+	font-size: 20px;
+	display: block;
+	width: 100%;
+	margin: 20px auto;
+}
+
+/* order popup */
+
+#orderPopover .order-title {
+	margin: 15px auto 8px;
+	font-size: 24px;
+	color: #000;
+}
+
+.order-popover-top {
+	padding: 10px 30px;
+	height: 205px;
+	width: 100%;
+	border-bottom: 1px solid #999;
+}
+
+.order-lab-detail {
+	margin: 25px auto;
+}
+
+.order-lab {
+	position: relative;
+	text-align: center;
+	display: inline-block;
+	border: 1px solid #999;
+	height: 30px;
+	padding: 0 5px;
+	border-radius: 50px;
+	line-height: 28px;
+	font-size: 18px;
+	color: #999;
+	margin: 0 5px;
+}
+
+.order-lab .mui-badge {
+	position: absolute;
+	right: -10px;
+	top: -7px;
+}
+
+.order-popover-bottom {
+	width: 100%;
+	padding: 15px 30px 5px;
+	text-align: left;
+}
+
+.order-selected {
+	color: #7bd889;
+	font-size: 16px;
+	font-weight: 500;
+	margin-bottom: 7px;
+}
+
+.order-selected-count {
+	font-size: 18px;
+}
+
+.order-popover-submit {
+	width: 100%;
+	height: 50px;
+	background: #eee;
+	border-radius: 0 0 7px 7px;
+	padding: 9px 30px 5px;
+}
+
+.order-popover-submit {
+	color: #fff;
+	line-height: 32px;
+}
+
+.order-popover-submit a {
+	font-size: 17px;
+	padding: 2px 10px;
+	color: #fff;
+	border: 0;
+}
+
+.order-popover-botton {
+	float: right;
+	display: inline-block;
+}
+
+.order-popover-price {
+	font-size: 18px;
+	float: left;
+	color: red;
+}
+
+/* cell service */
+.shop-call-server {
+	display: inline-block;
+	height: 56px;
+	width: 56px;
+	position: fixed;
+	bottom: 80px;
+	right: 20px;
+}
+
+.shop-call-server img {
+	width: 100%;
+	height: 100%;
+}

@@ -1,0 +1,164 @@
+/* 改写部分 */
+.mui-table-view-cell:after {
+	background: none;
+}
+
+/* 页面部分 */
+.shop-service {
+	height: 44px;
+	width: 100%;
+	line-height: 44px;
+	color: #999;
+	text-align: center;
+}
+
+.shop-cart {
+	width: 100%;
+	background: #fff;
+}
+
+.shop-consumer {
+	background: #fff;
+	height: 64px;
+	color: #999;
+	text-align: left;
+	padding-left: 40px;
+	line-height: 64px;
+	border-bottom: 2px solid #ccc;
+}
+
+.shop-consumer-img{
+	display: inline-block;
+	width: 40px;
+	height: 40px;
+	float: left;
+	margin-top: 10px;
+}
+
+.shop-items-img {
+	display: inline-block;
+	width: 40px;
+	height: 40px;
+	float: left;
+}
+
+.shop-consumer-name {
+	display: inline-block;
+	margin-left: 15px;
+}
+
+.shop-items-img img {
+	width: 100%;
+	height: 100%;
+}
+
+.shop-items {
+	background: #fff;
+	height: 55px;
+	color: #999;
+	text-align: left;
+	padding-left: 40px;
+	line-height: 64px;
+	display: inline-block;
+	list-style: none;
+	padding-top: 5px;
+	border: 0;
+	width: 100%;
+}
+
+.shop-items-name {
+	line-height: 20px;
+	display: inline-block;
+	margin-left: 20px;
+	color: #000;
+	position: relative;
+	top: -10px;
+}
+
+.shop-items-count {
+	margin: -4px 15px;
+}
+
+.shop-consumer-total {
+	font-size: 22px;
+	width: 100%;
+	margin: 20px auto;
+	text-align: right;
+	padding-right: 35px;
+}
+
+.shop-consumer-price {
+	color: red;
+}
+
+.shop-consumer-bottom-block {
+	width: 100%;
+	text-align: right;
+	padding-right: 40px;
+}
+
+.shop-consumer-bottom {
+	background: #999;
+	color: #fff;
+	border: 0;
+	margin-bottom: 15px;
+}
+
+.shop-consumer-comment {
+	width: 100%;
+	margin-top: 5px;
+	height: 100px;
+	background: #fff;
+	padding: 12px 0;
+}
+
+.shop-consumer-comment p {
+	width: 80%;
+	margin: 0 auto;
+}
+
+.shop-consumer-comment input {
+	display: inline-block;
+	height: 30px;
+}
+
+#consumer-count {
+	width: 40%;
+}
+
+#consumer-comment {
+	width: 80%;
+}
+
+.shop-check {
+	height: 60px;
+	background: #333;
+}
+
+.shop-check-number {
+	font-size: 20px;
+	width: 60%;
+	height: 100%;
+	display: inline-block;
+	color: #fff;
+	line-height: 60px;
+	font-weight: 300;
+	text-align: left;
+	padding-left: 10px;
+}
+
+.shop-check-promot {
+	color: #666;
+}
+
+.shop-check-submit {
+	width: 40%;
+	height: 100%;
+	display: inline-block;
+	font-size: 20px;
+	background: #7bd889;
+	color: #fff;
+	line-height: 60px;
+	font-weight: 300;
+	text-align: center;
+}

@@ -1,0 +1,1036 @@
+/* 小工具 */
+* {
+  font-family: "Microsoft Yahei";
+}
+a {
+  cursor: pointer;
+}
+hr {
+  border-bottom: 1px solid #ccc;
+  height: 1px;
+  margin: 0;
+  padding: 0;
+}
+ul,
+li {
+  list-style: none;
+}
+@font-face {
+  font-family: tx;
+  /*这里是说明调用来的字体名字*/
+  src: url('../fonts/tengxiang.ttf');
+  /*这里是字体文件路径*/
+}
+.sep {
+  margin: 0 1em;
+  color: #424242;
+}
+.right-arror {
+  display: inline-block;
+  height: 11px;
+  width: 10px;
+  margin: 0 8px;
+  background: url("../images/news/right-arror.png") no-repeat;
+}
+.inner {
+  width: 80%;
+  margin: 0 auto;
+  max-width: 1280px;
+}
+.content {
+  width: 100%;
+}
+.center {
+  text-align: center;
+}
+.clearfix {
+  clear: both;
+}
+/* header */
+header {
+  position: relative;
+  z-index: 30;
+  height: 100px;
+  font-size: 12px;
+  color: #b0b0b0;
+  background: #272727;
+}
+header .topbar-logo {
+  float: left;
+  display: inline-block;
+  margin: 25px 20px 0 0;
+  padding: 0;
+  width: 16%;
+  min-width: 160px;
+}
+header .topbar-logo img {
+  width: 100%;
+}
+header .topbar-nav {
+  float: left;
+  height: 100px;
+  line-height: 100px;
+  overflow: hidden;
+  padding: 0;
+  width: 65%;
+  _zoom: 1;
+}
+header .topbar-nav a {
+  margin-right: 2%;
+  color: #fff;
+  display: inline-block;
+  height: 30px;
+  line-height: 30px;
+  border-bottom: 2px solid #272727;
+  cursor: pointer;
+}
+header .topbar-nav a:hover {
+  text-decoration: none;
+  color: #e5c188;
+  border-bottom: 2px solid #e5c188;
+}
+header .topbar-info {
+  padding: 0;
+  margin: 0;
+  height: 100px;
+  line-height: 100px;
+  text-align: right;
+  width: 16%;
+  float: right;
+}
+header .topbar-info .header-search,
+header .topbar-info .header-search {
+  width: 22px;
+  height: 22px;
+  display: inline-block;
+  cursor: pointer;
+}
+header .topbar-info .header-search img,
+header .topbar-info .header-search img {
+  width: 100%;
+}
+header .topbar-info .header-search {
+  margin-right: 15%;
+}
+header .topbar-info .header-share {
+  margin-right: 5%;
+}
+.side-nav {
+  position: fixed;
+  top: 200px;
+  right: 10px;
+  width: 100px;
+  height: 265px;
+  background: #1b1b1b;
+}
+.side-nav p {
+  width: 100%;
+  height: 30px;
+  line-height: 30px;
+  background: #ffb515;
+  text-align: center;
+  margin: 0;
+  color: #000;
+}
+.side-nav .product-line {
+  cursor: pointer;
+  display: inline-block;
+  width: 100%;
+  height: 30px;
+  line-height: 30px;
+  color: #fff;
+  text-align: center;
+  border-bottom: 1px solid #666;
+}
+.side-nav .wechat {
+  width: 100%;
+  height: 114px;
+  text-align: center;
+  padding: 8px;
+  border-bottom: 1px solid #ccc;
+}
+.side-nav .wechat img {
+  width: 100%;
+}
+.side-nav .wechat div {
+  font-size: 12px;
+  width: 100%;
+  color: #ccc;
+  text-align: center;
+}
+.side-nav #back-top {
+  cursor: pointer;
+  display: inline-block;
+  height: 30px;
+  padding: 8px 36px;
+}
+/* footer */
+footer {
+  width: 100%;
+}
+footer .home-info {
+  width: 100%;
+  height: 160px;
+  text-align: center;
+}
+footer .home-info .home-info-img {
+  width: 220px;
+  height: 80px;
+  display: inline-block;
+  margin: 50px auto 0;
+}
+footer .home-info .home-info-img img {
+  width: 100%;
+}
+footer .footer-bottom {
+  background: #1b1b1b;
+  height: 200px;
+  padding-top: 65px;
+}
+footer .footer-bottom .footbar-left {
+  float: left;
+  padding: 0;
+  margin: 0;
+}
+footer .footer-bottom .footbar-left .footbar-left-line {
+  width: 55px;
+  height: 3px;
+  border-top: 3px solid #ffb515;
+}
+footer .footer-bottom .footbar-left .footbar-left-about {
+  color: #fff;
+}
+footer .footer-bottom .footbar-left .footbar-left-copyright {
+  color: #666;
+}
+footer .footer-bottom .footbar-right {
+  float: right;
+  padding: 0;
+  margin: 0;
+}
+footer .footer-bottom .footbar-right .footbar-right-icon {
+  padding: 0 10px;
+  display: inline-block;
+  float: left;
+  margin: 0 12px;
+  text-align: center;
+  color: #666;
+  font-size: 14px;
+  font-weight: 300;
+  height: 80px;
+  width: 80px;
+}
+footer .footer-bottom .footbar-right .footbar-right-icon img {
+  width: 100%;
+}
+footer .footer-bottom .footbar-right .footbar-right-icon span {
+  display: inline-block;
+  margin-top: 10px;
+}
+@media (min-width: 480px) and (max-width: 980px) {
+  header .topbar-nav {
+    width: 61%;
+  }
+}
+.apple {
+  position: relative;
+}
+.apple .home-bg {
+  width: 100%;
+  position: relative;
+}
+.apple .home-bg img {
+  width: 100%;
+}
+.apple .home-carousel {
+  width: 100%;
+  position: absolute;
+  top: 100px;
+}
+.apple .home-carousel .inner .index-carousel {
+  display: inline-block;
+  position: absolute;
+  width: 80%;
+  margin: 0 auto;
+  top: 0px;
+}
+.apple .home-carousel .inner .index-carousel .news-content-right {
+  position: absolute;
+  right: 0px;
+  top: 60px;
+  width: 350px;
+  background: #282828;
+  color: #fff;
+}
+.apple .home-carousel .inner .index-carousel .news-content-right .news-top {
+  width: 100%;
+  padding: 20px;
+}
+.apple .home-carousel .inner .index-carousel .news-content-right .news-top .news-top-title {
+  font-size: 26px;
+  font-weight: 600;
+}
+.apple .home-carousel .inner .index-carousel .news-content-right .news-top .news-top-title .news-carousel {
+  display: inline-block;
+  width: 56px;
+  height: 27px;
+  float: right;
+  position: relative;
+  margin-top: 6px;
+}
+.apple .home-carousel .inner .index-carousel .news-content-right .news-top .news-top-title .news-carousel .carousel-control {
+  position: absolute;
+  height: 25px;
+  width: 25px;
+  opacity: 1;
+  border: 1px solid #ccc;
+  text-shadow: none;
+  color: #ccc;
+  line-height: 24px;
+  font-size: 30px;
+  font-weight: 300;
+}
+.apple .home-carousel .inner .index-carousel .news-content-right .news-top .news-top-title .news-carousel .carousel-control:hover {
+  background: #ffb515;
+  color: #000;
+}
+.apple .home-carousel .inner .index-carousel .news-content-right .news-top ul {
+  padding: 0;
+  margin-top: 20px;
+}
+.apple .home-carousel .inner .index-carousel .news-content-right .news-top ul .hot-img {
+  width: 100%;
+  height: 138px;
+  padding: 0 5px;
+}
+.apple .home-carousel .inner .index-carousel .news-content-right .news-top ul .hot-img img {
+  height: 100%;
+  width: 100%;
+}
+.apple .home-carousel .inner .index-carousel .news-content-right .news-top ul li {
+  width: 100%;
+  list-style: none;
+  display: inline-block;
+  margin: 5px auto;
+}
+.apple .home-carousel .inner .index-carousel .news-content-right .news-top ul li .news-top-img {
+  display: inline-block;
+  padding: 0;
+  float: left;
+}
+.apple .home-carousel .inner .index-carousel .news-content-right .news-top ul li .news-top-img img {
+  width: 100%;
+}
+.apple .home-carousel .inner .index-carousel .news-content-right .news-top ul li .news-top-discription {
+  padding-right: 0;
+}
+.apple .home-carousel .inner .index-carousel .news-content-right .news-top ul li .news-top-discription a {
+  display: inline-block;
+  margin-bottom: 5px;
+  color: #fff;
+}
+.apple .home-carousel .inner .index-carousel .news-content-right .news-top ul li .news-top-discription .news-view span {
+  font-size: 12px;
+  color: #fff;
+  margin-right: 15px;
+}
+.apple .home-carousel .inner .index-carousel .news-content-right .news-top ul li .news-top-discription .news-view span img {
+  width: 18px;
+  margin-right: 8px;
+}
+.apple .home-container .home-iphone,
+.apple .home-container .home-ipad,
+.apple .home-container .home-mac {
+  width: 100%;
+}
+.apple .home-container .price-product-line {
+  width: 100%;
+  margin: 40px auto 30px;
+}
+.apple .home-container .price-product-line:last-child {
+  margin: 40px auto 40px;
+}
+.apple .home-container .price-product-line .price-product-title {
+  width: 100%;
+  text-align: center;
+  height: 60px;
+  text-transform: uppercase;
+  margin: 0;
+  position: relative;
+}
+.apple .home-container .price-product-line .price-product-title .middle-line {
+  width: 100%;
+  display: inline-block;
+  height: 25px;
+  border-bottom: 1px solid #ccc;
+  position: absolute;
+  left: 0px;
+}
+.apple .home-container .price-product-line .price-product-title .title {
+  font-family: tx;
+  position: absolute;
+  display: inline-block;
+  height: 30px;
+  font-size: 30px;
+  width: 320px;
+  top: 4px;
+  background: #fff;
+  left: 50%;
+  margin-left: -160px;
+}
+.apple .home-container .price-product-line .price-today {
+  width: 100%;
+  height: 32px;
+  margin: 0px auto 30px;
+}
+.apple .home-container .price-product-line .price-today .price-today-left {
+  font-family: tx;
+  float: left;
+  font-size: 22px;
+  color: #333;
+  position: relative;
+}
+.apple .home-container .price-product-line .price-today .price-today-left img {
+  position: relative;
+  top: -3px;
+  margin-right: -3px;
+}
+.apple .home-container .price-product-line .price-today .price-today-left span,
+.apple .home-container .price-product-line .price-today .price-today-left a {
+  display: inline-block;
+}
+.apple .home-container .price-product-line .price-today .price-today-left .product-line-select {
+  top: 3px;
+  border: 1px solid #ccc;
+  display: inline-block;
+  height: 26px;
+  line-height: 22px;
+  position: relative;
+  text-align: center;
+  vertical-align: middle;
+}
+.apple .home-container .price-product-line .price-today .price-today-left .product-line-select #ipadSelectShow {
+  width: 160px;
+}
+.apple .home-container .price-product-line .price-today .price-today-left .product-line-select #macSelectShow {
+  width: 220px;
+}
+.apple .home-container .price-product-line .price-today .price-today-left .product-line-select:after {
+  border-color: #ccc;
+  border-style: solid solid none none;
+  border-width: 1px 1px 0 medium;
+  content: "";
+  display: block;
+  height: 7px;
+  position: absolute;
+  right: 8px;
+  top: 7px;
+  -webkit-transform: rotate(135deg);
+  transform: rotate(135deg);
+  width: 7px;
+}
+.apple .home-container .price-product-line .price-today .price-today-left .product-line-select .selectShow {
+  background-color: rgba(0, 0, 0, 0);
+  border: 0 none;
+  text-align: center;
+  font-size: 12px;
+  width: 100%;
+  margin-left: -6px;
+}
+.apple .home-container .price-product-line .price-today .price-today-left .product-line-select .selectHide {
+  font-size: 12px;
+  border: 0 none;
+  height: 30px;
+  left: 9px;
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  z-index: 99;
+  width: 100%;
+}
+.apple .home-container .price-product-line .price-today .price-today-left .dropdown-menu {
+  min-width: 100% !important;
+}
+.apple .home-container .price-product-line .price-today .price-today-left .dropdown-menu li a {
+  width: 100%;
+}
+.apple .home-container .price-product-line .price-today .price-today-left .view-msg {
+  color: #f14b4b;
+  font-size: 12px;
+  display: inline-block;
+  line-height: 30px;
+  position: relative;
+  top: -3px;
+  margin-left: 10px;
+}
+.apple .home-container .price-product-line .price-today .price-today-right {
+  float: right;
+}
+.apple .home-container .price-product-line .price-today .price-today-right .more-price {
+  font-family: tx;
+  font-size: 22px;
+  color: #333;
+}
+.apple .home-container .price-product-line .price-today .price-today-right .more-price img {
+  margin-top: -6px;
+}
+.apple .home-container .price-product-line .price-today .product-line-type {
+  position: relative;
+  font-size: 14px;
+  padding: 3px 15px;
+  color: #fff;
+  background: #000;
+  top: -3px;
+}
+.apple .home-container .price-product-line .price-today .product-line-type:hover {
+  color: #000;
+  background: #ffb515;
+}
+.apple .home-container .price-product-line .price-today .type-active {
+  color: #000;
+  background: #ffb515;
+}
+.apple .home-container .price-product-line .price-shop {
+  width: 100%;
+}
+.apple .home-container .price-product-line .price-shop ul {
+  padding: 0;
+  margin: 0;
+}
+.apple .home-container .price-product-line .price-shop ul li {
+  min-width: 120px;
+  width: 11.75%;
+  margin: 0 0.2%;
+  height: 160px;
+  display: inline-block;
+  border: 1px solid #ccc;
+  position: relative;
+}
+.apple .home-container .price-product-line .price-shop ul li:first-child {
+  margin-left: 0;
+}
+.apple .home-container .price-product-line .price-shop ul li:last-child {
+  margin-right: 0;
+}
+.apple .home-container .price-product-line .price-shop ul li .price-shop-top {
+  width: 100%;
+  height: 113px;
+  padding: 10px 8px;
+  background: #fff;
+}
+.apple .home-container .price-product-line .price-shop ul li .price-shop-top .price-shop-name {
+  display: inline-block;
+  width: 20%;
+  height: 88%;
+  padding-right: 3px;
+  color: #ccc;
+  border-right: 1px solid #ccc;
+  float: left;
+  margin-right: 8%;
+  position: relative;
+}
+.apple .home-container .price-product-line .price-shop ul li .price-shop-top .price-shop-name .shop-name-2-chars {
+  display: inline-block;
+  position: relative;
+  margin-top: 20px;
+}
+.apple .home-container .price-product-line .price-shop ul li .price-shop-top .price-shop-name .shop-name-3-chars {
+  display: inline-block;
+  position: relative;
+  margin-top: 10px;
+}
+.apple .home-container .price-product-line .price-shop ul li .price-shop-top .price-shop-fee {
+  display: inline-block;
+  height: 90%;
+  width: 70%;
+}
+.apple .home-container .price-product-line .price-shop ul li .price-shop-top .price-shop-fee p {
+  margin: 0;
+  width: 100%;
+  height: 33%;
+  color: #666;
+  line-height: 28px;
+}
+.apple .home-container .price-product-line .price-shop ul li .price-shop-top .price-shop-fee p .price-memory {
+  float: left;
+}
+.apple .home-container .price-product-line .price-shop ul li .price-shop-top .price-shop-fee p .price-fee {
+  float: right;
+}
+.apple .home-container .price-product-line .price-shop ul li .price-msg {
+  position: absolute;
+  color: red;
+  font-size: 12px;
+  width: 100%;
+  text-align: center;
+  bottom: 46px;
+}
+.apple .home-container .price-product-line .price-shop ul li .price-shop-bottom {
+  display: inline-block;
+  width: 100%;
+  height: 45px;
+  background: #000;
+  color: #fff;
+  text-align: center;
+  line-height: 45px;
+}
+.apple .home-container .price-product-line .price-shop ul li .price-shop-bottom:hover {
+  background: #f14b4b;
+}
+.apple .home-container .home-info {
+  width: 100%;
+  margin: 10px auto;
+}
+.apple .home-container .home-info .up-il {
+  display: inline-block;
+  width: 31.5%;
+  margin: 0 1.8% 0 0;
+  float: left;
+}
+.apple .home-container .home-info .up-il .up-title {
+  border-left: 3px solid #000;
+  height: 25px;
+  font-size: 22px;
+  line-height: 25px;
+  font-family: tx;
+  padding-left: 8px;
+  position: relative;
+}
+.apple .home-container .home-info .up-il .up-title a {
+  display: inline-block;
+  position: absolute;
+  font-size: 14px;
+  line-height: 14px;
+  height: 14px;
+  color: #777;
+  text-transform: uppercase;
+  right: 0;
+  top: 6px;
+}
+.apple .home-container .home-info .up-il .up-title a:hover {
+  color: #ffb515;
+}
+.apple .home-container .home-info .up-il .home-video {
+  width: 100%;
+  height: 240px;
+}
+.apple .home-container .home-info .up-il .home-video a {
+  display: block;
+}
+.apple .home-container .home-info .up-il .home-video .video {
+  height: 210px;
+  width: 100%;
+  margin-bottom: 5px;
+}
+.apple .home-container .home-info .up-il .home-video .video img {
+  width: 100%;
+  height: 100%;
+}
+.apple .home-container .home-info .up-il .home-video .video-label {
+  font-size: 14px;
+  color: #555;
+  text-align: left;
+  height: 20px;
+  line-height: 20px;
+}
+.apple .home-container .home-info .up-il .home-news-ul {
+  margin: 0;
+  padding: 0;
+}
+.apple .home-container .home-info .up-il .home-news-ul .home-news-li {
+  display: inline-block;
+  width: 100%;
+  height: 74px;
+  margin-top: 6px;
+  border-bottom: 1px solid #ccc;
+}
+.apple .home-container .home-info .up-il .home-news-ul .home-news-li .home-news-img {
+  display: inline-block;
+  width: 96px;
+  height: 68px;
+  float: left;
+}
+.apple .home-container .home-info .up-il .home-news-ul .home-news-li .home-news-img img {
+  width: 100%;
+  height: 100%;
+}
+.apple .home-container .home-info .up-il .home-news-ul .home-news-li .home-news-info {
+  display: inline-block;
+  width: 210px;
+  margin-left: 10px;
+  color: #555;
+}
+.apple .home-container .home-info .up-il .home-news-ul .home-news-li .home-news-info a {
+  display: block;
+  height: 47px;
+}
+.apple .home-container .home-info .up-il .home-news-ul .home-news-li .home-news-info .home-news-label {
+  display: inline-block;
+  background: #f5f5f5;
+  color: #777;
+  padding: 2px;
+  float: left;
+  font-size: 12px;
+  margin-right: 10px;
+  width: 70px;
+  text-align: center;
+}
+.apple .home-container .home-info .up-il .up-info {
+  width: 100%;
+  height: 170px;
+  border-bottom: 1px solid #ccc;
+}
+.apple .home-container .home-info .up-il .up-info .up-img {
+  display: inline-block;
+  width: 35%;
+  min-width: 122px;
+  height: 110px;
+  float: left;
+}
+.apple .home-container .home-info .up-il .up-info .up-img img {
+  width: 100%;
+  height: 100%;
+}
+.apple .home-container .home-info .up-il .up-info .up-msg {
+  float: right;
+  width: 60%;
+  height: 100%;
+}
+.apple .home-container .home-info .up-il .up-info .up-msg .up-msg-title {
+  font-size: 20px;
+  margin-bottom: 3px;
+}
+.apple .home-container .home-info .up-il .up-info .up-msg .up-button {
+  display: inline-block;
+  padding: 0 15px 0 0;
+  border: 1px solid #ffb515;
+  background: #fff;
+  color: #000;
+  border-radius: 4px;
+  margin-bottom: 3px;
+}
+.apple .home-container .home-info .up-il .up-info .up-msg .up-button span {
+  background: #ffb515;
+  display: inline-block;
+  padding: 0 15px;
+  color: #fff;
+  font-weight: bold;
+  margin-right: 10px;
+}
+.apple .home-container .home-info .up-il .up-info .up-msg .up-msg-info {
+  font-size: 12px;
+  color: #777;
+  height: 100px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.apple .home-container .home-info .up-il .up-progress {
+  width: 100%;
+  height: 55px;
+  border-bottom: 1px solid #ccc;
+  color: #555;
+  line-height: 48px;
+  position: relative;
+  font-size: 12px;
+}
+.apple .home-container .home-info .up-il .up-progress:hover .progress .progress-bar {
+  background-color: #ffb515;
+}
+.apple .home-container .home-info .up-il .up-progress:hover .up-count {
+  color: #ffb515;
+}
+.apple .home-container .home-info .up-il .up-progress .up-date {
+  font-size: 14px;
+  position: absolute;
+  margin: 0;
+  padding: 0;
+  top: -6px;
+  left: 42%;
+  height: 14px;
+}
+.apple .home-container .home-info .up-il .up-progress .progress {
+  width: 40%;
+  height: 8px;
+  display: inline-block;
+  position: absolute;
+  top: 30px;
+  right: 60px;
+}
+.apple .home-container .home-info .up-il .up-progress .progress .progress-bar {
+  background-color: #808080;
+  border-radius: 10px;
+}
+.apple .home-container .home-info .up-il .up-progress .up-count {
+  float: right;
+  color: #555;
+  font-size: 30px;
+}
+.apple .home-container .home-info .up-il .up-progress .count-coverage {
+  font-size: 22px;
+}
+.apple .home-container .home-info .up-il .progress-coverage {
+  line-height: 55px;
+}
+.apple .home-container .home-info .up-il .up-history {
+  width: 100%;
+  height: 160px;
+  line-height: 55px;
+  font-size: 12px;
+}
+.apple .home-container .home-info .up-il .up-history .up-history-ul {
+  width: 72%;
+  float: right;
+  margin: 8px 0 0 0;
+  padding: 0;
+}
+.apple .home-container .home-info .up-il .up-history .up-history-ul .up-history-li {
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  display: inline-block;
+  height: 32px;
+  line-height: 32px;
+  border-bottom: 1px solid #ccc;
+  position: relative;
+}
+.apple .home-container .home-info .up-il .up-history .up-history-ul .up-history-li a {
+  display: inline-block;
+}
+.apple .home-container .home-info .up-il .up-history .up-history-ul .up-history-li a:hover {
+  color: #ffb515;
+}
+.apple .home-container .home-info .up-il .up-history .up-history-ul .up-history-li span {
+  right: 0;
+  position: absolute;
+  top: 0;
+}
+.apple .home-container .home-info .home-parts {
+  width: 100%;
+  margin: 20px auto;
+}
+.apple .home-container .home-info .home-parts .up-title .home-part-right {
+  display: inline-block;
+  float: right;
+  position: relative;
+  line-height: 10px;
+}
+.apple .home-container .home-info .home-parts .up-title .home-part-right .home-part-series {
+  display: inline-block;
+  font-size: 14px;
+  height: 14px;
+  line-height: 14px;
+  color: #555;
+  position: relative;
+}
+.apple .home-container .home-info .home-parts .up-title .home-part-right .home-part-series:last-child {
+  margin-left: 30px;
+}
+.apple .home-container .home-info .home-parts .up-title .home-part-right .home-part-series .home-part-icon {
+  position: relative;
+  height: 16px;
+  top: -2px;
+}
+.apple .home-container .home-info .home-parts .up-title .home-part-right .home-part-series .home-part-icon img {
+  height: 100%;
+}
+.apple .home-container .home-info .home-shop-items {
+  width: 100%;
+  height: 600px;
+}
+.apple .home-container .home-info .home-shop-items .home-items-left {
+  display: inline-block;
+  height: 500px;
+  width: 20%;
+  min-width: 200px;
+  background: url("../images/index/total-view.png") no-repeat;
+  background-size: 100% 100%;
+  position: relative;
+  padding: 50px 30px;
+}
+.apple .home-container .home-info .home-shop-items .home-items-left .items-count {
+  padding: 2px 5px;
+  background: #fff;
+  color: #ffb515;
+  font-size: 12px;
+  position: relative;
+  top: 60px;
+}
+.apple .home-container .home-info .home-shop-items .home-items-left p {
+  color: #fff;
+  position: relative;
+  top: 70px;
+}
+.apple .home-container .home-info .home-shop-items .home-items-left a {
+  position: relative;
+  display: inline-block;
+  background: #000;
+  color: #fff;
+  padding: 5px 20px;
+  top: 75px;
+}
+.apple .home-container .home-info .home-shop-items .home-items-left a:hover {
+  color: #ffb515;
+}
+.apple .home-container .home-info .home-shop-items .home-items-right {
+  width: 80%;
+  height: 520px;
+  float: right;
+}
+.apple .home-container .home-info .home-shop-items .home-items-right .full-items-ul {
+  width: 102%;
+}
+.apple .home-container .home-info .home-shop-items .home-items-right .home-items-ul {
+  display: inline-block;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+.apple .home-container .home-info .home-shop-items .home-items-right .home-items-ul .home-items-li {
+  display: inline-block;
+  margin: 0 0 20px 2%;
+  width: 23%;
+  height: 240px;
+  float: left;
+  position: relative;
+  overflow: hidden;
+}
+.apple .home-container .home-info .home-shop-items .home-items-right .home-items-ul .home-items-li .item-active {
+  display: block;
+  padding: 10px 0;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  background: #fff;
+}
+.apple .home-container .home-info .home-shop-items .home-items-right .home-items-ul .home-items-li .item-active .item {
+  position: absolute;
+  right: 10px;
+  top: 0px;
+  padding: 3px 8px;
+  color: #fff;
+  font-size: 14px;
+}
+.apple .home-container .home-info .home-shop-items .home-items-right .home-items-ul .home-items-li .item-active .item-tm {
+  background: #f14b4b;
+}
+.apple .home-container .home-info .home-shop-items .home-items-right .home-items-ul .home-items-li .item-active .item-tb {
+  background: #ffb515;
+}
+.apple .home-container .home-info .home-shop-items .home-items-right .home-items-ul .home-items-li .item-active .item-name {
+  display: inline-block;
+  height: 16px;
+  line-height: 16px;
+  font-size: 14px;
+  color: #555;
+  width: 100%;
+  margin: 7px 0;
+}
+.apple .home-container .home-info .home-shop-items .home-items-right .home-items-ul .home-items-li .item-active .item-price {
+  display: inline-block;
+  height: 20px;
+  line-height: 20px;
+  font-size: 18px;
+  color: #f14b4b;
+  width: 100%;
+}
+.apple .home-container .home-info .home-shop-items .home-items-right .home-items-ul .home-items-li .item-hover {
+  position: absolute;
+  top: -100%;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.9);
+  padding: 40px 20px;
+}
+.apple .home-container .home-info .home-shop-items .home-items-right .home-items-ul .home-items-li .item-hover .item-hover-title {
+  font-size: 16px;
+  color: #ffb515;
+  margin: 0;
+  padding: 0;
+  font-weight: 300;
+}
+.apple .home-container .home-info .home-shop-items .home-items-right .home-items-ul .home-items-li .item-hover .item-hover-line {
+  width: 32px;
+  height: 15px;
+  border-top: 1px solid #ffb515;
+  margin-top: 3px;
+  margin-bottom: 0;
+}
+.apple .home-container .home-info .home-shop-items .home-items-right .home-items-ul .home-items-li .item-hover .item-hover-info {
+  font-size: 14px;
+  color: #fff;
+  margin: 0 0 20px 0;
+  padding: 0;
+  font-weight: 300;
+}
+.apple .home-container .home-info .home-shop-items .home-items-right .home-items-ul .full-li-first {
+  display: inline-block;
+  height: 240px;
+  background: url("../images/index/total-view-small.png") no-repeat;
+  background-size: 100% 100%;
+  position: relative;
+  padding: 50px 25px;
+}
+.apple .home-container .home-info .home-shop-items .home-items-right .home-items-ul .full-li-first .items-count {
+  padding: 2px 4px;
+  background: #fff;
+  color: #ffb515;
+  font-size: 12px;
+  position: relative;
+  top: 45px;
+}
+.apple .home-container .home-info .home-shop-items .home-items-right .home-items-ul .full-li-first .li-p-1 {
+  color: #fff;
+  position: relative;
+  font-size: 12px;
+  margin: 0;
+  top: 40px;
+}
+.apple .home-container .home-info .home-shop-items .home-items-right .home-items-ul .full-li-first .li-p-2 {
+  color: #fff;
+  position: relative;
+  font-size: 12px;
+  margin: 0;
+  top: 50px;
+}
+.apple .home-container .home-info .home-shop-items .home-items-right .home-items-ul .full-li-first a {
+  position: relative;
+  display: inline-block;
+  background: #000;
+  color: #fff;
+  padding: 5px 20px;
+  top: 75px;
+}
+.apple .home-container .home-info .home-shop-items .home-items-right .home-items-ul .full-li-first a:hover {
+  color: #ffb515;
+}
+.apple .home-container .home-info .home-shop-items .home-items-right .home-items-ul .full-li {
+  margin: 0 2% 20px 0;
+  width: 18%;
+}
+.apple .home-container .home-info .home-shop-items .full-ul {
+  width: 100%;
+}
+.apple .home-container .home-info .home-shop-items .bg {
+  position: absolute;
+  width: 100%;
+  height: 450px;
+  left: 0px;
+  margin-top: -420px;
+  background: url("../images/price/bg.jpg") no-repeat;
+  background-size: cover;
+  z-index: -1;
+}
+.apple .home-container .home-info .home-shop-items .pad-bg {
+  height: 430px;
+  margin-top: 180px;
+}
+@media (min-width: 480px) and (max-width: 980px) {
+  #apple .home-carousel .inner .index-carousel .news-content-right .news-top ul li .news-top-img {
+    width: 40%;
+  }
+  #apple .home-carousel .inner .index-carousel .news-content-right .news-top ul li .news-top-discription {
+    width: 56%;
+    float: right;
+  }
+}
