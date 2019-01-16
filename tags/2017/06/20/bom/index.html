@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta property="wb:webmaster" content="65a151beb5e21880" />
+	<!-- baidu analytics-->
+	<script>
+		var _hmt = _hmt || [];
+		(function() {
+			var hm = document.createElement("script");
+			hm.src = "https://hm.baidu.com/hm.js?09df6a0c610161ab3099d8e11e9c998e";
+			var s = document.getElementsByTagName("script")[0];
+			s.parentNode.insertBefore(hm, s);
+		})();
+	</script>
+	
+	<title>Javascript BOM | Bevis Blog - 沈浩个人博客</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<meta name="description" content="Javascript 中的浏览器对象模型。">
+<meta name="keywords" content="Javascript">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Javascript BOM">
+<meta property="og:url" content="https://utopia1991.github.io/2017/06/20/bom/index.html">
+<meta property="og:site_name" content="Bevis Blog - 沈浩个人博客">
+<meta property="og:description" content="Javascript 中的浏览器对象模型。">
+<meta property="og:updated_time" content="2017-06-20T08:23:01.636Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Javascript BOM">
+<meta name="twitter:description" content="Javascript 中的浏览器对象模型。">
+	
+	
+		<link rel="icon" href="https://utopia1991.github.io/css/images/icon.jpg">
+	
+	<link rel="stylesheet" href="/css/style.css">
+	
+
+	<script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+</head>
+
+<body>
+	<a href="https://github.com/utopia1991" target="_blank" class="githubFork">
+		<img src="https://camo.githubusercontent.com/e7bbb0521b397edbd5fe43e7f760759336b5e05f/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677265656e5f3030373230302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_green_007200.png">
+	</a>
+	<div id="container">
+		<div id="wrap">
+			<header id="header">
+	<div id="header-outer" class="outer">
+		<div id="header-title" class="inner">
+			<h1 id="logo-wrap">
+				<a href="/" id="logo">
+					<span class="brand-logo">Bevis</span>
+					Blog
+				</a>
+			</h1>
+		</div>
+		<div id="header-inner" class="inner">
+			<nav id="main-nav">
+				<a id="main-nav-toggle" class="nav-icon"></a>
+				
+					<a class="main-nav-link" href="/">主页</a>
+				
+					<a class="main-nav-link" href="/archives">博文</a>
+				
+				<a class="main-nav-link" href="https://utopia1991.github.io/project/about/index.html">关于我</a>
+			</nav>
+		</div>
+	</div>
+</header>
+
+			<canvas width="100%" height="100%" id="canvas"></canvas>
+			<div class="outer">
+				
+				<aside id="sidebar">
+	<div class="aside-author">
+		<a class="aside-logo" href="https://utopia1991.github.io/project/lover/index.html" target="_blank"></a>
+		<p class="aside-title">Bevis Shen（沈浩）</p>
+		<p class="aside-subtitle">Node.js & Front-End Engineer</p>
+		<p class="aside-description">Google 重度粉，Mac 拥趸，前端 + Node 青年，对前沿技术有着狂热的激情，梦想环游世界，热爱生活、摄影、旅游、电影的文艺程序猿一枚</p>
+		<div class="aside-communicate">
+			<a href="https://github.com/utopia1991" target="_blank" class="article-share-github" title="github"></a>
+			<a href="https://www.linkedin.com/in/bevis1991" target="_blank" class="article-share-linkedin" title="linkedin"></a>
+			<a href="mailto:1304354608@qq.com" class="article-share-mail" title="email"></a>
+			<a href="https://weibo.com/u/2619492527/home" target="_blank" class="article-share-weibo" title="weibo"></a>
+			<a class="article-share-weixin" title="我的个人微信公众号"></a>
+			<img src="https://utopia1991.github.io/css/images/wechat.png" width="180" height="180" class="wechat-pic">
+			<a href="https://bevis1991.wordpress.com/" target="_blank" class="article-share-wordpress" title="WordPress 博客"></a>
+			<a href="https://www.facebook.com/bevis1991" target="_blank" class="article-share-facebook" title="facebook"></a>
+			<a href="https://twitter.com/bevis_shen" target="_blank" class="article-share-twitter" title="twitter"></a>
+		</div>
+	</div>
+	
+		
+
+	
+		
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/">CSS</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Code-Style/">Code Style</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Coffeescript/">Coffeescript</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Google/">Google</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Gulp/">Gulp</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML/">HTML</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTTP/">HTTP</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Interview-Questions/">Interview-Questions</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Javascript/">Javascript</a><span class="tag-list-count">20</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mac/">Mac</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/">Markdown</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MongoDB/">MongoDB</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UnderscoreJS/">UnderscoreJS</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery/">jQuery</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nodeJs/">nodeJs</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+	
+		
+  <div class="widget-wrap">
+    <h3 class="widget-title">Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/CSS/" style="font-size: 17.5px;">CSS</a> <a href="/tags/Code-Style/" style="font-size: 17.5px;">Code Style</a> <a href="/tags/Coffeescript/" style="font-size: 10px;">Coffeescript</a> <a href="/tags/Google/" style="font-size: 10px;">Google</a> <a href="/tags/Gulp/" style="font-size: 10px;">Gulp</a> <a href="/tags/HTML/" style="font-size: 12.5px;">HTML</a> <a href="/tags/HTTP/" style="font-size: 12.5px;">HTTP</a> <a href="/tags/Interview-Questions/" style="font-size: 17.5px;">Interview-Questions</a> <a href="/tags/Javascript/" style="font-size: 20px;">Javascript</a> <a href="/tags/Mac/" style="font-size: 12.5px;">Mac</a> <a href="/tags/Markdown/" style="font-size: 10px;">Markdown</a> <a href="/tags/MongoDB/" style="font-size: 15px;">MongoDB</a> <a href="/tags/UnderscoreJS/" style="font-size: 12.5px;">UnderscoreJS</a> <a href="/tags/jQuery/" style="font-size: 12.5px;">jQuery</a> <a href="/tags/nodeJs/" style="font-size: 10px;">nodeJs</a>
+    </div>
+  </div>
+
+	
+		
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">二月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">一月 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">十一月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">十月 2017</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">七月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">六月 2017</a><span class="archive-list-count">43</span></li></ul>
+    </div>
+  </div>
+
+
+	
+		
+	<div class="widget-wrap">
+		<h3 class="widget-title">最新文章</h3>
+		<div class="widget">
+			<ul>
+				
+					<li>
+						<a href="/2018/02/23/https/">
+							HTTPS 协议
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2018/01/25/mongoQueryCommand/">
+							Mongodb 常见的查询语句及与 mysql 对比
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2018/01/24/throttleDebounce/">
+							JS 函数节流和函数防抖之间的区别
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2017/11/29/progress/">
+							异步编程、进程、单线程、多线程
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2017/10/23/viewport/">
+							HTML meta viewport属性说明
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2017/10/20/flex/">
+							CSS3中Flex弹性布局
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2017/10/20/boxModel/">
+							CSS盒模型
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2017/07/18/reg/">
+							前端表单验证常用的15个JS正则表达式
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2017/06/20/vue/">
+							Vue 基础学习笔记
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2017/06/20/vide/">
+							Vide 视频背景jQuery插件
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2017/06/20/underscore2/">
+							UnderscoreJS 常用方法
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2017/06/20/underscore1/">
+							UnderscoreJS 使用介绍
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2017/06/20/superAgent/">
+							SuperAgent 中文使用文档
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2017/06/20/string/">
+							Javascript 字符串
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2017/06/20/source/">
+							超全 web 开发工具和资源
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2017/06/20/reduceCoupling/">
+							减少前端代码耦合
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2017/06/20/object/">
+							Javascript 对象
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2017/06/20/nodemailer/">
+							使用 nodeJs 发送邮件
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2017/06/20/mongoose/">
+							Mongoose 基本介绍
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2017/06/20/mongodb/">
+							MongoDB 操作基础语法（shell）
+						</a>
+					</li>
+					
+				......
+			</ul>
+		</div>
+	</div>
+	
+
+	
+</aside>
+
+				
+				<section id="main">
+					<div class="main-header">
+						<p class="header-title">Any application that can be written in JavaScript, will eventually be written in JavaScript.</p>
+						<canvas id="bubbleCanvas" width="100%" height="300" style="margin-top:50px;"></canvas>
+						<script>
+							(function(){
+								var width, height, canvas, ctx, circles;
+								function initHeader() {
+									try{
+										canvas = document.getElementById('bubbleCanvas');
+										if($("#bubbleCanvas").length>0){
+											width = window.innerWidth*0.25>300?window.innerWidth*0.25:300;
+											//height = window.innerHeight;
+											height = 255;
+											canvas.width = width;
+											canvas.height = height;
+											ctx = canvas.getContext('2d');
+											circles = [];
+											for(var x = 0; x < width*0.5; x++) {
+												var c = new Circle();
+												circles.push(c);
+											}
+											animate();
+										}
+									} catch(ex) {
+										if(window.cosole&&window.cosole.log){cosole.log(ex)}
+									}
+								}
+								function addListeners() {
+									try{
+										if($("#bubbleCanvas").length>0){
+											window.addEventListener('resize', resize);
+										}
+									}catch(ex){if(window.cosole&&window.cosole.log){cosole.log(ex)}}
+								}
+								function resize() {
+									width = window.innerWidth*0.25>300?window.innerWidth*0.25:300;
+									height = window.innerHeight;
+									canvas.width = width;
+									canvas.height = height;
+								}
+								function animate() {
+									ctx.clearRect(0,0,width,height);
+									for(var i in circles) {
+										circles[i].draw();
+									}
+									window.requestAFrame = (function () {
+										return window.requestAnimationFrame||window.webkitRequestAnimationFrame||window.mozRequestAnimationFrame||window.oRequestAnimationFrame||window.msRequestAnimationFrame||
+											function (callback) {
+												return window.setTimeout(callback, 1000 / 60); // shoot for 60 fps
+											};
+									})();
+									requestAFrame(animate);
+								}
+								// Canvas manipulation
+								function Circle() {
+									var _this = this;
+									// constructor
+									(function() {
+										_this.pos = {};
+										init();
+									})();
+
+									function init() {
+										_this.pos.x = Math.random()*width;
+										_this.pos.y = height+Math.random()*100;
+										_this.alpha = 0.1+Math.random()*0.3;
+										_this.scale = 0.1+Math.random()*0.3;
+										_this.velocity = Math.random();
+									}
+
+									this.draw = function() {
+										if(_this.alpha <= 0) {
+											init();
+										}
+										_this.pos.y -= _this.velocity;
+										_this.alpha -= 0.0005;
+										ctx.beginPath();
+										ctx.arc(_this.pos.x, _this.pos.y, _this.scale*10, 0, 2 * Math.PI, false);
+										ctx.fillStyle = 'rgba(255,255,255,'+ _this.alpha+')';
+										ctx.fill();
+									};
+								}
+								initHeader();
+								addListeners();
+							}());
+						</script>
+					</div>
+					<article id="post-bom" class="article article-type-post" itemscope itemprop="blogPost">
+	<div class="article-meta">
+		
+	</div>
+	<div class="article-inner">
+		
+		
+			<header class="article-header">
+				
+	
+		<h1 class="article-title" itemprop="name">
+			Javascript BOM
+		</h1>
+	
+
+
+				<a href="/2017/06/20/bom/" class="article-date">
+  <time datetime="2017-06-20T08:23:01.636Z" itemprop="datePublished">2017-06-20</time>
+</a>
+			</header>
+		
+		<div class="article-entry" itemprop="articleBody">
+			
+				<p>Javascript 中的浏览器对象模型。</p>
+<a id="more"></a>
+<h3 id="开头"><a href="#开头" class="headerlink" title="开头"></a>开头</h3><p>回调：想要让程序响应一个事件，写一个函数，这个函数就叫做“回调”，或者“事件处理程序”或者“事件监听器”。<br>事件处理程序的属性的名字以 “on” 开始，后面跟着事件的名字。<br>然后注册这个函数，这样他就会在事件发生时调用它，例如以下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> a  = <span class="built_in">document</span>.getElementById(<span class="string">"demo"</span>);</div><div class="line"><span class="comment">// addEventListener() 在 ie9 之后才实现，第三个参数是实现捕获（true），默认是false</span></div><div class="line">a.addEventListener(<span class="string">"click"</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(<span class="string">'aaaa'</span>);</div><div class="line">&#125;,<span class="literal">false</span>);</div></pre></td></tr></table></figure>
+<h3 id="1-setTimeout-和-setInterval"><a href="#1-setTimeout-和-setInterval" class="headerlink" title="1. setTimeout() 和 setInterval()"></a>1. setTimeout() 和 setInterval()</h3><p>setTimeout() 设置延时一定时间之后执行操作；<br>setInterval() 设置以一定时间循环操作；<br>clearTimeout() 取消 setTimeout() 函数调用执行；<br>clearInterval() 取消 setInterval() 函数调用执行。</p>
+<p>如果给 setTimeout() 传入了0毫秒的话，那么指定的函数不会立即执行，而会把这个函数放在队列中，等前面处于等待的状态的事件处理完了才会调用它</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(<span class="string">'zzzz'</span>);</div><div class="line">&#125;,<span class="number">3000</span>);</div><div class="line">clearTimeout();</div><div class="line">setInterval(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(<span class="string">'xxxx'</span>);</div><div class="line">&#125;,<span class="number">1000</span>);</div><div class="line">clearInterval();</div></pre></td></tr></table></figure>
+<h3 id="2-window-location"><a href="#2-window-location" class="headerlink" title="2. window.location"></a>2. window.location</h3><p>window.location 属性引用的是 Location 对象，表示窗口当前显示文档的 url，<br>这个对象的属性有：href，protocol，host，hostname，port，pathname，search 和 hash，这些被称为 url 分解属性。<br>search 和 hash 返回的是“？”之后的 url（包括“？”），这个属性对于解析 url 很有帮助。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">urlArgs</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">var</span> args = &#123;&#125;;</div><div class="line">  <span class="keyword">var</span> query = <span class="built_in">window</span>.location.search.substring(<span class="number">1</span>); <span class="comment">// 去掉 “？”</span></div><div class="line">  <span class="keyword">var</span> pairs = query.split(<span class="string">"&amp;"</span>);</div><div class="line">  <span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>;i &lt; pairs.length; i++) &#123;</div><div class="line">    <span class="keyword">var</span> pos = pairs[i].indexOf(<span class="string">"="</span>);</div><div class="line">    <span class="keyword">if</span>(pos == <span class="number">-1</span>) <span class="keyword">continue</span>;</div><div class="line">    <span class="keyword">var</span> name = pairs[i].substring(<span class="number">0</span>,pos);</div><div class="line">    <span class="keyword">var</span> value = pairs[i].substring(pos+<span class="number">1</span>);</div><div class="line">    args[name] = value;</div><div class="line">  &#125;</div><div class="line">  <span class="keyword">return</span> args;</div><div class="line">&#125;;</div><div class="line"><span class="built_in">console</span>.log(<span class="string">"url: "</span>, urlArgs()); <span class="comment">// &#123;aa: "11", bb: "22", cc: "33"&#125;</span></div></pre></td></tr></table></figure>
+<p>Location 对象常用有三个方法 assign()，replace() 和 reload()。<br>assign() 和 replace()这两个方法都是载入并且显示你指定的url文档。<br>但是 replace() 在载入新文档之前会从浏览历史中把当前文档删除，所以这个方法比 assign() 更好。<br>reload() 方法可以重新载入当前文档。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span>(!XMLHttpRequest) &#123;</div><div class="line">  <span class="built_in">window</span>.location.replace(<span class="string">"static.html"</span>); <span class="comment">// 若不支持 XMLHttpRequest 则跳转页面</span></div><div class="line">&#125;</div><div class="line"><span class="comment">// 其实使浏览器跳转到新页面的方法传统的是直接给 location 属性赋值新的 url</span></div><div class="line"><span class="built_in">window</span>.location = <span class="string">"page2.html"</span></div></pre></td></tr></table></figure>
+<h3 id="3-window-history"><a href="#3-window-history" class="headerlink" title="3. window.history"></a>3. window.history</h3><p>window.history 属性引用的是 History 对象。<br>history 属性常用的有三个方法 back()，forward() 和 go()。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">window</span>.history.back();  <span class="comment">// 使当前页面后退一步，后退1步</span></div><div class="line"><span class="built_in">window</span>.history.forward();  <span class="comment">// 使向前一步，前进1步</span></div><div class="line"><span class="built_in">window</span>.history.go(<span class="number">-4</span>);  <span class="comment">// 接受传入整数参数的页数，后退4步</span></div></pre></td></tr></table></figure>
+<h3 id="4-window-navigator"><a href="#4-window-navigator" class="headerlink" title="4. window.navigator"></a>4. window.navigator</h3><p>window.navigator 属性获取浏览器信息，引用的是 Navigator 对象。<br>Navigator 对象有四个属性，这些属性可以进行浏览器嗅探：appName, appVersion, userAgent, platform。<br>appName：浏览器全程，appVersion：浏览器版本，但是没有办法直接用它判断浏览器类型。<br>userAgent：通常包括 appVersion 中的所有信息，通常使用这个来嗅探浏览器。<br>platform：运行浏览器的操作系统。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> browser = <span class="built_in">window</span>.navigator.userAgent.toLowerCase();</div><div class="line"><span class="built_in">console</span>.log(<span class="string">"browser: "</span>, browser);</div></pre></td></tr></table></figure>
+<h3 id="5-window-screen"><a href="#5-window-screen" class="headerlink" title="5. window.screen"></a>5. window.screen</h3><p>window.screen 属性获取窗口的大小和单位像素可用颜色的数量，引用的是 Screen 对象。<br>Screen 对象有五个属性。<br>width 和 height 指定窗口的大小。<br>availWidth 和 availHeight 指定实际可用窗口的大小，排除导航栏之外的空间。<br>colorDepth 指定单位像素可用颜色的数量。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> screenWidth = <span class="built_in">window</span>.screen.width,</div><div class="line">screenHeight = <span class="built_in">window</span>.screen.height,</div><div class="line">availWidth = <span class="built_in">window</span>.screen.availWidth,</div><div class="line">availHeight = <span class="built_in">window</span>.screen.availHeight,</div><div class="line">colorDepth = <span class="built_in">window</span>.screen.colorDepth;</div><div class="line"><span class="built_in">console</span>.log(<span class="string">"screen: "</span>, screenWidth, screenHeight, availWidth, availHeight, colorDepth);</div></pre></td></tr></table></figure>
+<h3 id="5-window-open"><a href="#5-window-open" class="headerlink" title="5. window.open()"></a>5. window.open()</h3><p>window.open() 使浏览器打开一个新的窗口，有四个参数。<br>第一个参数是新窗口显示的 url。<br>第二个参数是新窗口显示的名字，忽略这个参数将以 “_blank” 打开。<br>第三个参数是逗号分隔列表，包括大小属性，但是 html5 中不推荐使用了。<br>第四个参数在第二个参数存在时才可以使用，true 代表第一个参数的 url 是否要替换掉窗口浏览历史的当前记录。<br>通常 open() 只有当用户手动单击按钮或链接的时候才会调用，否则一般浏览器都增加了弹出窗口过滤系统。</p>
+<h3 id="6-window-close"><a href="#6-window-close" class="headerlink" title="6. window.close()"></a>6. window.close()</h3><p>window.close() 关闭当前窗口</p>
+
+				<!-- 多说评论框 start -->
+				<div class="article-comment">
+					<div class="ds-thread" data-num-items="5" data-show-avatars="1" data-show-time="1" data-show-title="1" data-show-admin="1" data-excerpt-length="50" data-thread-key="post-bom" data-title="Javascript BOM" data-url="/"></div>
+				</div>
+				<!-- 多说评论框 end -->
+			
+		</div>
+		<footer class="article-footer">
+			<a data-url="https://utopia1991.github.io/2017/06/20/bom/" data-id="cj46ctjzy0005dcr0e4w9mx01" class="article-share-link">分享</a>
+			
+			
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Javascript/">Javascript</a></li></ul>
+
+		</footer>
+	</div>
+	
+		
+<nav id="article-nav">
+  
+    <a href="/2017/06/20/codeStyle1/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          前端编码规范 1 —— 一般规范
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/06/20/bem/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">BEM - CSS 命名规则</div>
+    </a>
+  
+</nav>
+
+	
+</article>
+
+
+
+				</section>
+			</div>
+			<footer id="footer">
+	
+	<div class="outer">
+		<div id="footer-info">
+			Copyright &copy; Bevis Shen 2018<br>
+			Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+		</div>
+	</div>
+</footer>
+
+		</div>
+		<nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">主页</a>
+  
+    <a href="/archives" class="mobile-nav-link">博文</a>
+  
+</nav>
+		
+
+<script src="https://cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+	</div>
+</body>
+<script>
+	var c = document.getElementsByTagName('canvas')[0],
+		x = c.getContext('2d'),
+		pr = window.devicePixelRatio || 1,
+		w = window.innerWidth,
+		h = window.innerHeight,
+		f = 90,
+		q,
+		m = Math,
+		r = 0,
+		u = m.PI * 2,
+		v = m.cos,
+		z = m.random
+	c.width = w * pr
+	c.height = h * pr
+	x.scale(pr, pr)
+	x.globalAlpha = 0.6
+
+	function i() {
+		x.clearRect(0, 0, w, h)
+		q = [{
+			x: 0,
+			y: h * .7 + f
+		}, {
+			x: 0,
+			y: h * .7 - f
+		}]
+		while (q[1].x < w + f) d(q[0], q[1])
+	}
+
+	function d(i, j) {
+		x.beginPath()
+		x.moveTo(i.x, i.y)
+		x.lineTo(j.x, j.y)
+		var k = j.x + (z() * 2 - 0.25) * f,
+			n = y(j.y)
+		x.lineTo(k, n)
+		x.closePath()
+		r -= u / -50
+		x.fillStyle = '#' + (v(r) * 127 + 128 << 16 | v(r + u / 3) * 127 + 128 << 8 | v(r + u / 3 * 2) * 127 + 128).toString(16)
+		x.fill()
+		q[0] = q[1]
+		q[1] = {
+			x: k,
+			y: n
+		}
+	}
+
+	function y(p) {
+		var t = p + (z() * 2 - 1.1) * f
+		return (t > h || t < 0) ? y(p) : t
+	}
+	document.onclick = i
+	document.ontouchstart = i
+	i()
+</script>
+</html>

@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+	<meta charset="utf-8">
+	<meta property="wb:webmaster" content="65a151beb5e21880">
+	<!-- baidu analytics-->
+	<script>
+		var _hmt = _hmt || [];
+		(function() {
+			var hm = document.createElement("script");
+			hm.src = "https://hm.baidu.com/hm.js?09df6a0c610161ab3099d8e11e9c998e";
+			var s = document.getElementsByTagName("script")[0];
+			s.parentNode.insertBefore(hm, s);
+		})();
+	</script>
+	
+	<title>Dust 模版引擎 | Bevis Blog - 沈浩个人博客</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<meta name="description" content="Dust 模版引擎是 LinkedIn 使用的一套模版引擎，但是因为 Dust.js 缺少中文文档，导致在国内的普及率比较低。但是现在这家公司是一家外企，美国那边使用的就是Dust.js，于是我决定在这里对Dust的语法进行一些必要的介绍。">
+<meta name="keywords" content="HTML">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Dust 模版引擎">
+<meta property="og:url" content="https://utopia1991.github.io/2019/01/14/dust/index.html">
+<meta property="og:site_name" content="Bevis Blog - 沈浩个人博客">
+<meta property="og:description" content="Dust 模版引擎是 LinkedIn 使用的一套模版引擎，但是因为 Dust.js 缺少中文文档，导致在国内的普及率比较低。但是现在这家公司是一家外企，美国那边使用的就是Dust.js，于是我决定在这里对Dust的语法进行一些必要的介绍。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-01-14T07:21:32.199Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Dust 模版引擎">
+<meta name="twitter:description" content="Dust 模版引擎是 LinkedIn 使用的一套模版引擎，但是因为 Dust.js 缺少中文文档，导致在国内的普及率比较低。但是现在这家公司是一家外企，美国那边使用的就是Dust.js，于是我决定在这里对Dust的语法进行一些必要的介绍。">
+	
+	
+		<link rel="icon" href="https://utopia1991.github.io/css/images/icon.jpg">
+	
+	<link rel="stylesheet" href="/css/style.css">
+	
+
+	<script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+</head>
+</html>
+<body>
+	<a href="https://github.com/utopia1991" target="_blank" class="githubFork">
+		<img src="https://camo.githubusercontent.com/e7bbb0521b397edbd5fe43e7f760759336b5e05f/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677265656e5f3030373230302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_green_007200.png">
+	</a>
+	<div id="container">
+		<div id="wrap">
+			<header id="header">
+	<div id="header-outer" class="outer">
+		<div id="header-title" class="inner">
+			<h1 id="logo-wrap">
+				<a href="/" id="logo">
+					<span class="brand-logo">Bevis</span>
+					Blog
+				</a>
+			</h1>
+		</div>
+		<div id="header-inner" class="inner">
+			<nav id="main-nav">
+				<a id="main-nav-toggle" class="nav-icon"></a>
+				
+					<a class="main-nav-link" href="/">主页</a>
+				
+					<a class="main-nav-link" href="/archives">博文</a>
+				
+				<a class="main-nav-link" href="https://utopia1991.github.io/project/about/index.html">关于我</a>
+			</nav>
+		</div>
+	</div>
+</header>
+
+			<canvas width="100%" height="100%" id="canvas"></canvas>
+			<div class="outer">
+				
+				<aside id="sidebar">
+	<div class="aside-author">
+		<a class="aside-logo" href="https://utopia1991.github.io/project/lover/index.html" target="_blank"></a>
+		<p class="aside-title">Bevis Shen（沈浩）</p>
+		<p class="aside-subtitle">Node.js & Front-End Engineer</p>
+		<p class="aside-description">Google 重度粉，Mac 拥趸，前端 + Node 青年，对前沿技术有着狂热的激情，梦想环游世界，热爱生活、摄影、旅游、电影的文艺程序猿一枚</p>
+		<div class="aside-communicate">
+			<a href="https://github.com/utopia1991" target="_blank" class="article-share-github" title="github"></a>
+			<a href="https://www.linkedin.com/in/bevis1991" target="_blank" class="article-share-linkedin" title="linkedin"></a>
+			<a href="mailto:1304354608@qq.com" class="article-share-mail" title="email"></a>
+			<a href="https://weibo.com/u/2619492527/home" target="_blank" class="article-share-weibo" title="weibo"></a>
+			<a class="article-share-weixin" title="我的个人微信公众号"></a>
+			<img src="https://utopia1991.github.io/css/images/wechat.png" width="180" height="180" class="wechat-pic">
+			<a href="https://bevis1991.wordpress.com/" target="_blank" class="article-share-wordpress" title="WordPress 博客"></a>
+			<a href="https://www.facebook.com/bevis1991" target="_blank" class="article-share-facebook" title="facebook"></a>
+			<a href="https://twitter.com/bevis_shen" target="_blank" class="article-share-twitter" title="twitter"></a>
+		</div>
+	</div>
+	
+		
+
+	
+		
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/">CSS</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Code-Style/">Code Style</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Coffeescript/">Coffeescript</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Google/">Google</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Gulp/">Gulp</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML/">HTML</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTTP/">HTTP</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Interview-Questions/">Interview-Questions</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Javascript/">Javascript</a><span class="tag-list-count">20</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mac/">Mac</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/">Markdown</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MongoDB/">MongoDB</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UnderscoreJS/">UnderscoreJS</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery/">jQuery</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nodeJs/">nodeJs</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+	
+		
+  <div class="widget-wrap">
+    <h3 class="widget-title">Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/CSS/" style="font-size: 17.5px;">CSS</a> <a href="/tags/Code-Style/" style="font-size: 17.5px;">Code Style</a> <a href="/tags/Coffeescript/" style="font-size: 10px;">Coffeescript</a> <a href="/tags/Google/" style="font-size: 10px;">Google</a> <a href="/tags/Gulp/" style="font-size: 10px;">Gulp</a> <a href="/tags/HTML/" style="font-size: 12.5px;">HTML</a> <a href="/tags/HTTP/" style="font-size: 12.5px;">HTTP</a> <a href="/tags/Interview-Questions/" style="font-size: 17.5px;">Interview-Questions</a> <a href="/tags/Javascript/" style="font-size: 20px;">Javascript</a> <a href="/tags/Mac/" style="font-size: 12.5px;">Mac</a> <a href="/tags/Markdown/" style="font-size: 10px;">Markdown</a> <a href="/tags/MongoDB/" style="font-size: 15px;">MongoDB</a> <a href="/tags/UnderscoreJS/" style="font-size: 12.5px;">UnderscoreJS</a> <a href="/tags/jQuery/" style="font-size: 12.5px;">jQuery</a> <a href="/tags/nodeJs/" style="font-size: 10px;">nodeJs</a>
+    </div>
+  </div>
+
+	
+		
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">一月 2019</a><span class="archive-list-count">51</span></li></ul>
+    </div>
+  </div>
+
+
+	
+		
+	<div class="widget-wrap">
+		<h3 class="widget-title">最新文章</h3>
+		<div class="widget">
+			<ul>
+				
+					<li>
+						<a href="/2019/01/14/vue/">
+							Vue 基础学习笔记
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2019/01/14/viewport/">
+							HTML meta viewport属性说明
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2019/01/14/vide/">
+							Vide 视频背景jQuery插件
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2019/01/14/underscore2/">
+							UnderscoreJS 常用方法
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2019/01/14/underscore1/">
+							UnderscoreJS 使用介绍
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2019/01/14/throttleDebounce/">
+							JS 函数节流和函数防抖之间的区别
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2019/01/14/superAgent/">
+							SuperAgent 中文使用文档
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2019/01/14/string/">
+							Javascript 字符串
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2019/01/14/source/">
+							超全 web 开发工具和资源
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2019/01/14/reg/">
+							前端表单验证常用的15个JS正则表达式
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2019/01/14/reduceCoupling/">
+							减少前端代码耦合
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2019/01/14/progress/">
+							异步编程、进程、单线程、多线程
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2019/01/14/object/">
+							Javascript 对象
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2019/01/14/nodemailer/">
+							使用 nodeJs 发送邮件
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2019/01/14/mongoose/">
+							Mongoose 基本介绍
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2019/01/14/mongodb/">
+							MongoDB 操作基础语法（shell）
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2019/01/14/mongoQueryCommand/">
+							Mongodb 常见的查询语句及与 mysql 对比
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2019/01/14/markdown/">
+							Markdown 编辑器语法指南
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2019/01/14/macIcon/">
+							Mac 更改 OS X 应用程序的图标
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2019/01/14/learnSource/">
+							做为优秀前端的必备学习资料
+						</a>
+					</li>
+					
+				......
+			</ul>
+		</div>
+	</div>
+	
+
+	
+</aside>
+
+				
+				<section id="main">
+					<div class="main-header">
+						<p class="header-title">Any application that can be written in JavaScript, will eventually be written in JavaScript.</p>
+						<canvas id="bubbleCanvas" width="100%" height="300" style="margin-top:50px;"></canvas>
+						<script>
+							(function(){
+								var width, height, canvas, ctx, circles;
+								function initHeader() {
+									try{
+										canvas = document.getElementById('bubbleCanvas');
+										if($("#bubbleCanvas").length>0){
+											width = window.innerWidth*0.25>300?window.innerWidth*0.25:300;
+											//height = window.innerHeight;
+											height = 255;
+											canvas.width = width;
+											canvas.height = height;
+											ctx = canvas.getContext('2d');
+											circles = [];
+											for(var x = 0; x < width*0.5; x++) {
+												var c = new Circle();
+												circles.push(c);
+											}
+											animate();
+										}
+									} catch(ex) {
+										if(window.cosole&&window.cosole.log){cosole.log(ex)}
+									}
+								}
+								function addListeners() {
+									try{
+										if($("#bubbleCanvas").length>0){
+											window.addEventListener('resize', resize);
+										}
+									}catch(ex){if(window.cosole&&window.cosole.log){cosole.log(ex)}}
+								}
+								function resize() {
+									width = window.innerWidth*0.25>300?window.innerWidth*0.25:300;
+									height = window.innerHeight;
+									canvas.width = width;
+									canvas.height = height;
+								}
+								function animate() {
+									ctx.clearRect(0,0,width,height);
+									for(var i in circles) {
+										circles[i].draw();
+									}
+									window.requestAFrame = (function () {
+										return window.requestAnimationFrame||window.webkitRequestAnimationFrame||window.mozRequestAnimationFrame||window.oRequestAnimationFrame||window.msRequestAnimationFrame||
+											function (callback) {
+												return window.setTimeout(callback, 1000 / 60); // shoot for 60 fps
+											};
+									})();
+									requestAFrame(animate);
+								}
+								// Canvas manipulation
+								function Circle() {
+									var _this = this;
+									// constructor
+									(function() {
+										_this.pos = {};
+										init();
+									})();
+
+									function init() {
+										_this.pos.x = Math.random()*width;
+										_this.pos.y = height+Math.random()*100;
+										_this.alpha = 0.1+Math.random()*0.3;
+										_this.scale = 0.1+Math.random()*0.3;
+										_this.velocity = Math.random();
+									}
+
+									this.draw = function() {
+										if(_this.alpha <= 0) {
+											init();
+										}
+										_this.pos.y -= _this.velocity;
+										_this.alpha -= 0.0005;
+										ctx.beginPath();
+										ctx.arc(_this.pos.x, _this.pos.y, _this.scale*10, 0, 2 * Math.PI, false);
+										ctx.fillStyle = 'rgba(255,255,255,'+ _this.alpha+')';
+										ctx.fill();
+									};
+								}
+								initHeader();
+								addListeners();
+							}());
+						</script>
+					</div>
+					<article id="post-dust" class="article article-type-post" itemscope="" itemprop="blogPost">
+	<div class="article-meta">
+		
+	</div>
+	<div class="article-inner">
+		
+		
+			<header class="article-header">
+				
+	
+		<h1 class="article-title" itemprop="name">
+			Dust 模版引擎
+		</h1>
+	
+
+
+				<a href="/2019/01/14/dust/" class="article-date">
+  <time datetime="2019-01-14T07:21:32.198Z" itemprop="datePublished">2019-01-14</time>
+</a>
+			</header>
+		
+		<div class="article-entry" itemprop="articleBody">
+			
+				<p>Dust 模版引擎是 LinkedIn 使用的一套模版引擎，但是因为 Dust.js 缺少中文文档，导致在国内的普及率比较低。但是现在这家公司是一家外企，美国那边使用的就是Dust.js，于是我决定在这里对Dust的语法进行一些必要的介绍。<br><a id="more"></a></p>
+<h2 id="1-模版引擎介绍"><a href="#1-模版引擎介绍" class="headerlink" title="1.模版引擎介绍"></a>1.模版引擎介绍</h2><p>在静态页面中，包括已经从后台生成的HTML中，一般很少需要应用到模板，但是随着AJAX技术的发展，不刷新页面而动态更新内容的需求越来越高。为了降低通讯成本，这种通讯技术传输的一般是一个JSON对象，而不是一整串HTML字符串，所以在前端接受JSON数据之后，还要经过处理才能按要求显示在浏览器上。若只是用纯javascript进行拼接处理，将是一个比较繁琐的过程，而且写出来的代码不直观，可读性比较低。比如如果一个JSON对象people是下面这样的：<br><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">"title"</span>: <span class="string">"Famous People"</span>,</span><br><span class="line">    <span class="attr">"names"</span>: [&#123; <span class="attr">"name"</span>: <span class="string">"Larry"</span> &#125;, &#123; <span class="attr">"name"</span>: <span class="string">"Curly"</span> &#125;, &#123; <span class="attr">"name"</span>: <span class="string">"Moe"</span> &#125;]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>我们要把他渲染成一个HTML列表如下：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Famous People</span><br><span class="line"><span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>Larry<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>Curly<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>Moe<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>使用纯粹的javascript将是这样的：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> result = people.title + <span class="string">'\n'</span>;</span><br><span class="line">result += <span class="string">'&lt;ul&gt;'</span> + <span class="string">'\n'</span>;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; people.names.length; i++) &#123;</span><br><span class="line"> result += <span class="string">'&lt;li&gt;'</span> + people.names[i].name + <span class="string">'&lt;/li&gt;'</span> + <span class="string">'\n'</span>;</span><br><span class="line">&#125;</span><br><span class="line">result += <span class="string">'&lt;/ul&gt;'</span></span><br></pre></td></tr></table></figure></p>
+<p>当然了这只是一个比较简单的例子，而且代码具有专用性且不是最简形式，但是为了兼顾可读性和简介性这样写是比较好的。而使用dust模板将只需要一个模板：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#123;title&#125;</span><br><span class="line"><span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">&#123;#names&#125;</span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>&#123;name&#125;<span class="tag">&lt;/<span class="name">li</span>&gt;</span>&#123;~n&#125;</span><br><span class="line">&#123;/names&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>然后将people传给编译好的模板则可生成所需要的结果，非常直观。</p>
+<h2 id="2-什么是Dust-js"><a href="#2-什么是Dust-js" class="headerlink" title="2.什么是Dust.js"></a>2.什么是Dust.js</h2><p>Dustjs、dust.js或者直接叫Dust，是一种模板，一开始是由Aleksander 编写并于2010发布第一个版本于Github。因为后台编译使用 Node.js 所以延续了在插件名后加.js的传统。Aleksander 很喜欢胡子模板 Mustache 的语法。但是Mustache缺少了Aleksander想要的特性，比如模板块和高性能。<br>从dust.js的导引页面看来，这个模板制作者还是很有诚意的。可惜这个项目已于两年前停止更新，版本停留在0.3.0。好消息是大型职业社交网LinkedIn也了解到了这个模板的优点和潜力，并接手了Dust.js的后续开发，最终出来的就是现在的Dust.js(LinkedIn)，为了简便起见后面继续称之为Dust。经过不断地更新，Dust目前已经到了2.0版本了。</p>
+<h2 id="3-Dust在线测试器"><a href="#3-Dust在线测试器" class="headerlink" title="3.Dust在线测试器"></a>3.Dust在线测试器</h2><p>首先要介绍一下Dust项目中的一个在线测试器，在了解Dust语法的同时，在这个测试器上尝试应用学到的语法，既可以验证语法是否正确，也可以加强对语法的记忆。进入测试器后可以见到四个框，从左上、左下、右上、右下分别编号为1、2、3、4。测试时在1号框中填入一个Dust模板，然后2号框将显示该模板编译后的结果，再在3号框填入一个JSON对象，4号框中将显示最终的渲染结果。</p>
+<h2 id="4-标签（Tag）"><a href="#4-标签（Tag）" class="headerlink" title="4.标签（Tag）"></a>4.标签（Tag）</h2><p>Dust模板以一种嵌入到HTML中的标签的形式存在。Dust标签使用一对花括号包裹，类似于HTML标签使用一对尖括号包裹：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;name&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="5-注释"><a href="#5-注释" class="headerlink" title="5.注释"></a>5.注释</h2><p>以下标签将不会产生任何内容，即可用作注释（感叹后之间）：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;! Comment syntax !&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="6-键（Key）"><a href="#6-键（Key）" class="headerlink" title="6.键（Key）"></a>6.键（Key）</h2><p>一般Dust标签的表示只有两种形式，一种是键，另一种是区段。键是一个最简单的Dust标签，其中包含的花括号中的值称之为键，对应于JSON对象的属性名，对应的属性值一般为简单类型，比如字符串，渲染后将直接以属性值代替整个标签。如果搜索不到任何匹配值，则不会返回任何数据。<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;name&#125;</span><br></pre></td></tr></table></figure></p>
+<p>在键名后面可以跟随过滤器，使用竖线分隔，一般用于选择处理“&lt;”，“&gt;”等特殊符号的转义：</p>
+<ul>
+<li>{name|s} 禁用自动转码</li>
+<li>{name|h} 强制使用HTML转码</li>
+<li>{name|j} 强制使用Javascript转码</li>
+<li>{name|u} 使用encodeURI编码</li>
+<li>{name|uc} 使用encodeURIComponent编码</li>
+<li>{name|js} 将JSON对象转换为字符串</li>
+<li>{name|jp} 将JSON 字符串转换为JSON对象</li>
+</ul>
+<p>过滤器也可以进行组合：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;name|jp|h&#125;</span><br></pre></td></tr></table></figure></p>
+<p>一些特殊字符也可以键的形式直接取值输出：</p>
+<ul>
+<li>{~n} 换行</li>
+<li>{~r} CR换行</li>
+<li>{~lb} 左花括号</li>
+<li>{~rb} 右花括号</li>
+<li>{~s} 空格</li>
+</ul>
+<h2 id="7-区段（Section）"><a href="#7-区段（Section）" class="headerlink" title="7.区段（Section）"></a>7.区段（Section）</h2><p>以下两个标签及其包裹的部分称之为区段，用于循环显示数据。其中“#”为开始标签，“/”为结束标签，其后的键值同样对应于JSON对象的属性名，对应的属性值一般为数组或单个对象，单个对象将被当做一个只有一个元素的数组来对待。模板会按下标对数组中的每个元素调用一次区段包裹着的模板。上一篇中的例子就是利用了区段来循环输出列表元素。区段有两种形式写法第一种如下：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;#names&#125;....&#123;/names&#125;</span><br></pre></td></tr></table></figure></p>
+<p>第二种形式（自封闭式）如下：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;#names/&#125;</span><br></pre></td></tr></table></figure></p>
+<p>在区段中可以使用两个特殊的键：</p>
+<ul>
+<li>{$idx} 表示当前迭代的序号（从0开始）</li>
+<li>{$len} 表示数组长度</li>
+</ul>
+<h2 id="8-上下文（Context）"><a href="#8-上下文（Context）" class="headerlink" title="8.上下文（Context）"></a>8.上下文（Context）</h2><p>Dust对键或区段值的查询与javascript中对作用域链中变量值的查询类似，换而言之使用区段时会临时改变当前的上下文。 例如一个嵌套的JSON对象：<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">"name"</span>: <span class="string">"root"</span>,</span><br><span class="line">      <span class="attr">"anotherName"</span>: <span class="string">"root2"</span>,</span><br><span class="line">      <span class="attr">"A"</span>:&#123;</span><br><span class="line">          <span class="attr">"name"</span>:<span class="string">"Albert"</span>,</span><br><span class="line">          <span class="attr">"B"</span>:&#123;</span><br><span class="line">             <span class="attr">"name"</span>:<span class="string">"Bob"</span></span><br><span class="line">          &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>使用区段索值：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;#A&#125;&#123;name&#125;&#123;/A&#125;</span><br></pre></td></tr></table></figure></p>
+<p>则会得到这个对象的A.name的值：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Albert</span><br></pre></td></tr></table></figure></p>
+<p>因为使用区段时将上下文转移到A属性对应的对象中。而使用以下区段索值：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;#A&#125;&#123;anotherName&#125;&#123;/A&#125;</span><br></pre></td></tr></table></figure></p>
+<p>因为在对象A的属性中不存在“anotherName”属性，于是Dust会向上查询A所处的上下文，发现存在“anotherName”属性，于是得到：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">root2</span><br></pre></td></tr></table></figure></p>
+<p>若往上查找到JSON对象根部间的所有的上下文均无对应属性时将返回空白，索值不会向下查找。</p>
+<h2 id="9-路径（Path）"><a href="#9-路径（Path）" class="headerlink" title="9.路径（Path）"></a>9.路径（Path）</h2><p>若使用不带路径的区段索值，那么相当于从JSON对象的根部开始定位区段上下文。而使用路径可以指定开始搜索的位置。路径使用标志“.”来标记标签，跟javascript语法类似。依然是这个JSON对象：<br><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"name"</span>: <span class="string">"root"</span>,</span><br><span class="line">  <span class="attr">"anotherName"</span>: <span class="string">"root2"</span>,</span><br><span class="line">  <span class="attr">"A"</span>:&#123;</span><br><span class="line">      <span class="attr">"name"</span>:<span class="string">"Albert"</span>,</span><br><span class="line">        <span class="attr">"B"</span>:&#123;</span><br><span class="line">              <span class="attr">"name"</span>:<span class="string">"Bob"</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>若我们需要取A属性下的B属性的name则可以表达成这样：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;A.B.name&#125;</span><br></pre></td></tr></table></figure></p>
+<p>或者使用路径标记区块：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;#A.B&#125;&#123;name&#125;&#123;/A.B&#125;</span><br></pre></td></tr></table></figure></p>
+<p>或者使用单个“.”表示当前上下文对象（当前为字符串）：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;#A.B.name&#125;&#123;.&#125;&#123;/A.B.name&#125;</span><br></pre></td></tr></table></figure>
+<p>规定路径后，首先在指定的上下文进行查找name的值，找不到时不会向上追溯，而是从根部开始查找。<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;#A.B&#125;&#123;A.name&#125;&#123;/A.B&#125;</span><br></pre></td></tr></table></figure></p>
+<p>上面这个模板将会在A.B中搜索A，因为B并无A属性，所以从JSON对象根部开始找到A属性，从而找到A.name，返回“Albert”，若从根部也无法找到，则返回空白。</p>
+<h2 id="10-修改上下文"><a href="#10-修改上下文" class="headerlink" title="10.修改上下文"></a>10.修改上下文</h2><p>我们也可以在一定程度上修改上下文的关系。通过使用冒号“:”可以用冒号后面的键值代替前面的键值的父级上下文：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;#A:A2&#125; ... &#123;/A&#125;</span><br></pre></td></tr></table></figure></p>
+<p>以上这个区段会屏蔽掉A的父级上下文，临时将A2作为A的父级上下文，即在A中找不到目标时不会往上回溯，而去搜索A2下的属性。</p>
+<h2 id="11-区段参数"><a href="#11-区段参数" class="headerlink" title="11.区段参数"></a>11.区段参数</h2><p>在区段中可以设置参数：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;#A.B foo="Hi" bar=" Good to see you"&#125;</span><br><span class="line">    &#123;foo&#125; &#123;name&#125; &#123;bar&#125;</span><br><span class="line">&#123;/A.B&#125;</span><br></pre></td></tr></table></figure></p>
+<p>模板会将参数值替代键值标签，结果为：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Hi Bob Good to see you</span><br></pre></td></tr></table></figure></p>
+<p>参数也可以是键名，但是赋值时的上下文在区段之外：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;#A.B foo=A.name bar=anotherName&#125;</span><br><span class="line">    &#123;foo&#125; &#123;name&#125; &#123;bar&#125;</span><br><span class="line">&#123;/A.B&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="12-逻辑区段"><a href="#12-逻辑区段" class="headerlink" title="12.逻辑区段"></a>12.逻辑区段</h2><h3 id="标签"><a href="#标签" class="headerlink" title="?标签"></a>?标签</h3><p>用?来代替区段标签中的#时，仅当name的值为真时，才执行区段主体部分。<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;?name&#125; body &#123;/name&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="标签-1"><a href="#标签-1" class="headerlink" title="^标签"></a>^标签</h3><p>用^来代替#时，仅当name的值为假时，才执行区段主体部分。<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;^name&#125; body &#123;/name&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="else-标签"><a href="#else-标签" class="headerlink" title="{:else}标签"></a>{:else}标签</h3><p>当一个区段标签（包括#、?、^、以及逻辑标签等）的值为假时，若区段主体中包含{:else}标签，则执行{:else}标签以及区段结束标签之间的内容，否则忽略这些内容。<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">    &#123;#friends&#125;</span><br><span class="line">      <span class="tag">&lt;<span class="name">li</span>&gt;</span>&#123;name&#125;, &#123;age&#125;&#123;~n&#125;<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    &#123;:else&#125;</span><br><span class="line">      <span class="tag">&lt;<span class="name">p</span>&gt;</span>You have no friends!<span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">    &#123;/friends&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>若friend为空，则仅仅输出：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>You have no friends!<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="值的真假"><a href="#值的真假" class="headerlink" title="值的真假"></a>值的真假</h3><p>在区段中判断标签的真假的方法与Javascript本身稍有不同，Dust将以下值判断为假：</p>
+<ul>
+<li>空字符串’’、””</li>
+<li>布尔false</li>
+<li>null</li>
+<li>undefined</li>
+<li>空列表[]</li>
+</ul>
+<p>其余值均为真值，包括数字“0”，空对象{}。</p>
+<h3 id="拆分（Partials）"><a href="#拆分（Partials）" class="headerlink" title="拆分（Partials）"></a>拆分（Partials）</h3><p>拆分是一种将重复使用的模板抽取出来，并在使用到这段模板的模板中直接导入该模板，避免重复劳动的方法。在服务端，一个名为“xxx”的Dust模板通常通常保存在一个名为xxx.dust的模板文件中。我们可以利用模板名来在模板中插入一段来自其他模版文件的模板：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;&gt;name /&#125;</span><br></pre></td></tr></table></figure></p>
+<p>以上是一个自封闭的区段标签，代表将name.dust中的模版插入到当前位置。若文件包含路径，则用双引号包裹：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;&gt;”dust/name” /&#125;</span><br></pre></td></tr></table></figure></p>
+<p>标签中也可以填写参数：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;&gt;”dust/name” foo=”Hello” bar=” World”/&#125;</span><br></pre></td></tr></table></figure></p>
+<p>甚至可以使用动态路径：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;&gt;”dust/&#123;pathName&#125;” /&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="区块（Blocks）"><a href="#区块（Blocks）" class="headerlink" title="区块（Blocks）"></a>区块（Blocks）</h3><p>通过拆分可以重用一个模版，但是用这种方法来派生模版有一个缺点，就是你需要记得需要在什么位置插入哪个模版，并且对每一个派生出来的模版都要重新布局一次。区块可以解决这个问题，在父模板中使用区块可以方便地在子模板中替换区块中的内容。区块也是一种特殊的区段，定义方法如下：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;+name /&#125;</span><br></pre></td></tr></table></figure></p>
+<p>或者在区段中填写默认内容，当区块没有被替换时，将显示默认内容：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;+name&#125;default Content&#123;/name&#125;</span><br></pre></td></tr></table></figure></p>
+<p>使用区块替换需要在子模板中使用拆分区段（&gt;）导入父模板，并使用替换区段（&lt;）进行替换：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&#123;&gt;father/&#125;</span><br><span class="line">&#123;<span class="tag">&lt;<span class="name">name&#125;Content&#123;</span>/<span class="attr">name</span>&#125;</span></span><br></pre></td></tr></table></figure></p>
+<p>比如一个父模板可以写成这样：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"page"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h1</span>&gt;</span>&#123;+pageHeader&#125;PayPal&#123;/pageHeader&#125;<span class="tag">&lt;/<span class="name">h</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"bodyContent"</span>&gt;</span></span><br><span class="line">    &#123;+bodyContent/&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"footer"</span>&gt;</span></span><br><span class="line">    &#123;+pageFooter&#125;Contact Us &#123;/pageFooter&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>然后保存为shared/base_template.dust文件，然后定义子模板：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&#123;! 首先导入父模板 !&#125;</span><br><span class="line">&#123;&gt;"shared/base_template"/&#125;</span><br><span class="line">&#123;! 然后定义对应的部分 !&#125;</span><br><span class="line">&#123;<span class="tag">&lt;<span class="name">bodyContent&#125;</span></span></span><br><span class="line">&lt;p&gt;These are your current settings:&lt;/p&gt;</span><br><span class="line"><span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>xxxx<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>yyy<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line">&#123;/bodyContent&#125;</span><br><span class="line">&#123;<span class="tag">&lt;<span class="name">pageFooter&#125;</span></span></span><br><span class="line">  &lt;hr&gt;</span><br><span class="line">  <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"/contactUs"</span>&gt;</span>About Us<span class="tag">&lt;/<span class="name">a</span>&gt;</span> |</span><br><span class="line">  <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"/contactUs"</span>&gt;</span>Contact Us<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">&#123;/pageFooter&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="13-编译"><a href="#13-编译" class="headerlink" title="13.编译"></a>13.编译</h2><p>之前也介绍过，Dust是编译型模板，意思则是若需应用模板，首先要将模板可执行化，即将模板变成可执行的代码。如果你使用过Dust测试器，那么你会发现在你输入模板后，会在2号框中显示一个函数定义，那就是编译生成的代码。使用编译型模板有一个好处，就是当模板编译好之后，若需要重复使用模板，不需要每次都对模板重新进行分析，加快模板解析的速度，而且，模板可以预先编译好保存在服务器，甚至让前端连第一次编译的时间都节省了。<br>因此Dust库有两种发行版本：</p>
+<ul>
+<li>dust-core-2.0.2.js</li>
+<li>dust-full-2.0.2.js<br>前者为核心（Core）版本，其只包含模板解析的相关代码，大小只有十几k，而完全版（Full）则包含Dust的所有代码，包括编译器，大小有一百多k。对于不需要在前端进行编译的项目，仅仅需要使用核心版本即可，这也是速度比较快的做法。但是对于需要在前端动态编译的项目，则只能使用包含编译器的完全版。<br>编译模板的方法很简单，使用完全版的dust.compile()方法：</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> compiled = dust.compile(<span class="string">"Hello &#123;name&#125;!"</span>, <span class="string">"intro"</span>);</span><br></pre></td></tr></table></figure>
+<p>其中第一个参数为模板字符串，第二个参数为模板名，函数将返回包含编译好的可执行代码的字符串。这个操作不会注册这个模板，仅进行编译，此时仍不可通过模板名来调用这段代码。</p>
+<h2 id="14-注册"><a href="#14-注册" class="headerlink" title="14.注册"></a>14.注册</h2><p>如果直接执行一遍compiled中的代码，则模板会按之前指定的名字注册到dust，从而可以通过模板名来调用该模板。但若compiled代码未被执行过，则需要在渲染前手动将其注册到dust中，注册的方法很简单：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dust.loadSource(compiled);</span><br></pre></td></tr></table></figure></p>
+<h2 id="15-渲染"><a href="#15-渲染" class="headerlink" title="15.渲染"></a>15.渲染</h2><p>通过编译注册可以让多套模板处于就绪状态，对于这些模板，我们可以直接用它将JSON对象渲染成HTML文本，通过调用dust.render()方法。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">dust.render(<span class="string">"intro"</span>, &#123;<span class="attr">name</span>: <span class="string">"Fred"</span>&#125;, <span class="function"><span class="keyword">function</span>(<span class="params">err, out</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(out);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<p>这个方法接受3个参数，第一个为模板名，第二个为JSON对象，第三个是一个接受两个参数的回调函数。执行这个方法后Dust会使用注册好的对应模板对JSON对象进行处理，得出一个渲染结果字符串，然后调用回调函数，其中第一个参数包含了在处理过程中出现的错误信息，第二个参数就是渲染结果字符串。一般会在回调函数中将渲染结果插入到当前的DOM结构中，以便在浏览器中显示渲染结果。</p>
+<h2 id="16-区块和拆分"><a href="#16-区块和拆分" class="headerlink" title="16.区块和拆分"></a>16.区块和拆分</h2><p>一般使用文件来保存模板并且使用区块和拆分是让Dust作为服务端模板时应用的技术，因为在客户端Javascript中无法很方便地对分布式文件进行操作。但是我们可以通过在本地部署模板数据，编译成可执行代码并用一个js文件来保存的方式来使用区块和拆分。<br>若在Linux平台则直接在终端安装npm和dust并使用dustc命令编译成代码，得到js文件。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ npm install dustjs-linkedin</span><br><span class="line">$ dustc input.dust output.js</span><br></pre></td></tr></table></figure></p>
+<p>或者在js引擎中使用dust.compile()，将模板复制到第一个参数，指定第二参数为其不带后缀的文件名，并将结果输出到js文件。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> output1 = dust.compile(partialStr, <span class="string">"partial"</span>);</span><br><span class="line"><span class="keyword">var</span> output2 = dust.compile(baseStr, <span class="string">"base"</span>);</span><br><span class="line"><span class="keyword">var</span> output3 = dust.compile(childStr, <span class="string">"child"</span>);</span><br></pre></td></tr></table></figure></p>
+<p>最后在HTML中导入所有生成的js文件即可使用。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;script type=<span class="string">"text/javascript"</span> src=<span class="string">"partial.js"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line">&lt;script type=<span class="string">"text/javascript"</span> src=<span class="string">"base.js"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line">&lt;script type=<span class="string">"text/javascript"</span> src=<span class="string">"child.js"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br></pre></td></tr></table></figure></p>
+<p>注意此时不再需要使用dust.loadSource()来注册，因为script标签将js文件执行了一次，已经将模板注册好了。此时已可使用dust.render()进行渲染。</p>
+<h4 id="ps：这些都是因为工作开发中用到了dust，在国内很少开发人员用到这种引擎，而公司是一家外企，有幸可以用上这个，这只是些基础，会这些也大概会百分之七八十了，还有不能的，可以google下dust，查看官方文档，或者关注我的GitHub-里面有dust的教学"><a href="#ps：这些都是因为工作开发中用到了dust，在国内很少开发人员用到这种引擎，而公司是一家外企，有幸可以用上这个，这只是些基础，会这些也大概会百分之七八十了，还有不能的，可以google下dust，查看官方文档，或者关注我的GitHub-里面有dust的教学" class="headerlink" title="ps：这些都是因为工作开发中用到了dust，在国内很少开发人员用到这种引擎，而公司是一家外企，有幸可以用上这个，这只是些基础，会这些也大概会百分之七八十了，还有不能的，可以google下dust，查看官方文档，或者关注我的GitHub,里面有dust的教学"></a>ps：这些都是因为工作开发中用到了dust，在国内很少开发人员用到这种引擎，而公司是一家外企，有幸可以用上这个，这只是些基础，会这些也大概会百分之七八十了，还有不能的，可以google下dust，查看官方文档，或者关注我的<a href="https://github.com/utopia1991" target="_blank" rel="noopener">GitHub</a>,里面有dust的教学</h4>
+				<!-- 多说评论框 start -->
+				<div class="article-comment">
+					<div class="ds-thread" data-num-items="5" data-show-avatars="1" data-show-time="1" data-show-title="1" data-show-admin="1" data-excerpt-length="50" data-thread-key="post-dust" data-title="Dust 模版引擎" data-url="/"></div>
+				</div>
+				<!-- 多说评论框 end -->
+			
+		</div>
+		<footer class="article-footer">
+			<a data-url="https://utopia1991.github.io/2019/01/14/dust/" data-id="cjqyikipk00295sukck9a8jv2" class="article-share-link">分享</a>
+			
+			
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HTML/">HTML</a></li></ul>
+
+		</footer>
+	</div>
+	
+		
+<nav id="article-nav">
+  
+    <a href="/2019/01/14/eslint/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          EsLint入门
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/01/14/dom/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">Javascript DOM</div>
+    </a>
+  
+</nav>
+
+	
+</article>
+
+
+
+				</section>
+			</div>
+			<footer id="footer">
+	
+	<div class="outer">
+		<div id="footer-info">
+			Copyright &copy; Bevis Shen 2019<br>
+			Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+		</div>
+	</div>
+</footer>
+
+		</div>
+		<nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">主页</a>
+  
+    <a href="/archives" class="mobile-nav-link">博文</a>
+  
+</nav>
+		
+
+<script src="https://cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+	</div>
+</body>
+<script>
+	var c = document.getElementsByTagName('canvas')[0],
+		x = c.getContext('2d'),
+		pr = window.devicePixelRatio || 1,
+		w = window.innerWidth,
+		h = window.innerHeight,
+		f = 90,
+		q,
+		m = Math,
+		r = 0,
+		u = m.PI * 2,
+		v = m.cos,
+		z = m.random
+	c.width = w * pr
+	c.height = h * pr
+	x.scale(pr, pr)
+	x.globalAlpha = 0.6
+
+	function i() {
+		x.clearRect(0, 0, w, h)
+		q = [{
+			x: 0,
+			y: h * .7 + f
+		}, {
+			x: 0,
+			y: h * .7 - f
+		}]
+		while (q[1].x < w + f) d(q[0], q[1])
+	}
+
+	function d(i, j) {
+		x.beginPath()
+		x.moveTo(i.x, i.y)
+		x.lineTo(j.x, j.y)
+		var k = j.x + (z() * 2 - 0.25) * f,
+			n = y(j.y)
+		x.lineTo(k, n)
+		x.closePath()
+		r -= u / -50
+		x.fillStyle = '#' + (v(r) * 127 + 128 << 16 | v(r + u / 3) * 127 + 128 << 8 | v(r + u / 3 * 2) * 127 + 128).toString(16)
+		x.fill()
+		q[0] = q[1]
+		q[1] = {
+			x: k,
+			y: n
+		}
+	}
+
+	function y(p) {
+		var t = p + (z() * 2 - 1.1) * f
+		return (t > h || t < 0) ? y(p) : t
+	}
+	document.onclick = i
+	document.ontouchstart = i
+	i()
+</script>
+</html>

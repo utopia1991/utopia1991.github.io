@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>商城</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=no">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<!-- mui css-->
+	<link rel="stylesheet" type="text/css" href="./css/app.css">
+	<link rel="stylesheet" href="./css/mui.min.css">
+	<link rel="stylesheet" href="./css/icons-extra.css">
+	<!-- 自定义 css -->
+	<link rel="stylesheet" href="./css/common/common.css">
+	<link rel="stylesheet" href="./css/common/orderDetail.css">
+</head>
+
+<body class="mui-ios mui-ios-9 mui-ios-9-1">
+	<header class="mui-bar mui-bar-nav shop-header">
+		<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left shop-back" href="">返回</a>
+		<h1 class="mui-title">订单信息</h1>
+	</header>
+
+	<div class="mui-content shop-orderMsg">
+		<br>
+		<br>
+		<p>
+			<span id="orderNumber">
+				订单号：121354523234233
+			</span>
+			<!--这个订单号后台传过来的时候 data-clipboard-text 也应该传入订单号-->
+			<button class="mui-btn mui-btn-success mui-btn-outlined" id="copyOrder" data-clipboard-text="121354523234233">
+				复制
+			</button>
+		</p>
+		<p>支付方式：在线支付</p>
+		<p>下单时间：2017-01-16 23:52</p>
+	</div>
+
+	<p class="shop-back-index">
+		<a class="mui-btn mui-btn-success" href="./index.html">
+			返回首页
+		</a>
+	</p>
+
+	<a class="shop-call-server" href="#cellPopover">
+		<img src="./images/details/bell.png" alt="" />
+	</a>
+
+	<!--呼叫服务弹窗-->
+	<div id="cellPopover" class="mui-popover">
+		<h3>是否呼叫服务</h3>
+		<a class="mui-btn mui-btn-success" href="tel:139xxxxxxxx">
+			确认
+		</a>
+		<a type="button" class="mui-btn" id="cellCancel">
+			放弃
+		</a>
+	</div>
+
+	<script src="./js/mui.js"></script>
+	<script src="./js/zepto.min.js"></script>
+	<script src="./js/shop/shop.js"></script>
+	<script src="./js/shop/clipboard.min.js"></script>
+	<script>
+		var clipboard = new Clipboard('#copyOrder');
+
+		clipboard.on('success', function(e) {
+			console.log(e);
+		});
+
+		clipboard.on('error', function(e) {
+			console.log(e);
+		});
+	</script>
+</body>
+
+</html>

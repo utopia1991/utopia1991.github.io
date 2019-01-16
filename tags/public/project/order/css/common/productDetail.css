@@ -1,0 +1,171 @@
+.shop-p-images {
+	width: 100%;
+	height: 210px;
+}
+
+.shop-p-images img {
+	width: 100%;
+	height: 100%;
+}
+
+.shop-p-title {
+	margin: 0 auto;
+	width: 100%;
+	height: 150px;
+	background: #fff;
+	padding: 20px 30px;
+}
+
+.shop-p-name, .shop-p-price {
+	font-size: 20px;
+	color: #000;
+	margin: 0;
+}
+
+.shop-p-price {
+	margin-top: 25px;
+}
+
+.shop-p-sell {
+	font-size: 14px;
+	font-weight: 300;
+}
+
+.shop-p-price .mui-btn {
+	float: right;
+}
+
+.shop-p-details {
+	margin-top: 10px;
+	background: #fff;
+}
+
+.shop-p-details-title {
+	width: 100%;
+	height: 60px;
+	line-height: 60px;
+	margin: 0 auto;
+}
+
+.shop-p-circle-pink {
+	position: absolute;
+	display: inline-block;
+	height: 16px;
+	width: 16px;
+	background: pink;
+	top: 0px;
+	left: -8px;
+	border-radius: 50%;
+}
+
+.shop-p-circle-green {
+	position: absolute;
+	display: inline-block;
+	height: 16px;
+	width: 16px;
+	background: green;
+	top: 0px;
+	left: -8px;
+	border-radius: 50%;
+}
+
+.shop-p-circle-yellow {
+	position: absolute;
+	display: inline-block;
+	height: 16px;
+	width: 16px;
+	background: yellow;
+	top: 0px;
+	left: -8px;
+	border-radius: 50%;
+}
+
+.shop-p-discuss-title {
+	width: 100%;
+	height: 60px;
+	line-height: 60px;
+	margin: 0 auto;
+	padding: 0 30px;
+}
+
+.shop-p-discuss-title span {
+	font-size: 16px;
+	color: #000;
+}
+
+.shop-p-discuss-title a {
+	float: right;
+	color: #999;
+}
+
+.shop-p-details ul {
+	margin: 0 auto;
+}
+
+.shop-p-details-commont {
+	position: relative;
+	list-style: none;
+	display: block;
+	height: 65px;
+	border-left: 1px solid #999;
+}
+
+.shop-p-details-commont .shop-p-details-user {
+	padding-left: 30px;
+	color: #000;
+	margin: 0;
+}
+
+.shop-p-details-commont .shop-p-details-words {
+	padding-left: 30px;
+	color: #999;
+}
+
+.shop-p-discription {
+	width: 100%;
+	background: #fff;
+	height: auto;
+	margin-top: 10px;
+	padding: 0 30px 5px;
+}
+
+.shop-p-discription-video {
+	width: 100%;
+}
+
+.shop-p-discription-name {
+	font-size: 20px;
+	color: #000;
+}
+
+.shop-p-introduce {
+	font-size: 14px;
+	color: #999;
+	margin: 10px auto 20px;
+}
+
+.shop-p-like {
+	padding-left: 30px;
+	margin-top: 10px;
+	height: 300px;
+	background: #fff;
+	margin-bottom: 30px;
+}
+
+.shop-p-like-items {
+	width: 100%;
+	margin: 0;
+}
+
+.shop-p-like-items span {
+	display: inline-block;
+	float: left;
+	width: 40%;
+	margin: 10px 9% 10px 0;
+	height: 80px;
+}
+
+.shop-p-like-items span img {
+	width: 100%;
+	height: 100%;
+}

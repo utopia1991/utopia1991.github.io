@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+	<meta charset="utf-8">
+	<meta property="wb:webmaster" content="65a151beb5e21880">
+	<!-- baidu analytics-->
+	<script>
+		var _hmt = _hmt || [];
+		(function() {
+			var hm = document.createElement("script");
+			hm.src = "https://hm.baidu.com/hm.js?09df6a0c610161ab3099d8e11e9c998e";
+			var s = document.getElementsByTagName("script")[0];
+			s.parentNode.insertBefore(hm, s);
+		})();
+	</script>
+	
+	<title>HTTPS 协议 | Bevis Blog - 沈浩个人博客</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<meta name="description" content="之前一个博文介绍了什么是 HTTP 协议（参见链接：https://utopia1991.github.io/2017/06/20/http ），这里介绍一下 HTTPS 协议，且为什么要使用它及其原理简介。">
+<meta name="keywords" content="HTTP">
+<meta property="og:type" content="article">
+<meta property="og:title" content="HTTPS 协议">
+<meta property="og:url" content="https://utopia1991.github.io/2019/01/14/https/index.html">
+<meta property="og:site_name" content="Bevis Blog - 沈浩个人博客">
+<meta property="og:description" content="之前一个博文介绍了什么是 HTTP 协议（参见链接：https://utopia1991.github.io/2017/06/20/http ），这里介绍一下 HTTPS 协议，且为什么要使用它及其原理简介。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://utopia1991.github.io/images/https/1.png">
+<meta property="og:image" content="https://utopia1991.github.io/images/https/2.png">
+<meta property="og:updated_time" content="2019-01-14T07:21:32.239Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="HTTPS 协议">
+<meta name="twitter:description" content="之前一个博文介绍了什么是 HTTP 协议（参见链接：https://utopia1991.github.io/2017/06/20/http ），这里介绍一下 HTTPS 协议，且为什么要使用它及其原理简介。">
+<meta name="twitter:image" content="https://utopia1991.github.io/images/https/1.png">
+	
+	
+		<link rel="icon" href="https://utopia1991.github.io/css/images/icon.jpg">
+	
+	<link rel="stylesheet" href="/css/style.css">
+	
+
+	<script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+</head>
+</html>
+<body>
+	<a href="https://github.com/utopia1991" target="_blank" class="githubFork">
+		<img src="https://camo.githubusercontent.com/e7bbb0521b397edbd5fe43e7f760759336b5e05f/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677265656e5f3030373230302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_green_007200.png">
+	</a>
+	<div id="container">
+		<div id="wrap">
+			<header id="header">
+	<div id="header-outer" class="outer">
+		<div id="header-title" class="inner">
+			<h1 id="logo-wrap">
+				<a href="/" id="logo">
+					<span class="brand-logo">Bevis</span>
+					Blog
+				</a>
+			</h1>
+		</div>
+		<div id="header-inner" class="inner">
+			<nav id="main-nav">
+				<a id="main-nav-toggle" class="nav-icon"></a>
+				
+					<a class="main-nav-link" href="/">主页</a>
+				
+					<a class="main-nav-link" href="/archives">博文</a>
+				
+				<a class="main-nav-link" href="https://utopia1991.github.io/project/about/index.html">关于我</a>
+			</nav>
+		</div>
+	</div>
+</header>
+
+			<canvas width="100%" height="100%" id="canvas"></canvas>
+			<div class="outer">
+				
+				<aside id="sidebar">
+	<div class="aside-author">
+		<a class="aside-logo" href="https://utopia1991.github.io/project/lover/index.html" target="_blank"></a>
+		<p class="aside-title">Bevis Shen（沈浩）</p>
+		<p class="aside-subtitle">Node.js & Front-End Engineer</p>
+		<p class="aside-description">Google 重度粉，Mac 拥趸，前端 + Node 青年，对前沿技术有着狂热的激情，梦想环游世界，热爱生活、摄影、旅游、电影的文艺程序猿一枚</p>
+		<div class="aside-communicate">
+			<a href="https://github.com/utopia1991" target="_blank" class="article-share-github" title="github"></a>
+			<a href="https://www.linkedin.com/in/bevis1991" target="_blank" class="article-share-linkedin" title="linkedin"></a>
+			<a href="mailto:1304354608@qq.com" class="article-share-mail" title="email"></a>
+			<a href="https://weibo.com/u/2619492527/home" target="_blank" class="article-share-weibo" title="weibo"></a>
+			<a class="article-share-weixin" title="我的个人微信公众号"></a>
+			<img src="https://utopia1991.github.io/css/images/wechat.png" width="180" height="180" class="wechat-pic">
+			<a href="https://bevis1991.wordpress.com/" target="_blank" class="article-share-wordpress" title="WordPress 博客"></a>
+			<a href="https://www.facebook.com/bevis1991" target="_blank" class="article-share-facebook" title="facebook"></a>
+			<a href="https://twitter.com/bevis_shen" target="_blank" class="article-share-twitter" title="twitter"></a>
+		</div>
+	</div>
+	
+		
+
+	
+		
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/">CSS</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Code-Style/">Code Style</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Coffeescript/">Coffeescript</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Google/">Google</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Gulp/">Gulp</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML/">HTML</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTTP/">HTTP</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Interview-Questions/">Interview-Questions</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Javascript/">Javascript</a><span class="tag-list-count">20</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mac/">Mac</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/">Markdown</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MongoDB/">MongoDB</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UnderscoreJS/">UnderscoreJS</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery/">jQuery</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nodeJs/">nodeJs</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+	
+		
+  <div class="widget-wrap">
+    <h3 class="widget-title">Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/CSS/" style="font-size: 17.5px;">CSS</a> <a href="/tags/Code-Style/" style="font-size: 17.5px;">Code Style</a> <a href="/tags/Coffeescript/" style="font-size: 10px;">Coffeescript</a> <a href="/tags/Google/" style="font-size: 10px;">Google</a> <a href="/tags/Gulp/" style="font-size: 10px;">Gulp</a> <a href="/tags/HTML/" style="font-size: 12.5px;">HTML</a> <a href="/tags/HTTP/" style="font-size: 12.5px;">HTTP</a> <a href="/tags/Interview-Questions/" style="font-size: 17.5px;">Interview-Questions</a> <a href="/tags/Javascript/" style="font-size: 20px;">Javascript</a> <a href="/tags/Mac/" style="font-size: 12.5px;">Mac</a> <a href="/tags/Markdown/" style="font-size: 10px;">Markdown</a> <a href="/tags/MongoDB/" style="font-size: 15px;">MongoDB</a> <a href="/tags/UnderscoreJS/" style="font-size: 12.5px;">UnderscoreJS</a> <a href="/tags/jQuery/" style="font-size: 12.5px;">jQuery</a> <a href="/tags/nodeJs/" style="font-size: 10px;">nodeJs</a>
+    </div>
+  </div>
+
+	
+		
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">一月 2019</a><span class="archive-list-count">51</span></li></ul>
+    </div>
+  </div>
+
+
+	
+		
+	<div class="widget-wrap">
+		<h3 class="widget-title">最新文章</h3>
+		<div class="widget">
+			<ul>
+				
+					<li>
+						<a href="/2019/01/14/vue/">
+							Vue 基础学习笔记
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2019/01/14/viewport/">
+							HTML meta viewport属性说明
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2019/01/14/vide/">
+							Vide 视频背景jQuery插件
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2019/01/14/underscore2/">
+							UnderscoreJS 常用方法
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2019/01/14/underscore1/">
+							UnderscoreJS 使用介绍
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2019/01/14/throttleDebounce/">
+							JS 函数节流和函数防抖之间的区别
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2019/01/14/superAgent/">
+							SuperAgent 中文使用文档
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2019/01/14/string/">
+							Javascript 字符串
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2019/01/14/source/">
+							超全 web 开发工具和资源
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2019/01/14/reg/">
+							前端表单验证常用的15个JS正则表达式
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2019/01/14/reduceCoupling/">
+							减少前端代码耦合
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2019/01/14/progress/">
+							异步编程、进程、单线程、多线程
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2019/01/14/object/">
+							Javascript 对象
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2019/01/14/nodemailer/">
+							使用 nodeJs 发送邮件
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2019/01/14/mongoose/">
+							Mongoose 基本介绍
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2019/01/14/mongodb/">
+							MongoDB 操作基础语法（shell）
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2019/01/14/mongoQueryCommand/">
+							Mongodb 常见的查询语句及与 mysql 对比
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2019/01/14/markdown/">
+							Markdown 编辑器语法指南
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2019/01/14/macIcon/">
+							Mac 更改 OS X 应用程序的图标
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2019/01/14/learnSource/">
+							做为优秀前端的必备学习资料
+						</a>
+					</li>
+					
+				......
+			</ul>
+		</div>
+	</div>
+	
+
+	
+</aside>
+
+				
+				<section id="main">
+					<div class="main-header">
+						<p class="header-title">Any application that can be written in JavaScript, will eventually be written in JavaScript.</p>
+						<canvas id="bubbleCanvas" width="100%" height="300" style="margin-top:50px;"></canvas>
+						<script>
+							(function(){
+								var width, height, canvas, ctx, circles;
+								function initHeader() {
+									try{
+										canvas = document.getElementById('bubbleCanvas');
+										if($("#bubbleCanvas").length>0){
+											width = window.innerWidth*0.25>300?window.innerWidth*0.25:300;
+											//height = window.innerHeight;
+											height = 255;
+											canvas.width = width;
+											canvas.height = height;
+											ctx = canvas.getContext('2d');
+											circles = [];
+											for(var x = 0; x < width*0.5; x++) {
+												var c = new Circle();
+												circles.push(c);
+											}
+											animate();
+										}
+									} catch(ex) {
+										if(window.cosole&&window.cosole.log){cosole.log(ex)}
+									}
+								}
+								function addListeners() {
+									try{
+										if($("#bubbleCanvas").length>0){
+											window.addEventListener('resize', resize);
+										}
+									}catch(ex){if(window.cosole&&window.cosole.log){cosole.log(ex)}}
+								}
+								function resize() {
+									width = window.innerWidth*0.25>300?window.innerWidth*0.25:300;
+									height = window.innerHeight;
+									canvas.width = width;
+									canvas.height = height;
+								}
+								function animate() {
+									ctx.clearRect(0,0,width,height);
+									for(var i in circles) {
+										circles[i].draw();
+									}
+									window.requestAFrame = (function () {
+										return window.requestAnimationFrame||window.webkitRequestAnimationFrame||window.mozRequestAnimationFrame||window.oRequestAnimationFrame||window.msRequestAnimationFrame||
+											function (callback) {
+												return window.setTimeout(callback, 1000 / 60); // shoot for 60 fps
+											};
+									})();
+									requestAFrame(animate);
+								}
+								// Canvas manipulation
+								function Circle() {
+									var _this = this;
+									// constructor
+									(function() {
+										_this.pos = {};
+										init();
+									})();
+
+									function init() {
+										_this.pos.x = Math.random()*width;
+										_this.pos.y = height+Math.random()*100;
+										_this.alpha = 0.1+Math.random()*0.3;
+										_this.scale = 0.1+Math.random()*0.3;
+										_this.velocity = Math.random();
+									}
+
+									this.draw = function() {
+										if(_this.alpha <= 0) {
+											init();
+										}
+										_this.pos.y -= _this.velocity;
+										_this.alpha -= 0.0005;
+										ctx.beginPath();
+										ctx.arc(_this.pos.x, _this.pos.y, _this.scale*10, 0, 2 * Math.PI, false);
+										ctx.fillStyle = 'rgba(255,255,255,'+ _this.alpha+')';
+										ctx.fill();
+									};
+								}
+								initHeader();
+								addListeners();
+							}());
+						</script>
+					</div>
+					<article id="post-https" class="article article-type-post" itemscope="" itemprop="blogPost">
+	<div class="article-meta">
+		
+	</div>
+	<div class="article-inner">
+		
+		
+			<header class="article-header">
+				
+	
+		<h1 class="article-title" itemprop="name">
+			HTTPS 协议
+		</h1>
+	
+
+
+				<a href="/2019/01/14/https/" class="article-date">
+  <time datetime="2019-01-14T07:21:32.238Z" itemprop="datePublished">2019-01-14</time>
+</a>
+			</header>
+		
+		<div class="article-entry" itemprop="articleBody">
+			
+				<p>之前一个博文介绍了什么是 HTTP 协议（参见链接：<a href="https://utopia1991.github.io/2017/06/20/http">https://utopia1991.github.io/2017/06/20/http</a> ），这里介绍一下 HTTPS 协议，且为什么要使用它及其原理简介。<br><a id="more"></a></p>
+<h3 id="为什么需要https"><a href="#为什么需要https" class="headerlink" title="为什么需要https"></a>为什么需要https</h3><p>HTTP是明文传输的，也就意味着，介于发送端、接收端中间的任意节点都可以知道你们传输的内容是什么。这些节点可能是路由器、代理等。</p>
+<p>举个最常见的例子，用户登陆。用户输入账号，密码，采用HTTP的话，只要在代理服务器上做点手脚就可以拿到你的密码了。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">用户登陆 --&gt; 代理服务器（做手脚）--&gt; 实际授权服务器</span><br></pre></td></tr></table></figure>
+<p>在发送端对密码进行加密？没用的，虽然别人不知道你原始密码是多少，但能够拿到加密后的账号密码，照样能登陆。</p>
+<h3 id="HTTPS是如何保障安全的"><a href="#HTTPS是如何保障安全的" class="headerlink" title="HTTPS是如何保障安全的"></a>HTTPS是如何保障安全的</h3><p>HTTPS 其实就是 secure http 的意思啦，也就是 HTTP 的安全升级版。稍微了解网络基础的同学都知道，HTTP 是应用层协议，位于 HTTP 协议之下是传输协议 TCP。TCP 负责传输，HTTP 则定义了数据如何进行包装。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">HTTP --&gt; TCP （明文传输）</span><br></pre></td></tr></table></figure>
+<p>HTTPS 相对于 HTTP 有哪些不同呢？其实就是在 HTTP 跟 TCP 中间加多了一层加密层 TLS/SSL。</p>
+<h4 id="神马是-TLS-SSL？"><a href="#神马是-TLS-SSL？" class="headerlink" title="神马是 TLS/SSL？"></a>神马是 TLS/SSL？</h4><p>通俗的讲，TLS、SSL其实是类似的东西，SSL是个加密套件，负责对HTTP的数据进行加密。TLS是SSL的升级版。现在提到HTTPS，加密套件基本指的是TLS。</p>
+<h4 id="传输加密的流程"><a href="#传输加密的流程" class="headerlink" title="传输加密的流程"></a>传输加密的流程</h4><p>原先是应用层将数据直接给到TCP进行传输，现在改成应用层将数据给到TLS/SSL，将数据加密后，再给到TCP进行传输。</p>
+<p>大致如图所示。</p>
+<p><img src="/images/https/1.png" alt=""></p>
+<p>就是这么回事。将数据加密后再传输，而不是任由数据在复杂而又充满危险的网络上明文裸奔，在很大程度上确保了数据的安全。这样的话，即使数据被中间节点截获，坏人也看不懂。</p>
+<h3 id="HTTPS-是如何加密数据的"><a href="#HTTPS-是如何加密数据的" class="headerlink" title="HTTPS 是如何加密数据的"></a>HTTPS 是如何加密数据的</h3><p>对安全或密码学基础有了解的同学，应该知道常见的加密手段。一般来说，加密分为对称加密、非对称加密（也叫公开密钥加密）。</p>
+<h4 id="对称加密"><a href="#对称加密" class="headerlink" title="对称加密"></a>对称加密</h4><p>对称加密的意思就是，加密数据用的密钥，跟解密数据用的密钥是一样的。</p>
+<p>对称加密的优点在于加密、解密效率通常比较高。缺点在于，数据发送方、数据接收方需要协商、共享同一把密钥，并确保密钥不泄露给其他人。此外，对于多个有数据交换需求的个体，两两之间需要分配并维护一把密钥，这个带来的成本基本是不可接受的。</p>
+<h4 id="非对称加密"><a href="#非对称加密" class="headerlink" title="非对称加密"></a>非对称加密</h4><p>非对称加密的意思就是，加密数据用的密钥（公钥），跟解密数据用的密钥（私钥）是不一样的。</p>
+<p>什么叫做公钥呢？其实就是字面上的意思——公开的密钥，谁都可以查到。因此非对称加密也叫做公开密钥加密。</p>
+<p>相对应的，私钥就是非公开的密钥，一般是由网站的管理员持有。</p>
+<p>公钥、私钥两个有什么联系呢？</p>
+<p>简单的说就是，通过公钥加密的数据，只能通过私钥解开。通过私钥加密的数据，只能通过公钥解开。</p>
+<p>很多同学都知道用私钥能解开公钥加密的数据，但忽略了一点，私钥加密的数据，同样可以用公钥解密出来。而这点对于理解HTTPS的整套加密、授权体系非常关键。</p>
+<h4 id="举个非对称加密的例子"><a href="#举个非对称加密的例子" class="headerlink" title="举个非对称加密的例子"></a>举个非对称加密的例子</h4><ul>
+<li>登陆用户：小明</li>
+<li>授权网站：某知名社交网站（以下简称XX）</li>
+</ul>
+<p>小明都是某知名社交网站XX的用户，XX出于安全考虑在登陆的地方用了非对称加密。小明在登陆界面敲入账号、密码，点击“登陆”。于是，浏览器利用公钥对小明的账号密码进行了加密，并向XX发送登陆请求。XX的登陆授权程序通过私钥，将账号、密码解密，并验证通过。之后，将小明的个人信息（含隐私），通过私钥加密后，传输回浏览器。浏览器通过公钥解密数据，并展示给小明。</p>
+<ul>
+<li>步骤一： 小明输入账号密码 –&gt; 浏览器用公钥加密 –&gt; 请求发送给XX</li>
+<li>步骤二： XX用私钥解密，验证通过 –&gt; 获取小明社交数据，用私钥加密 –&gt; 浏览器用公钥解密数据，并展示。</li>
+</ul>
+<p>用非对称加密，就能解决数据传输安全的问题了吗？前面特意强调了一下，私钥加密的数据，公钥是可以解开的，而公钥又是加密的。也就是说，非对称加密只能保证单向数据传输的安全性。</p>
+<p>此外，还有公钥如何分发/获取的问题。下面会对这两个问题进行进一步的探讨。</p>
+<h3 id="公开密钥加密：两个明显的问题"><a href="#公开密钥加密：两个明显的问题" class="headerlink" title="公开密钥加密：两个明显的问题"></a>公开密钥加密：两个明显的问题</h3><p>前面举了小明登陆社交网站XX的例子，并提到，单纯使用公开密钥加密存在两个比较明显的问题。</p>
+<ul>
+<li>1、公钥如何获取</li>
+<li>2、数据传输仅单向安全</li>
+</ul>
+<h4 id="问题一：公钥如何获取"><a href="#问题一：公钥如何获取" class="headerlink" title="问题一：公钥如何获取"></a>问题一：公钥如何获取</h4><p>浏览器是怎么获得XX的公钥的？当然，小明可以自己去网上查，XX也可以将公钥贴在自己的主页。然而，对于一个动不动就成败上千万的社交网站来说，会给用户造成极大的不便利，毕竟大部分用户都不知道“公钥”是什么东西。</p>
+<h4 id="问题二：数据传输仅单向安全"><a href="#问题二：数据传输仅单向安全" class="headerlink" title="问题二：数据传输仅单向安全"></a>问题二：数据传输仅单向安全</h4><p>前面提到，公钥加密的数据，只有私钥能解开，于是小明的账号、密码是安全了，半路不怕被拦截。</p>
+<p>然后有个很大的问题：私钥加密的数据，公钥也能解开。加上公钥是公开的，小明的隐私数据相当于在网上换了种方式裸奔。（中间代理服务器拿到了公钥后，毫不犹豫的就可以解密小明的数据）</p>
+<p>下面就分别针对这两个问题进行解答。</p>
+<h3 id="问题一：公钥如何获取-1"><a href="#问题一：公钥如何获取-1" class="headerlink" title="问题一：公钥如何获取"></a>问题一：公钥如何获取</h3><p>这里要涉及两个非常重要的概念：证书、CA（证书颁发机构）。</p>
+<h4 id="证书"><a href="#证书" class="headerlink" title="证书"></a>证书</h4><p>可以暂时把它理解为网站的身份证。这个身份证里包含了很多信息，其中就包含了上面提到的公钥。</p>
+<p>也就是说，当小明、小王、小光等用户访问XX的时候，再也不用满世界的找XX的公钥了。当他们访问XX的时候，XX就会把证书发给浏览器，告诉他们说，乖，用这个里面的公钥加密数据。</p>
+<p>这里有个问题，所谓的“证书”是哪来的？这就是下面要提到的CA负责的活了。</p>
+<h4 id="CA（证书颁发机构）"><a href="#CA（证书颁发机构）" class="headerlink" title="CA（证书颁发机构）"></a>CA（证书颁发机构）</h4><p>强调两点：</p>
+<ul>
+<li>1、可以颁发证书的CA有很多（国内外都有）。</li>
+<li>2、只有少数CA被认为是权威、公正的，这些CA颁发的证书，浏览器才认为是信得过的。比如VeriSign。（CA自己伪造证书的事情也不是没发生过。。。）</li>
+</ul>
+<p>证书颁发的细节这里先不展开，可以先简单理解为，网站向CA提交了申请，CA审核通过后，将证书颁发给网站，用户访问网站的时候，网站将证书给到用户。</p>
+<p>至于证书的细节，同样在后面讲到。</p>
+<h3 id="问题二：数据传输仅单向安全-1"><a href="#问题二：数据传输仅单向安全-1" class="headerlink" title="问题二：数据传输仅单向安全"></a>问题二：数据传输仅单向安全</h3><p>上面提到，通过私钥加密的数据，可以用公钥解密还原。那么，这是不是就意味着，网站传给用户的数据是不安全的？</p>
+<p>答案是：是！！！（三个叹号表示强调的三次方）</p>
+<p>看到这里，可能你心里会有这样想：用了HTTPS，数据还是裸奔，这么不靠谱，还不如直接用HTTP来的省事。</p>
+<p>但是，为什么业界对网站HTTPS化的呼声越来越高呢？这明显跟我们的感性认识相违背啊。</p>
+<p>因为：HTTPS虽然用到了公开密钥加密，但同时也结合了其他手段，如对称加密，来确保授权、加密传输的效率、安全性。</p>
+<p>概括来说，整个简化的加密通信的流程就是：</p>
+<ul>
+<li>1、小明访问XX，XX将自己的证书给到小明（其实是给到浏览器，小明不会有感知）</li>
+<li>2、浏览器从证书中拿到XX的公钥A</li>
+<li>3、浏览器生成一个只有自己自己的对称密钥B，用公钥A加密，并传给XX（其实是有协商的过程，这里为了便于理解先简化）</li>
+<li>4、XX通过私钥解密，拿到对称密钥B</li>
+<li>5、浏览器、XX 之后的数据通信，都用密钥B进行加密</li>
+</ul>
+<p>注意：对于每个访问XX的用户，生成的对称密钥B理论上来说都是不一样的。比如小明、小王、小光，可能生成的就是B1、B2、B3。</p>
+<p>参考下图：</p>
+<p><img src="/images/https/2.png" alt=""></p>
+<h4 id="证书可能存在哪些问题"><a href="#证书可能存在哪些问题" class="headerlink" title="证书可能存在哪些问题"></a>证书可能存在哪些问题</h4><p>了解了HTTPS加密通信的流程后，对于数据裸奔的疑虑应该基本打消了。然而，细心的观众可能又有疑问了：怎么样确保证书有合法有效的？</p>
+<p>证书非法可能有两种情况：</p>
+<ul>
+<li>1、证书是伪造的：压根不是CA颁发的</li>
+<li>2、证书被篡改过：比如将XX网站的公钥给替换了</li>
+</ul>
+<h5 id="举个例子："><a href="#举个例子：" class="headerlink" title="举个例子："></a>举个例子：</h5><p>我们知道，这个世界上存在一种东西叫做代理，于是，上面小明登陆XX网站有可能是这样的，小明的登陆请求先到了代理服务器，代理服务器再将请求转发到的授权服务器。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">小明 --&gt; 邪恶的代理服务器 --&gt; 登陆授权服务器</span><br><span class="line">小明 &lt;-- 邪恶的代理服务器 &lt;-- 登陆授权服务器</span><br></pre></td></tr></table></figure>
+<p>然后，这个世界坏人太多了，某一天，代理服务器动了坏心思（也有可能是被入侵），将小明的请求拦截了。同时，返回了一个非法的证书。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">小明 --&gt; 邪恶的代理服务器 --x--&gt; 登陆授权服务器</span><br><span class="line">小明 &lt;-- 邪恶的代理服务器 --x--&gt; 登陆授权服务器</span><br></pre></td></tr></table></figure>
+<p>如果善良的小明相信了这个证书，那他就再次裸奔了。当然不能这样，那么，是通过什么机制来防止这种事情的放生的呢。</p>
+<p>下面，我们先来看看”证书”有哪些内容，然后就可以大致猜到是如何进行预防的了。</p>
+<h3 id="证书简介"><a href="#证书简介" class="headerlink" title="证书简介"></a>证书简介</h3><p>在正式介绍证书的格式前，先插播个小广告，科普下数字签名和摘要，然后再对证书进行非深入的介绍。</p>
+<p>为什么呢？因为数字签名、摘要是证书防伪非常关键的武器。</p>
+<h4 id="数字签名与摘要"><a href="#数字签名与摘要" class="headerlink" title="数字签名与摘要"></a>数字签名与摘要</h4><p>简单的来说，“摘要”就是对传输的内容，通过hash算法计算出一段固定长度的串（是不是联想到了文章摘要）。然后，在通过CA的私钥对这段摘要进行加密，加密后得到的结果就是“数字签名”。（这里提到CA的私钥，后面再进行介绍）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">明文 --&gt; hash运算 --&gt; 摘要 --&gt; 私钥加密 --&gt; 数字签名</span><br></pre></td></tr></table></figure>
+<p>结合上面内容，我们知道，这段数字签名只有CA的公钥才能够解密。</p>
+<p>接下来，我们再来看看神秘的“证书”究竟包含了什么内容，然后就大致猜到是如何对非法证书进行预防的了。</p>
+<h4 id="证书格式"><a href="#证书格式" class="headerlink" title="证书格式"></a>证书格式</h4><p>先无耻的贴上一大段内容，证书格式来自这篇不错的文章《OpenSSL 与 SSL 数字证书概念贴》（<a href="http://seanlook.com/2015/01/15/openssl-certificate-encryption/）" target="_blank" rel="noopener">http://seanlook.com/2015/01/15/openssl-certificate-encryption/）</a></p>
+<p>内容非常多，这里我们需要关注的有几个点：</p>
+<ul>
+<li>1、证书包含了颁发证书的机构的名字 – CA</li>
+<li>2、证书内容本身的数字签名（用CA私钥加密）</li>
+<li>3、证书持有者的公钥</li>
+<li>4、证书签名用到的hash算法</li>
+</ul>
+<p>此外，有一点需要补充下，就是：</p>
+<ul>
+<li>1、CA本身有自己的证书，江湖人称“根证书”。这个“根证书”是用来证明CA的身份的，本质是一份普通的数字证书。</li>
+<li>2、浏览器通常会内置大多数主流权威CA的根证书。</li>
+</ul>
+<h5 id="证书格式-1"><a href="#证书格式-1" class="headerlink" title="证书格式"></a>证书格式</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><span class="line">1. 证书版本号(Version)</span><br><span class="line">版本号指明X.509证书的格式版本，现在的值可以为:</span><br><span class="line">    1) 0: v1</span><br><span class="line">    2) 1: v2</span><br><span class="line">    3) 2: v3</span><br><span class="line">也为将来的版本进行了预定义</span><br><span class="line"></span><br><span class="line">2. 证书序列号(Serial Number)</span><br><span class="line">序列号指定由CA分配给证书的唯一的&quot;数字型标识符&quot;。当证书被取消时，实际上是将此证书的序列号放入由CA签发的CRL中，</span><br><span class="line">这也是序列号唯一的原因。</span><br><span class="line"></span><br><span class="line">3. 签名算法标识符(Signature Algorithm)</span><br><span class="line">签名算法标识用来指定由CA签发证书时所使用的&quot;签名算法&quot;。算法标识符用来指定CA签发证书时所使用的:</span><br><span class="line">    1) 公开密钥算法</span><br><span class="line">    2) hash算法</span><br><span class="line">example: sha256WithRSAEncryption</span><br><span class="line">须向国际知名标准组织(如ISO)注册</span><br><span class="line"></span><br><span class="line">4. 签发机构名(Issuer)</span><br><span class="line">此域用来标识签发证书的CA的X.500 DN(DN-Distinguished Name)名字。包括:</span><br><span class="line">    1) 国家(C)</span><br><span class="line">    2) 省市(ST)</span><br><span class="line">    3) 地区(L)</span><br><span class="line">    4) 组织机构(O)</span><br><span class="line">    5) 单位部门(OU)</span><br><span class="line">    6) 通用名(CN)</span><br><span class="line">    7) 邮箱地址</span><br><span class="line"></span><br><span class="line">5. 有效期(Validity)</span><br><span class="line">指定证书的有效期，包括:</span><br><span class="line">    1) 证书开始生效的日期时间</span><br><span class="line">    2) 证书失效的日期和时间</span><br><span class="line">每次使用证书时，需要检查证书是否在有效期内。</span><br><span class="line"></span><br><span class="line">6. 证书用户名(Subject)</span><br><span class="line">指定证书持有者的X.500唯一名字。包括:</span><br><span class="line">    1) 国家(C)</span><br><span class="line">    2) 省市(ST)</span><br><span class="line">    3) 地区(L)</span><br><span class="line">    4) 组织机构(O)</span><br><span class="line">    5) 单位部门(OU)</span><br><span class="line">    6) 通用名(CN)</span><br><span class="line">    7) 邮箱地址</span><br><span class="line"></span><br><span class="line">7. 证书持有者公开密钥信息(Subject Public Key Info)</span><br><span class="line">证书持有者公开密钥信息域包含两个重要信息:</span><br><span class="line">    1) 证书持有者的公开密钥的值</span><br><span class="line">    2) 公开密钥使用的算法标识符。此标识符包含公开密钥算法和hash算法。</span><br><span class="line">8. 扩展项(extension)</span><br><span class="line">X.509 V3证书是在v2的基础上一标准形式或普通形式增加了扩展项，以使证书能够附带额外信息。标准扩展是指</span><br><span class="line">由X.509 V3版本定义的对V2版本增加的具有广泛应用前景的扩展项，任何人都可以向一些权威机构，如ISO，来</span><br><span class="line">注册一些其他扩展，如果这些扩展项应用广泛，也许以后会成为标准扩展项。</span><br><span class="line"></span><br><span class="line">9. 签发者唯一标识符(Issuer Unique Identifier)</span><br><span class="line">签发者唯一标识符在第2版加入证书定义中。此域用在当同一个X.500名字用于多个认证机构时，用一比特字符串</span><br><span class="line">来唯一标识签发者的X.500名字。可选。</span><br><span class="line"></span><br><span class="line">10. 证书持有者唯一标识符(Subject Unique Identifier)</span><br><span class="line">持有证书者唯一标识符在第2版的标准中加入X.509证书定义。此域用在当同一个X.500名字用于多个证书持有者时，</span><br><span class="line">用一比特字符串来唯一标识证书持有者的X.500名字。可选。</span><br><span class="line"></span><br><span class="line">11. 签名算法(Signature Algorithm)</span><br><span class="line">证书签发机构对证书上述内容的签名算法</span><br><span class="line">example: sha256WithRSAEncryption</span><br><span class="line"></span><br><span class="line">12. 签名值(Issuer&apos;s Signature)</span><br><span class="line">证书签发机构对证书上述内容的签名值</span><br></pre></td></tr></table></figure>
+<h3 id="写在后面"><a href="#写在后面" class="headerlink" title="写在后面"></a>写在后面</h3><p>科普性文章，部分内容不够严谨，如有错漏请指出 </p>
+
+				<!-- 多说评论框 start -->
+				<div class="article-comment">
+					<div class="ds-thread" data-num-items="5" data-show-avatars="1" data-show-time="1" data-show-title="1" data-show-admin="1" data-excerpt-length="50" data-thread-key="post-https" data-title="HTTPS 协议" data-url="/"></div>
+				</div>
+				<!-- 多说评论框 end -->
+			
+		</div>
+		<footer class="article-footer">
+			<a data-url="https://utopia1991.github.io/2019/01/14/https/" data-id="cjqyikiqa002k5sukrdxee64l" class="article-share-link">分享</a>
+			
+			
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HTTP/">HTTP</a></li></ul>
+
+		</footer>
+	</div>
+	
+		
+<nav id="article-nav">
+  
+    <a href="/2019/01/14/inherit/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          Javascript 继承：经典继承，ES5 继承，ES6 继承
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/01/14/http/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">HTTP 协议</div>
+    </a>
+  
+</nav>
+
+	
+</article>
+
+
+
+				</section>
+			</div>
+			<footer id="footer">
+	
+	<div class="outer">
+		<div id="footer-info">
+			Copyright &copy; Bevis Shen 2019<br>
+			Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+		</div>
+	</div>
+</footer>
+
+		</div>
+		<nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">主页</a>
+  
+    <a href="/archives" class="mobile-nav-link">博文</a>
+  
+</nav>
+		
+
+<script src="https://cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+	</div>
+</body>
+<script>
+	var c = document.getElementsByTagName('canvas')[0],
+		x = c.getContext('2d'),
+		pr = window.devicePixelRatio || 1,
+		w = window.innerWidth,
+		h = window.innerHeight,
+		f = 90,
+		q,
+		m = Math,
+		r = 0,
+		u = m.PI * 2,
+		v = m.cos,
+		z = m.random
+	c.width = w * pr
+	c.height = h * pr
+	x.scale(pr, pr)
+	x.globalAlpha = 0.6
+
+	function i() {
+		x.clearRect(0, 0, w, h)
+		q = [{
+			x: 0,
+			y: h * .7 + f
+		}, {
+			x: 0,
+			y: h * .7 - f
+		}]
+		while (q[1].x < w + f) d(q[0], q[1])
+	}
+
+	function d(i, j) {
+		x.beginPath()
+		x.moveTo(i.x, i.y)
+		x.lineTo(j.x, j.y)
+		var k = j.x + (z() * 2 - 0.25) * f,
+			n = y(j.y)
+		x.lineTo(k, n)
+		x.closePath()
+		r -= u / -50
+		x.fillStyle = '#' + (v(r) * 127 + 128 << 16 | v(r + u / 3) * 127 + 128 << 8 | v(r + u / 3 * 2) * 127 + 128).toString(16)
+		x.fill()
+		q[0] = q[1]
+		q[1] = {
+			x: k,
+			y: n
+		}
+	}
+
+	function y(p) {
+		var t = p + (z() * 2 - 1.1) * f
+		return (t > h || t < 0) ? y(p) : t
+	}
+	document.onclick = i
+	document.ontouchstart = i
+	i()
+</script>
+</html>

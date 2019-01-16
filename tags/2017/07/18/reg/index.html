@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta property="wb:webmaster" content="65a151beb5e21880" />
+	<!-- baidu analytics-->
+	<script>
+		var _hmt = _hmt || [];
+		(function() {
+			var hm = document.createElement("script");
+			hm.src = "https://hm.baidu.com/hm.js?09df6a0c610161ab3099d8e11e9c998e";
+			var s = document.getElementsByTagName("script")[0];
+			s.parentNode.insertBefore(hm, s);
+		})();
+	</script>
+	
+	<title>前端表单验证常用的15个JS正则表达式 | Bevis Blog - 沈浩个人博客</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<meta name="description" content="在表单验证中，使用正则表达式来验证正确与否是一个很频繁的操作，本文收集整理了15个常用的javaScript正则表达式，其中包括用户名、密码强度、整数、数字、电子邮件地址（Email）、手机号码、身份证号、URL地址、 IPv4地址、 十六进制颜色、 日期、 QQ号码、 微信号、车牌号、中文正则。">
+<meta name="keywords" content="Javascript">
+<meta property="og:type" content="article">
+<meta property="og:title" content="前端表单验证常用的15个JS正则表达式">
+<meta property="og:url" content="https://utopia1991.github.io/2017/07/18/reg/index.html">
+<meta property="og:site_name" content="Bevis Blog - 沈浩个人博客">
+<meta property="og:description" content="在表单验证中，使用正则表达式来验证正确与否是一个很频繁的操作，本文收集整理了15个常用的javaScript正则表达式，其中包括用户名、密码强度、整数、数字、电子邮件地址（Email）、手机号码、身份证号、URL地址、 IPv4地址、 十六进制颜色、 日期、 QQ号码、 微信号、车牌号、中文正则。">
+<meta property="og:updated_time" content="2017-07-18T01:07:17.492Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="前端表单验证常用的15个JS正则表达式">
+<meta name="twitter:description" content="在表单验证中，使用正则表达式来验证正确与否是一个很频繁的操作，本文收集整理了15个常用的javaScript正则表达式，其中包括用户名、密码强度、整数、数字、电子邮件地址（Email）、手机号码、身份证号、URL地址、 IPv4地址、 十六进制颜色、 日期、 QQ号码、 微信号、车牌号、中文正则。">
+	
+	
+		<link rel="icon" href="https://utopia1991.github.io/css/images/icon.jpg">
+	
+	<link rel="stylesheet" href="/css/style.css">
+	
+
+	<script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+</head>
+
+<body>
+	<a href="https://github.com/utopia1991" target="_blank" class="githubFork">
+		<img src="https://camo.githubusercontent.com/e7bbb0521b397edbd5fe43e7f760759336b5e05f/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677265656e5f3030373230302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_green_007200.png">
+	</a>
+	<div id="container">
+		<div id="wrap">
+			<header id="header">
+	<div id="header-outer" class="outer">
+		<div id="header-title" class="inner">
+			<h1 id="logo-wrap">
+				<a href="/" id="logo">
+					<span class="brand-logo">Bevis</span>
+					Blog
+				</a>
+			</h1>
+		</div>
+		<div id="header-inner" class="inner">
+			<nav id="main-nav">
+				<a id="main-nav-toggle" class="nav-icon"></a>
+				
+					<a class="main-nav-link" href="/">主页</a>
+				
+					<a class="main-nav-link" href="/archives">博文</a>
+				
+				<a class="main-nav-link" href="https://utopia1991.github.io/project/about/index.html">关于我</a>
+			</nav>
+		</div>
+	</div>
+</header>
+
+			<canvas width="100%" height="100%" id="canvas"></canvas>
+			<div class="outer">
+				
+				<aside id="sidebar">
+	<div class="aside-author">
+		<a class="aside-logo" href="https://utopia1991.github.io/project/lover/index.html" target="_blank"></a>
+		<p class="aside-title">Bevis Shen（沈浩）</p>
+		<p class="aside-subtitle">Node.js & Front-End Engineer</p>
+		<p class="aside-description">Google 重度粉，Mac 拥趸，前端 + Node 青年，对前沿技术有着狂热的激情，梦想环游世界，热爱生活、摄影、旅游、电影的文艺程序猿一枚</p>
+		<div class="aside-communicate">
+			<a href="https://github.com/utopia1991" target="_blank" class="article-share-github" title="github"></a>
+			<a href="https://www.linkedin.com/in/bevis1991" target="_blank" class="article-share-linkedin" title="linkedin"></a>
+			<a href="mailto:1304354608@qq.com" class="article-share-mail" title="email"></a>
+			<a href="https://weibo.com/u/2619492527/home" target="_blank" class="article-share-weibo" title="weibo"></a>
+			<a class="article-share-weixin" title="我的个人微信公众号"></a>
+			<img src="https://utopia1991.github.io/css/images/wechat.png" width="180" height="180" class="wechat-pic">
+			<a href="https://bevis1991.wordpress.com/" target="_blank" class="article-share-wordpress" title="WordPress 博客"></a>
+			<a href="https://www.facebook.com/bevis1991" target="_blank" class="article-share-facebook" title="facebook"></a>
+			<a href="https://twitter.com/bevis_shen" target="_blank" class="article-share-twitter" title="twitter"></a>
+		</div>
+	</div>
+	
+		
+
+	
+		
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/">CSS</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Code-Style/">Code Style</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Coffeescript/">Coffeescript</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Google/">Google</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Gulp/">Gulp</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML/">HTML</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTTP/">HTTP</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Interview-Questions/">Interview-Questions</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Javascript/">Javascript</a><span class="tag-list-count">20</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mac/">Mac</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/">Markdown</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MongoDB/">MongoDB</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UnderscoreJS/">UnderscoreJS</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery/">jQuery</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nodeJs/">nodeJs</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+	
+		
+  <div class="widget-wrap">
+    <h3 class="widget-title">Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/CSS/" style="font-size: 17.5px;">CSS</a> <a href="/tags/Code-Style/" style="font-size: 17.5px;">Code Style</a> <a href="/tags/Coffeescript/" style="font-size: 10px;">Coffeescript</a> <a href="/tags/Google/" style="font-size: 10px;">Google</a> <a href="/tags/Gulp/" style="font-size: 10px;">Gulp</a> <a href="/tags/HTML/" style="font-size: 12.5px;">HTML</a> <a href="/tags/HTTP/" style="font-size: 12.5px;">HTTP</a> <a href="/tags/Interview-Questions/" style="font-size: 17.5px;">Interview-Questions</a> <a href="/tags/Javascript/" style="font-size: 20px;">Javascript</a> <a href="/tags/Mac/" style="font-size: 12.5px;">Mac</a> <a href="/tags/Markdown/" style="font-size: 10px;">Markdown</a> <a href="/tags/MongoDB/" style="font-size: 15px;">MongoDB</a> <a href="/tags/UnderscoreJS/" style="font-size: 12.5px;">UnderscoreJS</a> <a href="/tags/jQuery/" style="font-size: 12.5px;">jQuery</a> <a href="/tags/nodeJs/" style="font-size: 10px;">nodeJs</a>
+    </div>
+  </div>
+
+	
+		
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">二月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">一月 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">十一月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">十月 2017</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">七月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">六月 2017</a><span class="archive-list-count">43</span></li></ul>
+    </div>
+  </div>
+
+
+	
+		
+	<div class="widget-wrap">
+		<h3 class="widget-title">最新文章</h3>
+		<div class="widget">
+			<ul>
+				
+					<li>
+						<a href="/2018/02/23/https/">
+							HTTPS 协议
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2018/01/25/mongoQueryCommand/">
+							Mongodb 常见的查询语句及与 mysql 对比
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2018/01/24/throttleDebounce/">
+							JS 函数节流和函数防抖之间的区别
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2017/11/29/progress/">
+							异步编程、进程、单线程、多线程
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2017/10/23/viewport/">
+							HTML meta viewport属性说明
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2017/10/20/flex/">
+							CSS3中Flex弹性布局
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2017/10/20/boxModel/">
+							CSS盒模型
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2017/07/18/reg/">
+							前端表单验证常用的15个JS正则表达式
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2017/06/20/vue/">
+							Vue 基础学习笔记
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2017/06/20/vide/">
+							Vide 视频背景jQuery插件
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2017/06/20/underscore2/">
+							UnderscoreJS 常用方法
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2017/06/20/underscore1/">
+							UnderscoreJS 使用介绍
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2017/06/20/superAgent/">
+							SuperAgent 中文使用文档
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2017/06/20/string/">
+							Javascript 字符串
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2017/06/20/source/">
+							超全 web 开发工具和资源
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2017/06/20/reduceCoupling/">
+							减少前端代码耦合
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2017/06/20/object/">
+							Javascript 对象
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2017/06/20/nodemailer/">
+							使用 nodeJs 发送邮件
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2017/06/20/mongoose/">
+							Mongoose 基本介绍
+						</a>
+					</li>
+					
+					<li>
+						<a href="/2017/06/20/mongodb/">
+							MongoDB 操作基础语法（shell）
+						</a>
+					</li>
+					
+				......
+			</ul>
+		</div>
+	</div>
+	
+
+	
+</aside>
+
+				
+				<section id="main">
+					<div class="main-header">
+						<p class="header-title">Any application that can be written in JavaScript, will eventually be written in JavaScript.</p>
+						<canvas id="bubbleCanvas" width="100%" height="300" style="margin-top:50px;"></canvas>
+						<script>
+							(function(){
+								var width, height, canvas, ctx, circles;
+								function initHeader() {
+									try{
+										canvas = document.getElementById('bubbleCanvas');
+										if($("#bubbleCanvas").length>0){
+											width = window.innerWidth*0.25>300?window.innerWidth*0.25:300;
+											//height = window.innerHeight;
+											height = 255;
+											canvas.width = width;
+											canvas.height = height;
+											ctx = canvas.getContext('2d');
+											circles = [];
+											for(var x = 0; x < width*0.5; x++) {
+												var c = new Circle();
+												circles.push(c);
+											}
+											animate();
+										}
+									} catch(ex) {
+										if(window.cosole&&window.cosole.log){cosole.log(ex)}
+									}
+								}
+								function addListeners() {
+									try{
+										if($("#bubbleCanvas").length>0){
+											window.addEventListener('resize', resize);
+										}
+									}catch(ex){if(window.cosole&&window.cosole.log){cosole.log(ex)}}
+								}
+								function resize() {
+									width = window.innerWidth*0.25>300?window.innerWidth*0.25:300;
+									height = window.innerHeight;
+									canvas.width = width;
+									canvas.height = height;
+								}
+								function animate() {
+									ctx.clearRect(0,0,width,height);
+									for(var i in circles) {
+										circles[i].draw();
+									}
+									window.requestAFrame = (function () {
+										return window.requestAnimationFrame||window.webkitRequestAnimationFrame||window.mozRequestAnimationFrame||window.oRequestAnimationFrame||window.msRequestAnimationFrame||
+											function (callback) {
+												return window.setTimeout(callback, 1000 / 60); // shoot for 60 fps
+											};
+									})();
+									requestAFrame(animate);
+								}
+								// Canvas manipulation
+								function Circle() {
+									var _this = this;
+									// constructor
+									(function() {
+										_this.pos = {};
+										init();
+									})();
+
+									function init() {
+										_this.pos.x = Math.random()*width;
+										_this.pos.y = height+Math.random()*100;
+										_this.alpha = 0.1+Math.random()*0.3;
+										_this.scale = 0.1+Math.random()*0.3;
+										_this.velocity = Math.random();
+									}
+
+									this.draw = function() {
+										if(_this.alpha <= 0) {
+											init();
+										}
+										_this.pos.y -= _this.velocity;
+										_this.alpha -= 0.0005;
+										ctx.beginPath();
+										ctx.arc(_this.pos.x, _this.pos.y, _this.scale*10, 0, 2 * Math.PI, false);
+										ctx.fillStyle = 'rgba(255,255,255,'+ _this.alpha+')';
+										ctx.fill();
+									};
+								}
+								initHeader();
+								addListeners();
+							}());
+						</script>
+					</div>
+					<article id="post-reg" class="article article-type-post" itemscope itemprop="blogPost">
+	<div class="article-meta">
+		
+	</div>
+	<div class="article-inner">
+		
+		
+			<header class="article-header">
+				
+	
+		<h1 class="article-title" itemprop="name">
+			前端表单验证常用的15个JS正则表达式
+		</h1>
+	
+
+
+				<a href="/2017/07/18/reg/" class="article-date">
+  <time datetime="2017-07-18T00:57:40.248Z" itemprop="datePublished">2017-07-18</time>
+</a>
+			</header>
+		
+		<div class="article-entry" itemprop="articleBody">
+			
+				<p>在表单验证中，使用正则表达式来验证正确与否是一个很频繁的操作，本文收集整理了15个常用的javaScript正则表达式，其中包括用户名、密码强度、整数、数字、电子邮件地址（Email）、手机号码、身份证号、URL地址、 IPv4地址、 十六进制颜色、 日期、 QQ号码、 微信号、车牌号、中文正则。</p>
+<a id="more"></a>
+<h3 id="1-用户名正则"><a href="#1-用户名正则" class="headerlink" title="1. 用户名正则"></a>1. 用户名正则</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//用户名正则，4到16位（字母，数字，下划线，减号）</span></div><div class="line"><span class="keyword">var</span> uPattern = <span class="regexp">/^[a-zA-Z0-9_-]&#123;4,16&#125;$/</span>;</div><div class="line"><span class="comment">//输出 true</span></div><div class="line"><span class="built_in">console</span>.log(uPattern.test(<span class="string">"caibaojian"</span>));</div></pre></td></tr></table></figure>
+<h3 id="2-密码强度正则"><a href="#2-密码强度正则" class="headerlink" title="2. 密码强度正则"></a>2. 密码强度正则</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//密码强度正则，最少6位，包括至少1个大写字母，1个小写字母，1个数字，1个特殊字符</span></div><div class="line"><span class="keyword">var</span> pPattern = <span class="regexp">/^.*(?=.&#123;6,&#125;)(?=.*\d)(?=.*[A-Z])(?=.*[a-z])(?=.*[!@#$%^&amp;*? ]).*$/</span>;</div><div class="line"><span class="comment">//输出 true</span></div><div class="line"><span class="built_in">console</span>.log(<span class="string">"=="</span>+pPattern.test(<span class="string">"caibaojian#"</span>));</div></pre></td></tr></table></figure>
+<h3 id="3-整数正则"><a href="#3-整数正则" class="headerlink" title="3. 整数正则"></a>3. 整数正则</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//正整数正则</span></div><div class="line"><span class="keyword">var</span> posPattern = <span class="regexp">/^\d+$/</span>;</div><div class="line"><span class="comment">//负整数正则</span></div><div class="line"><span class="keyword">var</span> negPattern = <span class="regexp">/^-\d+$/</span>;</div><div class="line"><span class="comment">//整数正则</span></div><div class="line"><span class="keyword">var</span> intPattern = <span class="regexp">/^-?\d+$/</span>;</div><div class="line"><span class="comment">//输出 true</span></div><div class="line"><span class="built_in">console</span>.log(posPattern.test(<span class="string">"42"</span>));</div><div class="line"><span class="comment">//输出 true</span></div><div class="line"><span class="built_in">console</span>.log(negPattern.test(<span class="string">"-42"</span>));</div><div class="line"><span class="comment">//输出 true</span></div><div class="line"><span class="built_in">console</span>.log(intPattern.test(<span class="string">"-42"</span>));</div></pre></td></tr></table></figure>
+<h3 id="4-数字正则"><a href="#4-数字正则" class="headerlink" title="4. 数字正则"></a>4. 数字正则</h3><p>可以是整数也可以是浮点数</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//正数正则</span></div><div class="line"><span class="keyword">var</span> posPattern = <span class="regexp">/^\d*\.?\d+$/</span>;</div><div class="line"><span class="comment">//负数正则</span></div><div class="line"><span class="keyword">var</span> negPattern = <span class="regexp">/^-\d*\.?\d+$/</span>;</div><div class="line"><span class="comment">//数字正则</span></div><div class="line"><span class="keyword">var</span> numPattern = <span class="regexp">/^-?\d*\.?\d+$/</span>;</div><div class="line"><span class="built_in">console</span>.log(posPattern.test(<span class="string">"42.2"</span>));</div><div class="line"><span class="built_in">console</span>.log(negPattern.test(<span class="string">"-42.2"</span>));</div><div class="line"><span class="built_in">console</span>.log(numPattern.test(<span class="string">"-42.2"</span>));</div></pre></td></tr></table></figure>
+<h3 id="5-Email正则"><a href="#5-Email正则" class="headerlink" title="5. Email正则"></a>5. Email正则</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//Email正则</span></div><div class="line"><span class="keyword">var</span> ePattern = <span class="regexp">/^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]&#123;2,4&#125;)$/</span>;</div><div class="line"><span class="comment">//输出 true</span></div><div class="line"><span class="built_in">console</span>.log(ePattern.test(<span class="string">"99154507@qq.com"</span>));</div></pre></td></tr></table></figure>
+<h3 id="6-手机号码正则"><a href="#6-手机号码正则" class="headerlink" title="6. 手机号码正则"></a>6. 手机号码正则</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//手机号正则</span></div><div class="line"><span class="keyword">var</span> mPattern = <span class="regexp">/^1[34578]\d&#123;9&#125;$/</span>; <span class="comment">// http://caibaojian.com/regexp-example.html</span></div><div class="line"><span class="comment">//输出 true</span></div><div class="line"><span class="built_in">console</span>.log(mPattern.test(<span class="string">"15507621888"</span>));</div></pre></td></tr></table></figure>
+<h3 id="7-身份证号正则"><a href="#7-身份证号正则" class="headerlink" title="7. 身份证号正则"></a>7. 身份证号正则</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//身份证号（18位）正则</span></div><div class="line"><span class="keyword">var</span> cP = <span class="regexp">/^[1-9]\d&#123;5&#125;(18|19|([23]\d))\d&#123;2&#125;((0[1-9])|(10|11|12))(([0-2][1-9])|10|20|30|31)\d&#123;3&#125;[0-9Xx]$/</span>;</div><div class="line"><span class="comment">//输出 true</span></div><div class="line"><span class="built_in">console</span>.log(cP.test(<span class="string">"11010519880605371X"</span>));</div></pre></td></tr></table></figure>
+<h3 id="8-URL正则"><a href="#8-URL正则" class="headerlink" title="8. URL正则"></a>8. URL正则</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//URL正则</span></div><div class="line"><span class="keyword">var</span> urlP= <span class="regexp">/^((https?|ftp|file):\/\/)?([\da-z\.-]+)\.([a-z\.]&#123;2,6&#125;)([\/\w \.-]*)*\/?$/</span>;</div><div class="line"><span class="comment">//输出 true</span></div><div class="line"><span class="built_in">console</span>.log(urlP.test(<span class="string">"http://caibaojian.com"</span>));</div></pre></td></tr></table></figure>
+<h3 id="9-IPv4地址正则"><a href="#9-IPv4地址正则" class="headerlink" title="9. IPv4地址正则"></a>9. IPv4地址正则</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//ipv4地址正则</span></div><div class="line"><span class="keyword">var</span> ipP = <span class="regexp">/^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.)&#123;3&#125;(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/</span>;</div><div class="line"><span class="comment">//输出 true</span></div><div class="line"><span class="built_in">console</span>.log(ipP.test(<span class="string">"115.28.47.26"</span>));</div></pre></td></tr></table></figure>
+<h3 id="10-十六进制颜色正则"><a href="#10-十六进制颜色正则" class="headerlink" title="10. 十六进制颜色正则"></a>10. 十六进制颜色正则</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//RGB Hex颜色正则</span></div><div class="line"><span class="keyword">var</span> cPattern = <span class="regexp">/^#?([a-fA-F0-9]&#123;6&#125;|[a-fA-F0-9]&#123;3&#125;)$/</span>;</div><div class="line"><span class="comment">//输出 true</span></div><div class="line"><span class="built_in">console</span>.log(cPattern.test(<span class="string">"#b8b8b8"</span>));</div></pre></td></tr></table></figure>
+<h3 id="11-日期正则"><a href="#11-日期正则" class="headerlink" title="11. 日期正则"></a>11. 日期正则</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//日期正则，简单判定,未做月份及日期的判定</span></div><div class="line"><span class="keyword">var</span> dP1 = <span class="regexp">/^\d&#123;4&#125;(\-)\d&#123;1,2&#125;\1\d&#123;1,2&#125;$/</span>;</div><div class="line"><span class="comment">//输出 true</span></div><div class="line"><span class="built_in">console</span>.log(dP1.test(<span class="string">"2017-05-11"</span>));</div><div class="line"><span class="comment">//输出 true</span></div><div class="line"><span class="built_in">console</span>.log(dP1.test(<span class="string">"2017-15-11"</span>));</div><div class="line"><span class="comment">//日期正则，复杂判定</span></div><div class="line"><span class="keyword">var</span> dP2 = <span class="regexp">/^(?:(?!0000)[0-9]&#123;4&#125;-(?:(?:0[1-9]|1[0-2])-(?:0[1-9]|1[0-9]|2[0-8])|(?:0[13-9]|1[0-2])-(?:29|30)|(?:0[13578]|1[02])-31)|(?:[0-9]&#123;2&#125;(?:0[48]|[2468][048]|[13579][26])|(?:0[48]|[2468][048]|[13579][26])00)-02-29)$/</span>;</div><div class="line"><span class="comment">//输出 true</span></div><div class="line"><span class="built_in">console</span>.log(dP2.test(<span class="string">"2017-02-11"</span>));</div><div class="line"><span class="comment">//输出 false</span></div><div class="line"><span class="built_in">console</span>.log(dP2.test(<span class="string">"2017-15-11"</span>));</div><div class="line"><span class="comment">//输出 false</span></div><div class="line"><span class="built_in">console</span>.log(dP2.test(<span class="string">"2017-02-29"</span>));</div></pre></td></tr></table></figure>
+<h3 id="12-QQ号码正则"><a href="#12-QQ号码正则" class="headerlink" title="12. QQ号码正则"></a>12. QQ号码正则</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//QQ号正则，5至11位</span></div><div class="line"><span class="keyword">var</span> qqPattern = <span class="regexp">/^[1-9][0-9]&#123;4,10&#125;$/</span>;</div><div class="line"><span class="comment">//输出 true</span></div><div class="line"><span class="built_in">console</span>.log(qqPattern.test(<span class="string">"65974040"</span>));</div></pre></td></tr></table></figure>
+<h3 id="13-微信号正则"><a href="#13-微信号正则" class="headerlink" title="13. 微信号正则"></a>13. 微信号正则</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//微信号正则，6至20位，以字母开头，字母，数字，减号，下划线</span></div><div class="line"><span class="keyword">var</span> wxPattern = <span class="regexp">/^[a-zA-Z]([-_a-zA-Z0-9]&#123;5,19&#125;)+$/</span>;</div><div class="line"><span class="comment">//输出 true</span></div><div class="line"><span class="built_in">console</span>.log(wxPattern.test(<span class="string">"caibaojian_com"</span>));</div></pre></td></tr></table></figure>
+<h3 id="14-车牌号正则"><a href="#14-车牌号正则" class="headerlink" title="14. 车牌号正则"></a>14. 车牌号正则</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//车牌号正则</span></div><div class="line"><span class="keyword">var</span> cPattern = <span class="regexp">/^[京津沪渝冀豫云辽黑湘皖鲁新苏浙赣鄂桂甘晋蒙陕吉闽贵粤青藏川宁琼使领A-Z]&#123;1&#125;[A-Z]&#123;1&#125;[A-Z0-9]&#123;4&#125;[A-Z0-9挂学警港澳]&#123;1&#125;$/</span>;</div><div class="line"><span class="comment">//输出 true</span></div><div class="line"><span class="built_in">console</span>.log(cPattern.test(<span class="string">"粤B39006"</span>));</div></pre></td></tr></table></figure>
+<h3 id="15-包含中文正则"><a href="#15-包含中文正则" class="headerlink" title="15. 包含中文正则"></a>15. 包含中文正则</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//包含中文正则</span></div><div class="line"><span class="keyword">var</span> cnPattern = <span class="regexp">/[\u4E00-\u9FA5]/</span>;</div><div class="line"><span class="comment">//输出 true</span></div><div class="line"><span class="built_in">console</span>.log(cnPattern.test(<span class="string">"蔡宝坚"</span>));</div></pre></td></tr></table></figure>
+
+				<!-- 多说评论框 start -->
+				<div class="article-comment">
+					<div class="ds-thread" data-num-items="5" data-show-avatars="1" data-show-time="1" data-show-title="1" data-show-admin="1" data-excerpt-length="50" data-thread-key="post-reg" data-title="前端表单验证常用的15个JS正则表达式" data-url="/"></div>
+				</div>
+				<!-- 多说评论框 end -->
+			
+		</div>
+		<footer class="article-footer">
+			<a data-url="https://utopia1991.github.io/2017/07/18/reg/" data-id="cj58vqy9v0000por0q9wdr7dj" class="article-share-link">分享</a>
+			
+			
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Javascript/">Javascript</a></li></ul>
+
+		</footer>
+	</div>
+	
+		
+<nav id="article-nav">
+  
+    <a href="/2017/10/20/boxModel/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          CSS盒模型
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/06/20/vue/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">Vue 基础学习笔记</div>
+    </a>
+  
+</nav>
+
+	
+</article>
+
+
+
+				</section>
+			</div>
+			<footer id="footer">
+	
+	<div class="outer">
+		<div id="footer-info">
+			Copyright &copy; Bevis Shen 2018<br>
+			Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+		</div>
+	</div>
+</footer>
+
+		</div>
+		<nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">主页</a>
+  
+    <a href="/archives" class="mobile-nav-link">博文</a>
+  
+</nav>
+		
+
+<script src="https://cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+	</div>
+</body>
+<script>
+	var c = document.getElementsByTagName('canvas')[0],
+		x = c.getContext('2d'),
+		pr = window.devicePixelRatio || 1,
+		w = window.innerWidth,
+		h = window.innerHeight,
+		f = 90,
+		q,
+		m = Math,
+		r = 0,
+		u = m.PI * 2,
+		v = m.cos,
+		z = m.random
+	c.width = w * pr
+	c.height = h * pr
+	x.scale(pr, pr)
+	x.globalAlpha = 0.6
+
+	function i() {
+		x.clearRect(0, 0, w, h)
+		q = [{
+			x: 0,
+			y: h * .7 + f
+		}, {
+			x: 0,
+			y: h * .7 - f
+		}]
+		while (q[1].x < w + f) d(q[0], q[1])
+	}
+
+	function d(i, j) {
+		x.beginPath()
+		x.moveTo(i.x, i.y)
+		x.lineTo(j.x, j.y)
+		var k = j.x + (z() * 2 - 0.25) * f,
+			n = y(j.y)
+		x.lineTo(k, n)
+		x.closePath()
+		r -= u / -50
+		x.fillStyle = '#' + (v(r) * 127 + 128 << 16 | v(r + u / 3) * 127 + 128 << 8 | v(r + u / 3 * 2) * 127 + 128).toString(16)
+		x.fill()
+		q[0] = q[1]
+		q[1] = {
+			x: k,
+			y: n
+		}
+	}
+
+	function y(p) {
+		var t = p + (z() * 2 - 1.1) * f
+		return (t > h || t < 0) ? y(p) : t
+	}
+	document.onclick = i
+	document.ontouchstart = i
+	i()
+</script>
+</html>
