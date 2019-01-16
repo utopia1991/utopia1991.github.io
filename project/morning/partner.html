@@ -4,7 +4,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>猫范 MorningFun - 定制/团餐</title>
+    <title>猫范 MorningFun - 城市合伙人</title>
     <meta name="keywords" content="">
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
@@ -44,7 +44,7 @@
                 </a>
               </li>
               <li class="navitem"> 
-                <a class="active" href="./customization.html"> 
+                <a href="./customization.html"> 
                   定制/团餐
                 </a>
               </li> 
@@ -59,7 +59,7 @@
                 </a>
               </li>
               <li class="navitem"> 
-                <a href="./partner.html"> 
+                <a class="active" href="./partner.html"> 
                   城市合伙人
                 </a>
               </li>
@@ -75,37 +75,23 @@
     </div> 
     <!-- 内容 -->
     <div id="contain">
-      <div class="customization-image">
-        <img src="./images/customization/1.png" alt="">
+      <div id="banner">
+        <ul class="bxslider">
+          <li><img src="./images/banner_1.png" /></li>     
+          <li><img src="./images/banner_1.png" /></li>
+          <li><img src="./images/banner_1.png" /></li>
+          <li><img src="./images/banner_1.png" /></li>
+        </ul>
       </div>
-      <div class="customization">
-        <div class="desc">
-          <div class="title-tip title">
-            定制介绍
-          </div>
-          <p>MorningFun坚持：“12小时”早餐理念。</p>
-          <p>MorningFun愿景：让您的早餐生活，比昨天，比他人，多一点健康，多一点快乐。</p>
-          <p>MorningFun坚持：“12小时”早餐理念。</p>
-          <p>MorningFun愿景：让您的早餐生活，比昨天，比他人，多一点健康，多一点快乐。</p>
-          <p>MorningFun坚持：“12小时”早餐理念。</p>
-          <p>MorningFun愿景：让您的早餐生活，比昨天，比他人，多一点健康，多一点快乐。</p>
-        </div>
-      </div>
-      <div class="customization-image">
-        <img src="./images/customization/2.png" alt="">
-      </div>
-      <div class="customization">
-        <div class="desc">
-          <div class="title-tip title">
-            团餐介绍
-          </div>
-          <p>MorningFun坚持：“12小时”早餐理念。</p>
-          <p>MorningFun愿景：让您的早餐生活，比昨天，比他人，多一点健康，多一点快乐。</p>
-          <p>MorningFun坚持：“12小时”早餐理念。</p>
-          <p>MorningFun愿景：让您的早餐生活，比昨天，比他人，多一点健康，多一点快乐。</p>
-          <p>MorningFun坚持：“12小时”早餐理念。</p>
-          <p>MorningFun愿景：让您的早餐生活，比昨天，比他人，多一点健康，多一点快乐。</p>
-        </div>
+
+      <div id="begin">
+        <p>无论你有什么，只要你也愿意，猫范团队将努力实现一切可能，突破各种不可能。</p>
+        <p>猫范联盟，欢迎你的加入。</p>
+        <p>
+          <a href="#">
+            申请加盟
+          </a>
+        </p>
       </div>
     </div>
     <!-- 底部 -->
@@ -130,5 +116,12 @@
         <div class="clearfix"></div>
       </div>
     </div>
+    <script>
+      // 轮播图
+      $('.bxslider').bxSlider({
+        auto: true,
+        speed: 600
+      })
+    </script>   
   </body>
 </html>

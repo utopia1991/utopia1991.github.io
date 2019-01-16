@@ -1,0 +1,149 @@
+ 
+<!DOCTYPE html> 
+<html xmlns="http://www.w3.org/1999/xhtml" class="agent-pc theme-b theme-bwhite">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>MEDO</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta content="yes" name="apple-mobile-web-app-capable" />
+    <meta content="black" name="apple-mobile-web-app-status-bar-style" />
+    <link rel="shortcut icon" href="./images/favico.ico" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="./css/base.css">
+    <script type="text/javascript" src="./js/jquery.min.js"></script>
+    <script type="text/javascript" src="./js/pagination.js"></script>
+  </head> 
+  <body>
+    <!-- 头部 -->
+    <div id="header"> 
+      <div class="wrapper"> 
+        <div class="content"> 
+          <div id="headTop">
+            <a href="/" id="logo">
+              <img src="./images/logo.png" height="44" />
+            </a>
+          </div> 
+          <div id="navWrapper"> 
+            <div class="content">
+              <ul class="nav movedx">  
+                <li class="navitem"> 
+                  <a href="./index.html"> 
+                    <span data-title="首页">首页</span> 
+                  </a>
+                </li> 
+                <li class="navitem"> 
+                  <a href="./project.html"> 
+                    <span data-title="项目案例">项目案例</span> 
+                  </a>
+                </li> 
+                <li class="navitem"> 
+                  <a href=""> 
+                    <span data-title="专长领域">专长领域</span> 
+                  </a>
+                </li>
+                <li class="navitem"> 
+                  <a href="./news.html"> 
+                    <span data-title="新闻中心">新闻中心</span> 
+                  </a>
+                </li> 
+                <li class="navitem"> 
+                  <a class="active" href=""> 
+                    <span data-title="关于MEDO">关于MEDO</span> 
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div> 
+          <div class="clear"></div>
+        </div> 
+      </div>
+    </div> 
+    <!-- 内容区 -->
+    <div id="contain">
+      <!-- 头部 banner -->
+      <div class="recruitment-banner"></div>
+      <div class="module">
+        <div class="module_container">  
+          <div class="content_wrapper recruit">
+            <div class="recruit-left">
+              <ul>
+                <li>
+                  <div class="num">01</div> 
+                  <div class="name js-choose-role" data-id="1">
+                    <div class="zh">园林景观设计师</div>
+                    <div class="en">Landscape Designer</div>
+                    <div class="line"></div>
+                  </div>
+                </li>
+                <li>
+                  <div class="num">02</div> 
+                  <div class="name js-choose-role" data-id="2">
+                    <div class="zh">技术总监</div>
+                    <div class="en">Technical Director</div>
+                    <div class="line"></div>
+                  </div>
+                </li>
+                <li>
+                  <div class="num">03</div> 
+                  <div class="name js-choose-role" data-id="3">
+                    <div class="zh">平面设计师</div>
+                    <div class="en">Graphic Designer</div>
+                    <div class="line"></div>
+                  </div>
+                </li>
+                <li>
+                  <div class="num">04</div> 
+                  <div class="name js-choose-role" data-id="4">
+                    <div class="zh">首席总监</div>
+                    <div class="en">Technical Director</div>
+                    <div class="line"></div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="recruit-right">
+              <div class="name">园林景观设计师</div>
+              <p class="title">职位描述：</p>
+              <p>1.为客户提供合理及富有创意的设计方案； </p>
+              <p>2. 准确及时地完成所需设计方案及相关设计图纸； </p>
+              <p>3. 为客户做创意演示和设计方案说明； </p>
+              <p>4. 负责管理从设计到现场实现的全部过程管理和指导。</p>
+              <p class="title">任职要求：</p>
+              <p>1. 专科及以上学历，展览设计/环境艺术/艺术设计类相关设计专业； 有成熟的独立设计作品；</p>
+              <p>2. 具有良好沟通与人际交往能力，思维敏锐，品味时尚，眼界开阔；</p>
+              <p>3. 具有较强的视觉呈现能力以及色彩把控能力；</p>
+              <p>4. 具有良好的审美意识和独特的创意构思； </p>
+              <p>5. 美术手绘功底扎实，并精通设计类相关电脑软件Photoshop、AI等软件。</p>
+              <a href="" class="details">HR@MEDO.com</a>
+            </div>
+            <div class="clear"></div>
+          </div>
+        </div>
+        <div class="clear"></div>
+      </div>
+    </div>
+    <!-- 底部 -->
+    <div id="footer">
+      <p>
+        <span class="ellipsis left">
+          <a href="./cooperation.html">合作伙伴</a>
+          <a href="">公司简介</a>
+          <a href="">新闻中心</a>
+          <a href="./recruitment.html">人才招聘</a>
+        </span>
+        <span class="ellipsis right">
+          Copyright (©) 2018 medostudio , 深圳铭道筑景设计有限公司 粤ICP备案17010774号
+        </span>
+      </p>
+    </div>
+    <script>
+      $('.js-choose-role').click(function(e) {
+        // 1.获取到角色id
+        console.log(e.currentTarget.dataset.id)
+        // 2.根据角色id发送ajax请求得到数据渲染到页面
+      })
+    </script>
+  </body>
+</html>
