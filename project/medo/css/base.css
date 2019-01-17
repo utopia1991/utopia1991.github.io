@@ -284,8 +284,6 @@ img {
   transition: all 0.6s cubic-bezier(0.215, 0.61, 0.355, 1) 0s;
   border-bottom: 1px solid #322F30;
 }
-#header .wrapper {
-}
 #header .content {
   height: 100%;
   max-width: 1170px;

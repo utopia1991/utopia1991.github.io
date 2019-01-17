@@ -427,6 +427,21 @@ img {
 #help .community ul.mall-list li img {
   width: 100%;
 }
+#help .community ul.mall-list li:hover .mask {
+  display: inline-block;
+}
+#help .community ul.mall-list li .mask {
+  display: none;
+  background: rgba(0,0,0,.4);
+  width: 100%;
+  text-align: center;
+  position: absolute;
+  height: 260px;
+  line-height: 380px;
+}
+#help .community ul.mall-list li .mask img {
+  width: 120px;
+}
 #help .community ul.mall-list li .mall-t {
   height: auto;
   padding: 14px 20px;
