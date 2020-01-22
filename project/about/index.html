@@ -173,7 +173,7 @@
 	<footer id="footer">
 		<div class="outer">
 			<div id="footer-info">
-				Copyright © Bevis Shen 2017<br>
+				Copyright © Bevis Shen <span id="year"></span><br>
 				Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
 			</div>
 		</div>
@@ -188,6 +188,7 @@
 		var years = (now-begin)/ (365 * 24 * 60 * 60 * 1000)
 
 		$('#workYears').text(years.toFixed(1))
+		$('#year').text(new Date().getFullYear())
 	</script>
 </body>
 </html>
