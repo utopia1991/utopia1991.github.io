@@ -41,23 +41,21 @@
 		<div class="center">
 			<span class="rotateIntroduction"></span>
 			<span class="wordIntroduction">
-				Bevis
+				简介
 			</span>
 		</div>
 		<div class="row">
 			<div class="col-sm-7">
-				<h2>Summarize</h2>
+				<h2 class="text-primary">Bevis</h2>
 				<ul class="list-unstyled whyuslist">
-					<li>3.5 years of experience on web front-end and node.js development ;</li>
-					<li>Coding in ES6, CoffeeScript, Vue, Express, Mongoose, Node.js and etc;</li>
-					<li>Grate in HTML5 &amp; CSS3 web development (PC, Mobile) ;</li>
-					<li>Will update my blog irregularly (<a href="https://utopia1991.github.io/" target="_blank">Go my blog</a>) ;</li>
-					<li>Loving travling, reading, movies, music ;</li>
-					<li>Living in Amoy, China ;</li>
-					<li>Dreaming be a great programmer ;</li>
-					<li>Loving free lifestyle !</li>
-					<li class="text-right">
-						<a href="https://github.com/utopia1991" target="_blank">To my github > </a>
+					<li>在前端圈子摸爬滚打<span id="workYears"></span>年，2015年电子信息工程专业毕业，本科就学过c，误打误撞入行前端。</li>
+					<li>开发技术栈有 ES6, CoffeeScript, Vue, React, Three.js, jQuery, Express/Koa, Mongoose 等;</li>
+					<li>HTML5 &amp; web 端开发都干过，小程序等不赘述;</li>
+					<li>平时爱好呢，看看老电影，旅游，看书，带娃，嗯，没错，带娃;</li>
+					<li>南京呆了四年，厦门呆了5年，准备呢，下一站去哪呢，找个靠谱的地儿买房吧;</li>
+					<li>梦想呢，还是要起码一下，很简单，赚钱买房养家，因而还是要努力提升技术赚钱;</li>
+					<li>
+						Geyhub 这边走起 <b><a href="https://github.com/utopia1991" target="_blank">Go! > </a></b>
 					</li>
 				</ul>
 			</div>
@@ -69,33 +67,7 @@
 				</div>
 			</div>
 		</div>
-	</div>
-	<div class="container hero-banner">
-		<div class="row ">
-			<div class="col-sm-5 ">
-				<h2 class="text-primary">Bevis Shen</h2>
-				A Google big fans, Mac fans, front end & Node.js development youth, with great passion to cutting-edge technology, dream to travel around the world, deeply loves the life, photography, travel, movies, literature and artistic programmer.
-			</div>
-			<div class="col-sm-1"></div>
-			<div class="col-sm-6">
-				<b>Html 5</b>
-				<div class="progress animated-progressbar">
-					<div class="progress-bar" id="h5" role="progressbar"  aria-valuemin="0" aria-valuemax="100"></div>
-				</div>
-				<b>Javascript</b>
-				<div class="progress animated-progressbar">
-					<div class="progress-bar" id="js" role="progressbar"  aria-valuemin="0" aria-valuemax="100"></div>
-				</div>
-				<b>Css 3</b>
-				<div class="progress animated-progressbar">
-					<div class="progress-bar" id="css" role="progressbar"  aria-valuemin="0" aria-valuemax="100"></div>
-				</div>
-				<b>Express</b>
-				<div class="progress animated-progressbar">
-					<div class="progress-bar" id="express" role="progressbar"  aria-valuemin="0" aria-valuemax="100"></div>
-				</div>
-			</div>
-		</div>
+		<br>
 	</div>
 	<div class="features-block">
 		<div class="container">
@@ -210,5 +182,12 @@
 	<script type="text/javascript" src="./js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="./js/jquery.appear.js"></script>
 	<script type="text/javascript" src="./js/appear.js"></script>
+	<script>
+		var begin = new Date('2015/06/01 00:00:00')
+		var now = new Date()
+		var years = (now-begin)/ (365 * 24 * 60 * 60 * 1000)
+
+		$('#workYears').text(years.toFixed(1))
+	</script>
 </body>
 </html>

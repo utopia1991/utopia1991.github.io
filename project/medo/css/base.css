@@ -1816,7 +1816,10 @@ body.openMenu #navMini {
 }
 .service .content_list li.wow {
   -webkit-animation-name: fadeInUp;
-  animation-name: fadeInUp;
+  animation-name: fadeInUp;    
+  width: 30%;
+  display: inline-block;
+  margin: 0 1.5%;
 }
 .project .content_list li.wow {
   -webkit-animation-name: fadeInUp;
