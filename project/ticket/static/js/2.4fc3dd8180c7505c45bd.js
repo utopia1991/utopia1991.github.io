@@ -1,0 +1,2 @@
+webpackJsonp([2],{"wz0/":function(e,n,t){"use strict";Object.defineProperty(n,"__esModule",{value:!0});var u={render:function(){var e=this.$createElement;return(this._self._c||e)("div",[this._v("\n  用户须知详情\n")])},staticRenderFns:[]},r=t("VU/8")({name:"userRead",components:{},data:function(){return{}},computed:{},mounted:function(){},methods:{}},u,!1,null,null,null);n.default=r.exports}});
+//# sourceMappingURL=2.4fc3dd8180c7505c45bd.js.map

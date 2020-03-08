@@ -1,2 +1,0 @@
-webpackJsonp([2],{R1Qy:function(e,n,t){"use strict";Object.defineProperty(n,"__esModule",{value:!0});var r={name:"index",components:{TabBar:t("ldOZ").a},data:function(){return{}},computed:{},mounted:function(){},methods:{}},a={render:function(){var e=this.$createElement,n=this._self._c||e;return n("div",[n("TabBar")],1)},staticRenderFns:[]},u=t("VU/8")(r,a,!1,null,null,null);n.default=u.exports}});
-//# sourceMappingURL=2.8e518a4918b0cf597531.js.map
